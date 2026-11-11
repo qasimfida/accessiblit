@@ -53,6 +53,7 @@ Every direct dependency is used; none are shipped as runtime dependencies.
 - `npm run verify`: passed, including lint/format, typecheck, coverage, all builds, gzip budget and package checks. Repeated after review fixes.
 - Fresh indexed source export in a temporary directory: Node `20.20.2`, `npm ci --engine-strict` and `npm run verify` passed without engine warnings. No original `node_modules` or `dist` was copied.
 - Fresh indexed source export: Node `22.23.4`, `npm ci --engine-strict`, `npm run verify`, and `npm run test:e2e` passed (3/3 browsers, 5.4 seconds).
+- Clean local clone of implementation commit `57341f9` (`git clone --no-hardlinks --branch phase/0-bootstrap`): on Node `20.20.2`, `npm ci --engine-strict` and `npm run verify` passed with 0 vulnerabilities. No pre-existing dependencies or generated files were copied. The subsequent report-only commit records this result.
 - Unit tests: 1 file, 1 passing test. Lines/statements 100% (3/3), functions 100% (2/2); reported branches 100% (0/0). There is no meaningful runtime branching yet.
 - `npx playwright install chromium firefox webkit`: completed. `npm run test:e2e`: 3/3 passed, final local run 3.7 seconds.
 - `npm run check:package`: publint “All good”; Are the Types Wrong reports no problems for node10, Node16 CJS/ESM, and bundler resolutions. Those labels describe declaration resolution, not a promise to support Node 10/16.
