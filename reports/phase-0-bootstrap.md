@@ -1,10 +1,12 @@
 # Phase 0 — Bootstrap and tooling
 
-Status: PASS WITH NOTES
+Status: BLOCKED
 Date: 2026-11-11 (Asia/Karachi) / Commit: the commit containing this report / Branch: `phase/0-bootstrap`
 Base: `3d4989c` (`main`, pulled and confirmed up to date before work).
 
 ## Summary
+
+Implementation and all local acceptance checks pass. Delivery is blocked only on PR creation: the connected GitHub integration returned HTTP 403 (`Resource not accessible by integration`); a GitHub CLI fallback also requires authentication. The branch is committed and pushed. No credential contents were read or created. Open the PR manually from `phase/0-bootstrap` to `main`, using this report as its body, or restore GitHub integration permissions.
 
 Bootstrapped strict TypeScript, three library formats, type declarations, unit and browser checks, package validation, a gzip size budget, and least-privilege CI. No runtime dependencies. This is a foundation, not an implemented widget.
 
@@ -76,7 +78,7 @@ Every direct dependency is used; none are shipped as runtime dependencies.
 | Low      | Size helper console lacked ESLint global declaration                                                  | Declare read-only console for script files                                                                               | Fixed  |
 | Low      | publint suggested canonical repository URL and sideEffects metadata                                   | Add `git+https` URL and `sideEffects: false`; publint now has no suggestions                                             | Fixed  |
 
-Reviewed the complete authored diff against AGENTS sections 2, 7 and 9. No outstanding Blocker, High or Medium findings. Public exports are documented; largest authored source file is under 250 lines. Source is original.
+Reviewed the complete authored diff against AGENTS sections 2, 7 and 9. No outstanding Blocker, High or Medium code findings. PR creation remains blocked by GitHub permissions, as documented above. Public exports are documented; largest authored source file is under 250 lines. Source is original.
 
 ## Audits
 
@@ -118,4 +120,4 @@ Minified bundle bytes: ESM 163; CJS 618; IIFE 643. IIFE gzip **393 bytes**, belo
 
 ## Handoff notes for the next phase
 
-Review and merge this Phase 0 PR manually. Start Phase 1 from pulled `main` after that merge, on `phase/1-core`. Move shared types to `src/core/types.ts` while preserving public re-exports; replace stubs, implement SSR no-op init, lifecycle, registry, storage and store. Raise core coverage to the Phase 1 requirement of 90% lines and branches; keep existing gates intact. Add the React entry when implemented. Do not publish or merge automatically.
+Create the Phase 0 PR at https://github.com/qasimfida/accessiblit/compare/main...phase/0-bootstrap using this report as its body; the connector rejected creation (HTTP 403) and the installed `gh` CLI is unauthenticated (exit 4). Review and merge the PR manually. Start Phase 1 from pulled `main` after that merge, on `phase/1-core`. Move shared types to `src/core/types.ts` while preserving public re-exports; replace stubs, implement SSR no-op init, lifecycle, registry, storage and store. Raise core coverage to the Phase 1 requirement of 90% lines and branches; keep existing gates intact. Add the React entry when implemented. Do not publish or merge automatically.
