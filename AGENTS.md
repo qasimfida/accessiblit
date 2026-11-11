@@ -6,11 +6,11 @@
 
 | Constant | Value |
 |---|---|
-| PKG_NAME | @YOUR_NPM_SCOPE/accessiblit |
+| PKG_NAME | @qasimfida/accessiblit |
 | GLOBAL_NAME | Accessiblit |
-| REPO_URL | https://github.com/YOUR_GITHUB_USER/accessiblit |
-| PAGES_URL | https://YOUR_GITHUB_USER.github.io/accessiblit/ |
-| AUTHOR | Your Name <you@example.com> |
+| REPO_URL | https://github.com/qasimfida/accessiblit |
+| PAGES_URL | https://qasimfida.github.io/accessiblit/ |
+| AUTHOR | Qasim Fida qasimfida0054@gmail.com |
 | LICENSE | MIT |
 | DEFAULT_BRANCH | main |
 

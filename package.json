@@ -1,0 +1,82 @@
+{
+  "name": "@qasimfida/accessiblit",
+  "version": "0.0.0",
+  "description": "A drop-in accessibility personalisation widget.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Qasim Fida <qasimfida0054@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qasimfida/accessiblit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qasimfida/accessiblit/issues"
+  },
+  "homepage": "https://qasimfida.github.io/accessiblit/",
+  "engines": {
+    "node": "^20.19.0 || >=22.13.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "vite fixtures --host 127.0.0.1",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "size": "size-limit && node scripts/size-warning.mjs",
+    "verify": "npm run lint && npm run typecheck && npm test && npm run build && npm run size && npm run check:package",
+    "clean": "node scripts/clean.mjs",
+    "check:package": "publint && attw --pack"
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.global.js",
+      "limit": "35 KB",
+      "gzip": true,
+      "brotli": false
+    }
+  ],
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@axe-core/playwright": "4.13",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.0",
+    "@size-limit/file": "^12.1.0",
+    "@types/node": "^20.19.43",
+    "@vitest/coverage-v8": "^4.1.12",
+    "eslint": "^10.14.0",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.9.10",
+    "publint": "^0.3.25",
+    "size-limit": "^12.1.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.2",
+    "vite": "^8.3.8",
+    "vitest": "^4.1.12"
+  },
+  "overrides": {
+    "minimatch@>=7 <11.0.1": "^11.0.1",
+    "esbuild@>=0.27.3 <0.28.1": "^0.28.2"
+  },
+  "sideEffects": false
+}
