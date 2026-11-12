@@ -1,3 +1,4 @@
+import { readingGuide } from './reading-guide';
 import { stopAnimations } from './stop-animations';
 import { bigCursor } from './big-cursor';
 import { highlightHeadings } from './highlight-headings';
@@ -20,6 +21,7 @@ export function createContentFeatures(
   options: ResolvedOptions,
 ): readonly Feature[] {
   return [
+    readingGuide,
     stopAnimations,
     bigCursor,
     highlightLinks,
