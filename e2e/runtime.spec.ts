@@ -147,3 +147,31 @@ test('production init stays below 50 ms, causes no layout shift or requests, and
     expect(rect).toEqual({ width: 0, height: 0 });
   if (evidence.cls !== null) expect(evidence.cls).toBe(0);
 });
+
+test('isolates the invisible mount from aggressive host CSS', async ({
+  page,
+}) => {
+  await loadBundle(page);
+  await page.addStyleTag({
+    content:
+      'div { position:static!important; padding:20px!important; margin:20px!important; min-width:200px!important; min-height:100px!important; border:3px solid red!important; }',
+  });
+  const before = await page.evaluate(() => document.documentElement.outerHTML);
+  await page.evaluate(() => window.Accessiblit.init({ persist: false }));
+  const size = await page
+    .locator('[data-accessiblit-host]')
+    .evaluate((host) => {
+      const rect = host.getBoundingClientRect();
+      return {
+        width: rect.width,
+        height: rect.height,
+        position: getComputedStyle(host).position,
+      };
+    });
+  expect(size).toEqual({ width: 0, height: 0, position: 'fixed' });
+  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  await page.evaluate(() => window.Accessiblit.destroy());
+  expect(await page.evaluate(() => document.documentElement.outerHTML)).toBe(
+    before,
+  );
+});

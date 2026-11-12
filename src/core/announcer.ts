@@ -1,7 +1,7 @@
 import { createSheet } from './sheet';
 
 const CSS =
-  ':host{position:fixed;inset-block-start:0;inset-inline-start:0;inline-size:0;block-size:0;pointer-events:none}.accessiblit-announcer{position:absolute;inline-size:1px;block-size:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}';
+  ':host{all:initial!important;position:fixed!important;inset-block-start:0!important;inset-inline-start:0!important;inline-size:0!important;block-size:0!important;pointer-events:none!important}.accessiblit-announcer{position:absolute;inline-size:1px;block-size:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}';
 
 /** A separate task lets assistive technology notice repeated identical messages. */
 export function createAnnouncer(root: ShadowRoot, nonce?: string) {
