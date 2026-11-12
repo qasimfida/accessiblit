@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Core runtime test fixture</title>
+    <style>
+      .test-target {
+        display: inline-flex;
+        align-items: center;
+        min-inline-size: 44px;
+        min-block-size: 44px;
+        color: #111;
+        background: #fff;
+        border: 2px solid #111;
+        font: inherit;
+      }
+      .test-target:focus-visible {
+        outline: 3px solid #111;
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Core runtime test fixture</h1>
+      <a class="test-target" href="#end">Host link</a>
+      <button class="test-target" type="button">Host button</button>
+      <p id="end">Host content remains available.</p>
+    </main>
+    <script type="module">
+      import { createLifecycle } from '../src/core/lifecycle.ts';
+      import { testFeatures } from '../tests/helpers/features.ts';
+      globalThis.coreFixture = createLifecycle(testFeatures());
+    </script>
+  </body>
+</html>
