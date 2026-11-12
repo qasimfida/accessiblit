@@ -30,12 +30,22 @@ test('restores synchronously, announces in shadow DOM, and preserves host keyboa
     Reflect.set(globalThis, 'instance', instance);
   });
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
-  await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab');
+  await page.keyboard.press(
+    browserName === 'webkit' && process.platform === 'darwin'
+      ? 'Alt+Tab'
+      : 'Tab',
+  );
   await expect(page.getByRole('link', { name: 'Host link' })).toBeFocused();
-  await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab');
+  await page.keyboard.press(
+    browserName === 'webkit' && process.platform === 'darwin'
+      ? 'Alt+Tab'
+      : 'Tab',
+  );
   await expect(page.getByRole('button', { name: 'Host button' })).toBeFocused();
   await page.keyboard.press(
-    browserName === 'webkit' ? 'Alt+Shift+Tab' : 'Shift+Tab',
+    browserName === 'webkit' && process.platform === 'darwin'
+      ? 'Alt+Shift+Tab'
+      : 'Shift+Tab',
   );
   await expect(page.getByRole('link', { name: 'Host link' })).toBeFocused();
   await page.keyboard.press('Enter');
