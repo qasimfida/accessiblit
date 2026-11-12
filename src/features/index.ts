@@ -1,3 +1,4 @@
+import { focusHighlight } from './focus-highlight';
 import { readingMask } from './reading-mask';
 import { readingGuide } from './reading-guide';
 import { stopAnimations } from './stop-animations';
@@ -22,6 +23,7 @@ export function createContentFeatures(
   options: ResolvedOptions,
 ): readonly Feature[] {
   return [
+    focusHighlight,
     readingGuide,
     readingMask,
     stopAnimations,
