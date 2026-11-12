@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Readable data table</title>
+    <link rel="stylesheet" href="/content.css" />
+    <style>
+      .amount {
+        text-align: end;
+      }
+    </style>
+    <script type="module" src="/content.mjs"></script>
+  </head>
+  <body>
+    <nav aria-label="Fixture navigation">
+      <a href="/article.html">Article</a><a href="/form.html">Form</a>
+    </nav>
+    <main>
+      <h1>A small order table</h1>
+      <p>The table keeps each value inside its own cell.</p>
+      <div
+        class="table-scroll"
+        role="region"
+        aria-label="Order table"
+        tabindex="0"
+      >
+        <table>
+          <caption>
+            Current order
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="table-copy" data-content-probe>Oak mug</td>
+              <td>2</td>
+              <td class="amount">$12</td>
+            </tr>
+            <tr>
+              <td>Steel cup</td>
+              <td>1</td>
+              <td class="amount">$9</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>
