@@ -1,3 +1,4 @@
+import { highContrast } from './high-contrast';
 import { darkMode } from './dark-mode';
 import { createReadableFont } from './readable-font';
 import type { ResolvedOptions } from '../core/options';
@@ -14,6 +15,7 @@ export function createContentFeatures(
 ): readonly Feature[] {
   return [
     darkMode,
+    highContrast,
     fontSize,
     lineHeight,
     letterSpacing,
