@@ -58,6 +58,12 @@ export function controlShell(context: ControlContext) {
   description.id = `${prefix}-${feature.id}-description`;
   description.textContent = text.description;
   element.append(label, description);
+  if (feature.requiresFinePointer) {
+    const note = doc.createElement('p');
+    note.className = 'accessiblit-cursor-note';
+    note.textContent = messages.cursorAvailabilityNote ?? '';
+    element.append(note);
+  }
   const report = createReporter();
   const scope = createScope(() =>
     report(feature.id, 'A control cleanup failed.'),

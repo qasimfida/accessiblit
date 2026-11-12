@@ -137,3 +137,23 @@ it('includes a translatable operating-system colour explanation', () => {
   ).toBe('System colours control this page.');
   expect(panel.element.querySelectorAll('.accessiblit-empty')).toHaveLength(3);
 });
+
+it('renders a device note from metadata without knowing a feature id', () => {
+  const feature = { ...testFeatures()[0]!, requiresFinePointer: true };
+  const panel = createPanel(
+    document,
+    [feature],
+    resolveOptions().messages,
+    'device',
+    {
+      getState: createState,
+      setFeature: () => {},
+      close: () => {},
+      reset: () => {},
+    },
+  );
+  releases.push(panel.destroy);
+  expect(
+    panel.element.querySelector('.accessiblit-cursor-note')?.textContent,
+  ).toContain('mouse or trackpad');
+});

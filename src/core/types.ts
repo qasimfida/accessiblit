@@ -39,6 +39,8 @@ export interface Messages {
   emptyGroup: string;
   /** Explains why persisted colour choices defer to operating-system colours. */
   forcedColoursNote?: string;
+  /** Explains why custom pointers defer to touch and system settings. */
+  cursorAvailabilityNote?: string;
   resetAnnouncement: string;
 }
 
@@ -118,5 +120,7 @@ export interface Feature {
   readonly label: string;
   readonly description: string;
   readonly control: FeatureControl;
+  /** Lets generic controls explain device-dependent pointer availability. */
+  readonly requiresFinePointer?: boolean;
   apply(value: unknown, api: FeatureApi): Cleanup;
 }

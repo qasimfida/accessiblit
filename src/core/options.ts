@@ -33,6 +33,8 @@ function messages(): Messages {
     emptyGroup: 'No options available in this group.',
     forcedColoursNote:
       'Your operating system controls colours. Colour adjustments are paused.',
+    cursorAvailabilityNote:
+      'Larger cursors need a mouse or trackpad and are paused while system colours are active.',
     resetAnnouncement: 'All options reset.',
   };
 }
