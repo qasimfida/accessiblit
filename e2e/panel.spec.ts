@@ -225,6 +225,14 @@ test('never obscures a focused host control with the panel or launcher', async (
   await expect(target).toBeFocused();
   await expect(page.locator('[role=dialog]')).toBeHidden();
   await expect(page.locator('.accessiblit-launcher')).toBeHidden();
+  await page.locator('#host-first').focus();
+  await expect(page.locator('.accessiblit-launcher')).toBeVisible();
+  await page.addStyleTag({
+    content:
+      '#host-bottom-right{inset-inline-end:74px;outline:8px solid #1456a0;outline-offset:4px}',
+  });
+  await target.focus();
+  await expect(page.locator('.accessiblit-launcher')).toBeHidden();
   await page.keyboard.press('Alt+KeyA');
   await expect(page.locator('[role=dialog]')).toBeVisible();
   await expect(

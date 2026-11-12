@@ -83,11 +83,18 @@ export function createUI(
         focused !== doc.documentElement
       ) {
         const box = focused.getBoundingClientRect();
+        const focusStyle = view.getComputedStyle(focused);
+        // Outward host outlines need protection even when the control boxes do not intersect.
+        const ring = Math.max(
+          6,
+          (parseFloat(focusStyle.outlineWidth) || 0) +
+            Math.max(0, parseFloat(focusStyle.outlineOffset) || 0),
+        );
         const overlap =
-          box.left < position.launcherLeft + 48 &&
-          box.right > position.launcherLeft &&
-          box.top < position.launcherTop + 48 &&
-          box.bottom > position.launcherTop;
+          box.left - ring < position.launcherLeft + 48 &&
+          box.right + ring > position.launcherLeft &&
+          box.top - ring < position.launcherTop + 48 &&
+          box.bottom + ring > position.launcherTop;
         if (overlap) launcherLayer.hide();
         else launcherLayer.show();
       } else launcherLayer.show();

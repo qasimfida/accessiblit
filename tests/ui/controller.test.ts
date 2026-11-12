@@ -200,3 +200,34 @@ it('does not dismiss on transient focus loss before a pointer button activation'
   expect(ui.isOpen).toBe(false);
   expect(root.activeElement).toBe(root.querySelector('[aria-controls]'));
 });
+
+it('protects the outline of a host control beside the launcher', () => {
+  const { root } = setup();
+  const outside = document.createElement('button');
+  document.body.append(outside);
+  releases.push(() => outside.remove());
+  const bounds = vi.spyOn(outside, 'getBoundingClientRect').mockReturnValue({
+    left: window.innerWidth - 120,
+    right: window.innerWidth - 68,
+    top: window.innerHeight - 64,
+    bottom: window.innerHeight - 16,
+  } as DOMRect);
+  outside.focus();
+  expect(root.querySelector('[aria-controls]')?.hasAttribute('hidden')).toBe(
+    true,
+  );
+  outside.blur();
+  outside.style.outlineWidth = '8px';
+  outside.style.outlineStyle = 'solid';
+  outside.style.outlineOffset = '4px';
+  bounds.mockReturnValue({
+    left: window.innerWidth - 120,
+    right: window.innerWidth - 74,
+    top: window.innerHeight - 64,
+    bottom: window.innerHeight - 16,
+  } as DOMRect);
+  outside.focus();
+  expect(root.querySelector('[aria-controls]')?.hasAttribute('hidden')).toBe(
+    true,
+  );
+});
