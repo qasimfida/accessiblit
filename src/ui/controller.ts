@@ -158,10 +158,9 @@ export function createUI(
       }
     });
     scope.listen(doc, 'focusout', (event) => {
-      if ((event as FocusEvent).relatedTarget === null) {
-        close(false);
+      // Safari pointer activation can transiently clear focus before the click arrives.
+      if ((event as FocusEvent).relatedTarget === null && !opened)
         launcherLayer.show();
-      }
     });
     scope.listen(doc, 'scroll', refresh, { capture: true, passive: true });
     scope.listen(view, 'resize', refresh);

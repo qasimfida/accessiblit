@@ -183,3 +183,20 @@ it('rejects a detached document without creating browser resources', () => {
   ).toThrow('UI needs a browser Window');
   expect(root.childNodes).toHaveLength(0);
 });
+
+it('does not dismiss on transient focus loss before a pointer button activation', () => {
+  const { ui, root } = setup();
+  ui.open();
+  const close = root.querySelector<HTMLButtonElement>('.accessiblit-close')!;
+  close.dispatchEvent(
+    new FocusEvent('focusout', {
+      relatedTarget: null,
+      bubbles: true,
+      composed: true,
+    }),
+  );
+  expect(ui.isOpen).toBe(true);
+  close.click();
+  expect(ui.isOpen).toBe(false);
+  expect(root.activeElement).toBe(root.querySelector('[aria-controls]'));
+});
