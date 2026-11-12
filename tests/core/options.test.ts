@@ -165,3 +165,11 @@ it('accepts shortcut modifiers in any order and rejects ambiguous typing shortcu
     expect(resolveOptions({ shortcut }).shortcut).toBe('Alt+A');
   }
 });
+
+it('rejects sparse allowlists/exclusions rather than accepting their holes', () => {
+  const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+  expect(
+    resolveOptions({ features: new Array(2), exclude: new Array(1) }).features,
+  ).toHaveLength(18);
+  expect(warn).toHaveBeenCalledTimes(2);
+});

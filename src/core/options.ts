@@ -36,7 +36,7 @@ const shortText = (value: unknown): value is string =>
 const finite = (value: unknown): value is number =>
   typeof value === 'number' && Number.isFinite(value);
 const ids = (value: unknown) =>
-  Array.isArray(value) && value.every(isFeatureId);
+  Array.isArray(value) && [...value].every(isFeatureId);
 const validators: Record<string, (value: unknown) => boolean> = {
   position: (value) =>
     ['bottom-right', 'bottom-left', 'top-right', 'top-left'].includes(
