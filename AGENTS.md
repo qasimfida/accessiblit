@@ -6,11 +6,11 @@
 
 | Constant | Value |
 |---|---|
-| PKG_NAME | @YOUR_NPM_SCOPE/accessiblit |
+| PKG_NAME | @qasimfida/accessiblit |
 | GLOBAL_NAME | Accessiblit |
-| REPO_URL | https://github.com/YOUR_GITHUB_USER/accessiblit |
-| PAGES_URL | https://YOUR_GITHUB_USER.github.io/accessiblit/ |
-| AUTHOR | Your Name <you@example.com> |
+| REPO_URL | https://github.com/qasimfida/accessiblit |
+| PAGES_URL | https://qasimfida.github.io/accessiblit/ |
+| AUTHOR | Qasim Fida qasimfida0054@gmail.com |
 | LICENSE | MIT |
 | DEFAULT_BRANCH | main |
 
@@ -24,7 +24,7 @@ Non-goals: it does not claim to make a site WCAG compliant, does not auto-remedi
 
 ## 2. Hard rules (never break these)
 
-1. **Never run** `npm publish`, `npm login`, `npm token`, `npm unpublish`, `npm deprecate`, `git push --force`, or push directly to `main`. Publishing is done by the human only.
+1. **Never run** `npm publish`, `npm login`, `npm token`, `npm unpublish`, `npm deprecate`, `git push --force`, or rewrite history that has already been pushed. Publishing is done by the human only.
 2. **No secrets.** Never read, print, create or commit tokens, `.env` files or credentials. In CI, reference secret names only (for example `NPM_TOKEN`).
 3. **Original code only.** Do not copy code, text, icons or assets from a11yfirst.com, from the npm package `@a11yfirst/toolkit`, or from any other widget. Implement from the feature descriptions in section 6. Runtime dependencies: zero. Dev dependencies are allowed.
 4. **No network at runtime.** No requests, no cookies, no analytics, no remote fonts or images. The only storage is `localStorage` under one key, always inside try/catch.
@@ -151,22 +151,29 @@ The widget must meet these on any host page:
 - Errors in one feature must never break the others or the host page.
 - Document every cross-site limitation honestly instead of hiding it.
 
-## 10. Git workflow
+## 10. Git workflow (single branch, granular commits)
 
-- One branch per phase: `phase/<n>-<slug>`. Conventional commits (`feat:`, `fix:`, `test:`, `docs:`, `chore:`).
-- At the end of a phase: push the branch and open a PR if `gh` is available (PR body = the phase report). **Do not merge.** The human reviews and merges.
-- Start every phase from an up-to-date `main` that contains the previous phase.
+- Work directly on `main`. No feature branches, no pull requests. Before starting a phase: `git pull --ff-only`, working tree clean.
+- **One logical change per commit.** Every feature, bug fix, refactor, design or style change, test addition, doc update and config change gets its own commit. Never batch unrelated changes. If you notice a second change while working, finish and commit the first, then do the second. Expect dozens of commits per phase; that is intended.
+- Conventional commits: `type(scope): imperative summary` (72 characters or fewer). Types: `feat`, `fix`, `refactor`, `style` (visual or design change), `perf`, `test`, `docs`, `build`, `ci`, `chore`. Scope is the module or feature id, for example `feat(font-size): add stepper levels` or `fix(store): ignore corrupted storage`.
+- Add a short body when the reason is not obvious: why, what changed, how it was verified. Reference review findings by id (for example `Review finding R-3`).
+- Tests go in the same commit as the code they cover, or in the commit immediately before it.
+- Before every commit run the fast checks: `npm run lint`, `npm run typecheck`, and the unit tests for the touched modules. Every commit must leave `main` building and passing those. Run the full `npm run verify` (plus e2e where relevant) before every push.
+- Review and audit fixes: one commit per finding (`fix(...)` or `refactor(...)` with the finding id). Never squash them into earlier commits.
+- Never amend, rebase or force-push commits that were already pushed. Fix forward with a new commit. (Amending a local, unpushed commit is allowed.)
+- Never commit generated output (`dist`, `coverage`, `test-results`). Reports and screenshots under `reports/` are committed.
+- Push to `main` after the full verify at the end of each phase, and after any coherent chunk of work. Then create and push an annotated tag `phase-<n>-complete` as the rollback and review point.
 
 ## 11. Closing protocol (run at the end of EVERY phase, in the same session)
 
 1. Run `npm run verify`, plus any phase-specific commands. Fix failures.
-2. **Self-review** your own diff against sections 2, 7 and 9. List findings by severity (Blocker, High, Medium, Low). Fix every Blocker, High, and all Medium findings you can. Re-run verify.
+2. **Self-review** your own diff against sections 2, 7 and 9. List findings by severity (Blocker, High, Medium, Low). Fix every Blocker, High, and all Medium findings you can, one commit per finding (section 10). Re-run verify.
 3. **Accessibility audit** for what this phase touched: axe results, a keyboard-only walk-through in a real browser, computed target sizes and contrast where relevant. Record evidence.
 4. **Security and privacy audit**: no network calls, no new storage, no unsafe DOM APIs, `npm audit`, dependency review.
 5. **Performance and size audit**: report bundle sizes and any timing measured.
-6. Write `reports/phase-<n>-<slug>.md` using section 12. Include fixes you applied (as a patch summary), not just problems.
-7. Commit, push the branch, open the PR.
-8. Final chat message: at most 15 lines: result (PASS or BLOCKED), what changed, top risks, and what the human must do next.
+6. Write `reports/phase-<n>-<slug>.md` using section 12 and commit it (`docs(report): ...`). Include the fixes you applied (with commit hashes), not just problems.
+7. Run the full `npm run verify`, `git push`, then create and push the tag `phase-<n>-complete`.
+8. Final chat message: at most 15 lines: result (PASS or BLOCKED), the phase commit list (`git log --oneline` since the previous tag), top risks, and what the human must do next.
 
 If an acceptance criterion still fails after three honest attempts, stop and report the blocker. Do not paper over it.
 
@@ -175,7 +182,7 @@ If an acceptance criterion still fails after three honest attempts, stop and rep
 ```
 # Phase <n> — <title>
 Status: PASS | PASS WITH NOTES | BLOCKED
-Date / commit / branch
+Date / commit range (previous tag to this tag)
 
 ## Summary
 ## What changed (files and why)
