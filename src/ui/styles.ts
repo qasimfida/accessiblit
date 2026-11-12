@@ -55,7 +55,7 @@ export const UI_CSS = `
 }
 @media (forced-colors:active) {
   .accessiblit-surface { --ui-bg:Canvas; --ui-ink:CanvasText; --ui-muted:CanvasText; --ui-border:ButtonText; --ui-quiet:ButtonFace; --ui-accent:Highlight; --ui-accent-ink:HighlightText; --ui-focus:CanvasText; forced-color-adjust:auto; box-shadow:none; }
-  .accessiblit-surface button { background:ButtonFace; color:ButtonText; border-color:ButtonText; }
+  .accessiblit-surface button, .accessiblit-launcher { background:ButtonFace; color:ButtonText; border-color:ButtonText; }
   .accessiblit-choice input { accent-color:auto; }
 }
 .accessiblit-surface::backdrop { background:transparent; pointer-events:none; }
