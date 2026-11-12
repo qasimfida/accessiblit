@@ -1,0 +1,45 @@
+body {
+  padding-block-start: 80px;
+}
+#fixed {
+  position: fixed;
+  inset: 0 0 auto;
+  padding: 16px;
+  background: #eef4fa;
+  z-index: 10;
+}
+#sticky {
+  top: 80px;
+}
+.gradient {
+  background: linear-gradient(90deg, #eff8ee, #f8f0df);
+  padding: 16px;
+}
+.background {
+  background: url('/colour-image.svg') center/cover;
+  padding: 16px;
+  color: #fff;
+  text-shadow: 0 1px 3px #000;
+}
+.background p,
+.background h2 {
+  background: #172c3e;
+  padding: 8px;
+}
+#media {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+#media h2 {
+  flex-basis: 100%;
+}
+dialog {
+  color: #172c3e;
+  background: #fff;
+  border: 2px solid #61768a;
+  max-width: 90vw;
+}
+dialog::backdrop {
+  background: rgb(0 0 0 / 40%);
+}

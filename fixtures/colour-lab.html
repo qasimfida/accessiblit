@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Colour strategy laboratory</title>
+    <link rel="stylesheet" href="/content.css" />
+    <link rel="stylesheet" href="/colour-lab.css" />
+    <script type="module" src="/colour-lab.mjs"></script>
+  </head>
+  <body>
+    <header id="fixed"><a href="#copy">Colour laboratory</a></header>
+    <main>
+      <h1>Colour and contrast laboratory</h1>
+      <p id="copy" data-content-probe>
+        Readable text on an ordinary surface.
+        <a href="#media">A visible link</a>.
+      </p>
+      <section class="gradient">
+        <h2>A gradient surface</h2>
+        <p>Text over a decorative gradient.</p>
+      </section>
+      <section class="background">
+        <h2>A background image</h2>
+        <p>Text over a decorative background image.</p>
+      </section>
+      <aside id="sticky" class="sticky">A sticky reading note</aside>
+      <form>
+        <label for="lab-name">Name<input id="lab-name" value="Reader" /></label
+        ><button type="button" id="show-modal">Open host modal</button>
+      </form>
+      <section id="media">
+        <h2>Original coloured media</h2>
+        <img
+          id="sample-image"
+          width="160"
+          height="90"
+          src="/colour-image.svg"
+          alt="Red, green and blue sample panels"
+        />
+        <video
+          id="sample-video"
+          width="160"
+          height="90"
+          controls
+          muted
+          loop
+          playsinline
+          src="/colour-video.mp4"
+          aria-label="Original colour sample video"
+        ></video>
+        <canvas
+          id="sample-canvas"
+          width="160"
+          height="90"
+          role="img"
+          aria-label="Canvas colour panels"
+        ></canvas>
+        <svg
+          id="sample-svg"
+          width="160"
+          height="90"
+          viewBox="0 0 160 90"
+          role="img"
+          aria-label="SVG colour panels"
+        >
+          <path fill="#d03020" d="M0 0h53v90H0z" />
+          <path fill="#208040" d="M53 0h54v90H53z" />
+          <path fill="#2050d0" d="M107 0h53v90h-53z" />
+        </svg>
+        <iframe
+          id="sample-frame"
+          title="Embedded colour panel"
+          src="/colour-frame.html"
+          width="180"
+          height="100"
+        ></iframe>
+      </section>
+      <div id="heavy"></div>
+    </main>
+    <dialog id="host-modal" aria-labelledby="modal-title">
+      <h2 id="modal-title">Host modal</h2>
+      <p>A native modal with original author colours.</p>
+      <button type="button" id="hide-modal">Close host modal</button>
+    </dialog>
+  </body>
+</html>
