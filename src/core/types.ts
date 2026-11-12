@@ -97,6 +97,8 @@ export interface FeatureApi {
     options?: AddEventListenerOptions,
   ): Cleanup;
   onCleanup(cleanup: Cleanup): void;
+  /** Defer private feature surfaces until the existing shadow host is mounted. */
+  onHost(render: (root: ShadowRoot, nonce?: string) => Cleanup): Cleanup;
 }
 
 /** Declarative controls keep future UI generation independent of feature code. */

@@ -10,6 +10,7 @@ export function createRegistry(
   doc: Document,
   styles: StyleManager,
   announce: (message: string) => void,
+  onHost: FeatureApi['onHost'] = () => () => {},
 ) {
   const report = createReporter();
   const entries = new Map<
@@ -64,6 +65,7 @@ export function createRegistry(
         },
         listen: scope.listen,
         onCleanup: scope.add,
+        onHost: (render) => scope.add(onHost(render)),
         styles: {
           addRule: (css) => scope.add(styles.addRule(css)),
           addClass: (name) => scope.add(styles.addClass(name)),

@@ -1,3 +1,4 @@
+import { createPresentation } from './presentation';
 import { createUI } from '../ui/controller';
 import { changeText } from '../ui/presentation';
 import type { PanelUI } from '../ui/controller';
@@ -117,7 +118,14 @@ export function createLifecycle(
           options,
         );
         scope.add(store.destroy);
-        const registry = createRegistry(document, styles, announce);
+        const surfaces = createPresentation(options.nonce);
+        scope.add(surfaces.destroy);
+        const registry = createRegistry(
+          document,
+          styles,
+          announce,
+          surfaces.subscribe,
+        );
         scope.add(registry.destroy);
         const catalogue =
           typeof features === 'function' ? features(options) : features;
@@ -142,6 +150,7 @@ export function createLifecycle(
         scope.add(
           createHost(document, (root) => {
             announcer = createAnnouncer(root, options.nonce);
+            const detachSurfaces = surfaces.attach(root);
             try {
               ui = createUI(
                 root,
@@ -158,11 +167,13 @@ export function createLifecycle(
                 pending = undefined;
               }
             } catch (error) {
+              detachSurfaces();
               announcer.destroy();
               announcer = undefined;
               throw error;
             }
             return () => {
+              detachSurfaces();
               ui?.destroy();
               ui = undefined;
               announcer?.destroy();
