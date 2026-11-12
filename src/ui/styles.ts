@@ -16,7 +16,7 @@ export const UI_CSS = `
   appearance:none; font:inherit; color:var(--ui-ink); background:var(--ui-bg); border:1px solid var(--ui-border);
   border-radius:8px; min-inline-size:44px; min-block-size:44px; padding:8px 12px; cursor:pointer; text-align:center; overflow-wrap:anywhere;
 }
-.accessiblit-surface:focus-visible, .accessiblit-surface :focus-visible {
+.accessiblit-surface:focus, .accessiblit-surface :focus {
   outline:3px solid var(--ui-focus); outline-offset:3px; box-shadow:0 0 0 6px var(--ui-bg);
 }
 .accessiblit-surface button[aria-disabled=true] { color:var(--ui-muted); background:var(--ui-quiet); cursor:default; }
