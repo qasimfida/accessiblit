@@ -23,7 +23,21 @@ export function createStyles(doc: Document, nonce?: string) {
     { value: string; priority: string; entries: { value: string }[] }
   >();
   let active = true;
-  const render = () => sheet.set([...rules.values()].join('\n'));
+  const render = () =>
+    rules.size ? sheet.set([...rules.values()].join('\n')) : sheet.clear();
+  const restoreClass = () => {
+    if (!classes.size && [...root.classList].join(' ') === classTokens) {
+      if (original.class === null) root.removeAttribute('class');
+      else root.setAttribute('class', original.class);
+    }
+  };
+  const restoreStyle = () => {
+    if (!variables.size && root.style.cssText === cssText) {
+      if (original.style === null) {
+        if (root.getAttribute('style') !== null) root.removeAttribute('style');
+      } else root.setAttribute('style', original.style);
+    }
+  };
   return {
     addRule(css: string) {
       if (!active) return () => {};
@@ -56,6 +70,7 @@ export function createStyles(doc: Document, nonce?: string) {
         if (!owned.count) {
           if (!owned.present) root.classList.remove(name);
           classes.delete(name);
+          restoreClass();
         }
       });
     },
@@ -83,6 +98,7 @@ export function createStyles(doc: Document, nonce?: string) {
             root.style.setProperty(name, owned.value, owned.priority);
           else root.style.removeProperty(name);
           variables.delete(name);
+          restoreStyle();
         }
       });
     },
@@ -92,17 +108,8 @@ export function createStyles(doc: Document, nonce?: string) {
       scope.dispose();
       sheet.destroy();
       // CSSOM normalizes whitespace; preserve exact original serialization when no host edits remain.
-      if ([...root.classList].join(' ') === classTokens) {
-        if (original.class === null) root.removeAttribute('class');
-        else root.setAttribute('class', original.class);
-      }
-      if (root.style.cssText === cssText) {
-        if (original.style === null) {
-          // Flush lazy CSSOM serialization before removal, or browsers can recreate an empty attribute.
-          if (root.getAttribute('style') !== null)
-            root.removeAttribute('style');
-        } else root.setAttribute('style', original.style);
-      }
+      restoreClass();
+      restoreStyle();
     },
   };
 }

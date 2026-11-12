@@ -74,3 +74,23 @@ it('rejects unowned class and variable names', () => {
   expect(document.documentElement.style.color).toBe('');
   styles.destroy();
 });
+
+it('restores the exact page when the last effect is released before destroy', () => {
+  const root = document.documentElement;
+  root.setAttribute('class', ' host   theme ');
+  root.setAttribute('style', 'color:red;');
+  const before = root.outerHTML;
+  const styles = createStyles(document);
+  const releaseClass = styles.addClass('accessiblit-example');
+  const releaseVariable = styles.setVariable('--accessiblit-example', '2');
+  const releaseRule = styles.addRule('html.accessiblit-example{color:blue}');
+  releaseRule();
+  releaseVariable();
+  releaseClass();
+  expect(root.outerHTML).toBe(before);
+  const again = styles.addRule('html{color:green}');
+  expect(document.querySelector('[data-accessiblit-style]')).not.toBeNull();
+  again();
+  expect(root.outerHTML).toBe(before);
+  styles.destroy();
+});
