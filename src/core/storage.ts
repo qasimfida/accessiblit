@@ -53,7 +53,11 @@ export function createStorage(view: Window, key: string, persist: boolean) {
     read(): State {
       if (persist && !blocked && !cache.dirty) {
         try {
-          cache.raw = view.localStorage.getItem(key);
+          const raw = view.localStorage.getItem(key);
+          const state = decodeState(raw);
+          // Never retain oversized or invalid external strings in the session fallback.
+          cache.raw = state ? raw : null;
+          return state ?? createState();
         } catch {
           fail();
         }

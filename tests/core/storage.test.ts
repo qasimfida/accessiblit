@@ -110,3 +110,17 @@ describe('storage adapter', () => {
     expect(a.accept(null)).toEqual(createState());
   });
 });
+
+it('rejects oversized disk data and keeps a clean bounded fallback when storage later blocks', () => {
+  const get = vi
+    .spyOn(Storage.prototype, 'getItem')
+    .mockReturnValue('x'.repeat(MAX_STORAGE_CHARS + 1));
+  const adapter = storage();
+  expect(adapter.read()).toEqual(createState());
+  get.mockImplementation(() => {
+    throw new Error('blocked');
+  });
+  expect(adapter.read()).toEqual(createState());
+  adapter.write(createState({ fontSize: 170 }));
+  expect(adapter.read().fontSize).toBe(170);
+});
