@@ -1,0 +1,42 @@
+import { expect, test } from '@playwright/test';
+import { CONTENT_FIXTURES, loadContent } from './helpers/content';
+import type { FeatureId } from '../src/core/types';
+const cases = [
+  { id: 'lineHeight', property: 'line-height', levels: [0, 1.5, 1.75, 2] },
+] satisfies { id: FeatureId; property: string; levels: number[] }[];
+for (const feature of cases)
+  for (const fixture of CONTENT_FIXTURES)
+    test(`${feature.id} every level on ${fixture}`, async ({ page }) => {
+      await loadContent(page, fixture);
+      const probe = page.locator('[data-content-probe]');
+      const before = await probe.evaluate(
+        (element, property) => ({
+          raw: getComputedStyle(element).getPropertyValue(property),
+          font: parseFloat(getComputedStyle(element).fontSize),
+          margin: getComputedStyle(element).marginBlockEnd,
+        }),
+        feature.property,
+      );
+      for (const value of feature.levels) {
+        await page.evaluate(
+          ({ id, value }) => window.contentInstance.setFeature(id, value),
+          { id: feature.id, value },
+        );
+        const actual = await probe.evaluate(
+          (element, property) => ({
+            raw: getComputedStyle(element).getPropertyValue(property),
+            margin: getComputedStyle(element).marginBlockEnd,
+            paragraph: element.tagName === 'P',
+          }),
+          feature.property,
+        );
+        if (value === 0) expect(actual.raw).toBe(before.raw);
+        else expect(parseFloat(actual.raw)).toBeCloseTo(before.font * value, 1);
+        if (feature.id === 'lineHeight' && actual.paragraph) {
+          if (value === 0) expect(actual.margin).toBe(before.margin);
+          else
+            expect(parseFloat(actual.margin)).toBeCloseTo(before.font * 2, 1);
+        }
+      }
+      await page.evaluate(() => window.contentInstance.reset());
+    });

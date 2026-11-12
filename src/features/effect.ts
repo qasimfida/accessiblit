@@ -10,3 +10,18 @@ export function createEffect(api: Pick<FeatureApi, 'onCleanup'>) {
   api.onCleanup(scope.dispose);
   return scope;
 }
+
+/** CSS-only effects share resource ownership while each feature keeps its own metadata and rules. */
+export function cssEffect(
+  api: FeatureApi,
+  className: string,
+  variables: Record<string, string>,
+  rule: string,
+) {
+  const scope = createEffect(api);
+  scope.add(api.styles.addRule(rule));
+  for (const [name, value] of Object.entries(variables))
+    scope.add(api.styles.setVariable(name, value));
+  scope.add(api.styles.addClass(className));
+  return scope.dispose;
+}
