@@ -44,7 +44,8 @@ export function createPanel(
   element.hidden = true;
   element.setAttribute('role', 'dialog');
   element.setAttribute('aria-modal', 'false');
-  element.setAttribute('aria-labelledby', `${prefix}-title`);
+  // An explicit name avoids Firefox's post-audit crash when resolving a hidden title reference.
+  element.setAttribute('aria-label', messages.panelTitle);
   element.setAttribute('aria-describedby', `${prefix}-intro`);
   scope.add(() => element.remove());
   const header = doc.createElement('header');

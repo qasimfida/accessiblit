@@ -49,10 +49,12 @@ it('generates all three control kinds and stable non-modal grouping from metadat
   expect(panel.element.getAttribute('role')).toBe('dialog');
   expect(panel.element.getAttribute('aria-modal')).toBe('false');
   expect(panel.element.hidden).toBe(true);
-  expect(
-    document.getElementById(panel.element.getAttribute('aria-labelledby')!)
-      ?.textContent,
-  ).toBe('Accessibility options');
+  expect(panel.element.getAttribute('aria-label')).toBe(
+    'Accessibility options',
+  );
+  expect(panel.element.querySelector('h2')?.textContent).toBe(
+    'Accessibility options',
+  );
   expect(
     [...panel.element.querySelectorAll('h3')].map((e) => e.textContent),
   ).toEqual(['Content', 'Colour and contrast', 'Navigation and orientation']);
