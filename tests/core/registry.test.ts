@@ -2,7 +2,7 @@ import { afterEach, expect, it, vi } from 'vitest';
 import { createRegistry } from '../../src/core/registry';
 import { createStyles } from '../../src/core/styles';
 import { testFeatures } from '../helpers/features';
-import type { Feature, FeatureId } from '../../src/core/types';
+import type { Feature, FeatureId, FeatureApi } from '../../src/core/types';
 const cleanups: (() => void)[] = [];
 afterEach(() => {
   cleanups.reverse().forEach((fn) => fn());
@@ -124,4 +124,42 @@ it('recovers from a failed stylesheet append without retaining the failed rule',
   )?.textContent;
   expect(css).toContain('accessiblit-test-dark');
   expect(css).not.toContain('--failed-rule');
+});
+
+it('commits announcements only after successful apply and suppresses stale feature APIs', () => {
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
+  const { registry, announce } = setup();
+  const [font] = testFeatures() as [Feature];
+  let captured: FeatureApi | undefined;
+  font.apply = (_, api) => {
+    captured = api;
+    api.announce('failed message');
+    throw new Error('apply');
+  };
+  registry.register(font);
+  registry.enable('fontSize', 120);
+  expect(announce).not.toHaveBeenCalled();
+  captured!.announce('late failed message');
+  expect(announce).not.toHaveBeenCalled();
+  font.apply = (_, api) => {
+    captured = api;
+    api.announce('first');
+    api.announce('committed');
+    return () => api.announce('cleanup');
+  };
+  registry.register(font);
+  registry.enable('fontSize', 130);
+  expect(announce).toHaveBeenCalledExactlyOnceWith('committed');
+  captured!.announce('live');
+  registry.disable('fontSize');
+  captured!.announce('late');
+  expect(announce.mock.calls).toEqual([['committed'], ['live']]);
+  font.apply = (_, api) => {
+    api.announce('cancelled');
+    registry.disable('fontSize');
+    return () => {};
+  };
+  registry.register(font);
+  registry.enable('fontSize', 140);
+  expect(announce).toHaveBeenCalledTimes(2);
 });

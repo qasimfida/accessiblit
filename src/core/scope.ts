@@ -21,6 +21,9 @@ export function createScope(onError: () => void) {
     return release;
   };
   return {
+    get active(): boolean {
+      return !disposed;
+    },
     add,
     listen(
       target: EventTarget,

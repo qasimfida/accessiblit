@@ -53,9 +53,15 @@ export function createRegistry(
           `Feature ${id} failed; other features remain active.`,
         );
       const scope = createScope(failed);
+      let applying = true;
+      let queued: string | undefined;
       const api: FeatureApi = {
         document: doc,
-        announce,
+        announce(message) {
+          if (!scope.active) return;
+          if (applying) queued = message;
+          else announce(message);
+        },
         listen: scope.listen,
         onCleanup: scope.add,
         styles: {
@@ -72,6 +78,8 @@ export function createRegistry(
         if (typeof cleanup !== 'function')
           throw new Error('Feature must return cleanup');
         scope.add(cleanup);
+        applying = false;
+        if (queued !== undefined && scope.active) announce(queued);
       } catch {
         disable(id);
         failed();
