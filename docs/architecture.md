@@ -1,6 +1,6 @@
 # Core runtime architecture
 
-Phase 2 adds a shadow-local launcher and non-modal panel to the engine. `open`, `close` and `toggle` control the panel, including a queued open before body exists. Position, offset, z-index and shortcut options drive the UI. Phase 3 registers the seven content features; colour and navigation groups remain empty until later phases. The optional font URL is validated and never fetched.
+Phase 2 adds a shadow-local launcher and non-modal panel to the engine. `open`, `close` and `toggle` control the panel, including a queued open before body exists. Position, offset, z-index and shortcut options drive the UI. The catalogue now registers seven content features and four colour features; navigation remains for later phases. The optional font URL is validated and never fetched.
 
 ## Initialization and teardown
 
@@ -87,3 +87,15 @@ Alignment excludes navigation, controls and flex/grid containers. It also exclud
 Reset removes the last owned page sheet and restores raw html attribute serialization when no independent owner edit prevents it. A subsequent enable creates a new sheet. Detached elements have their private markers restored before references are released.
 
 See ADRs [0001](adr/0001-font-scaling.md), [0002](adr/0002-content-scaling.md), and [0003](adr/0003-owner-font-preloading.md) for measured alternatives, specificity and cross-site limits. The owner must finish loading every AccessiblitDyslexia face; the widget only inspects loaded faces and never fetches the configured reference. An early blocking head script after owner styles is tested for adjusted content on the first rendered probe frame. Loading the widget after first paint cannot remove a flash that already occurred.
+
+## Colour paint boundaries
+
+Phase 4 adds dark mode, high contrast, monochrome and low saturation. The metadata catalogue generates their toggle controls. A translatable optional Messages.forcedColoursNote explains operating-system forced colours in the panel. CSS media queries display that note reactively and suspend page adjustments under forced colours and print.
+
+The palette owns opaque HTML paint surfaces, with high contrast taking priority over dark mode regardless of activation order. It excludes semantic image boundaries, SVG/MathML and replaced media. Link and placeholder rules respect those boundaries too. Decorative CSS backgrounds are removed where needed to provide a known text surface.
+
+Saturation reads baseline paints with both saturation classes temporarily disabled, converts parsed RGB paints, then groups identical declarations into the same document stylesheet. Monochrome suppresses the low-saturation selector, so selecting both does not stack filters. Atomic media composes ordinary owner filters with saturation; URL-bearing filters are left untouched to avoid resource revalidation. Background images retain their original URL declarations and use luminosity blending over an achromatic base, including in low-saturation mode. This tradeoff is documented rather than copying owner URLs into generated CSS.
+
+Observers reconcile owner class/style changes and inserted content, including palette changes made after saturation was selected. Cleanup restores markers, variables, classes and sheets. Window resize, stylesheet load and forced-colour media listeners are removed exactly once in tests. No colour filter is placed on html, body or ordinary layout containers.
+
+See [the colour ADR](adr/0002-colour-strategy.md) and [Phase 4 report](../reports/phase-4-colour-features.md) for the measured filter comparison, complete combination policy, screenshots and host limitations. The colour ADR uses the filename requested by the phase prompt; the earlier 0002-content-scaling ADR remains intact.
