@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Browser IIFE (minified + gzip)",
+    "path": "dist/index.global.js",
+    "limit": "35 kB",
+    "gzip": true,
+    "brotli": false
+  }
+]
