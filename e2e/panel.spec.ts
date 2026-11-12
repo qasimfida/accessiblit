@@ -36,6 +36,7 @@ test('exposes the launcher relationship and opens/closes without a modal trap', 
     page.getByRole('dialog', { name: 'Accessibility options', exact: true }),
   ).toBeVisible();
   await expect(panel).toHaveAttribute('aria-modal', 'false');
+  expect(await panel.ariaSnapshot()).not.toContain('banner');
   await expect(launcher).toHaveAttribute('aria-expanded', 'true');
   await expect(
     page.getByRole('button', { name: 'Close', exact: true }),

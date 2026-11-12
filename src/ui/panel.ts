@@ -48,7 +48,7 @@ export function createPanel(
   element.setAttribute('aria-label', messages.panelTitle);
   element.setAttribute('aria-describedby', `${prefix}-intro`);
   scope.add(() => element.remove());
-  const header = doc.createElement('header');
+  const header = doc.createElement('div');
   header.className = 'accessiblit-header';
   const title = doc.createElement('h2');
   title.id = `${prefix}-title`;
