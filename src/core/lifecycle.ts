@@ -12,6 +12,7 @@ import { createStorage } from './storage';
 import { createStore } from './store';
 import { createStyles } from './styles';
 import type { AccessiblitInstance, AccessiblitOptions, Feature } from './types';
+import type { ResolvedOptions } from './options';
 
 let uiSequence = 0;
 const noop = () => {};
@@ -27,8 +28,12 @@ function inert(): AccessiblitInstance {
   };
 }
 
-/** The injectable catalogue is internal: production has no fake or real features yet. */
-export function createLifecycle(features: readonly Feature[] = []) {
+/** Per-init catalogues can capture validated owner options without evaluating DOM code during SSR. */
+export function createLifecycle(
+  features:
+    | readonly Feature[]
+    | ((options: ResolvedOptions) => readonly Feature[]) = [],
+) {
   let current: AccessiblitInstance | undefined;
   return {
     init(input?: AccessiblitOptions): AccessiblitInstance {
@@ -114,7 +119,9 @@ export function createLifecycle(features: readonly Feature[] = []) {
         scope.add(store.destroy);
         const registry = createRegistry(document, styles, announce);
         scope.add(registry.destroy);
-        for (const feature of features) registry.register(feature);
+        const catalogue =
+          typeof features === 'function' ? features(options) : features;
+        for (const feature of catalogue) registry.register(feature);
         const state = store.getState();
         // Restored effects apply synchronously on html, before waiting for body or adding a host.
         for (const id of options.features) registry.enable(id, state[id]);
