@@ -1,3 +1,4 @@
+import { highlightLinks } from './highlight-links';
 import { lowSaturation } from './low-saturation';
 import { monochrome } from './monochrome';
 import { highContrast } from './high-contrast';
@@ -16,6 +17,7 @@ export function createContentFeatures(
   options: ResolvedOptions,
 ): readonly Feature[] {
   return [
+    highlightLinks,
     darkMode,
     highContrast,
     monochrome,
