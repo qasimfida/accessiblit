@@ -1,3 +1,4 @@
+import { highlightHeadings } from './highlight-headings';
 import { highlightLinks } from './highlight-links';
 import { lowSaturation } from './low-saturation';
 import { monochrome } from './monochrome';
@@ -18,6 +19,7 @@ export function createContentFeatures(
 ): readonly Feature[] {
   return [
     highlightLinks,
+    highlightHeadings,
     darkMode,
     highContrast,
     monochrome,
