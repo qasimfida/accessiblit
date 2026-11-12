@@ -97,8 +97,11 @@ export function createStyles(doc: Document, nonce?: string) {
         else root.setAttribute('class', original.class);
       }
       if (root.style.cssText === cssText) {
-        if (original.style === null) root.removeAttribute('style');
-        else root.setAttribute('style', original.style);
+        if (original.style === null) {
+          // Flush lazy CSSOM serialization before removal, or browsers can recreate an empty attribute.
+          if (root.getAttribute('style') !== null)
+            root.removeAttribute('style');
+        } else root.setAttribute('style', original.style);
       }
     },
   };
