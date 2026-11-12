@@ -1,3 +1,4 @@
+import { readingMask } from './reading-mask';
 import { readingGuide } from './reading-guide';
 import { stopAnimations } from './stop-animations';
 import { bigCursor } from './big-cursor';
@@ -22,6 +23,7 @@ export function createContentFeatures(
 ): readonly Feature[] {
   return [
     readingGuide,
+    readingMask,
     stopAnimations,
     bigCursor,
     highlightLinks,
