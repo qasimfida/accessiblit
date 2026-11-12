@@ -11,7 +11,7 @@ export default defineConfig({
       thresholds: {
         lines: 85,
         branches: 85,
-        'src/core/**': { lines: 85, branches: 85 },
+        'src/core/**': { lines: 90, branches: 90 },
       },
     },
   },
