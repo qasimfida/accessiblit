@@ -2,6 +2,7 @@ import { afterEach, expect, it } from 'vitest';
 import { featureEngine } from '../helpers/feature-engine';
 import { lineHeight } from '../../src/features/line-height';
 import { letterSpacing } from '../../src/features/letter-spacing';
+import { wordSpacing } from '../../src/features/word-spacing';
 const cleanups: (() => void)[] = [];
 afterEach(() => {
   cleanups.forEach((fn) => fn());
@@ -19,6 +20,12 @@ for (const item of [
     feature: letterSpacing,
     variable: '--accessiblit-letter-spacing',
     levels: [0, 0.12, 0.16, 0.2],
+    unit: 'em',
+  },
+  {
+    feature: wordSpacing,
+    variable: '--accessiblit-word-spacing',
+    levels: [0, 0.16, 0.24, 0.32],
     unit: 'em',
   },
 ])

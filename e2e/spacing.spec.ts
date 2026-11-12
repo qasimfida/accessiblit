@@ -8,6 +8,11 @@ const cases = [
     property: 'letter-spacing',
     levels: [0, 0.12, 0.16, 0.2],
   },
+  {
+    id: 'wordSpacing',
+    property: 'word-spacing',
+    levels: [0, 0.16, 0.24, 0.32],
+  },
 ] satisfies { id: FeatureId; property: string; levels: number[] }[];
 for (const feature of cases)
   for (const fixture of CONTENT_FIXTURES)
