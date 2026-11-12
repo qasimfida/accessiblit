@@ -77,7 +77,7 @@ export function createUI(
       const focused = doc.activeElement;
       if (
         !opened &&
-        focused instanceof view.HTMLElement &&
+        focused instanceof view.Element &&
         focused !== root.host &&
         focused !== doc.body &&
         focused !== doc.documentElement
