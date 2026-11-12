@@ -85,7 +85,9 @@ test('forced colours suspend effects and display the system note', async ({
   expect(await sample()).toEqual(before);
   await page.emulateMedia({ forcedColors: 'none' });
   await expect(page.locator('.accessiblit-forced-colours-note')).toBeHidden();
-  expect(await sample()).not.toEqual(before);
+  await expect
+    .poll(sample)
+    .toEqual(['rgb(255, 255, 255)', 'rgb(0, 0, 0)', 'none']);
 });
 test('print restores owner paints with every colour option selected', async ({
   page,
