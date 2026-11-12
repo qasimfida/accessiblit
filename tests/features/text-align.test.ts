@@ -79,3 +79,19 @@ it('protects custom controls and navigation with fallback role tokens', () => {
   engine.set('center');
   expect(document.querySelector('[data-accessiblit-align]')).toBeNull();
 });
+
+it('reconciles controls when owner scripts change their role', async () => {
+  const wrapper = document.createElement('p');
+  const control = document.createElement('span');
+  control.textContent = 'Dynamic control';
+  wrapper.append(control);
+  document.body.append(wrapper);
+  const engine = featureEngine(textAlign);
+  cleanups.push(engine.destroy);
+  engine.set('right');
+  expect(wrapper.hasAttribute('data-accessiblit-align')).toBe(true);
+  control.setAttribute('role', 'checkbox');
+  await Promise.resolve();
+  await Promise.resolve();
+  expect(wrapper.hasAttribute('data-accessiblit-align')).toBe(false);
+});

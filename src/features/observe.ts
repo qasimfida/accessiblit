@@ -72,7 +72,7 @@ export function observeContent(
     childList: true,
     subtree: true,
     attributes: true,
-    attributeFilter: ['class', 'style', 'hidden', 'aria-hidden'],
+    attributeFilter: ['class', 'style', 'hidden', 'aria-hidden', 'role'],
   });
   releases.push(api.listen(view, 'resize', safe));
   releases.push(
