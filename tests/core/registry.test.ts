@@ -103,3 +103,25 @@ it('contains cleanup failures and invalid contracts and replaces registrations s
   registry.enable('fontSize', 120);
   expect(registry.list()).toEqual([]);
 });
+
+it('recovers from a failed stylesheet append without retaining the failed rule', () => {
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
+  const { registry } = setup();
+  const [font, dark] = testFeatures() as [Feature, Feature];
+  font.apply = (_, api) => {
+    api.styles.addRule('html { --failed-rule: 1 }');
+    return () => {};
+  };
+  vi.spyOn(document.head, 'appendChild').mockImplementationOnce(() => {
+    throw new Error('append failed');
+  });
+  registry.register(font);
+  registry.register(dark);
+  registry.enable('fontSize', 120);
+  registry.enable('darkMode', true);
+  const css = document.head.querySelector(
+    '[data-accessiblit-style]',
+  )?.textContent;
+  expect(css).toContain('accessiblit-test-dark');
+  expect(css).not.toContain('--failed-rule');
+});

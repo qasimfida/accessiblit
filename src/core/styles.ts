@@ -29,11 +29,17 @@ export function createStyles(doc: Document, nonce?: string) {
       if (!active) return () => {};
       const token = Symbol();
       rules.set(token, css);
-      render();
-      return scope.add(() => {
+      const release = scope.add(() => {
         rules.delete(token);
         render();
       });
+      try {
+        render();
+      } catch (error) {
+        release();
+        throw error;
+      }
+      return release;
     },
     addClass(name: string) {
       if (!active || !/^accessiblit-[a-z0-9-]+$/.test(name)) return () => {};

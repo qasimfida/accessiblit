@@ -57,16 +57,20 @@ export function createSheet(target: Document | ShadowRoot, nonce?: string) {
           report('replace', 'Stylesheet update failed; using a style element.');
         }
       }
-      if (!element) {
-        element = doc.createElement('style');
-        element.setAttribute('data-accessiblit-style', '');
-        if (nonce !== undefined) element.setAttribute('nonce', nonce);
-        (target.nodeType === 9
-          ? (doc.head ?? doc.documentElement)
-          : target
-        ).appendChild(element);
+      if (element) {
+        element.textContent = css;
+        return;
       }
-      element.textContent = css;
+      const candidate = doc.createElement('style');
+      candidate.setAttribute('data-accessiblit-style', '');
+      if (nonce !== undefined) candidate.setAttribute('nonce', nonce);
+      candidate.textContent = css;
+      (target.nodeType === 9
+        ? (doc.head ?? doc.documentElement)
+        : target
+      ).appendChild(candidate);
+      // Cache only successful installation; a failed feature must not strand the sheet.
+      element = candidate;
     },
     destroy(): void {
       active = false;
