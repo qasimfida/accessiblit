@@ -82,6 +82,17 @@ export async function uiEvidence(page: Page) {
         };
       });
     const focused = root.activeElement as HTMLElement | null;
+    const boundaries = [
+      ...root.querySelectorAll<HTMLElement>(
+        '.accessiblit-panel,.accessiblit-panel button,.accessiblit-choice',
+      ),
+    ].map((element) => ({
+      name: element.getAttribute('aria-label') ?? element.className,
+      ratio: contrast(
+        color(getComputedStyle(element).borderTopColor),
+        background(element),
+      ),
+    }));
     const focus = focused
       ? {
           width: parseFloat(getComputedStyle(focused).outlineWidth),
@@ -101,6 +112,7 @@ export async function uiEvidence(page: Page) {
     return {
       targets,
       text,
+      boundaries,
       focus,
       iconRatio,
       panel: {

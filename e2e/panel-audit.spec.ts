@@ -113,6 +113,8 @@ test('records panel performance, zero residue, states and semantics', async ({
     expect(
       Math.min(...measurements.text.map((t) => t.ratio)),
     ).toBeGreaterThanOrEqual(4.5);
+    for (const boundary of measurements.boundaries)
+      expect(boundary.ratio, boundary.name).toBeGreaterThanOrEqual(3);
     states.push({
       forcedColors,
       violations: result.violations.length,

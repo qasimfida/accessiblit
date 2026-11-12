@@ -52,6 +52,8 @@ for (const small of [false, true])
           expect(evidence.focus!.style).toBe('solid');
           expect(evidence.focus!.ratio).toBeGreaterThanOrEqual(3);
           expect(evidence.iconRatio).toBeGreaterThanOrEqual(3);
+          for (const boundary of evidence.boundaries)
+            expect(boundary.ratio, boundary.name).toBeGreaterThanOrEqual(3);
           expect(evidence.panel.left).toBeGreaterThanOrEqual(0);
           expect(evidence.panel.right).toBeLessThanOrEqual(small ? 320 : 1280);
           expect(evidence.panel.top).toBeGreaterThanOrEqual(0);
@@ -77,6 +79,9 @@ for (const small of [false, true])
               ),
               focus: evidence.focus,
               iconRatio: evidence.iconRatio,
+              minimumBoundaryContrast: Math.min(
+                ...evidence.boundaries.map((b) => b.ratio),
+              ),
               panel: evidence.panel,
             }),
           );
