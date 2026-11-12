@@ -1,3 +1,4 @@
+import { bigCursor } from './big-cursor';
 import { highlightHeadings } from './highlight-headings';
 import { highlightLinks } from './highlight-links';
 import { lowSaturation } from './low-saturation';
@@ -18,6 +19,7 @@ export function createContentFeatures(
   options: ResolvedOptions,
 ): readonly Feature[] {
   return [
+    bigCursor,
     highlightLinks,
     highlightHeadings,
     darkMode,
