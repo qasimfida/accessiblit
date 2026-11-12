@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accessibility panel test page</title>
+    <style>
+      body {
+        margin: 0;
+        background: #f3f6fa;
+        color: #183046;
+        font:
+          16px/1.6 system-ui,
+          sans-serif;
+      }
+      main {
+        max-inline-size: 880px;
+        margin: 64px auto;
+        padding: 24px;
+      }
+      h1 {
+        font-size: 32px;
+        line-height: 1.2;
+      }
+      a {
+        color: #1456a0;
+      }
+      button,
+      a {
+        min-block-size: 44px;
+        min-inline-size: 44px;
+      }
+      button {
+        padding: 10px 16px;
+        font: inherit;
+        background: #fff;
+        color: #183046;
+        border: 1px solid #61768a;
+        border-radius: 8px;
+      }
+      a {
+        display: inline-flex;
+        align-items: center;
+      }
+      :focus-visible {
+        outline: 3px solid #1456a0;
+        outline-offset: 3px;
+      }
+      .corner {
+        position: fixed;
+        margin: 0;
+        inline-size: 80px;
+        block-size: 48px;
+      }
+      #host-top-left {
+        inset-block-start: 16px;
+        inset-inline-start: 16px;
+      }
+      #host-top-right {
+        inset-block-start: 16px;
+        inset-inline-end: 16px;
+      }
+      #host-bottom-left {
+        inset-block-end: 16px;
+        inset-inline-start: 16px;
+      }
+      #host-bottom-right {
+        inset-block-end: 16px;
+        inset-inline-end: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Accessibility panel test page</h1>
+      <p>
+        Host content stays available while the non-modal accessibility panel is
+        open.
+      </p>
+      <a id="host-first" href="#details">Host link</a>
+      <section id="details" aria-labelledby="host-heading">
+        <h2 id="host-heading">A page to personalize</h2>
+        <p>
+          The development-only catalogue exercises toggle, stepper and radio
+          controls.
+        </p>
+        <button id="host-action" type="button">Host action</button>
+      </section>
+    </main>
+    <button id="host-top-left" class="corner" type="button">Top left</button>
+    <button id="host-top-right" class="corner" type="button">Top right</button>
+    <button id="host-bottom-left" class="corner" type="button">
+      Bottom left
+    </button>
+    <button id="host-bottom-right" class="corner" type="button">
+      Bottom right
+    </button>
+    <script type="module">
+      import { createLifecycle } from '../src/core/lifecycle.ts';
+      import { panelFeatures } from '../tests/helpers/panel-features.ts';
+      globalThis.panelFixture = createLifecycle(panelFeatures());
+      globalThis.panelInstance = globalThis.panelFixture.init({
+        persist: false,
+      });
+    </script>
+  </body>
+</html>
