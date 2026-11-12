@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Relative font sizes</title>
+    <link rel="stylesheet" href="/content.css" />
+    <style>
+      :root {
+        font-size: 16px;
+      }
+      body {
+        font-size: 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .relative {
+        font-size: 1.25rem;
+      }
+      .nested {
+        font-size: 1.2em;
+      }
+    </style>
+    <script type="module" src="/content.mjs"></script>
+  </head>
+  <body>
+    <nav aria-label="Fixture navigation">
+      <a href="/article.html">Article</a><a href="/form.html">Form</a>
+    </nav>
+    <main>
+      <h1>A page built with rem units</h1>
+      <p id="rem-copy" data-content-probe>
+        Relative text follows the page scale without compounding inside nested
+        elements.
+      </p>
+      <section class="relative">
+        <h2>A relative section</h2>
+        <p>
+          These words use a larger inherited size.
+          <strong class="nested"
+            >Nested emphasis keeps its intended proportion.</strong
+          >
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
