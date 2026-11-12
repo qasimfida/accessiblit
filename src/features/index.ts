@@ -1,3 +1,4 @@
+import { lowSaturation } from './low-saturation';
 import { monochrome } from './monochrome';
 import { highContrast } from './high-contrast';
 import { darkMode } from './dark-mode';
@@ -18,6 +19,7 @@ export function createContentFeatures(
     darkMode,
     highContrast,
     monochrome,
+    lowSaturation,
     fontSize,
     lineHeight,
     letterSpacing,
