@@ -92,22 +92,50 @@ test('isolates UI typography, painting and author zoom from root adjustments', a
   ).toEqual({ font: '20px', spacing: 'normal', line: '26px' });
 });
 
-for (const spacing of [false, true])
-  test(`keeps every keyboard target visible at 320x256${spacing ? ' with user text spacing' : ''}`, async ({
+for (const adjustment of ['default', 'spacing', 'text-size'] as const)
+  test(`keeps every keyboard target visible at 320x256${adjustment === 'default' ? '' : ` with user ${adjustment}`}`, async ({
     page,
     browserName,
   }) => {
     await page.setViewportSize({ width: 320, height: 256 });
     await page.goto('/panel.html');
     await page.waitForFunction(() => !!window.panelInstance);
-    if (spacing)
-      await page.locator('[data-accessiblit-host]').evaluate((host) => {
-        const style = document.createElement('style');
-        style.textContent =
-          '.accessiblit-panel,.accessiblit-panel *{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}.accessiblit-panel p{margin-block-end:2em!important}';
-        host.shadowRoot!.append(style);
-      });
+    if (adjustment !== 'default')
+      await page
+        .locator('[data-accessiblit-host]')
+        .evaluate((host, adjustment) => {
+          const style = document.createElement('style');
+          style.textContent =
+            adjustment === 'text-size'
+              ? '.accessiblit-panel{font-size:32px!important}.accessiblit-panel h2{font-size:40px!important}.accessiblit-panel h3{font-size:32px!important}.accessiblit-panel h4{font-size:30px!important}.accessiblit-panel p,.accessiblit-panel .accessiblit-badge{font-size:28px!important}'
+              : '.accessiblit-panel,.accessiblit-panel *{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}.accessiblit-panel p{margin-block-end:2em!important}';
+          host.shadowRoot!.append(style);
+        }, adjustment);
     await page.keyboard.press('Alt+KeyA');
+    if (adjustment === 'text-size') {
+      await expect(
+        page.getByRole('button', { name: 'Close', exact: true }),
+      ).toHaveCSS('font-size', '32px');
+      await expect(
+        page.getByRole('heading', {
+          name: 'Accessibility options',
+          exact: true,
+        }),
+      ).toHaveCSS('font-size', '40px');
+    }
+    const clipping = await page.getByRole('dialog').evaluate((panel) =>
+      [...panel.querySelectorAll<HTMLElement>('p,h2,h3,h4,button,label')].map(
+        (e) => ({
+          text: e.textContent,
+          x: e.scrollWidth - e.clientWidth,
+          y: e.scrollHeight - e.clientHeight,
+        }),
+      ),
+    );
+    for (const item of clipping) {
+      expect(item.x, item.text ?? '').toBeLessThanOrEqual(1);
+      expect(item.y, item.text ?? '').toBeLessThanOrEqual(1);
+    }
     const tab =
       browserName === 'webkit' && process.platform === 'darwin'
         ? 'Alt+Tab'
