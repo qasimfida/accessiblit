@@ -9,7 +9,10 @@ export function createRadios(context: ControlContext): RenderedControl {
     !Array.isArray(control.values) ||
     !control.values.length ||
     control.values.some(
-      (value) => typeof value !== 'string' && !Number.isFinite(value),
+      (value) =>
+        typeof value !== 'string' &&
+        typeof value !== 'boolean' &&
+        !Number.isFinite(value),
     ) ||
     new Set(control.values).size !== control.values.length
   )

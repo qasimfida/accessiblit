@@ -48,3 +48,12 @@ describe('feature schema', () => {
     expect(isRecord(Object.create(null))).toBe(true);
   });
 });
+
+it('retains boolean cursor preferences while adding the second size', () => {
+  for (const value of [false, true, 2])
+    expect(isFeatureValue('bigCursor', value)).toBe(true);
+  for (const value of [0, 1, 3, '2'])
+    expect(isFeatureValue('bigCursor', value)).toBe(false);
+  expect(createState({ bigCursor: true }).bigCursor).toBe(true);
+  expect(createState({ bigCursor: 2 }).bigCursor).toBe(2);
+});

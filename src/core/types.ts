@@ -104,7 +104,7 @@ export type FeatureControl =
   | { type: 'toggle' }
   | {
       type: 'select';
-      values: readonly (string | number)[];
+      values: readonly (string | number | boolean)[];
       labels?: readonly string[];
     }
   | { type: 'range'; min: number; max: number; step: number; unit?: string };

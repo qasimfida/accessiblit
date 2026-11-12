@@ -28,6 +28,7 @@ export const FEATURE_IDS = Object.freeze(
 );
 
 const levels: Partial<Record<FeatureId, readonly unknown[]>> = {
+  bigCursor: [false, true, 2],
   lineHeight: [0, 1.5, 1.75, 2],
   letterSpacing: [0, 0.12, 0.16, 0.2],
   wordSpacing: [0, 0.16, 0.24, 0.32],

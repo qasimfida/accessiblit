@@ -22,7 +22,7 @@ export function valueText(
   if (control.type === 'toggle')
     return value === true ? messages.on : messages.off;
   if (control.type === 'select') {
-    const index = control.values.indexOf(value as string | number);
+    const index = control.values.indexOf(value as string | number | boolean);
     return control.labels?.[index] ?? String(value);
   }
   return `${String(value)}${control.unit ? ` ${control.unit}` : ''}`;
