@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Flex and grid layout</title>
+    <link rel="stylesheet" href="/content.css" />
+    <style></style>
+    <script type="module" src="/content.mjs"></script>
+  </head>
+  <body>
+    <nav aria-label="Fixture navigation">
+      <a href="/article.html">Article</a><a href="/form.html">Form</a>
+    </nav>
+    <main>
+      <h1>Text inside a flexible layout</h1>
+      <section id="flex-layout" class="cards" data-layout>
+        <article class="card">
+          <h2>First card</h2>
+          <p id="flex-copy" data-content-probe>
+            Text can align inside this card without turning its container into a
+            text control.
+          </p>
+        </article>
+        <article class="card">
+          <h2>Second card</h2>
+          <p>Cards can wrap as the available width changes.</p>
+          <p id="control-wrapper">
+            <button id="layout-action" type="button">Action</button>
+          </p>
+        </article>
+      </section>
+      <section id="grid-layout" class="grid" data-layout>
+        <div class="card">
+          <h2>Grid one</h2>
+          <p>A grid keeps its columns independent of text alignment.</p>
+        </div>
+        <div class="card">
+          <h2>Grid two</h2>
+          <p>Another text block remains readable.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
