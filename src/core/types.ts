@@ -28,9 +28,16 @@ export interface Messages {
   contentGroup: string;
   colourGroup: string;
   navigationGroup: string;
-  featureLabels: Record<FeatureId, string>;
-  featureDescriptions: Record<FeatureId, string>;
+  featureLabels: Partial<Record<FeatureId, string>>;
+  featureDescriptions: Partial<Record<FeatureId, string>>;
   changeAnnouncement: string;
+  panelDescription: string;
+  increase: string;
+  decrease: string;
+  on: string;
+  off: string;
+  emptyGroup: string;
+  resetAnnouncement: string;
 }
 
 /** Contains feature settings only; host or visitor identity is never included. */
@@ -93,8 +100,12 @@ export interface FeatureApi {
 /** Declarative controls keep future UI generation independent of feature code. */
 export type FeatureControl =
   | { type: 'toggle' }
-  | { type: 'select'; values: readonly (string | number)[] }
-  | { type: 'range'; min: number; max: number; step: number };
+  | {
+      type: 'select';
+      values: readonly (string | number)[];
+      labels?: readonly string[];
+    }
+  | { type: 'range'; min: number; max: number; step: number; unit?: string };
 
 /** A feature owns one reversible effect; the registry isolates its failures. */
 export interface Feature {

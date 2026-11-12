@@ -4,31 +4,34 @@ import type { AccessiblitOptions, Messages } from './types';
 
 /** Concrete defaults remove optional-value branches from the runtime. */
 export type ResolvedOptions = Required<
-  Omit<AccessiblitOptions, 'nonce' | 'dyslexiaFontUrl' | 'onChange'>
+  Omit<
+    AccessiblitOptions,
+    'nonce' | 'dyslexiaFontUrl' | 'onChange' | 'messages'
+  >
 > &
-  Pick<AccessiblitOptions, 'nonce' | 'dyslexiaFontUrl' | 'onChange'>;
+  Pick<AccessiblitOptions, 'nonce' | 'dyslexiaFontUrl' | 'onChange'> & {
+    messages: Messages;
+  };
 
 function messages(): Messages {
-  const labels = Object.fromEntries(
-    FEATURE_IDS.map((id) => [
-      id,
-      id.charAt(0).toUpperCase() +
-        id.slice(1).replace(/[A-Z]/g, (c) => ` ${c.toLowerCase()}`),
-    ]),
-  ) as Messages['featureLabels'];
   return {
-    launcher: 'Accessibility settings',
-    panelTitle: 'Accessibility settings',
+    launcher: 'Open accessibility options',
+    panelTitle: 'Accessibility options',
     close: 'Close',
-    reset: 'Reset settings',
+    reset: 'Reset all',
     contentGroup: 'Content',
-    colourGroup: 'Colour',
-    navigationGroup: 'Navigation',
-    featureLabels: labels,
-    featureDescriptions: Object.fromEntries(
-      FEATURE_IDS.map((id) => [id, `Adjust ${labels[id].toLowerCase()}.`]),
-    ) as Messages['featureDescriptions'],
+    colourGroup: 'Colour and contrast',
+    navigationGroup: 'Navigation and orientation',
+    featureLabels: {},
+    featureDescriptions: {},
     changeAnnouncement: 'Settings updated',
+    panelDescription: 'Choose settings for this page.',
+    increase: 'Increase',
+    decrease: 'Decrease',
+    on: 'On',
+    off: 'Off',
+    emptyGroup: 'No options available in this group.',
+    resetAnnouncement: 'All options reset.',
   };
 }
 const shortText = (value: unknown): value is string =>

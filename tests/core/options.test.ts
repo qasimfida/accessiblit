@@ -173,3 +173,15 @@ it('rejects sparse allowlists/exclusions rather than accepting their holes', () 
   ).toHaveLength(18);
   expect(warn).toHaveBeenCalledTimes(2);
 });
+
+it('resolves UI copy while leaving feature wording to registry metadata', () => {
+  const result = resolveOptions({
+    messages: { on: 'Enabled', featureLabels: { fontSize: 'Text size' } },
+  });
+  expect(result.messages.launcher).toBe('Open accessibility options');
+  expect(result.messages.colourGroup).toBe('Colour and contrast');
+  expect(result.messages.navigationGroup).toBe('Navigation and orientation');
+  expect(result.messages.on).toBe('Enabled');
+  expect(result.messages.featureLabels).toEqual({ fontSize: 'Text size' });
+  expect(resolveOptions().messages.featureLabels).toEqual({});
+});
