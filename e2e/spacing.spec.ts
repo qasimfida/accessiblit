@@ -3,6 +3,11 @@ import { CONTENT_FIXTURES, loadContent } from './helpers/content';
 import type { FeatureId } from '../src/core/types';
 const cases = [
   { id: 'lineHeight', property: 'line-height', levels: [0, 1.5, 1.75, 2] },
+  {
+    id: 'letterSpacing',
+    property: 'letter-spacing',
+    levels: [0, 0.12, 0.16, 0.2],
+  },
 ] satisfies { id: FeatureId; property: string; levels: number[] }[];
 for (const feature of cases)
   for (const fixture of CONTENT_FIXTURES)

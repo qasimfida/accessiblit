@@ -1,6 +1,7 @@
 import { afterEach, expect, it } from 'vitest';
 import { featureEngine } from '../helpers/feature-engine';
 import { lineHeight } from '../../src/features/line-height';
+import { letterSpacing } from '../../src/features/letter-spacing';
 const cleanups: (() => void)[] = [];
 afterEach(() => {
   cleanups.forEach((fn) => fn());
@@ -13,6 +14,12 @@ for (const item of [
     variable: '--accessiblit-line-height',
     levels: [0, 1.5, 1.75, 2],
     unit: '',
+  },
+  {
+    feature: letterSpacing,
+    variable: '--accessiblit-letter-spacing',
+    levels: [0, 0.12, 0.16, 0.2],
+    unit: 'em',
   },
 ])
   it(`${item.feature.id} releases every level without page residue`, () => {
