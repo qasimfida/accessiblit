@@ -1,0 +1,438 @@
+{
+  "browserName": "chromium",
+  "lifecycle": {
+    "times": [
+      1.1999998092651367, 1.4000000953674316, 1.7000000476837158,
+      1.5999999046325684, 1.5, 1.2000000476837158, 1.6000001430511475,
+      1.2999999523162842, 1.7000000476837158, 1.6000001430511475
+    ],
+    "unmoved": true,
+    "restored": true,
+    "cls": 0
+  },
+  "requests": [],
+  "states": [
+    {
+      "forcedColors": "none",
+      "violations": 0,
+      "measurements": {
+        "targets": [
+          { "name": "Open accessibility options", "width": 48, "height": 48 },
+          { "name": "Close", "width": 66.90625, "height": 44 },
+          { "name": "Decrease Font size", "width": 159, "height": 44 },
+          { "name": "Increase Font size", "width": 159, "height": 44 },
+          { "name": "", "width": 24, "height": 24 },
+          { "name": "", "width": 24, "height": 24 },
+          { "name": "", "width": 24, "height": 24 },
+          { "name": "", "width": 24, "height": 24 },
+          { "name": "Dark modeOn", "width": 326, "height": 45 },
+          { "name": "Focus highlightOn", "width": 326, "height": 45 },
+          { "name": "Reset all", "width": 326, "height": 44 }
+        ],
+        "text": [
+          {
+            "text": "Accessibility options",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Close",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgb(20, 35, 49)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Choose settings for this page.",
+            "foreground": "rgb(196, 210, 225)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 10.386429482969506
+          },
+          {
+            "text": "Content",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Font size",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Change the size of page text.",
+            "foreground": "rgb(196, 210, 225)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 10.386429482969506
+          },
+          {
+            "text": "200 percent",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "−Decrease",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgb(20, 35, 49)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "−",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "+",
+            "foreground": "rgb(196, 210, 225)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 7.8678914128040836
+          },
+          {
+            "text": "Text alignment",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Align page text blocks.",
+            "foreground": "rgb(196, 210, 225)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 10.386429482969506
+          },
+          {
+            "text": "Off",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Left",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Center",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Right",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Colour and contrast",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Dark mode",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Use a dark page background.",
+            "foreground": "rgb(196, 210, 225)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 10.386429482969506
+          },
+          {
+            "text": "Dark mode",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "On",
+            "foreground": "rgb(20, 35, 49)",
+            "background": "rgb(165, 208, 255)",
+            "ratio": 9.940009945072063
+          },
+          {
+            "text": "Navigation and orientation",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Focus highlight",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "Emphasize the current keyboard focus.",
+            "foreground": "rgb(196, 210, 225)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 10.386429482969506
+          },
+          {
+            "text": "Focus highlight",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 14.99809824736013
+          },
+          {
+            "text": "On",
+            "foreground": "rgb(20, 35, 49)",
+            "background": "rgb(165, 208, 255)",
+            "ratio": 9.940009945072063
+          },
+          {
+            "text": "Reset all",
+            "foreground": "rgb(245, 248, 252)",
+            "background": "rgb(20, 35, 49)",
+            "ratio": 14.99809824736013
+          }
+        ],
+        "boundaries": [
+          { "name": "Accessibility options", "ratio": 6.490012314728533 },
+          { "name": "accessiblit-close", "ratio": 6.490012314728533 },
+          { "name": "Decrease Font size", "ratio": 6.490012314728533 },
+          { "name": "Increase Font size", "ratio": 4.9162912282582045 },
+          { "name": "accessiblit-choice", "ratio": 6.490012314728533 },
+          { "name": "accessiblit-choice", "ratio": 6.490012314728533 },
+          { "name": "accessiblit-choice", "ratio": 6.490012314728533 },
+          { "name": "accessiblit-choice", "ratio": 6.490012314728533 },
+          { "name": "accessiblit-toggle", "ratio": 6.490012314728533 },
+          { "name": "accessiblit-toggle", "ratio": 6.490012314728533 },
+          { "name": "accessiblit-reset", "ratio": 6.490012314728533 }
+        ],
+        "focus": { "width": 3, "style": "solid", "ratio": 9.940009945072063 },
+        "iconRatio": 9.940009945072063,
+        "panel": {
+          "left": 904,
+          "right": 1264,
+          "top": 8,
+          "bottom": 648,
+          "width": 360,
+          "height": 640,
+          "scrollWidth": 358,
+          "clientWidth": 358,
+          "scrollHeight": 1039,
+          "clientHeight": 638
+        },
+        "documentOverflow": 0
+      }
+    },
+    {
+      "forcedColors": "active",
+      "violations": 0,
+      "measurements": {
+        "targets": [
+          { "name": "Open accessibility options", "width": 48, "height": 48 },
+          { "name": "Close", "width": 66.90625, "height": 44 },
+          { "name": "Decrease Font size", "width": 159, "height": 44 },
+          { "name": "Increase Font size", "width": 159, "height": 44 },
+          { "name": "", "width": 24, "height": 24 },
+          { "name": "", "width": 24, "height": 24 },
+          { "name": "", "width": 24, "height": 24 },
+          { "name": "", "width": 24, "height": 24 },
+          { "name": "Dark modeOn", "width": 326, "height": 45 },
+          { "name": "Focus highlightOn", "width": 326, "height": 45 },
+          { "name": "Reset all", "width": 326, "height": 44 }
+        ],
+        "text": [
+          {
+            "text": "Accessibility options",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Close",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Choose settings for this page.",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Content",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Font size",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Change the size of page text.",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "200 percent",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "−Decrease",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "−",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "+",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Text alignment",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Align page text blocks.",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Off",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Left",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Center",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Right",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Colour and contrast",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Dark mode",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Use a dark page background.",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Dark mode",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "On",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgb(255, 255, 255)",
+            "ratio": 21
+          },
+          {
+            "text": "Navigation and orientation",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Focus highlight",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Emphasize the current keyboard focus.",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "Focus highlight",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "ratio": 21
+          },
+          {
+            "text": "On",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgb(255, 255, 255)",
+            "ratio": 21
+          },
+          {
+            "text": "Reset all",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(0, 0, 0)",
+            "ratio": 21
+          }
+        ],
+        "boundaries": [
+          { "name": "Accessibility options", "ratio": 21 },
+          { "name": "accessiblit-close", "ratio": 21 },
+          { "name": "Decrease Font size", "ratio": 21 },
+          { "name": "Increase Font size", "ratio": 21 },
+          { "name": "accessiblit-choice", "ratio": 21 },
+          { "name": "accessiblit-choice", "ratio": 21 },
+          { "name": "accessiblit-choice", "ratio": 21 },
+          { "name": "accessiblit-choice", "ratio": 21 },
+          { "name": "accessiblit-toggle", "ratio": 21 },
+          { "name": "accessiblit-toggle", "ratio": 21 },
+          { "name": "accessiblit-reset", "ratio": 21 }
+        ],
+        "focus": { "width": 3, "style": "solid", "ratio": 21 },
+        "iconRatio": 21,
+        "panel": {
+          "left": 904,
+          "right": 1264,
+          "top": 8,
+          "bottom": 648,
+          "width": 360,
+          "height": 640,
+          "scrollWidth": 358,
+          "clientWidth": 358,
+          "scrollHeight": 1039,
+          "clientHeight": 638
+        },
+        "documentOverflow": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "browser": "chromium",
+    "steps": [
+      "Close",
+      "Decrease Font size",
+      "Increase Font size",
+      "Text alignment Off",
+      "Dark mode",
+      "Focus highlight",
+      "Reset all",
+      "Outside widget: no focus trap"
+    ]
+  },
+  {
+    "browser": "firefox",
+    "steps": [
+      "Close",
+      "Decrease Font size",
+      "Increase Font size",
+      "Text alignment Off",
+      "Dark mode",
+      "Focus highlight",
+      "Reset all",
+      "Outside widget: no focus trap"
+    ]
+  },
+  {
+    "browser": "webkit",
+    "steps": [
+      "Close",
+      "Decrease Font size",
+      "Increase Font size",
+      "Text alignment Off",
+      "Dark mode",
+      "Focus highlight",
+      "Reset all",
+      "Outside widget: no focus trap"
+    ]
+  }
+]

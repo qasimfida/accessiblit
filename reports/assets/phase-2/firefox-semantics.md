@@ -1,0 +1,53 @@
+# firefox semantic tree
+
+```yaml
+- main:
+    - heading "Accessibility panel test page" [level=1]
+    - paragraph: Host content stays available while the non-modal accessibility panel is open.
+    - link "Host link":
+        - /url: '#details'
+    - region "A page to personalize":
+        - heading "A page to personalize" [level=2]
+        - paragraph: The development-only catalogue exercises toggle, stepper and radio controls.
+        - button "Host action"
+- button "Top left"
+- button "Top right"
+- button "Bottom left"
+- button "Bottom right"
+- status: All options reset.
+- button "Open accessibility options" [expanded]
+- dialog "Accessibility options":
+    - heading "Accessibility options" [level=2]
+    - button "Close"
+    - paragraph: Choose settings for this page.
+    - region "Content":
+        - heading "Content" [level=3]
+        - heading "Font size" [level=4]
+        - paragraph: Change the size of page text.
+        - text: 100 percent
+        - group "Font size":
+            - button "Decrease Font size": Decrease
+            - button "Increase Font size": Increase
+        - heading "Text alignment" [level=4]
+        - paragraph: Align page text blocks.
+        - radiogroup "Text alignment":
+            - radio "Off" [checked]
+            - text: 'Off'
+            - radio "Left"
+            - text: Left
+            - radio "Center"
+            - text: Center
+            - radio "Right"
+            - text: Right
+    - region "Colour and contrast":
+        - heading "Colour and contrast" [level=3]
+        - heading "Dark mode" [level=4]
+        - paragraph: Use a dark page background.
+        - button "Dark mode"
+    - region "Navigation and orientation":
+        - heading "Navigation and orientation" [level=3]
+        - heading "Focus highlight" [level=4]
+        - paragraph: Emphasize the current keyboard focus.
+        - button "Focus highlight"
+    - button "Reset all"
+```
