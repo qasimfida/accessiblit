@@ -41,3 +41,15 @@ it('continues restoration when one host node rejects removal', () => {
   expect(good.hasAttribute('data-accessiblit-test')).toBe(false);
   expect(warn).toHaveBeenCalledTimes(1);
 });
+
+it('can own SVG attributes without pretending the node is HTML', () => {
+  const node = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  const marks = createMarks<Element>(
+    { onCleanup: () => {} },
+    'data-test-marker',
+  );
+  marks.set(node);
+  expect(node.hasAttribute('data-test-marker')).toBe(true);
+  marks.clear();
+  expect(node.hasAttribute('data-test-marker')).toBe(false);
+});

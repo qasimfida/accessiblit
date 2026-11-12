@@ -3,12 +3,15 @@ import type { FeatureApi } from '../core/types';
 
 let sequence = 0;
 /** Private values avoid matching pre-existing attributes; one owner restores their exact originals. */
-export function createMarks(api: Pick<FeatureApi, 'onCleanup'>, name: string) {
-  const originals = new Map<HTMLElement, string | null>();
+export function createMarks<T extends Element = HTMLElement>(
+  api: Pick<FeatureApi, 'onCleanup'>,
+  name: string,
+) {
+  const originals = new Map<T, string | null>();
   const token = `accessiblit-${++sequence}`;
   const report = createReporter();
   const value = (suffix = '') => `${token}${suffix ? `-${suffix}` : ''}`;
-  const remove = (element: HTMLElement) => {
+  const remove = (element: T) => {
     if (!originals.has(element)) return;
     const original = originals.get(element)!;
     try {
@@ -25,7 +28,7 @@ export function createMarks(api: Pick<FeatureApi, 'onCleanup'>, name: string) {
   api.onCleanup(clear);
   return {
     value,
-    set(element: HTMLElement, suffix = '') {
+    set(element: T, suffix = '') {
       if (!originals.has(element))
         originals.set(element, element.getAttribute(name));
       const next = value(suffix);
