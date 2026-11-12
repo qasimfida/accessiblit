@@ -1,0 +1,156 @@
+:root {
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: #172c3e;
+  background: #fff;
+  font:
+    16px/1.5 Georgia,
+    serif;
+}
+main {
+  max-inline-size: 56rem;
+  margin: 24px auto;
+  padding: 24px;
+}
+h1 {
+  font-size: 32px;
+  line-height: 1.2;
+}
+h2 {
+  font-size: 24px;
+}
+p {
+  margin-block: 0 1.25em;
+}
+a {
+  color: #1456a0;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 24px;
+  background: #eef4fa;
+}
+a,
+button,
+input,
+select {
+  min-block-size: 44px;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: #172c3e;
+  background: #fff;
+  border: 1px solid #61768a;
+  border-radius: 6px;
+  padding: 0.5em;
+  max-inline-size: 100%;
+}
+button {
+  cursor: pointer;
+}
+label {
+  display: grid;
+  gap: 0.25em;
+  margin-block-end: 1em;
+}
+input,
+select,
+textarea {
+  inline-size: 100%;
+}
+input[type='checkbox'] {
+  inline-size: 1.5em;
+  block-size: 1.5em;
+  min-block-size: 24px;
+  flex: none;
+}
+.choice {
+  display: flex;
+  align-items: start;
+  gap: 0.5em;
+}
+form {
+  max-inline-size: 30rem;
+}
+fieldset {
+  min-inline-size: 0;
+  border: 1px solid #61768a;
+  padding: 16px;
+}
+legend {
+  padding-inline: 8px;
+}
+textarea {
+  resize: vertical;
+}
+table {
+  border-collapse: collapse;
+  inline-size: 100%;
+}
+th,
+td {
+  border: 1px solid #61768a;
+  padding: 0.5em;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+.table-scroll {
+  overflow: auto;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.card {
+  flex: 1 1 14rem;
+  min-inline-size: 0;
+  border: 1px solid #61768a;
+  padding: 16px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+  gap: 16px;
+}
+.sticky {
+  position: sticky;
+  inset-block-start: 0;
+  padding: 12px;
+  background: #eef4fa;
+}
+:focus-visible {
+  outline: 3px solid #1456a0;
+  outline-offset: 3px;
+}
+@media (forced-colors: active) {
+  body {
+    background: Canvas;
+    color: CanvasText;
+  }
+  a {
+    color: LinkText;
+  }
+  nav,
+  .sticky {
+    background: Canvas;
+  }
+  button,
+  input,
+  select,
+  textarea {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+  }
+}
