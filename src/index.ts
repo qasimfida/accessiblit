@@ -1,71 +1,15 @@
-/** Stable identifiers let integrations select features without relying on labels. */
-export type FeatureId =
-  | 'fontSize'
-  | 'lineHeight'
-  | 'letterSpacing'
-  | 'wordSpacing'
-  | 'textAlign'
-  | 'contentScale'
-  | 'readableFont'
-  | 'darkMode'
-  | 'highContrast'
-  | 'monochrome'
-  | 'lowSaturation'
-  | 'readingGuide'
-  | 'readingMask'
-  | 'highlightLinks'
-  | 'highlightHeadings'
-  | 'bigCursor'
-  | 'stopAnimations'
-  | 'focusHighlight';
+import type { AccessiblitOptions, AccessiblitInstance } from './core/types';
 
-/** Keeps interface copy replaceable without coupling it to a translation service. */
-export interface Messages {
-  launcher: string;
-  panelTitle: string;
-  close: string;
-  reset: string;
-  contentGroup: string;
-  colourGroup: string;
-  navigationGroup: string;
-  featureLabels: Record<FeatureId, string>;
-  featureDescriptions: Record<FeatureId, string>;
-  changeAnnouncement: string;
-}
-
-/** Contains feature settings only; host or visitor identity is never included. */
-export interface ChangeEvent {
-  id: FeatureId;
-  value: unknown;
-  state: Record<FeatureId, unknown>;
-}
-
-/** Allows host configuration without requiring any runtime dependencies. */
-export interface AccessiblitOptions {
-  position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
-  features?: FeatureId[];
-  exclude?: FeatureId[];
-  storageKey?: string;
-  persist?: boolean;
-  shortcut?: string | false;
-  zIndex?: number;
-  offset?: { x: number; y: number };
-  nonce?: string;
-  messages?: Partial<Messages>;
-  dyslexiaFontUrl?: string;
-  onChange?: (e: ChangeEvent) => void;
-}
-
-/** An explicit lifecycle makes cleanup possible in framework integrations. */
-export interface AccessiblitInstance {
-  open(): void;
-  close(): void;
-  toggle(): void;
-  reset(): void;
-  getState(): Record<FeatureId, unknown>;
-  setFeature(id: FeatureId, value: unknown): void;
-  destroy(): void;
-}
+export type {
+  FeatureId,
+  Feature,
+  FeatureApi,
+  FeatureControl,
+  AccessiblitOptions,
+  AccessiblitInstance,
+  ChangeEvent,
+  Messages,
+} from './core/types';
 
 /** Phase 0 reserves the contract; browser behaviour arrives in later phases. */
 export function init(options?: AccessiblitOptions): AccessiblitInstance {
