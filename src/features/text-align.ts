@@ -4,8 +4,8 @@ import { ROOT_SELECTOR, TEXT_BLOCKS, contentElements } from './dom';
 import { createEffect } from './effect';
 import { createMarks } from './marks';
 import { observeContent } from './observe';
-const NAV = 'nav,[role="navigation"],[role="menu"],[role="menubar"]';
-const PROTECTED = `${NAV},input,select,textarea,button,iframe,img,video,canvas,svg,math,object,embed,[role="button"],[role="textbox"],[role="combobox"],[role="listbox"],[role="slider"],[role="switch"],[role="spinbutton"],[role="tablist"],[role="toolbar"]`;
+const NAV = 'nav,[role~="navigation"],[role~="menu"],[role~="menubar"]';
+const PROTECTED = `${NAV},input,select,textarea,button,iframe,img,video,canvas,svg,math,object,embed,[role~="button"],[role~="textbox"],[role~="combobox"],[role~="listbox"],[role~="slider"],[role~="switch"],[role~="spinbutton"],[role~="tablist"],[role~="toolbar"],[role~="checkbox"],[role~="radio"],[role~="radiogroup"],[role~="searchbox"],[role~="option"],[role~="menuitem"],[role~="menuitemcheckbox"],[role~="menuitemradio"],[role~="tree"],[role~="grid"]`;
 const BLOCK_DISPLAYS = new Set([
   'block',
   'flow-root',

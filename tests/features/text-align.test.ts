@@ -58,3 +58,24 @@ it('reclassifies a block when owner layout changes and releases detached markers
   await Promise.resolve();
   expect(p.hasAttribute('data-accessiblit-align')).toBe(false);
 });
+
+it('protects custom controls and navigation with fallback role tokens', () => {
+  for (const role of [
+    'checkbox',
+    'radio',
+    'searchbox',
+    'option',
+    'navigation',
+  ]) {
+    const wrapper = document.createElement('p');
+    const control = document.createElement('span');
+    control.setAttribute('role', 'unknown ' + role);
+    control.textContent = 'Owner control';
+    wrapper.append(control);
+    document.body.append(wrapper);
+  }
+  const engine = featureEngine(textAlign);
+  cleanups.push(engine.destroy);
+  engine.set('center');
+  expect(document.querySelector('[data-accessiblit-align]')).toBeNull();
+});
