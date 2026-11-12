@@ -16,7 +16,7 @@ export function paletteRules(kind: 'dark' | 'contrast'): string {
   return `${COLOUR_MEDIA}{
 ${root}{color-scheme:dark!important;background:${bg}!important;color:${ink}!important}
 ${root} ${COLOUR_CONTENT}{color:${ink}!important;background-color:${bg}!important;background-image:none!important;border-color:${ink}!important;outline-color:${ink}!important;text-decoration-color:currentColor!important;text-shadow:none!important;box-shadow:none!important;accent-color:${link}!important}
-${root} :where(a,a *){color:${link}!important;text-decoration-line:underline!important}
-${root} :where(input,textarea)::placeholder{color:${ink}!important;opacity:1!important}
+${root} ${COLOUR_CONTENT}:where(a,a *){color:${link}!important;text-decoration-line:underline!important}
+${root} ${COLOUR_CONTENT}:where(input,textarea)::placeholder{color:${ink}!important;opacity:1!important}
 }`;
 }

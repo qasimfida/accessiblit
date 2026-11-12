@@ -67,3 +67,33 @@ test('palettes preserve decoded media paint and adjustments make no requests', a
     JSON.stringify({ selectors, samples: before, requests }),
   );
 });
+
+test('preserves currentColor artwork inside links', async ({ page }) => {
+  await loadContent(page, 'colour-lab');
+  await page.evaluate(() => {
+    const a = document.createElement('a');
+    a.href = '#media';
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.id = 'linked-artwork';
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', 'Owner red square');
+    svg.style.color = 'rgb(208, 48, 32)';
+    const rect = document.createElementNS(svg.namespaceURI, 'rect');
+    rect.setAttribute('fill', 'currentColor');
+    rect.setAttribute('width', '40');
+    rect.setAttribute('height', '40');
+    svg.append(rect);
+    a.append(svg);
+    document.querySelector('main')!.append(a);
+  });
+  const before = await page
+    .locator('#linked-artwork')
+    .evaluate((e) => getComputedStyle(e).color);
+  for (const id of ['darkMode', 'highContrast'] as const) {
+    await page.evaluate(
+      (id) => window.contentInstance.setFeature(id, true),
+      id,
+    );
+    await expect(page.locator('#linked-artwork')).toHaveCSS('color', before);
+  }
+});
