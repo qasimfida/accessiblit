@@ -53,3 +53,42 @@ test('uses an owner-loaded face without requesting the configured URL', async ({
   ).toContain('AccessiblitDyslexia');
   expect(requests).toEqual([]);
 });
+
+test('does not load an unprepared owner variant', async ({ page }) => {
+  await loadContent(page, 'article');
+  await page.route('https://owner.invalid/**', (route) => route.abort());
+  const requests: string[] = [];
+  page.on('request', (request) => requests.push(request.url()));
+  const result = await page.evaluate(async () => {
+    const regular = new FontFace(
+      'AccessiblitDyslexia',
+      'local("Arial"), local("Liberation Sans"), local("DejaVu Sans")',
+      { weight: '400' },
+    );
+    await regular.load();
+    document.fonts.add(regular);
+    const bold = new FontFace(
+      'accessiblitdyslexia',
+      'url("https://owner.invalid/not-preloaded.woff2")',
+      { weight: '700' },
+    );
+    document.fonts.add(bold);
+    window.contentInstance = window.contentInit({
+      persist: false,
+      dyslexiaFontUrl: 'https://owner.invalid/not-preloaded.woff2',
+    });
+    window.contentInstance.setFeature('readableFont', 'dyslexia-friendly');
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => resolve()),
+    );
+    return {
+      family: getComputedStyle(document.querySelector('[data-content-probe]')!)
+        .fontFamily,
+      status: bold.status,
+    };
+  });
+  expect(result.family).not.toContain('AccessiblitDyslexia');
+  expect(result.family).toContain('ui-rounded');
+  expect(result.status).toBe('unloaded');
+  expect(requests).toEqual([]);
+});
