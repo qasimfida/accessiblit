@@ -1,15 +1,13 @@
 import { createReporter } from '../core/diagnostics';
 import type { Cleanup, FeatureApi } from '../core/types';
 
-function externalRoot(doc: Document): string {
+function rootState(doc: Document): string {
   const root = doc.documentElement;
-  const classes = [...root.classList].filter(
-    (name) => !name.startsWith('accessiblit-'),
-  );
+  const classes = [...root.classList].sort();
   const styles = Array.from({ length: root.style.length }, (_, index) =>
     root.style.item(index),
   )
-    .filter((name) => !name.startsWith('--accessiblit-'))
+    .sort()
     .map(
       (name) =>
         `${name}:${root.style.getPropertyValue(name)}!${root.style.getPropertyPriority(name)}`,
@@ -30,7 +28,7 @@ export function observeContent(
   if (!view) return () => {};
   const report = createReporter();
   let active = true,
-    signature = externalRoot(doc);
+    signature = rootState(doc);
   const releases: Cleanup[] = [];
   const safe = () => {
     if (active)
@@ -44,7 +42,7 @@ export function observeContent(
       }
   };
   const observer = new view.MutationObserver((records) => {
-    const next = externalRoot(doc),
+    const next = rootState(doc),
       changed = signature !== next;
     signature = next;
     const relevant = records.some((record) => {
@@ -58,7 +56,10 @@ export function observeContent(
         (node) => !owned(node),
       );
     });
-    if (changed || relevant) safe();
+    if (changed || relevant) {
+      safe();
+      signature = rootState(doc);
+    }
   });
   const stop = () => {
     if (!active) return;

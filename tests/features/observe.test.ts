@@ -29,9 +29,9 @@ it('ignores owned changes but refreshes external content, styles, resize and loa
   const refresh = vi.fn(() =>
     document.documentElement.classList.add('accessiblit-example'),
   );
-  const stop = setup(refresh);
   document.documentElement.classList.add('accessiblit-font-size');
   document.documentElement.style.setProperty('--accessiblit-example', '2');
+  const stop = setup(refresh);
   const host = document.createElement('div');
   host.setAttribute('data-accessiblit-host', '');
   document.body.append(host);
@@ -92,4 +92,20 @@ it('does not acquire resources for a document without a Window', () => {
   );
   stop();
   expect(listen).not.toHaveBeenCalled();
+});
+
+it('refreshes for another feature while ignoring temporary root-state round trips', async () => {
+  const root = document.documentElement;
+  root.classList.add('accessiblit-font-size');
+  const refresh = vi.fn(() => {
+    root.classList.remove('accessiblit-font-size');
+    root.classList.add('accessiblit-font-size');
+  });
+  setup(refresh);
+  root.style.setProperty('--accessiblit-content-scale', '2');
+  await tick();
+  expect(refresh).toHaveBeenCalledTimes(1);
+  root.style.setProperty('--accessiblit-content-scale', '2');
+  await tick();
+  expect(refresh).toHaveBeenCalledTimes(1);
 });
