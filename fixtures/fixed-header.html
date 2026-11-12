@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Fixed and sticky elements</title>
+    <link rel="stylesheet" href="/content.css" />
+    <style>
+      body {
+        padding-block-start: 128px;
+      }
+      #fixed-header {
+        position: fixed;
+        inset-block-start: 0;
+        inset-inline: 0;
+        z-index: 10;
+        background: #eef4fa;
+      }
+      #sticky-note {
+        inset-block-start: 112px;
+      }
+    </style>
+    <script type="module" src="/content.mjs"></script>
+  </head>
+  <body>
+    <header id="fixed-header">
+      <nav aria-label="Fixture navigation">
+        <a href="/article.html">Article</a><a href="/form.html">Form</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Content below a fixed header</h1>
+      <p id="fixed-copy" data-content-probe>
+        A fixed header should keep its viewport anchor while the layout grows.
+      </p>
+      <aside id="sticky-note" class="sticky">A sticky reading note</aside>
+      <section>
+        <h2>Further down the page</h2>
+        <p>
+          Scrolling leaves room for the header and the sticky note. The document
+          remains available from start to finish.
+        </p>
+        <p>
+          Scrolling leaves room for the header and the sticky note. The document
+          remains available from start to finish.
+        </p>
+        <p>
+          Scrolling leaves room for the header and the sticky note. The document
+          remains available from start to finish.
+        </p>
+        <p>
+          Scrolling leaves room for the header and the sticky note. The document
+          remains available from start to finish.
+        </p>
+        <p>
+          Scrolling leaves room for the header and the sticky note. The document
+          remains available from start to finish.
+        </p>
+        <p>
+          Scrolling leaves room for the header and the sticky note. The document
+          remains available from start to finish.
+        </p>
+        <p>
+          Scrolling leaves room for the header and the sticky note. The document
+          remains available from start to finish.
+        </p>
+        <p>
+          Scrolling leaves room for the header and the sticky note. The document
+          remains available from start to finish.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
