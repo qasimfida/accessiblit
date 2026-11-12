@@ -17,6 +17,19 @@ for (const fixture of [...CONTENT_FIXTURES, 'colour-lab'])
   for (const [mode, ids] of Object.entries(modes))
     test(`${mode} on ${fixture}`, async ({ page, browserName }) => {
       await loadContent(page, fixture);
+      if (fixture === 'colour-lab') {
+        await page
+          .locator('video')
+          .evaluate(async (video: HTMLVideoElement) => {
+            const frame = new Promise<void>((resolve) =>
+              video.requestVideoFrameCallback(() => resolve()),
+            );
+            await video.play();
+            await frame;
+            video.pause();
+          });
+        await page.waitForTimeout(150);
+      }
       const before = await page.evaluate(() => {
         window.contentInstance.destroy();
         return document.documentElement.outerHTML;
