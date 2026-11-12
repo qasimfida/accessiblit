@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Legacy pixel sizes</title>
+    <link rel="stylesheet" href="/content.css" />
+    <style>
+      body {
+        font-size: 14px;
+      }
+      #legacy-title {
+        font-size: 28px !important;
+      }
+      #legacy-copy {
+        font-size: 13px !important;
+      }
+      .legacy-large {
+        font-size: 20px;
+      }
+      .legacy-small {
+        font-size: 12px;
+      }
+    </style>
+    <script type="module" src="/content.mjs"></script>
+  </head>
+  <body>
+    <nav aria-label="Fixture navigation">
+      <a href="/article.html">Article</a><a href="/form.html">Form</a>
+    </nav>
+    <main>
+      <h1 id="legacy-title">A page with pixel fonts</h1>
+      <p id="legacy-copy" data-content-probe>
+        This paragraph uses an author rule with an important pixel size.
+        <span class="legacy-large">This phrase has a larger pixel size.</span>
+      </p>
+      <p style="font-size: 18px">
+        This paragraph has a normal inline pixel size.
+      </p>
+      <p class="legacy-small">
+        Small print can grow without changing the HTML style attribute.
+      </p>
+    </main>
+  </body>
+</html>
