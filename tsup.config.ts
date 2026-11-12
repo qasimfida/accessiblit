@@ -12,7 +12,7 @@ export default defineConfig({
   clean: true,
   outExtension({ format }) {
     return {
-      js: format === 'iife' ? '.global.js' : format === 'cjs' ? '.cjs' : '.js',
+      js: format === 'iife' ? '.global.js' : format === 'cjs' ? '.cjs' : '.mjs',
     };
   },
 });

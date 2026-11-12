@@ -22,14 +22,14 @@
     "README.md"
   ],
   "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "unpkg": "./dist/index.global.js",
   "exports": {
     ".": {
       "import": {
         "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "default": "./dist/index.mjs"
       },
       "require": {
         "types": "./dist/index.d.cts",
@@ -39,7 +39,7 @@
   },
   "sideEffects": false,
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && npm run check:ssr",
     "dev": "vite fixtures --host 127.0.0.1",
     "lint": "eslint . --max-warnings 0 && prettier . --check",
     "format": "prettier . --write",
@@ -49,7 +49,8 @@
     "size": "size-limit && node scripts/size-warning.mjs",
     "verify": "npm run lint && npm run typecheck && npm test && npm run build && npm run size",
     "clean": "node scripts/clean.mjs",
-    "check:package": "publint && attw --pack"
+    "check:package": "publint && attw --pack",
+    "check:ssr": "node examples/node-ssr-check/index.mjs"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
