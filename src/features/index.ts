@@ -1,3 +1,4 @@
+import { stopAnimations } from './stop-animations';
 import { bigCursor } from './big-cursor';
 import { highlightHeadings } from './highlight-headings';
 import { highlightLinks } from './highlight-links';
@@ -19,6 +20,7 @@ export function createContentFeatures(
   options: ResolvedOptions,
 ): readonly Feature[] {
   return [
+    stopAnimations,
     bigCursor,
     highlightLinks,
     highlightHeadings,
