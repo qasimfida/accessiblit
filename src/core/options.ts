@@ -31,6 +31,8 @@ function messages(): Messages {
     on: 'On',
     off: 'Off',
     emptyGroup: 'No options available in this group.',
+    forcedColoursNote:
+      'Your operating system controls colours. Colour adjustments are paused.',
     resetAnnouncement: 'All options reset.',
   };
 }

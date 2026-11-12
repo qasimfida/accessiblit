@@ -113,3 +113,27 @@ it('reports unavailable groups and isolates malformed control metadata', () => {
   expect(panel.element.querySelectorAll('[aria-pressed]')).toHaveLength(1);
   expect(console.warn).toHaveBeenCalledTimes(1);
 });
+
+it('includes a translatable operating-system colour explanation', () => {
+  const panel = createPanel(
+    document,
+    [],
+    {
+      ...resolveOptions().messages,
+      forcedColoursNote: 'System colours control this page.',
+    },
+    'note',
+    {
+      getState: createState,
+      setFeature: () => {},
+      close: () => {},
+      reset: () => {},
+    },
+  );
+  releases.push(panel.destroy);
+  expect(
+    panel.element.querySelector('.accessiblit-forced-colours-note')
+      ?.textContent,
+  ).toBe('System colours control this page.');
+  expect(panel.element.querySelectorAll('.accessiblit-empty')).toHaveLength(3);
+});

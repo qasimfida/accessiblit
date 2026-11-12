@@ -37,6 +37,8 @@ export interface Messages {
   on: string;
   off: string;
   emptyGroup: string;
+  /** Explains why persisted colour choices defer to operating-system colours. */
+  forcedColoursNote?: string;
   resetAnnouncement: string;
 }
 

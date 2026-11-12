@@ -53,7 +53,9 @@ export const UI_CSS = `
 @media (prefers-reduced-motion:reduce) {
   .accessiblit-surface, .accessiblit-surface * { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
 }
+.accessiblit-forced-colours-note { display:none; }
 @media (forced-colors:active) {
+  .accessiblit-forced-colours-note { display:block; }
   .accessiblit-surface { --ui-bg:Canvas; --ui-ink:CanvasText; --ui-muted:CanvasText; --ui-border:CanvasText; --ui-quiet:Canvas; --ui-accent:CanvasText; --ui-accent-ink:Canvas; --ui-focus:CanvasText; forced-color-adjust:auto; box-shadow:none; }
   .accessiblit-surface button, .accessiblit-launcher { background:Canvas; color:CanvasText; border-color:CanvasText; }
   .accessiblit-choice input { accent-color:auto; }

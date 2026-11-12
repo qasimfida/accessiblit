@@ -76,6 +76,12 @@ export function createPanel(
     heading.id = `${prefix}-${id}`;
     heading.textContent = messages[key];
     group.append(heading);
+    if (id === 'colour') {
+      const note = doc.createElement('p');
+      note.className = 'accessiblit-forced-colours-note';
+      note.textContent = messages.forcedColoursNote ?? '';
+      group.append(note);
+    }
     for (const feature of features.filter((feature) => feature.group === id)) {
       try {
         if (records.has(feature.id)) continue;
@@ -98,7 +104,7 @@ export function createPanel(
         );
       }
     }
-    if (group.children.length === 1) {
+    if (!features.some((feature) => feature.group === id)) {
       const empty = doc.createElement('p');
       empty.className = 'accessiblit-empty';
       empty.textContent = messages.emptyGroup;
