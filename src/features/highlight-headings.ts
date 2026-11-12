@@ -1,7 +1,7 @@
 import type { Feature } from '../core/types';
 import { cssEffect } from './effect';
 import { CONTENT_SELECTOR, ROOT_SELECTOR } from './dom';
-const HEADINGS = ':is(h1,h2,h3,h4,h5,h6,[role~="heading"])';
+const HEADINGS = ':where(h1,h2,h3,h4,h5,h6,[role~="heading"])';
 /** CSS-generated badges avoid adding labels or nodes to author headings. */
 export const highlightHeadings: Feature = {
   id: 'highlightHeadings',
