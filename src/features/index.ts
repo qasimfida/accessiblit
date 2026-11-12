@@ -1,3 +1,4 @@
+import { darkMode } from './dark-mode';
 import { createReadableFont } from './readable-font';
 import type { ResolvedOptions } from '../core/options';
 import { textAlign } from './text-align';
@@ -12,6 +13,7 @@ export function createContentFeatures(
   options: ResolvedOptions,
 ): readonly Feature[] {
   return [
+    darkMode,
     fontSize,
     lineHeight,
     letterSpacing,
