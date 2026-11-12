@@ -76,7 +76,7 @@ describe('runtime lifecycle', () => {
       attrs: attrs(),
     }).toEqual(before);
     // Assert owned handles, excluding platform jobs scheduled internally by jsdom.
-    expect(ownedTimers).toHaveLength(2);
+    expect(ownedTimers).toHaveLength(4);
     for (const timer of ownedTimers) expect(cancel).toHaveBeenCalledWith(timer);
     let ownedCount = 0;
     for (const [add, remove] of [
@@ -84,17 +84,30 @@ describe('runtime lifecycle', () => {
       [addWindow, removeWindow],
     ]) {
       for (const args of add!.mock.calls) {
-        if (!['storage', 'accessiblit-test-event'].includes(args[0])) continue;
+        if (
+          ![
+            'storage',
+            'accessiblit-test-event',
+            'keydown',
+            'focusin',
+            'focusout',
+            'scroll',
+            'resize',
+          ].includes(args[0])
+        )
+          continue;
         ownedCount++;
+        const capture =
+          typeof args[2] === 'boolean' ? args[2] : (args[2]?.capture ?? false);
         expect(
           remove!.mock.calls.filter(
             (call) =>
-              call[0] === args[0] && call[1] === args[1] && call[2] === false,
+              call[0] === args[0] && call[1] === args[1] && call[2] === capture,
           ),
         ).toHaveLength(1);
       }
     }
-    expect(ownedCount).toBe(2);
+    expect(ownedCount).toBe(7);
     const snapshot = a.getState();
     a.setFeature('fontSize', 150);
     a.reset();

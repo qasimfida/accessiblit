@@ -1,3 +1,6 @@
+import { createUI } from '../ui/controller';
+import { changeText } from '../ui/presentation';
+import type { PanelUI } from '../ui/controller';
 import { createAnnouncer } from './announcer';
 import { createReporter } from './diagnostics';
 import { createHost } from './host';
@@ -10,6 +13,7 @@ import { createStore } from './store';
 import { createStyles } from './styles';
 import type { AccessiblitInstance, AccessiblitOptions, Feature } from './types';
 
+let uiSequence = 0;
 const noop = () => {};
 function inert(): AccessiblitInstance {
   return {
@@ -44,11 +48,32 @@ export function createLifecycle(features: readonly Feature[] = []) {
       let store: ReturnType<typeof createStore> | undefined;
       let announcer: ReturnType<typeof createAnnouncer> | undefined;
       let pending: string | undefined;
+      let ui: PanelUI | undefined;
+      let pendingOpen = false;
+      const announce = (message: string) => {
+        if (!active) return;
+        if (announcer) announcer.announce(message);
+        else pending = message;
+      };
       const instance: AccessiblitInstance = {
-        // UI methods reserve the public contract; Phase 1 has no panel to open.
-        open: noop,
-        close: noop,
-        toggle: noop,
+        open() {
+          if (active) {
+            pendingOpen = true;
+            ui?.open();
+          }
+        },
+        close() {
+          if (active) {
+            pendingOpen = false;
+            ui?.close();
+          }
+        },
+        toggle() {
+          if (active) {
+            if (ui) ui.toggle();
+            else pendingOpen = !pendingOpen;
+          }
+        },
         getState: () => store?.getState() ?? createState(),
         setFeature(id, value) {
           if (!active) return;
@@ -62,7 +87,10 @@ export function createLifecycle(features: readonly Feature[] = []) {
           store?.setFeature(id, value);
         },
         reset() {
-          if (active) store?.reset();
+          if (active) {
+            store?.reset();
+            announce(options.messages.resetAnnouncement);
+          }
         },
         destroy() {
           if (!active) return;
@@ -70,6 +98,7 @@ export function createLifecycle(features: readonly Feature[] = []) {
           pending = undefined;
           scope.dispose();
           announcer = undefined;
+          ui = undefined;
           if (current === instance) current = undefined;
         },
       };
@@ -83,11 +112,7 @@ export function createLifecycle(features: readonly Feature[] = []) {
           options,
         );
         scope.add(store.destroy);
-        const registry = createRegistry(document, styles, (message) => {
-          if (!active) return;
-          if (announcer) announcer.announce(message);
-          else pending = message;
-        });
+        const registry = createRegistry(document, styles, announce);
         scope.add(registry.destroy);
         for (const feature of features) registry.register(feature);
         const state = store.getState();
@@ -96,18 +121,46 @@ export function createLifecycle(features: readonly Feature[] = []) {
         if (!active) return instance;
         scope.add(
           store.subscribe((change) => {
-            if (options.features.includes(change.id))
+            if (options.features.includes(change.id)) {
               registry.enable(change.id, change.value);
+              const feature = registry
+                .list()
+                .find((feature) => feature.id === change.id);
+              if (feature)
+                announce(changeText(feature, change.value, options.messages));
+            }
+            ui?.update(store!.getState());
           }),
         );
         scope.add(
           createHost(document, (root) => {
             announcer = createAnnouncer(root, options.nonce);
-            if (pending !== undefined) {
-              announcer.announce(pending);
-              pending = undefined;
+            try {
+              ui = createUI(
+                root,
+                registry
+                  .list()
+                  .filter((feature) => options.features.includes(feature.id)),
+                options,
+                instance,
+                `accessiblit-${++uiSequence}`,
+              );
+              if (pendingOpen) ui.open();
+              if (pending !== undefined) {
+                announcer.announce(pending);
+                pending = undefined;
+              }
+            } catch (error) {
+              announcer.destroy();
+              announcer = undefined;
+              throw error;
             }
-            return announcer.destroy;
+            return () => {
+              ui?.destroy();
+              ui = undefined;
+              announcer?.destroy();
+              announcer = undefined;
+            };
           }),
         );
       } catch {

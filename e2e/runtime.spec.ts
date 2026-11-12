@@ -75,7 +75,7 @@ for (const fallback of [false, true]) {
     if (fallback) {
       expect(style.nonce).toBe('test-owner');
       expect(style.constructed).toBe(0);
-    } else expect(style.constructed).toBe(1);
+    } else expect(style.constructed).toBe(2);
     // Measure library CSP effects before axe injects its own audit probes.
     await page.evaluate(
       () =>
