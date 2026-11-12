@@ -1,3 +1,4 @@
+import { createLifecycle } from './core/lifecycle';
 import type { AccessiblitOptions, AccessiblitInstance } from './core/types';
 
 export type {
@@ -11,43 +12,14 @@ export type {
   Messages,
 } from './core/types';
 
-/** Phase 0 reserves the contract; browser behaviour arrives in later phases. */
+const lifecycle = createLifecycle();
+
+/** Replaces an earlier instance so repeated framework mounts cannot leak resources. */
 export function init(options?: AccessiblitOptions): AccessiblitInstance {
-  void options;
-  if (typeof window === 'undefined' || typeof document === 'undefined') {
-    return {
-      open: destroy,
-      close: destroy,
-      toggle: destroy,
-      reset: destroy,
-      getState: () => ({
-        fontSize: undefined,
-        lineHeight: undefined,
-        letterSpacing: undefined,
-        wordSpacing: undefined,
-        textAlign: undefined,
-        contentScale: undefined,
-        readableFont: undefined,
-        darkMode: undefined,
-        highContrast: undefined,
-        monochrome: undefined,
-        lowSaturation: undefined,
-        readingGuide: undefined,
-        readingMask: undefined,
-        highlightLinks: undefined,
-        highlightHeadings: undefined,
-        bigCursor: undefined,
-        stopAnimations: undefined,
-        focusHighlight: undefined,
-      }),
-      setFeature: destroy,
-      destroy,
-    };
-  }
-  throw new Error('not implemented');
+  return lifecycle.init(options);
 }
 
-/** Safe before initialization so host teardown does not depend on mount order. */
+/** Safe before initialization and after teardown, including without a DOM. */
 export function destroy(): void {
-  // Phase 0 creates no resources to release.
+  lifecycle.destroy();
 }
