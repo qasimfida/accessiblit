@@ -97,3 +97,35 @@ test('preserves currentColor artwork inside links', async ({ page }) => {
     await expect(page.locator('#linked-artwork')).toHaveCSS('color', before);
   }
 });
+
+test('preserves fixed positioning inside object fallback', async ({ page }) => {
+  await loadContent(page, 'colour-lab');
+  await page.evaluate(() => {
+    const object = document.createElement('object');
+    object.id = 'fallback-media';
+    object.style.cssText =
+      'display:block;width:200px;height:90px;margin-top:20px';
+    const fixed = document.createElement('aside');
+    fixed.id = 'fallback-fixed';
+    fixed.textContent = 'Fallback fixed';
+    fixed.style.cssText = 'position:fixed;top:140px;left:20px';
+    object.append(fixed);
+    document.querySelector('main')!.append(object);
+  });
+  await expect(page.locator('#fallback-fixed')).toBeVisible();
+  const before = await page
+    .locator('#fallback-fixed')
+    .evaluate((e) => e.getBoundingClientRect().toJSON());
+  for (const id of ['monochrome', 'lowSaturation'] as const) {
+    await page.evaluate((id) => {
+      window.contentInstance.reset();
+      window.contentInstance.setFeature(id, true);
+    }, id);
+    await expect(page.locator('#fallback-media')).toHaveCSS('filter', 'none');
+    expect(
+      await page
+        .locator('#fallback-fixed')
+        .evaluate((e) => e.getBoundingClientRect().toJSON()),
+    ).toEqual(before);
+  }
+});

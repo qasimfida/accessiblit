@@ -96,3 +96,26 @@ it('does not re-emit a URL-bearing owner filter', () => {
   registry.destroy();
   styles.destroy();
 });
+
+it('does not filter layout fallback while supporting video source metadata', () => {
+  const object = document.createElement('object');
+  object.append(document.createElement('aside'));
+  const video = document.createElement('video');
+  video.append(document.createElement('source'));
+  document.body.append(object, video);
+  const styles = createStyles(document),
+    registry = createRegistry(document, styles, () => {});
+  registry.register({
+    id: 'monochrome',
+    group: 'colour',
+    label: 'Mono',
+    description: 'Mono',
+    control: { type: 'toggle' },
+    apply: (_value, api) => applySaturation(api, 'monochrome'),
+  });
+  registry.enable('monochrome', true);
+  expect(object.hasAttribute('data-accessiblit-monochrome-paint')).toBe(false);
+  expect(video.hasAttribute('data-accessiblit-monochrome-paint')).toBe(true);
+  registry.destroy();
+  styles.destroy();
+});

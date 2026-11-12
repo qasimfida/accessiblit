@@ -74,6 +74,15 @@ export function applySaturation(
           node.parentElement?.closest('svg,math,object,video,canvas')
         )
           continue;
+        // Replaced media with HTML fallback can establish a containing block for its descendants.
+        if (
+          [...node.querySelectorAll('*')].some(
+            (child) =>
+              child.namespaceURI === 'http://www.w3.org/1999/xhtml' &&
+              !['SOURCE', 'TRACK', 'PARAM'].includes(child.tagName),
+          )
+        )
+          continue;
         const filter = view.getComputedStyle(node).filter;
         // Re-emitting a URL-bearing filter could revalidate a resource. Leave that owner media alone.
         if (/url\s*\(/i.test(filter)) continue;
