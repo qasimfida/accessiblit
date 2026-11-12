@@ -1,0 +1,152 @@
+import { createReporter } from './diagnostics';
+import { FEATURE_IDS, isFeatureId, isRecord } from './schema';
+import type { AccessiblitOptions, Messages } from './types';
+
+/** Concrete defaults remove optional-value branches from the runtime. */
+export type ResolvedOptions = Required<
+  Omit<AccessiblitOptions, 'nonce' | 'dyslexiaFontUrl' | 'onChange'>
+> &
+  Pick<AccessiblitOptions, 'nonce' | 'dyslexiaFontUrl' | 'onChange'>;
+
+function messages(): Messages {
+  const labels = Object.fromEntries(
+    FEATURE_IDS.map((id) => [
+      id,
+      id.charAt(0).toUpperCase() +
+        id.slice(1).replace(/[A-Z]/g, (c) => ` ${c.toLowerCase()}`),
+    ]),
+  ) as Messages['featureLabels'];
+  return {
+    launcher: 'Accessibility settings',
+    panelTitle: 'Accessibility settings',
+    close: 'Close',
+    reset: 'Reset settings',
+    contentGroup: 'Content',
+    colourGroup: 'Colour',
+    navigationGroup: 'Navigation',
+    featureLabels: labels,
+    featureDescriptions: Object.fromEntries(
+      FEATURE_IDS.map((id) => [id, `Adjust ${labels[id].toLowerCase()}.`]),
+    ) as Messages['featureDescriptions'],
+    changeAnnouncement: 'Settings updated',
+  };
+}
+const shortText = (value: unknown): value is string =>
+  typeof value === 'string' && value.trim().length > 0 && value.length <= 256;
+const finite = (value: unknown): value is number =>
+  typeof value === 'number' && Number.isFinite(value);
+const ids = (value: unknown) =>
+  Array.isArray(value) && value.every(isFeatureId);
+const validators: Record<string, (value: unknown) => boolean> = {
+  position: (value) =>
+    ['bottom-right', 'bottom-left', 'top-right', 'top-left'].includes(
+      value as string,
+    ),
+  features: ids,
+  exclude: ids,
+  storageKey: shortText,
+  persist: (value) => typeof value === 'boolean',
+  shortcut: (value) =>
+    value === false ||
+    (typeof value === 'string' &&
+      /^(?:(?:Alt|Control|Meta|Shift)\+)*(?:Alt|Control|Meta)\+[A-Za-z0-9]$/.test(
+        value,
+      )),
+  zIndex: (value) =>
+    finite(value) &&
+    Number.isInteger(value) &&
+    value >= 0 &&
+    value <= 2147483647,
+  offset: (value) =>
+    isRecord(value) &&
+    finite(value.x) &&
+    finite(value.y) &&
+    value.x >= 0 &&
+    value.y >= 0 &&
+    value.x <= 10000 &&
+    value.y <= 10000,
+  nonce: shortText,
+  dyslexiaFontUrl: (value) => {
+    if (!shortText(value)) return false;
+    // Reserving this option never causes a request; only safe owner-supplied URLs are accepted.
+    return (
+      /^(?:https?:\/\/|\/(?!\/)|\.\.?\/)/i.test(value) &&
+      !/[\s"'<>]/.test(value)
+    );
+  },
+  onChange: (value) => typeof value === 'function',
+};
+
+/** Invalid JavaScript inputs fall back with clear warnings instead of host errors. */
+export function resolveOptions(input: unknown = {}): ResolvedOptions {
+  const warn = createReporter();
+  const defaults: ResolvedOptions = {
+    position: 'bottom-right',
+    features: [...FEATURE_IDS],
+    exclude: [],
+    storageKey: 'accessiblit:v1',
+    persist: true,
+    shortcut: 'Alt+A',
+    zIndex: 2147483000,
+    offset: { x: 16, y: 16 },
+    messages: messages(),
+  };
+  try {
+    if (!isRecord(input)) {
+      warn('options', 'Options must be a plain object; using defaults.');
+      return defaults;
+    }
+    const resolved = { ...defaults } as ResolvedOptions &
+      Record<string, unknown>;
+    for (const key of Object.keys(input)) {
+      const value = input[key];
+      if (value === undefined) continue;
+      if (key === 'messages') {
+        if (!isRecord(value)) {
+          warn(key, 'Invalid messages option; using English defaults.');
+          continue;
+        }
+        const copy = messages();
+        for (const name of Object.keys(value)) {
+          if (!Object.prototype.hasOwnProperty.call(copy, name)) {
+            warn(`messages.${name}`, 'Unknown message key ignored.');
+            continue;
+          }
+          const text = value[name];
+          if (name === 'featureLabels' || name === 'featureDescriptions') {
+            if (!isRecord(text)) {
+              warn(name, 'Invalid feature messages; using English defaults.');
+              continue;
+            }
+            for (const id of Object.keys(text)) {
+              if (isFeatureId(id) && shortText(text[id]))
+                copy[name][id] = text[id];
+              else
+                warn(
+                  `messages.${name}.${id}`,
+                  'Invalid feature message ignored.',
+                );
+            }
+          } else if (shortText(text)) {
+            Reflect.set(copy, name, text);
+          } else warn(name, 'Invalid message text; using English default.');
+        }
+        resolved.messages = copy;
+      } else if (
+        Object.prototype.hasOwnProperty.call(validators, key) &&
+        validators[key]!(value)
+      ) {
+        resolved[key] = value;
+      } else warn(key, `Invalid or unknown option "${key}"; using default.`);
+    }
+    resolved.features = [...new Set(resolved.features)].filter(
+      (id) => !resolved.exclude.includes(id),
+    );
+    resolved.exclude = [...new Set(resolved.exclude)];
+    resolved.offset = { ...resolved.offset };
+    return resolved;
+  } catch {
+    warn('options', 'Options could not be read safely; using defaults.');
+    return defaults;
+  }
+}
