@@ -18,6 +18,12 @@ it('uses one nonce-capable fallback style, updates it and removes it', () => {
   expect(elements).toHaveLength(1);
   expect(elements[0]?.getAttribute('nonce')).toBe('test-nonce');
   expect(elements[0]?.textContent).toContain('blue');
+  sheet.clear();
+  expect(document.querySelector('[data-accessiblit-style]')).toBeNull();
+  sheet.set('html {color: green}');
+  expect(document.querySelector('style')?.getAttribute('nonce')).toBe(
+    'test-nonce',
+  );
   sheet.destroy();
   sheet.destroy();
   sheet.set('ignored');
@@ -66,6 +72,10 @@ it('adopts once and preserves sheets added by the host', () => {
   expect(owned.replaceSync).toHaveBeenLastCalledWith('b{}');
   const later = {} as CSSStyleSheet;
   document.adoptedStyleSheets.push(later);
+  sheet.clear();
+  expect(document.adoptedStyleSheets).toEqual([foreign, later]);
+  sheet.set('c{}');
+  expect(document.adoptedStyleSheets).toHaveLength(3);
   sheet.destroy();
   expect(document.adoptedStyleSheets).toEqual([foreign, later]);
 });

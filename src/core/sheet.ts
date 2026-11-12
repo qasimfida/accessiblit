@@ -20,7 +20,14 @@ export function createSheet(target: Document | ShadowRoot, nonce?: string) {
     }
     sheet = undefined;
   };
+  const clear = () => {
+    detach();
+    element?.remove();
+    element = undefined;
+    attempted = false;
+  };
   return {
+    clear,
     set(css: string): void {
       if (!active) return;
       if (!attempted) {
@@ -74,9 +81,7 @@ export function createSheet(target: Document | ShadowRoot, nonce?: string) {
     },
     destroy(): void {
       active = false;
-      detach();
-      element?.remove();
-      element = undefined;
+      clear();
     },
   };
 }
