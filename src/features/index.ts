@@ -1,3 +1,4 @@
+import { monochrome } from './monochrome';
 import { highContrast } from './high-contrast';
 import { darkMode } from './dark-mode';
 import { createReadableFont } from './readable-font';
@@ -16,6 +17,7 @@ export function createContentFeatures(
   return [
     darkMode,
     highContrast,
+    monochrome,
     fontSize,
     lineHeight,
     letterSpacing,
