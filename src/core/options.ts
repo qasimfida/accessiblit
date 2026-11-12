@@ -46,12 +46,21 @@ const validators: Record<string, (value: unknown) => boolean> = {
   exclude: ids,
   storageKey: shortText,
   persist: (value) => typeof value === 'boolean',
-  shortcut: (value) =>
-    value === false ||
-    (typeof value === 'string' &&
-      /^(?:(?:Alt|Control|Meta|Shift)\+)*(?:Alt|Control|Meta)\+[A-Za-z0-9]$/.test(
-        value,
-      )),
+  shortcut: (value) => {
+    if (value === false) return true;
+    if (typeof value !== 'string') return false;
+    const parts = value.split('+');
+    const key = parts.pop()!;
+    return (
+      /^[A-Za-z0-9]$/.test(key) &&
+      parts.length > 0 &&
+      parts.every((part) =>
+        ['Alt', 'Control', 'Meta', 'Shift'].includes(part),
+      ) &&
+      parts.some((part) => part !== 'Shift') &&
+      new Set(parts).size === parts.length
+    );
+  },
   zIndex: (value) =>
     finite(value) &&
     Number.isInteger(value) &&

@@ -142,3 +142,26 @@ describe('options', () => {
     report('once', 'Failure');
   });
 });
+
+it('accepts shortcut modifiers in any order and rejects ambiguous typing shortcuts', () => {
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
+  for (const shortcut of [
+    'Control+Shift+A',
+    'Shift+Alt+A',
+    'Alt+Shift+A',
+    'Meta+Control+X',
+  ]) {
+    expect(resolveOptions({ shortcut }).shortcut).toBe(shortcut);
+  }
+  for (const shortcut of [
+    5,
+    'A',
+    'Shift+A',
+    'Alt+Alt+A',
+    'Control+',
+    'Control+A+B',
+    '+A',
+  ]) {
+    expect(resolveOptions({ shortcut }).shortcut).toBe('Alt+A');
+  }
+});
