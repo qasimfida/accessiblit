@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+.env*
+package-lock.json
+# Human-maintained session instructions
+AGENTS.md
