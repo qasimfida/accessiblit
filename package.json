@@ -1,0 +1,79 @@
+{
+  "name": "@qasimfida/accessiblit",
+  "version": "0.0.0",
+  "description": "A dependency-free accessibility personalisation widget.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Qasim Fida <qasimfida0054@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qasimfida/accessiblit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qasimfida/accessiblit/issues"
+  },
+  "homepage": "https://qasimfida.github.io/accessiblit/",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/index.global.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "vite fixtures --host 127.0.0.1",
+    "lint": "eslint . --max-warnings 0 && prettier . --check",
+    "format": "prettier . --write",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "size": "size-limit && node scripts/size-warning.mjs",
+    "verify": "npm run lint && npm run typecheck && npm test && npm run build && npm run size",
+    "clean": "node scripts/clean.mjs",
+    "check:package": "publint && attw --pack"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "@axe-core/playwright": "4.13.0",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.65.0",
+    "@size-limit/file": "12.1.0",
+    "@types/node": "20.19.43",
+    "@vitest/coverage-v8": "4.1.12",
+    "eslint": "10.14.0",
+    "jsdom": "29.1.1",
+    "prettier": "3.10.1",
+    "publint": "0.3.25",
+    "size-limit": "12.1.0",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.72.2",
+    "vite": "8.3.8",
+    "vitest": "4.1.12"
+  },
+  "overrides": {
+    "minimatch": "11.0.8",
+    "tsup": {
+      "esbuild": "0.28.2"
+    }
+  }
+}
