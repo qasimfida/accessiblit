@@ -28,7 +28,12 @@ test('walks each colour control with keyboard and records semantics', async ({
       };
     });
     if (!focused) break;
-    if (focused.pressed === 'false') {
+    if (
+      focused.pressed === 'false' &&
+      ['Dark mode', 'High contrast', 'Monochrome', 'Low saturation'].includes(
+        focused.name ?? '',
+      )
+    ) {
       await page.keyboard.press('Space');
       toggled.push(focused.name!);
     }
