@@ -4,6 +4,21 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { FEATURE_IDS, DEFAULT_STATE } from '../src/core/schema';
 import { loadQA, QA_PROFILES } from './helpers/qa';
+// Keep semantic walkers and axe on independent pages; compare the actual control projections.
+function controlSnapshot() {
+  const root = document.querySelector('[data-accessiblit-host]')!.shadowRoot!;
+  return {
+    features: [...root.querySelectorAll('.accessiblit-feature')].map(
+      (element) => element.textContent,
+    ),
+    controls: [...root.querySelectorAll('button,input')].map((element) => ({
+      name: element.getAttribute('aria-label') ?? element.textContent,
+      pressed: element.getAttribute('aria-pressed'),
+      disabled: element.getAttribute('aria-disabled'),
+      checked: element instanceof HTMLInputElement ? element.checked : null,
+    })),
+  };
+}
 for (const profile of QA_PROFILES)
   test(`keyboard changes all eighteen features in ${profile}`, async ({
     page,
@@ -20,6 +35,10 @@ for (const profile of QA_PROFILES)
     await expect(
       dialog.getByRole('button', { name: 'Close', exact: true }),
     ).toBeFocused();
+    const snapshots: {
+      state: Record<(typeof FEATURE_IDS)[number], unknown>;
+      controls: ReturnType<typeof controlSnapshot>;
+    }[] = [];
     const changed = new Set<string>(),
       path: string[] = ['Close'];
     for (let step = 0; step < 45; step++) {
@@ -33,6 +52,7 @@ for (const profile of QA_PROFILES)
         const label = e.closest('.accessiblit-feature')?.querySelector('h4');
         return {
           id: ids.find((id) => label?.id.endsWith(`-${id}-label`)),
+          label: label?.textContent ?? '',
           radio: e.matches('input[type=radio]'),
           disabled: e.getAttribute('aria-disabled') === 'true',
           name: e.getAttribute('aria-label') ?? e.textContent,
@@ -53,15 +73,11 @@ for (const profile of QA_PROFILES)
           )
           .toBe(true);
         changed.add(id);
-        await expect(page.getByRole('status')).not.toHaveText('');
-        expect(
-          (
-            await new AxeBuilder({ page })
-              .include('[data-accessiblit-host]')
-              .analyze()
-          ).violations,
-        ).toEqual([]);
-        await page.bringToFront();
+        await expect(page.getByRole('status')).toContainText(active!.label);
+        snapshots.push({
+          state: await page.evaluate(() => window.qaInstance.getState()),
+          controls: await page.evaluate(controlSnapshot),
+        });
         const box = await page.evaluate(() => {
           const r = document.querySelector(
               '[data-accessiblit-host]',
@@ -123,10 +139,45 @@ for (const profile of QA_PROFILES)
     }
     expect(outside).toBe(true);
     expect(errors).toEqual([]);
+    const auditPage = await page.context().newPage();
+    try {
+      const auditErrors = await loadQA(auditPage, 'plain', profile);
+      await auditPage.evaluate(() => window.qaInstance.open());
+      for (const snapshot of snapshots) {
+        await auditPage.evaluate((state) => {
+          for (const [id, value] of Object.entries(state))
+            window.qaInstance.setFeature(id as keyof typeof state, value);
+        }, snapshot.state);
+        expect(
+          await auditPage.evaluate(() => window.qaInstance.getState()),
+        ).toEqual(snapshot.state);
+        expect(await auditPage.evaluate(controlSnapshot)).toEqual(
+          snapshot.controls,
+        );
+        expect(
+          (
+            await new AxeBuilder({ page: auditPage })
+              .include('[data-accessiblit-host]')
+              .options({ iframes: false })
+              .analyze()
+          ).violations,
+        ).toEqual([]);
+      }
+      expect(auditErrors).toEqual([]);
+    } finally {
+      await auditPage.close();
+    }
+
     console.log(
       'QA_KEYBOARD',
       info.project.name,
       profile,
-      JSON.stringify({ changed: [...changed], path, outside }),
+      JSON.stringify({
+        changed: [...changed],
+        path,
+        outside,
+        auditedConfigurations: snapshots.length,
+        auditPage: 'independent',
+      }),
     );
   });
