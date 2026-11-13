@@ -19,21 +19,8 @@ import { letterSpacing } from './letter-spacing';
 import { wordSpacing } from './word-spacing';
 import type { Feature } from '../core/types';
 /** Fresh catalogues keep owner configuration local to an init and out of module-level browser state. */
-export function createContentFeatures(
-  options: ResolvedOptions,
-): readonly Feature[] {
+export function createFeatures(options: ResolvedOptions): readonly Feature[] {
   return [
-    focusHighlight,
-    readingGuide,
-    readingMask,
-    stopAnimations,
-    bigCursor,
-    highlightLinks,
-    highlightHeadings,
-    darkMode,
-    highContrast,
-    monochrome,
-    lowSaturation,
     fontSize,
     lineHeight,
     letterSpacing,
@@ -41,5 +28,16 @@ export function createContentFeatures(
     textAlign,
     contentScale,
     createReadableFont(options.dyslexiaFontUrl),
+    darkMode,
+    highContrast,
+    monochrome,
+    lowSaturation,
+    readingGuide,
+    readingMask,
+    highlightLinks,
+    highlightHeadings,
+    bigCursor,
+    stopAnimations,
+    focusHighlight,
   ];
 }
