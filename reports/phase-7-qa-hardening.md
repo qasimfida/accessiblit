@@ -2,130 +2,94 @@
 
 Status: BLOCKED
 
-Date: 2026-11-13. Range: `phase-6-complete` (`a47a551`) to local main. No phase-7 completion tag or push.
+Date: 2026-11-13. Checkpoint range: `phase-6-complete` (`a47a551`) to `8239037`. Work is active; complete CI evidence, the final audit artifacts and `phase-7-complete` are pending.
 
 ## Summary
 
-Phase 7 stopped under AGENTS.md section 11: “If an acceptance criterion still fails after three honest attempts, stop and report the blocker. Do not paper over it.” The strict nonce-fallback audit still produces CSP console errors on Chromium and Pixel emulation after three approaches. The pre-audit widget checks and axe violation assertions pass, but the required error-free tested state does not.
+The original CSP audit blocker was resolved after the human resumed work. Subsequent runs exposed lockfile, audit-harness, performance, focus and mobile RTL defects. Each finding has a separate guarded fix. The latest local verification and focused regressions pass. This checkpoint does **not** claim that the full post-fix CI matrix has passed.
 
-Preflight: AGENTS.md was read completely. Main was clean, git pull --ff-only returned already up to date, and phase-6-complete resolved to a47a551682109f4bcc016a62fd0ac4b353b59533. Constants contain no placeholders. Observed tools: Node 24.13.0, npm 11.6.2, git 2.50.1. Work remains on main in granular local commits.
+Preflight: AGENTS.md was read completely; main was clean; git pull --ff-only returned already up to date; phase-6-complete exists at a47a551682109f4bcc016a62fd0ac4b353b59533. No project constant contains YOUR_. Tools observed: Node 24.13.0, npm 11.6.2, git 2.50.1; an isolated clean installation also used Node 20.20.2/npm 10.8.2. Hardware: Apple M3 Pro, 18 GiB RAM.
 
-The remote main remains at Phase 6. Known-failing QA guards are preserved locally for diagnosis; they have not been pushed into remote main. There is no claim that the phase or CI acceptance criteria pass.
+The historical stopped report is preserved in commit 6500902, and [blocked-evidence.json](assets/phase-7/blocked-evidence.json) intentionally remains historical. No completion tag has been created.
 
 ## What changed (files and why)
 
-- playwright.config.ts adds iPhone 13/WebKit and Pixel 7/Chromium emulation for qa-prefixed suites, retaining three desktop engines. Automatic retries are zero everywhere, including CI.
-- fixtures/qa provides plain, shadow-component, same-origin and opaque iframe, strict CSP, 5,500-paragraph, high-z-index CSS dialog and CSS-reset hosts. Shared boot code uses the built ESM entry and opt-in in-memory change records; persistence is disabled.
-- e2e/helpers/qa.ts delivers raw fixture HTML, avoiding development websocket injection under strict CSP. Five profiles cover standard, forced colours, reduced motion, dark scheme and RTL. Widget audits retain all axe rules; iframe traversal is excluded because the widget scope contains no iframe, and host-frame content is outside the claimed audit scope.
-- qa-boundaries.spec.ts proves unchanged frame font size under parent font adjustment and observes the sandbox's opaque origin from inside the frame through privileged test automation. It avoids a denied parent-side document probe that WebKit logs as an error.
-- qa-csp.spec.ts preserves the failing nonce-fallback case. It checks actual page font styling and zero errors before auditing, then checks axe, geometry and zero errors after auditing. No CSP errors are filtered.
-- qa-hosts.spec.ts defines 200 all-eighteen-at-maximum host/profile/project cases. Only a partial matrix has completed; see exact counts below.
-- reports/assets/phase-7/blocked-evidence.json preserves successful geometry measurements and the failing diagnostics.
-
-No library runtime source, dependencies, lockfile, public API or package delivery metadata changed.
+- playwright.config.ts adds iPhone 13/WebKit and Pixel 7/Chromium emulation for qa-prefixed suites. All automatic retries are zero.
+- fixtures/qa adds eight host variants: plain HTML, an independent shadow component, same-origin/opaque frames, strict CSP with constructed sheets and nonce fallback, 5,500 paragraphs, a high-z-index CSS modal and aggressive resets.
+- e2e/helpers and qa-prefixed suites cover five media/direction profiles, every single maximum, 32 binary pairwise rows, all eighteen maxima, keyboard operation, 200 lifecycle loops, listener ownership and post-GC memory evidence. Pairwise coverage is checked for all 153 feature pairs and four default/maximum assignments.
+- src/ui/controller.ts coalesces root/body geometry work, caches author zoom, cancels owned frames, tolerates temporary body removal and handles internal shadow focus on the shadow root. src/ui/viewport.ts caches the correct fixed inline viewport basis when mobile overflow expands innerWidth.
+- tests/ui guards the discovered geometry and focus cases. The exhaustive flash test avoids temporary allocations while retaining all 16,777,216 colours and the original limits.
+- package-lock.json restores two already-required optional dev-only WASI dependency records; no direct dependency or version changes.
+- CI separates browser projects across Node 20/22. Permissions remain contents: read, checkout does not persist credentials, and actionlint accepts the workflow.
+- [The conformance matrix](../docs/ACCESSIBILITY.md), [human screen-reader script](../docs/manual-screen-reader-test.md) and [CSP guide](../docs/guides/csp.md) distinguish automated evidence from remaining human work. Final matrix verdicts are pending completion of verification.
 
 ## Verification (commands run, real results)
 
-| Command / run                              | Result                                                                                                                                        |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| npm run verify                             | PASS: lint, format, strict typecheck, 169 unit tests, build, Node SSR check, size, publint and attw                                           |
-| Coverage                                   | Global 95.93% lines / 90.08% branches; core 98.63% lines / 97.96% branches                                                                    |
-| First Chromium qa-hosts run                | 30 passed, 10 failed in 55.1 seconds; failures were iframe fixture resources and nonce-fallback audit diagnostics                             |
-| Final qa-boundaries run, all five projects | 5 passed, 0 failed in 12.2 seconds                                                                                                            |
-| Partial qa-hosts matrix                    | 99 passed, 5 failed, 1 interrupted, 95 did not run in 2.7 minutes; intentionally stopped after the known CSP issue repeated                   |
-| Final qa-csp run, all five projects        | 8 passed, 2 failed in 18.2 seconds; failures are Chromium and Pixel nonce-fallback cases                                                      |
-| CSP pre-audit checks                       | All ten cases apply font size 200% as computed 32px and have no recorded console/page errors before audit                                     |
-| CSP widget axe/geometry checks             | Closed/open axe assertions report zero violations in all ten cases (20 scans); geometry assertions also pass before the final error assertion |
-| npm audit, npm audit --omit=dev            | Zero vulnerabilities in each                                                                                                                  |
-| Test collection                            | 908 scheduled cases in 41 files, not a claim that they were all executed                                                                      |
+| Command / run                                  | Result                                                                                                        |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Latest npm run verify                          | PASS: lint, format, typecheck, 178 tests in 57 files, build, plain-Node SSR imports, size, publint and attw   |
+| Coverage                                       | Global 96.12% lines / 90.60% branches; core 98.63% lines / 97.96% branches                                    |
+| IIFE                                           | 19,568 bytes gzip; limit remains 35,000, warning remains 30,000                                               |
+| Full local discovery matrix on f9c96b0 runtime | 1,169 passed, 15 failed, 9 skipped in 17.4 minutes; failures identified R-9, R-10 and R-11 below              |
+| Post-fix keyboard matrix                       | 25 passed in 3.2 minutes; all eighteen announcements/configurations checked per case; no axe violations       |
+| Post-fix Pixel RTL regression set              | 9 passed in 8.6 seconds, including all five previously failing cases                                          |
+| Post-fix desktop viewport/zoom set             | 46 passed, 2 documented CDP-only skips in 16.2 seconds                                                        |
+| Latest content timing/level set                | 42 passed in 16.1 seconds; 90 timing samples, maximum synchronous 18 ms, next-frame callback 52 ms            |
+| Isolated Node 20/npm 10 npm ci                 | Before: missing @emnapi/core and @emnapi/runtime records. After: 297 packages installed, zero vulnerabilities |
+| npm audit / npm audit --omit=dev               | Both zero vulnerabilities; zero runtime dependencies                                                          |
+| actionlint .github/workflows/ci.yml            | PASS                                                                                                          |
+| Full post-fix CI matrix                        | PENDING; the checkpoint push will trigger all five projects on Node 20 and 22                                 |
 
-Counts above are per invocation, not cumulative distinct tests. There were no automatic retries. The partial host matrix's interruption and unrun cases are not counted as passes or skips. The full legacy regression, full new matrix and cloud CI were not completed in this phase. No new instrumentation skips were added.
-
-After the stopping condition, only closure verification, evidence preservation and this report were performed. No fourth CSP repair attempt was made.
+Earlier interrupted discovery runs and the original CSP stop are not clean matrix passes. Functional audit cases in Firefox are explicitly marked slow (90 seconds) for two axe traversals; the 50 ms init, 100 ms content, coverage, contrast, axe and size gates are unchanged.
 
 ## Review findings and fixes
 
-| Severity | Finding                                                                                                                             | Fix / guard                                                                                                                                                             | Status                    |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| Blocker  | R-2: nonce-fallback audit emits CSP style diagnostics on Chromium and Pixel despite passing pre-audit checks                        | qa-csp.spec.ts preserves the failure with unchanged policy, axe rules and console-error assertion; three approaches below                                               | Unresolved; phase stopped |
-| Low      | R-1: opaque iframe attempted a loopback stylesheet request; a parent-side negative security probe itself caused a WebKit diagnostic | d2d5018: self-contained static frame styles and inside-frame origin observation. qa-boundaries.spec.ts passes all five projects, font remains 16px and errors are empty | Fixed                     |
-
-R-2 attempts:
-
-1. Force fallback installation with replaceSync unavailable and supply the matching nonce. The first host run still records six CSP errors during closed/open audits.
-2. Verify all installed fallback styles carry the nonce, then restore the main page's native API before axe's probes. The matrix still fails in the Chromium nonce cases.
-3. Limit the fallback override to the actual CSP fixture URL, leaving auxiliary audit documents alone. The targeted ten-case CSP run still fails on Chromium and Pixel.
-
-The final failing assertion is after auditQA, not the earlier runtime error check. The six messages contain three repeated SHA-256 style hashes, two audit passes. That timing suggests an audit-time path, but attribution to axe, cloned shadow styles, deferred widget work or another mechanism is not proved. No production defect is asserted without that attribution. Existing traces under ignored test-results retain detailed local diagnostics; the committed evidence includes the error messages without third-party trace source dumps.
-
-No policy relaxation, inline-style hash exception, console filtering, axe rule disabling or retries were used to make the failure disappear. Scoping the widget audit away from host iframe contents is explicit; host iframe accessibility is not certified.
+| Severity | Finding                                                                                                              | Fix                                                                                                                                          | Status |
+| -------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| Medium   | R-1: external frame CSS caused an opaque-frame resource error                                                        | d2d5018: self-contained frame; qa-boundaries guard                                                                                           | Fixed  |
+| High     | R-2: axe copied nonce styles into detached documents without CSP authorisation                                       | b6c0ce4: authorise only audit-owned copies; strict nonce/CSP guards; no suppressed errors or rules                                           | Fixed  |
+| High     | R-3: existing main CI failed at npm ci because the lock omitted two required optional records                        | 86b1384: minimal lock repair; isolated red/green installation and existing CI npm-ci gate                                                    | Fixed  |
+| Medium   | R-4: a fully asserted Firefox audit exceeded the default wall timeout during contention                              | 6262faa: bounded slow annotation for multi-axe cases; original case passes in 6.5 seconds                                                    | Fixed  |
+| Medium   | R-5: exhaustive flash analysis allocated millions of temporary arrays and timed out                                  | 935196b: scalar squared distances, one square root; same exhaustive inputs and thresholds                                                    | Fixed  |
+| High     | R-6: placement forced host layout after every setting change, exceeding 100 ms                                       | f0be3b2: coalesced/cached geometry; unit and timing guards                                                                                   | Fixed  |
+| Medium   | R-7: placement queued an unnecessary third frame for two overlays                                                    | 8512ef2: observer-owned scheduling; exact two-frame and zero-off/destroy assertions retained                                                 | Fixed  |
+| Medium   | R-8: a temporary missing body threw during a new zoom-cache read                                                     | f9c96b0: null guard; public init/open red/green unit regression                                                                              | Fixed  |
+| High     | R-9: Firefox crashed inside axe.runPartial when keyboard/semantic traversal and audit were interleaved               | 912fe2f: uninterrupted walk plus independent audit page; compare every saved state and actual control projection; five Firefox profiles pass | Fixed  |
+| High     | R-10: document focus handling missed internal shadow transitions and a WebKit radio was partly clipped               | b67fb6f: shadow-root focus listener; scroll regression 0 to required 24 px; all 25 keyboard cases pass                                       | Fixed  |
+| High     | R-11: Pixel RTL overflow expanded innerWidth to 515 while the fixed viewport stayed 412, placing the panel at -67 px | 8239037: cached root client width; all four visual bounds; Pixel regressions now report left 36/right 396                                    | Fixed  |
 
 ## Audits
 
 ### Accessibility
 
-Successful sampled states have at least 24px targets, no horizontal widget overflow, and measured text/boundary contrast meeting the existing assertions (4.5:1 and 3:1). Captured standard-profile minima include 6.8204499469:1 text and 3.6876381329:1 boundaries; forced colours records 21:1. The data is linked in blocked-evidence.json. These are partial sampled-state results, not an AA conformance claim.
+Completed widget audits retain every axe rule. Host frame traversal is outside the widget scope. Keyboard audits now run separately from the native walk, with identical feature state and control text/pressed/disabled/checked projections; the audit page retains initial Close focus. Focus geometry is tested on the primary keyboard page. This avoids claiming that an isolated scan reproduces every transient focus state.
 
-All five iframe cases pass closed/open widget axe scans and preserve frame text sizing. All ten targeted CSP cases pass closed/open widget axe assertions, but two fail the console-error gate afterward. The partial host run also contains successful forced-colour, reduced-motion, dark and RTL samples. It does not establish complete device/host/profile coverage.
+Observed targets are at least 24 CSS pixels; computed text contrast has a minimum of 6.82045:1 and control boundaries 3.68764:1 in the new host/configuration evidence. The panel's focus rule is 3 px. These are fixture measurements, not a certification of arbitrary host pages. Headed walk screenshots, semantic evidence and final run receipts remain to be recorded.
 
-The required full keyboard-only flow and headed keyboard audit were not executed this phase. Screen-reader output was not tested. No claim is made about real iPhone/Pixel hardware, NVDA, VoiceOver, TalkBack, speech control, physical keyboards attached to phones, native HTML modal-dialog inertness or arbitrary host shadow/iframe content. The CSS high-z-index dialog fixture is not a native showModal test.
+The WCAG table covers all 55 A/AA criteria. Screen-reader speech, physical devices, Windows forced-colours behaviour and real browser-menu zoom remain explicitly unverified. No screen reader has been run by this agent.
 
 ### Security and privacy
 
-Runtime src is unchanged; no new runtime request, cookie, analytics, storage key or unsafe DOM API was introduced. The fixture callback collects only feature changes in memory and persistence is disabled. The opaque frame boundary remains intact: allow-same-origin was not added. Its stylesheet is now static inline fixture text, avoiding an opaque-origin loopback request. No secrets or environment files were read or committed.
+No new runtime dependency, request, cookie, analytics, storage key or unsafe DOM API was added. Source review finds only the existing guarded localStorage calls in the storage adapter. Public API options/instance shapes remain unchanged. The optional font URL never downloads a font; the owner must preload it.
 
-Dependencies and package metadata are unchanged; both npm audits are clean. Existing .gitignore continues to cover node_modules, dist, coverage, test-results and .env*. Generated build/test output remains uncommitted. Only selected report evidence is committed.
+All 21 existing dev dependencies retain their established purposes: TypeScript/tsup/Vite build and fixtures; ESLint/@eslint/js/typescript-eslint linting; Prettier formatting; Vitest/jsdom/coverage-v8 tests; Playwright/axe browser audits; size-limit/@size-limit/file budget; publint/attw package checks; Node/React type packages and React/ReactDOM integration tests. No unused dependency was added. The lock additions fulfil an existing rolldown WASI dependency, not a new runtime choice.
 
-### CSP findings and owner policy
-
-The tested policy is:
-
-```text
-default-src 'none'; script-src 'self'; style-src 'self' 'nonce-qa-owner'; style-src-attr 'none'; img-src data:; frame-src 'self'; connect-src 'none'; base-uri 'none'; object-src 'none'
-```
-
-qa-owner is a public test value, not a production nonce. Site owners should use a fresh response nonce, supply it through options.nonce for style-element fallback, and authorize their own loader/module URLs. Modern constructed stylesheets pass the tested non-nonce path. CSS property updates successfully apply the page adjustment under style-src-attr none. Data images permit the documented embedded cursor assets; the widget makes no font request.
-
-Do not add unsafe-inline or authorize the diagnostic hashes as a workaround for this unresolved audit path. The fallback audit cannot yet be certified error-free on Chromium/Pixel. The helper proves nonce-bearing installation before restoring native APIs for the audit tool; the fixture policy itself never changes.
+MIT licence text, 2026 author attribution and package metadata remain correct. .gitignore covers node_modules, dist, coverage, test-results and .env*. CI has read-only contents permission and no secret-echo step. The CSP guide documents the tested nonce and constructed-sheet paths and the unsupported blocked fallback without a nonce.
 
 ### Performance and size
 
-This session's build reports IIFE gzip 19,444 bytes, below the 30,000 warning and 35,000 cap. Performance, heap, 200-init/destroy trend and attributable layout-shift measurements were not implemented or run in this phase. Earlier phase numbers are not reused as current evidence. Consequently the no-growth-trend acceptance criterion remains unproved.
+Latest local content timings pass the unchanged 100 ms limits (90 samples; maxima 18 ms synchronous / 52 ms next-frame callback). Those callbacks are not a laboratory measurement of final pixel paint. IIFE gzip is 19,568 bytes. No bundle or coverage output is committed.
 
-## Known limitations (honest)
+The discovery run includes zero-CLS, zero-DOM-residue, 200 lifecycle and post-GC evidence. Final post-fix lifecycle receipts are pending CI. Earlier memory checks collected every weakly referenced instance/host and kept DOM/listener counts constant; total VM heap nevertheless rose by 27,864 bytes. The fitted 95% slope interval includes zero. This is not a zero-byte heap-growth claim; JIT/tooling allocations and non-CDP engines remain limits.
 
-- The zero-console-error gate fails for the nonce-fallback audit on Chromium and Pixel.
-- The full 908-case collection has not run; the complete CI matrix is not proved.
-- Pairwise feature coverage, a complete keyboard flow and 200-loop lifecycle/leak tests are unfinished.
-- docs/ACCESSIBILITY.md and docs/manual-screen-reader-test.md were not produced before the mandatory stop; they must not be treated as completed conformance deliverables.
-- All phone runs are emulation, and all browser runs in this phase were headless. No screen reader or physical device was used.
-- Host shadow internals, remote frame content, native modal-dialog inertness and operating-system accessibility behaviour remain unverified.
+## Known limitations
+
+The widget does not remediate arbitrary markup, closed shadow roots, cross-origin frame internals, canvas pixels, GIF/JS-driven animation or hostile geometry. Native owner modal/inert/top-layer interactions and body replacement can require owner integration/reinitialisation. There is no automatic remount into a replaced body. Font/colour/layout trade-offs remain documented in the ADRs.
 
 ## Deviations from the prompt (and why)
 
-Phase implementation stopped after the third unsuccessful CSP approach as explicitly required by AGENTS.md section 11. Completing the remaining tasks, claiming PASS, pushing failing QA to remote main or creating phase-7-complete would overstate the result. Local reproducer and report commits preserve concrete, reviewable work while remote main remains the Phase 6 rollback point.
+No public API deviation. Testing separates semantic/keyboard traversal from axe on a matching independent page after a reproducible Firefox process crash. No browser, axe rule, explicit performance threshold or coverage gate was removed. Pairwise coverage is binary default/maximum, not every intermediate Cartesian combination. The final completion claim and tag are withheld pending full CI evidence and remaining closing work.
 
 ## Handoff notes for the next phase
 
-Start with the two failing cases:
-
-```sh
-npm run build
-npx playwright test e2e/qa-csp.spec.ts --project=chromium --project=pixel --workers=1
-```
-
-Inspect the three diagnostic hashes against the installed shadow styles and axe's temporary documents to attribute the audit-time errors. Keep the policy and error assertions intact. Resume the remaining Phase 7 tasks only after the blocker is understood; then execute the full closing protocol and publish the completion tag only when all gates pass.
-
-## Local phase commit list
-
-```text
-4500b46 docs(audit): preserve blocked CSP and partial matrix evidence
-cf0184f test(hosts): capture maximum-feature QA coverage across profiles
-7c6a688 test(csp): preserve the blocked nonce-fallback audit case
-d2d5018 fix(fixtures): make opaque-frame checks self-contained
-685ba0d test(fixtures): add isolated, heavy and hostile QA host pages
-de1a0f1 test(matrix): add phone profiles and disable automatic retries
-
-```
-
-This report is the separate `docs(report): record blocked phase seven audit` commit. Use `git log --oneline phase-6-complete..HEAD` for the complete local list.
+Work is still active. Finish CI, headed keyboard/semantic evidence, final artifacts and the closing report, then verify/push and create the completion tag. The human must run the screen-reader/device script and fill in its currently Not run results before making a conformance claim.
