@@ -124,6 +124,33 @@ export async function browserExamples(servers, bundle, cdnHtml) {
           });
         }
         await page.keyboard.press('Escape');
+        const remounts = [];
+        const verifyRemount = async (owner, expectedHidden) => {
+          await page
+            .locator('[data-accessiblit-host]')
+            .waitFor({ state: 'attached' });
+          assert.equal(
+            await page.locator('[data-accessiblit-host]').count(),
+            1,
+          );
+          const hiddenBeforeShortcut = await page
+            .locator('[data-accessiblit-host] .accessiblit-launcher')
+            .evaluate((element) => element.hidden);
+          if (expectedHidden !== undefined)
+            assert.equal(hiddenBeforeShortcut, expectedHidden);
+          // A focused host control may intentionally hide an overlapping launcher; the shortcut must still work.
+          await page.keyboard.press('Alt+KeyA');
+          await dialog.waitFor();
+          await page.keyboard.press('Escape');
+          await launcher.waitFor();
+          assert.equal(
+            await launcher.evaluate(
+              (element) => element.getRootNode().activeElement === element,
+            ),
+            true,
+          );
+          remounts.push({ owner, hiddenBeforeShortcut });
+        };
         if (format === 'react') {
           await page
             .getByRole('button', { name: 'Unmount widget', exact: true })
@@ -131,10 +158,21 @@ export async function browserExamples(servers, bundle, cdnHtml) {
           await page.waitForFunction(
             () => !document.querySelector('[data-accessiblit-host]'),
           );
+          // Reproduce the protected-focus state independently of platform button metrics.
+          await page.addStyleTag({
+            content:
+              '.example-focus-overlap{position:fixed;inset-inline-end:16px;inset-block-end:16px;inline-size:64px;block-size:48px}',
+          });
           await page
             .getByRole('button', { name: 'Effect snippet', exact: true })
-            .click();
-          await launcher.waitFor();
+            .evaluate((element) =>
+              element.classList.add('example-focus-overlap'),
+            );
+          await page
+            .getByRole('button', { name: 'Effect snippet', exact: true })
+            .focus();
+          await page.keyboard.press('Space');
+          await verifyRemount('effect', true);
           assert.equal(
             await page.locator('[data-accessiblit-host]').count(),
             1,
@@ -148,7 +186,7 @@ export async function browserExamples(servers, bundle, cdnHtml) {
           await page
             .getByRole('button', { name: 'Component example', exact: true })
             .click();
-          await launcher.waitFor();
+          await verifyRemount('component');
         }
         if (format === 'next') {
           await page
@@ -160,7 +198,7 @@ export async function browserExamples(servers, bundle, cdnHtml) {
           await page
             .getByRole('button', { name: 'Mount widget', exact: true })
             .click();
-          await launcher.waitFor();
+          await verifyRemount('next');
         }
         assert.deepEqual(errors, []);
         rows.push({
@@ -170,6 +208,7 @@ export async function browserExamples(servers, bundle, cdnHtml) {
           axeOpen: open.violations.length,
           measured,
           tabStops: names.length,
+          remounts,
         });
         await context.close();
       }
