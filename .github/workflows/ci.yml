@@ -33,4 +33,5 @@ jobs:
       - run: npm run check:package
       - run: npm audit
       - run: npx playwright install --with-deps
+      - run: npm run test:examples
       - run: npm run test:e2e
