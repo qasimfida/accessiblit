@@ -1,10 +1,9 @@
 import { act, createElement, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { renderToString } from 'react-dom/server';
-import { afterEach, expect, it, vi } from 'vitest';
+import { afterEach, expect, it } from 'vitest';
 import type { RefObject } from 'react';
 import type { AccessiblitInstance, AccessiblitOptions } from '../../src/index';
-vi.mock('@qasimfida/accessiblit', async () => import('../../src/index'));
 import { AccessiblitWidget, useAccessiblit } from '../../src/react';
 const environment = globalThis as typeof globalThis & {
   IS_REACT_ACT_ENVIRONMENT: boolean;
