@@ -1,0 +1,11 @@
+{
+  "name": "accessiblit-node-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node index.mjs && node require.cjs"
+  },
+  "dependencies": {
+    "@qasimfida/accessiblit": "file:../accessiblit.tgz"
+  }
+}

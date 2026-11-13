@@ -61,7 +61,7 @@
     "verify": "npm run lint && npm run typecheck && npm test && npm run build && npm run size && npm run check:package",
     "clean": "node scripts/clean.mjs",
     "check:package": "publint && attw --pack",
-    "check:ssr": "node examples/node-ssr-check/index.mjs",
+    "check:ssr": "node scripts/check-ssr.mjs",
     "prebuild": "node scripts/clean-dist.mjs",
     "sri": "node scripts/sri.mjs"
   },

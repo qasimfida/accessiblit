@@ -15,9 +15,25 @@ export default tseslint.config(
   js.configs.recommended,
   tseslint.configs.recommended,
   {
-    files: ['**/*.{js,mjs}'],
+    files: ['**/*.{js,mjs,cjs}'],
     languageOptions: {
       globals: { console: 'readonly', process: 'readonly', URL: 'readonly' },
+    },
+  },
+  {
+    // These consumer fixtures intentionally exercise the promised CommonJS API.
+    files: ['examples/**/*.cjs'],
+    languageOptions: {
+      sourceType: 'commonjs',
+      globals: { require: 'readonly' },
+    },
+    rules: {
+      '@typescript-eslint/no-require-imports': [
+        'error',
+        {
+          allow: ['^node:', '^@qasimfida/accessiblit(?:/package\\.json)?$'],
+        },
+      ],
     },
   },
 );

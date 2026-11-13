@@ -8,8 +8,8 @@ Object.defineProperty(globalThis, 'window', {
     throw new Error('Import touched window');
   },
 });
-const esm = await import('../../dist/index.mjs');
-const cjs = createRequire(import.meta.url)('../../dist/index.cjs');
+const esm = await import('@qasimfida/accessiblit');
+const cjs = createRequire(import.meta.url)('@qasimfida/accessiblit');
 delete globalThis.window;
 assert.equal(typeof document, 'undefined');
 for (const api of [esm, cjs]) {
