@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import type { FeatureId } from '../src/core/types';
 import { loadContent } from './helpers/content';
-import { PERFORMANCE_TRACE } from './helpers/performance';
+import { measureTransitions, PERFORMANCE_TRACE } from './helpers/performance';
 test.use({ trace: PERFORMANCE_TRACE });
 const cases: [FeatureId, unknown, unknown][] = [
   ['lineHeight', 2, 0],
@@ -26,22 +26,10 @@ for (const [id, enabled, disabled] of cases)
       }
       document.querySelector('main')!.replaceChildren(fragment);
     });
-    const rows = await page.evaluate(
-      async ({ id, enabled, disabled }) => {
-        const rows = [];
-        for (const value of [enabled, disabled, enabled, disabled]) {
-          const start = performance.now();
-          window.contentInstance.setFeature(id, value);
-          const synchronous = performance.now() - start;
-          await new Promise<void>((resolve) =>
-            requestAnimationFrame(() => resolve()),
-          );
-          rows.push({ synchronous, nextFrame: performance.now() - start });
-        }
-        return rows;
-      },
-      { id, enabled, disabled },
-    );
+    const rows = await page.evaluate(measureTransitions, {
+      id,
+      values: [enabled, disabled, enabled, disabled],
+    });
     console.log('CONTENT_PERFORMANCE', browserName, id, JSON.stringify(rows));
     for (const row of rows) {
       expect(row.synchronous).toBeLessThan(100);

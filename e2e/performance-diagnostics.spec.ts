@@ -43,11 +43,11 @@ for (const feature of ['fontSize', 'wordSpacing'] as const)
           const disabled = feature === 'fontSize' ? 100 : 0;
           const rows = [];
           for (const on of [true, false, true, false]) {
-            // The cold row includes fixture layout; settled rows start after its paint.
-            if (rows.length) {
-              await new Promise(requestAnimationFrame);
-              await new Promise(requestAnimationFrame);
-            }
+            const baselineStart = performance.now();
+            // Native and engine controls start from the same rendered-host baseline.
+            await new Promise(requestAnimationFrame);
+            await new Promise(requestAnimationFrame);
+            const baselineSettling = performance.now() - baselineStart;
             const start = performance.now();
             if (native) root.classList.toggle('qa-native', on);
             else
@@ -67,6 +67,7 @@ for (const feature of ['fontSize', 'wordSpacing'] as const)
               feature === 'fontSize' ? 'fontSize' : 'wordSpacing';
             rows.push({
               on,
+              baselineSettling,
               synchronous,
               layout,
               nextFrame,

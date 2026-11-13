@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { loadContent } from './helpers/content';
-import { PERFORMANCE_TRACE } from './helpers/performance';
+import { measureTransitions, PERFORMANCE_TRACE } from './helpers/performance';
 
 test.use({ trace: PERFORMANCE_TRACE });
 
@@ -20,18 +20,9 @@ test('fontSize meets the 5000-element toggle budget', async ({
     }
     main.append(fragment);
   });
-  const results = await page.evaluate(async () => {
-    const rows = [];
-    for (const value of [120, 140, 160, 180, 200, 100]) {
-      const start = performance.now();
-      window.contentInstance.setFeature('fontSize', value);
-      const synchronous = performance.now() - start;
-      await new Promise<void>((resolve) =>
-        requestAnimationFrame(() => resolve()),
-      );
-      rows.push({ value, synchronous, nextFrame: performance.now() - start });
-    }
-    return rows;
+  const results = await page.evaluate(measureTransitions, {
+    id: 'fontSize' as const,
+    values: [120, 140, 160, 180, 200, 100],
   });
   console.log('CONTENT_FONT_PERFORMANCE', browserName, JSON.stringify(results));
   for (const row of results) {
