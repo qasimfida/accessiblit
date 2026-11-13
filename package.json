@@ -63,7 +63,8 @@
     "check:package": "publint && attw --pack",
     "check:ssr": "node scripts/check-ssr.mjs",
     "prebuild": "node scripts/clean-dist.mjs",
-    "sri": "node scripts/sri.mjs"
+    "sri": "node scripts/sri.mjs",
+    "test:examples": "node scripts/test-examples.mjs"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
