@@ -28,6 +28,8 @@ export function createUI(
   let opened = false;
   let zoom = 1;
   let lastCSS = '';
+  let refreshFrame: number | undefined;
+  let measuredZoom: string | undefined;
   try {
     const sheet = createSheet(root, options.nonce);
     scope.add(sheet.destroy);
@@ -98,13 +100,35 @@ export function createUI(
         if (overlap) launcherLayer.hide();
         else launcherLayer.show();
       } else launcherLayer.show();
-      const width = launcher.element.getBoundingClientRect().width;
-      // CSS zoom still affects top-layer boxes. Cancel only measured author zoom, not browser zoom.
-      if (width > 0 && Math.abs(width - 48) > 0.1) {
-        zoom = Math.max(0.01, Math.min(100, (zoom * 48) / width));
-        draw(position);
+      const zoomSignature = [doc.documentElement, doc.body]
+        .map((element) =>
+          view.getComputedStyle(element).getPropertyValue('zoom'),
+        )
+        .join('/');
+      // Text/colour changes do not alter isolated UI zoom; avoid flushing thousands of host layout boxes.
+      if (zoomSignature !== measuredZoom) {
+        const width = launcher.element.getBoundingClientRect().width;
+        if (width > 0) {
+          measuredZoom = zoomSignature;
+          // Cancel author zoom, while preserving browser zoom and native viewport magnification.
+          if (Math.abs(width - 48) > 0.1) {
+            zoom = Math.max(0.01, Math.min(100, (zoom * 48) / width));
+            draw(position);
+          }
+        }
       }
     }
+    function scheduleRefresh() {
+      if (!scope.active || refreshFrame !== undefined) return;
+      refreshFrame = view.requestAnimationFrame(() => {
+        refreshFrame = undefined;
+        refresh();
+      });
+    }
+    scope.add(() => {
+      if (refreshFrame !== undefined) view.cancelAnimationFrame(refreshFrame);
+      refreshFrame = undefined;
+    });
     function open() {
       if (!scope.active || opened) return;
       opened = true;
@@ -169,13 +193,16 @@ export function createUI(
       if ((event as FocusEvent).relatedTarget === null && !opened)
         launcherLayer.show();
     });
-    scope.listen(doc, 'scroll', refresh, { capture: true, passive: true });
+    scope.listen(doc, 'scroll', refresh, {
+      capture: true,
+      passive: true,
+    });
     scope.listen(view, 'resize', refresh);
     if (view.visualViewport) {
       scope.listen(view.visualViewport, 'resize', refresh);
       scope.listen(view.visualViewport, 'scroll', refresh);
     }
-    const observer = new view.MutationObserver(refresh);
+    const observer = new view.MutationObserver(scheduleRefresh);
     observer.observe(doc.documentElement, {
       attributes: true,
       attributeFilter: ['class', 'style', 'dir'],
@@ -195,7 +222,8 @@ export function createUI(
       update(state: Record<FeatureId, unknown>) {
         if (scope.active) {
           panel.update(state);
-          refresh();
+          // Coalesce geometry reads until before paint instead of flushing a newly restyled host page.
+          scheduleRefresh();
         }
       },
       destroy(): void {
