@@ -16,6 +16,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { run } from './examples/process.mjs';
 import { reactCompatibility } from './examples/compat.mjs';
+import { auditBundles } from './examples/bundles.mjs';
 import { serve, nextServer } from './examples/servers.mjs';
 import { browserExamples } from './examples/browser.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -89,6 +90,7 @@ try {
   );
   run('node', ['ssr.mjs'], installed['react-vite']);
   const compatibility = await reactCompatibility(folder);
+  const bundleAudit = await auditBundles(installed['react-vite']);
   run('npm', ['run', 'build'], installed['react-vite']);
   run('npm', ['run', 'build'], installed.nextjs);
   const bundle = readFileSync(
@@ -119,6 +121,7 @@ try {
   );
   const evidence = {
     compatibility,
+    bundleAudit,
     files,
     sri,
     examples: Object.keys(installed),
