@@ -2,17 +2,17 @@
 
 Status: BLOCKED
 
-Date: 2026-11-13. Range starts at `phase-6-complete` (`a47a551`); latest tested workflow/source is `a08cac3`. Closing documentation commits follow that source. No `phase-7-complete` tag exists.
+Date: 2026-11-14 (Asia/Karachi). Range starts at `phase-6-complete` (`a47a551`); latest tested workflow/source is `ec4fa39`. Closing documentation commits follow that source. No `phase-7-complete` tag exists.
 
 ## Summary
 
-The resumed work adds a guarded native-CSS diagnostic and isolates performance probes from functional browser work. Existing pushed history is preserved; new test, CI and audit changes have separate conventional commits. I interpreted “process next” as continuing the Phase 7 blocker; a Phase 8 brief was requested because none has been supplied.
+The latest resumption fixes timing instrumentation in granular forward commits: visual trace recording is excluded from performance probes while API/source evidence remains, and fixture/prior-render work settles before each measured operation. Five independent-clock unit tests guard the measurement boundary and exact workload. The Intel reference trial failed and was rolled back to the original Apple Silicon platform with an explicit OS label. No pushed history was rewritten.
 
-Local verify and both CI verification jobs pass. The complete latest browser matrix does **not** pass: 2,394 passed, four failed and 18 capability-dependent cases were skipped across Node 20/22. All functional cases pass. Node 22 WebKit fails four unchanged next-frame gates, with a maximum sample of 156 ms against `< 100 ms`. The entire Node 20 matrix passes. No failed job was manually rerun, no sample was discarded, and no quality threshold changed.
+Local verify and both CI verification jobs pass with 184 unit tests. The full browser matrix remains **BLOCKED**: 2,389 passed, nine failed and 18 capability-dependent cases were skipped across Node 20/22. Every functional case passes. All nine failures are unchanged WebKit next-frame limits: five on Node 20 and four on Node 22, with a largest sample of 639 ms against `< 100 ms`. No failed job was manually rerun, no sample discarded, and no threshold changed.
 
-Three resumed approaches did not resolve R-17: grouped exclusions and typed CSS variables showed no repeatable local improvement; fresh-process CI isolation still fails. Tracing, settling and headed/headless comparisons also failed to establish a useful local improvement. Native CSS controls exceed 100 ms without the widget on the three-vCPU virtual M1. AGENTS.md sections 2.7 and 11 require preserving the gate and stopping after unsuccessful approaches. An existing macOS CI reference-runner label has been requested; the connected GitHub tool cannot list registered runners. That input remains pending.
+The resumed three approaches (standard Intel reference, API-only tracing, and settled host baselines) did not resolve R-17. AGENTS.md section 11 requires stopping after three unsuccessful attempts. The user does not know a custom runner label; standard public runner labels were researched instead. Clarification is pending on whether the unchanged seven-per-engine timing cases may use a common Ubuntu benchmark reference while every native macOS functional/media test remains mandatory. No dependent workflow change has been made. The Phase 8 brief has been received; only temporary site-copy/build drafts outside the repository were prepared. Phase 8 repository changes, deployment and completion tags remain behind the unmet Phase 7 prerequisite.
 
-Preflight: AGENTS.md was read completely; main was clean; `git pull --ff-only` returned already up to date at resumption (`85813f3`). The phase-six tag resolves to a47a551682109f4bcc016a62fd0ac4b353b59533. Constants have no YOUR_ placeholder. Current tools: Node 24.13.0, npm 11.6.2, git 2.50.1. Local hardware: Apple M3 Pro, 18 GiB. CI tests Node 20 and 22. The original stopped CSP report remains in 6500902 and its historical receipt is retained.
+Preflight: AGENTS.md was read completely; main was clean; `git pull --ff-only` returned already up to date at resumption (`0b8a067`). The phase-six tag resolves to a47a551682109f4bcc016a62fd0ac4b353b59533. Constants have no YOUR_ placeholder. Current tools: Node 24.13.0, npm 11.6.2, git 2.50.1. Local hardware: Apple M3 Pro, 18 GiB. CI tests Node 20 and 22. The original stopped CSP report remains in 6500902 and its historical receipt is retained.
 
 ## What changed (files and why)
 
@@ -25,47 +25,53 @@ Preflight: AGENTS.md was read completely; main was clean; `git pull --ff-only` r
 - package-lock.json restores two already-required optional dev-only WASI dependency records; no direct dependency or version changes.
 - CI separates browser projects across Node 20/22, using Linux for Chromium/Firefox/Pixel and macOS for Safari-target WebKit/iPhone. Permissions remain contents: read, checkout does not persist credentials, and actionlint accepts the workflow.
 - [The conformance matrix](../docs/ACCESSIBILITY.md), [human screen-reader script](../docs/manual-screen-reader-test.md) and [CSP guide](../docs/guides/csp.md) distinguish automated evidence from remaining human work. The table records scoped accessibility results and explicit human-only gaps; it does not turn a failed performance matrix into a phase pass.
-- e2e/performance-diagnostics.spec.ts compares native CSS and the engine on 5,000 paragraphs, checks actual values/restored baselines and records synchronous work, forced layout, frame time and public runner CPU metadata. Native controls are lower bounds with simpler selectors, not replacement gates.
+- e2e/performance-diagnostics.spec.ts compares native CSS and the engine on 5,000 paragraphs, checks actual values/restored baselines and records synchronous work, forced layout, frame time and public runner CPU metadata. Native controls force geometry and use simpler selectors; their different metric is not a strict numeric lower bound on feature callback timing (R-22). They never replace a gate.
 - CI runs each desktop project's original seven timing tests in a fresh invocation, then all remaining tests even after a timing failure. The partition contains 21 timing and 1,187 remaining cases across the projects, with zero omissions or overlap. Phone projects retain their 100 QA cases each.
-- New audit receipts preserve discarded prototypes and both resumed CI runs. No runtime source, public API, dependency version or package format changed during this resumption.
+- The shared performance helper enforces exactly 5,000 elements and retains every original value, sample, API call and following frame callback inside the measurement. Its five clock-controlled unit tests reject incorrect workloads and excluded API time. API/source tracing is retained; functional tests retain visual tracing.
+- New audit receipts preserve discarded prototypes and resumed CI runs. No runtime source, public API, dependency version or package format changed during this resumption.
 
 ## Verification (commands run, real results)
 
 | Command / run                               | Result                                                                                                                        |
 | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| npm run verify                              | PASS: lint/format, typecheck, 179 tests in 57 files, coverage, all formats/types/maps, plain-Node SSR, size, publint and attw |
+| npm run verify                              | PASS: lint/format, typecheck, 184 tests in 58 files, coverage, all formats/types/maps, plain-Node SSR, size, publint and attw |
 | Coverage, local and both CI Node versions   | Global 96.12% lines / 90.71% branches; core 98.63% lines / 97.96% branches                                                    |
-| Original content plus new diagnostic checks | 54 passed in 19.9 seconds, all desktop engines                                                                                |
-| Isolated timing invocation, local           | 21 passed in 9.8 seconds; every original value, node count and assertion retained                                             |
+| Original content plus new diagnostic checks | 54 passed in 23.5 seconds, all desktop engines                                                                                |
+| Isolated timing invocation, local           | 21 passed in 10.9 seconds; every original value, node count and assertion retained                                            |
 | Targeted remaining invocation, local        | 22 passed in 16.2 seconds, including strict CSP and native controls                                                           |
-| Headed keyboard walk, local                 | Five projects passed in 54.8 seconds; all eighteen changes, reset, Escape/focus return and Tab exit                           |
+| Headed keyboard walk, local                 | Five projects passed in 55.5 seconds; all eighteen changes, reset, Escape/focus return and Tab exit                           |
 | actionlint / exact partition                | PASS; 1,208 cases per Node version, no omissions or overlap                                                                   |
 | npm audit / npm audit --omit=dev            | Both zero vulnerabilities; no runtime dependencies                                                                            |
 | npm pack --dry-run --json                   | Exactly 17 intended files: LICENSE, README, package.json and fourteen dist artifacts; no tests or secrets                     |
-| Latest full CI                              | FAIL: 2,394 passed, four failed, 18 skipped / 2,416 scheduled; eleven of twelve jobs pass                                     |
+| Latest full CI                              | FAIL: 2,389 passed, nine failed, 18 skipped / 2,416 scheduled; ten of twelve jobs pass                                        |
 
 ### Latest complete CI result
 
-[CI a08cac3](https://github.com/qasimfida/accessiblit/actions/runs/43468481327) executes the entire matrix with zero retries. Both verification jobs pass clean npm ci, lint, types, 179 unit tests, build, size, SSR, package checks, audit and all fifteen packed integration checks. Raw rows, job ids and step outcomes are in [isolated-ci-verification.json](assets/phase-7/isolated-ci-verification.json).
+[CI ec4fa39](https://github.com/qasimfida/accessiblit/actions/runs/43489145056) executes the entire matrix with zero retries. Both verification jobs pass clean npm ci, lint, types, 184 unit tests, build, size, SSR, package checks, audit and all fifteen packed integration checks. Raw timing rows, job ids and step outcomes are in [corrected-timing-ci.json](assets/phase-7/corrected-timing-ci.json).
 
-| Project                    | Node 20                                                    | Node 22                                                                  |
-| -------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------ |
-| Chromium / Linux           | 336 passed; timing 8.0 s, remaining 5.0 min                | 336 passed; timing 7.1 s, remaining 6.3 min                              |
-| Firefox / Linux            | 332 passed, four skipped; timing 11.1 s, remaining 9.9 min | 332 passed, four skipped; timing 10.2 s, remaining 10.4 min              |
-| WebKit / macOS             | 332 passed, four skipped; timing 10.1 s, remaining 6.3 min | 328 passed, four failed, four skipped; timing 24.8 s, remaining 10.1 min |
-| iPhone emulation / WebKit  | 99 passed, one skipped, 5.0 min                            | 99 passed, one skipped, 5.8 min                                          |
-| Pixel emulation / Chromium | 100 passed, 3.1 min                                        | 100 passed, 3.8 min                                                      |
+| Project                    | Node 20                                                                 | Node 22                                                                  |
+| -------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Chromium / Linux           | 336 passed; timing 6.8 s, remaining 6.8 min                             | 336 passed; timing 5.4 s, remaining 5.5 min                              |
+| Firefox / Linux            | 332 passed, four skipped; timing 7.7 s, remaining 8.0 min               | 332 passed, four skipped; timing 11.0 s, remaining 10.6 min              |
+| WebKit / macOS             | 327 passed, five failed, four skipped; timing 25.6 s, remaining 8.9 min | 328 passed, four failed, four skipped; timing 27.0 s, remaining 11.2 min |
+| iPhone emulation / WebKit  | 99 passed, one skipped, 6.5 min                                         | 99 passed, one skipped, 5.5 min                                          |
+| Pixel emulation / Chromium | 100 passed, 2.8 min                                                     | 100 passed, 2.8 min                                                      |
 
-All four failures are in Node 22 WebKit:
+All failures are WebKit next-frame timing assertions. Maximum samples across each feature's unchanged values:
 
-| Feature       | Maximum synchronous sample | Maximum next-frame sample |
-| ------------- | -------------------------: | ------------------------: |
-| lineHeight    |                      22 ms |                    118 ms |
-| letterSpacing |                       7 ms |                    113 ms |
-| wordSpacing   |                       9 ms |                    142 ms |
-| fontSize      |                      55 ms |                    156 ms |
+| Feature       | Node 20 synchronous / next frame | Node 22 synchronous / next frame |
+| ------------- | -------------------------------- | -------------------------------- |
+| lineHeight    | 18 / 543 ms                      | 26 / 254 ms                      |
+| letterSpacing | 13 / 533 ms                      | 8 / 401 ms                       |
+| wordSpacing   | 6 / 210 ms                       | 7 / 269 ms                       |
+| textAlign     | 47 / 639 ms                      | 31 / 354 ms                      |
+| contentScale  | 2 / 103 ms                       | 1 / 46 ms                        |
+| readableFont  | 20 / 89 ms                       | 13 / 63 ms                       |
+| fontSize      | 37 / 90 ms                       | 29 / 85 ms                       |
 
-The font-size sample at exactly 100 ms fails too: the original assertion is strictly `< 100`. Every synchronous assertion passes. The failed timing step remains a job failure; its remaining 325 functional cases still pass with four documented capability skips. This proves the new failure-propagation path rather than hiding the failed budget.
+All synchronous assertions pass. Each failed timing step still fails its job; both remaining WebKit suites pass 325 cases with four capability skips. Callback timing is not proof of final pixel paint. Baseline settling is reported separately and never subtracts API work or the following callback from the measured interval. The local trace audit inspected 33 archives: 2,358 API events, 66 source entries and zero visual events. No visual capture was disabled for functional UI tests.
+
+The Intel trial [c4b448b](https://github.com/qasimfida/accessiblit/actions/runs/43484216839) failed all seven timing cases per Node version and both WebKit jobs hit the unchanged 20-minute timeout. The rollback in ec4fa39 restores Apple Silicon functionality; it does not establish a performance pass. No custom or paid runner was required or provisioned.
 
 Nine skips per Node version are unchanged API limitations: precise heap sampling in Firefox/WebKit/iPhone (three), legacy CDP pinch zoom in Firefox/WebKit (two), legacy CPU tracing in Firefox/WebKit (two), and legacy heap tracing in Firefox/WebKit (two). No required widget axe, host/profile or pairwise case is skipped. Phone projects run QA suites, not every desktop legacy case.
 
@@ -79,26 +85,31 @@ Nine skips per Node version are unchanged API limitations: precise heap sampling
 
 ## Review findings and fixes
 
-| Severity | Finding                                                                                                              | Fix                                                                                                                                                             | Status                                        |
-| -------- | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| Medium   | R-1: external frame CSS caused an opaque-frame resource error                                                        | d2d5018: self-contained frame; qa-boundaries guard                                                                                                              | Fixed                                         |
-| High     | R-2: axe copied nonce styles into detached documents without CSP authorisation                                       | b6c0ce4: authorise only audit-owned copies; strict nonce/CSP guards; no suppressed errors or rules                                                              | Fixed                                         |
-| High     | R-3: existing main CI failed at npm ci because the lock omitted two required optional records                        | 86b1384: minimal lock repair; isolated red/green installation and existing CI npm-ci gate                                                                       | Fixed                                         |
-| Medium   | R-4: a fully asserted Firefox audit exceeded the default wall timeout during contention                              | 6262faa: bounded slow annotation for multi-axe cases; original case passes in 6.5 seconds                                                                       | Fixed                                         |
-| Medium   | R-5: exhaustive flash analysis allocated millions of temporary arrays and timed out                                  | 935196b: scalar squared distances, one square root; same exhaustive inputs and thresholds                                                                       | Fixed                                         |
-| High     | R-6: placement forced host layout after every setting change, exceeding 100 ms                                       | f0be3b2: coalesced/cached geometry; unit and timing guards                                                                                                      | Fixed                                         |
-| Medium   | R-7: placement queued an unnecessary third frame for two overlays                                                    | 8512ef2: observer-owned scheduling; exact two-frame and zero-off/destroy assertions retained                                                                    | Fixed                                         |
-| Medium   | R-8: a temporary missing body threw during a new zoom-cache read                                                     | f9c96b0: null guard; public init/open red/green unit regression                                                                                                 | Fixed                                         |
-| High     | R-9: Firefox crashed inside axe.runPartial when keyboard/semantic traversal and audit were interleaved               | 912fe2f: uninterrupted walk plus independent audit page; compare every saved state and actual control projection; five Firefox profiles pass                    | Fixed                                         |
-| High     | R-10: document focus handling missed internal shadow transitions and a WebKit radio was partly clipped               | b67fb6f: shadow-root focus listener; scroll regression 0 to required 24 px; all 25 keyboard cases pass                                                          | Fixed                                         |
-| High     | R-11: Pixel RTL overflow expanded innerWidth to 515 while the fixed viewport stayed 412, placing the panel at -67 px | 8239037: cached root client width; all four visual bounds; Pixel regressions now report left 36/right 396                                                       | Fixed                                         |
-| High     | R-12: packed React remounts required immediate launcher visibility despite permitted host-focus protection           | 1a9829c: force overlap, assert hidden state, then prove mount uniqueness, shortcut access, Escape focus return and visibility; all 15 packed checks pass        | Fixed; both CI verification jobs pass         |
-| High     | R-13: Linux font metrics overflowed a grid word at maximum spacing                                                   | 817fae0: scoped emergency wrapping while letter spacing is active; 90 spacing/combination checks pass, including a new three-engine red/green long-token guard  | Fixed                                         |
-| High     | R-14: a tall enlarged-text control received only 4 px of focus clearance at one edge                                 | bb0a60c: balanced adaptive clearance; geometric regression and 19 viewport checks pass, with the original 6 px assertions                                       | Fixed                                         |
-| High     | R-15: Linux WebKit media promises hang and its port misses timing limits                                             | 5d37ac2: run every WebKit/iPhone test on the Safari-target macOS port for both Node versions; Linux Chromium/Firefox/Pixel remain; no test or threshold removed | Media passes on macOS; timing remains R-17    |
-| Low      | R-16: packed WebKit traversal assumed macOS Option+Tab on every OS                                                   | b7dcb2c: use ordinary Tab outside macOS; retain all focus assertions; packed checks pass locally                                                                | Fixed; both CI verification jobs pass         |
-| Blocker  | R-17: WebKit next-frame timing exceeds 100 ms on 5,000 nodes                                                         | Native controls and discarded prototypes recorded in 77bbc4f, b865442, ed3e138 and b2eebb0; a08cac3 isolation still fails on Node 22                            | Unresolved; reference runner label requested  |
-| Medium   | R-18: strict timing probes shared a browser process with earlier functional/GPU audits                               | a08cac3: fresh timing invocation; exact disjoint partition of all 1,208 cases; functional tests still run after failure and the job remains failed              | Process isolation fixed; R-17 remains blocked |
+| Severity | Finding                                                                                                              | Fix                                                                                                                                                             | Status                                               |
+| -------- | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| Medium   | R-1: external frame CSS caused an opaque-frame resource error                                                        | d2d5018: self-contained frame; qa-boundaries guard                                                                                                              | Fixed                                                |
+| High     | R-2: axe copied nonce styles into detached documents without CSP authorisation                                       | b6c0ce4: authorise only audit-owned copies; strict nonce/CSP guards; no suppressed errors or rules                                                              | Fixed                                                |
+| High     | R-3: existing main CI failed at npm ci because the lock omitted two required optional records                        | 86b1384: minimal lock repair; isolated red/green installation and existing CI npm-ci gate                                                                       | Fixed                                                |
+| Medium   | R-4: a fully asserted Firefox audit exceeded the default wall timeout during contention                              | 6262faa: bounded slow annotation for multi-axe cases; original case passes in 6.5 seconds                                                                       | Fixed                                                |
+| Medium   | R-5: exhaustive flash analysis allocated millions of temporary arrays and timed out                                  | 935196b: scalar squared distances, one square root; same exhaustive inputs and thresholds                                                                       | Fixed                                                |
+| High     | R-6: placement forced host layout after every setting change, exceeding 100 ms                                       | f0be3b2: coalesced/cached geometry; unit and timing guards                                                                                                      | Fixed                                                |
+| Medium   | R-7: placement queued an unnecessary third frame for two overlays                                                    | 8512ef2: observer-owned scheduling; exact two-frame and zero-off/destroy assertions retained                                                                    | Fixed                                                |
+| Medium   | R-8: a temporary missing body threw during a new zoom-cache read                                                     | f9c96b0: null guard; public init/open red/green unit regression                                                                                                 | Fixed                                                |
+| High     | R-9: Firefox crashed inside axe.runPartial when keyboard/semantic traversal and audit were interleaved               | 912fe2f: uninterrupted walk plus independent audit page; compare every saved state and actual control projection; five Firefox profiles pass                    | Fixed                                                |
+| High     | R-10: document focus handling missed internal shadow transitions and a WebKit radio was partly clipped               | b67fb6f: shadow-root focus listener; scroll regression 0 to required 24 px; all 25 keyboard cases pass                                                          | Fixed                                                |
+| High     | R-11: Pixel RTL overflow expanded innerWidth to 515 while the fixed viewport stayed 412, placing the panel at -67 px | 8239037: cached root client width; all four visual bounds; Pixel regressions now report left 36/right 396                                                       | Fixed                                                |
+| High     | R-12: packed React remounts required immediate launcher visibility despite permitted host-focus protection           | 1a9829c: force overlap, assert hidden state, then prove mount uniqueness, shortcut access, Escape focus return and visibility; all 15 packed checks pass        | Fixed; both CI verification jobs pass                |
+| High     | R-13: Linux font metrics overflowed a grid word at maximum spacing                                                   | 817fae0: scoped emergency wrapping while letter spacing is active; 90 spacing/combination checks pass, including a new three-engine red/green long-token guard  | Fixed                                                |
+| High     | R-14: a tall enlarged-text control received only 4 px of focus clearance at one edge                                 | bb0a60c: balanced adaptive clearance; geometric regression and 19 viewport checks pass, with the original 6 px assertions                                       | Fixed                                                |
+| High     | R-15: Linux WebKit media promises hang and its port misses timing limits                                             | 5d37ac2: run every WebKit/iPhone test on the Safari-target macOS port for both Node versions; Linux Chromium/Firefox/Pixel remain; no test or threshold removed | Media passes on macOS; timing remains R-17           |
+| Low      | R-16: packed WebKit traversal assumed macOS Option+Tab on every OS                                                   | b7dcb2c: use ordinary Tab outside macOS; retain all focus assertions; packed checks pass locally                                                                | Fixed; both CI verification jobs pass                |
+| Blocker  | R-17: WebKit next-frame timing exceeds 100 ms on 5,000 nodes                                                         | Native controls and discarded prototypes recorded in 77bbc4f, b865442, ed3e138 and b2eebb0; ec4fa39 corrected probes still fail on both Node versions           | Unresolved; benchmark-platform clarification pending |
+| Medium   | R-18: strict timing probes shared a browser process with earlier functional/GPU audits                               | a08cac3: fresh timing invocation; exact disjoint partition of all 1,208 cases; functional tests still run after failure and the job remains failed              | Process isolation fixed; R-17 remains blocked        |
+| Medium   | R-19: benchmark reference used a moving OS alias                                                                     | c4b448b tried standard Intel; ec4fa39 restores Apple Silicon with explicit macos-26 after measured regression                                                   | Reference documented; R-17 unresolved                |
+| Medium   | R-20: visual trace observers contaminate strict timing probes                                                        | f640f31 disables screenshots/snapshots only for timing/control files; API/source traces and every assertion retained; 33-archive audit                          | Fixed                                                |
+| Medium   | R-21: cold fixture/prior-render work shares a transition interval                                                    | 5f55325 settles host baselines before each stopwatch; five independent-clock/workload guards retain API and callback costs                                      | Instrumentation fixed; R-17 unresolved               |
+| Medium   | R-22: forced-layout controls incorrectly described as numeric lower bounds                                           | 1604aae qualifies metric differences in diagnostic comments and docs; raw receipts unchanged                                                                    | Fixed                                                |
+| High     | R-23: Intel trial regresses all seven timing cases and full-suite completion                                         | ec4fa39 rolls back to original Apple Silicon platform; native functional suite passes both Node versions                                                        | Regression fixed; original R-17 unresolved           |
 
 ## Audits
 
@@ -106,7 +117,7 @@ Nine skips per Node version are unchanged API limitations: precise heap sampling
 
 All required host/profile, individual maximum, binary pairwise, all-eighteen-on, keyboard, reset, CSP and boundary cases pass on all five projects and both Node versions. Executed widget axe scans report zero violations, with no suppressed rule. Keyboard traversal and matching-state audits use separate pages after the documented Firefox tooling crash; this does not claim every transient focus state was scanned.
 
-Current computed minima are 24×24 CSS pixels, 6.82045:1 text contrast and 3.68764:1 control-boundary contrast. The focus indicator is 3 px. Five refreshed headed native-keyboard walks pass in 54.8 seconds. They change all eighteen settings, reset, close with Escape, return focus and tab out. Historical screenshots/semantic trees retain their source provenance; the resumption does not relabel them as newly captured. The runtime source is unchanged during this resumption.
+Current computed minima are 24×24 CSS pixels, 6.82045:1 text contrast and 3.68764:1 control-boundary contrast. The focus indicator is 3 px. Five refreshed headed native-keyboard walks pass in 55.5 seconds. They change all eighteen settings, reset, close with Escape, return focus and tab out. Historical screenshots/semantic trees retain their source provenance; the resumption does not relabel them as newly captured. The runtime source is unchanged during this resumption.
 
 The semantic tree exposes a named non-modal dialog, three labelled sections, native checked radios, pressed toggles and live status. Human speech checks remain necessary for the long panel, focusable aria-disabled stepper limits, possible repeated label/group speech and coalesced announcements. Host-focus protection may hide an overlapping launcher; the shortcut remains usable and packed remount tests guard it. Native owner modal/inert interactions remain a host limit.
 
@@ -138,7 +149,7 @@ The new CPU/platform records are test-only diagnostics. The packed allowlist exc
 
 The IIFE is 57,849 raw / 19,603 gzip bytes, compared with Phase 6's 57,294 / 19,404: +555 raw / +199 gzip. The warning remains 30,000 and limit 35,000 bytes. Source-map attribution is core 14,292, features 24,759, UI 18,043, public entry 140 and wrapper/unmapped 615 bytes. Gzip parts are not additive. React remains separate (384-byte ESM / 838-byte CJS); packed checks retain one core and one React module in the combined consumer.
 
-The unchanged timing gates fail as reported above. Native controls also miss 100 ms: the baseline virtual-M1 run has a 125 ms warm native-font frame and 110 ms warm native-spacing frame. In the latest run, native word-spacing layout reaches 124 ms and its frame 134 ms on Node 22. Controls use simpler selectors and explicit layout reads, and their cold row includes fixture layout. They establish environment-dependent native cost, not zero library overhead or final-paint measurement. Node 20 passes while Node 22 fails on the same reported three-vCPU virtual-M1 model; the exact cause of every scheduling/rendering delay is not asserted.
+The unchanged timing gates fail as reported above. Native controls use explicit geometry reads, unlike the feature callback gate, so their values are not strict numeric lower bounds and cannot prove a hardware cause. Current controls and feature probes both settle baselines and retain API/source traces. Scheduling, rendering, instrumentation and hardware can affect these timings; no exact cause for every delay is asserted. The Intel comparison regressed rather than solving the issue. Local Apple M3 Pro timings pass; this does not substitute for CI.
 
 Current CI stress checks perform 200 init/destroy cycles per project: 9,400 matched listener additions/removals each, zero listener residue, exact body/head/html restoration and identical adopted-sheet identities. Maximum stress init is 18 ms; the separate runtime probe reaches 29 ms, both under 50. Host boxes are unchanged and Chromium CLS is zero. Firefox/WebKit expose no layout-shift entries here and report null.
 
@@ -146,7 +157,7 @@ The four CDP heap checks (Chromium/Pixel × Node 20/22) collect all weakly refer
 
 ## Known limitations (honest)
 
-R-17 remains a blocker. Local M3 Pro samples pass, while hosted virtual-M1 samples and native controls can miss the strict next-frame gate. A defined macOS reference runner is needed before further performance work. The timing result depends on native layout, scheduling and capture work; no guarantee under arbitrary CPU load is established.
+R-17 remains a blocker. Local M3 Pro samples pass, while hosted virtual-M1 samples and native controls can miss the strict next-frame gate. The standard Apple Silicon reference still fails after the three resumed approaches; benchmark-platform clarification is pending. The timing result depends on native layout, scheduling and capture work; no guarantee under arbitrary CPU load is established.
 
 The widget does not remediate arbitrary markup, closed shadow roots, cross-origin frames, canvas, GIF/JS-driven animation or hostile geometry. Native owner modal/inert/top-layer behavior and body replacement can require owner integration/reinitialisation. There is no automatic remount into a replaced body. Font, colour and layout trade-offs remain in the ADRs. Physical devices and spoken output are unverified.
 
@@ -154,17 +165,28 @@ The widget does not remediate arbitrary markup, closed shadow roots, cross-origi
 
 The required complete CI pass is unmet and the completion tag is withheld. No public API shape, runtime dependency, runtime request, axe rule, coverage threshold or explicit timing limit changed. Safari-target CI uses macOS because of Playwright's documented platform codec differences; failed Linux WPE playback is not claimed to pass. [Playwright's WebKit guidance](https://playwright.dev/docs/browsers#webkit) explains that platform choice.
 
-Fresh-process timing isolation is a CI measurement improvement, not a solution to R-17. All 1,208 cases per Node version remain covered exactly once. Grouped selectors, typed properties, reduced tracing, settled baselines and headed mode were not adopted as performance fixes. Pairwise coverage remains binary default/maximum, not every intermediate Cartesian combination. Pushed history was preserved under AGENTS.md section 10.
+Fresh-process timing isolation is a CI measurement improvement, not a solution to R-17. All 1,208 cases per Node version remain covered exactly once. Grouped selectors, typed properties and headed mode were not adopted. API-only tracing and settled baselines were adopted as measurement corrections, with every original assertion retained; they are not a runtime performance fix. Pairwise coverage remains binary default/maximum, not every intermediate Cartesian combination. Pushed history was preserved under AGENTS.md section 10.
 
 ## Handoff notes for the next phase
 
-Provide the label of an existing dedicated macOS CI performance-reference runner; do not relax the 100 ms assertions. The connected GitHub tool could not list registered runners. After a justified fix or confirmed reference environment, repeat the complete Node 20/22 matrix and closing protocol before tagging Phase 7. A Phase 8 brief has also been requested and is still missing. Human screen-reader/device checks remain pending. Publishing stays human-only.
+Resolve the pending benchmark-platform question: retain native macOS as a mandatory timing target, or explicitly use one common Ubuntu timing reference for all three engines while preserving all native macOS functional/media cases. This has not been changed without clarification. Do not relax the 100 ms assertions, omit samples or retry failures into silence. After a justified fix or clarified reference, repeat the full Node 20/22 matrix and closing protocol before tagging Phase 7. The complete Phase 8 brief is received; its temporary draft has not been deployed or committed. Human screen-reader/device checks remain pending. Publishing stays human-only.
 
 ## Phase commit list
 
 Observed `git log --oneline phase-6-complete..HEAD` before this closing report commit; the final report commit follows this list. No completion tag was created.
 
 ```text
+6ba3d8c docs(a11y): refresh the complete matrix and keyboard evidence
+53ddf31 docs(audit): preserve the corrected WebKit timing failures
+72e52c5 docs(perf): record the restored reference and failed gate
+ec4fa39 fix(ci): restore Apple Silicon after the Intel regression
+1604aae fix(audit): qualify native timing comparisons
+5f55325 fix(perf-tests): settle host baselines before timed changes
+c0d07bb docs(perf): document renderer-only timing instrumentation
+f640f31 fix(perf-tests): exclude visual tracing from timing probes
+af81eb8 docs(perf): define the pinned benchmark reference
+c4b448b fix(ci): pin the WebKit benchmark reference hardware
+0b8a067 docs(report): record the resumed performance blocker
 ee539e7 docs(a11y): distinguish functional passes from timing failures
 6258d48 docs(audit): preserve the failed isolated timing gates
 b2eebb0 docs(audit): record headed timing and keyboard comparisons
