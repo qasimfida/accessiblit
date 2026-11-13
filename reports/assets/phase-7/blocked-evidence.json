@@ -1,0 +1,2761 @@
+{
+  "status": "BLOCKED",
+  "cspFinal": {
+    "passed": 8,
+    "failed": 2,
+    "seconds": 18.2,
+    "errors": {
+      "chromium": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 8\n\n- Array []\n+ Array [\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-1wgpVaN08yV9IWW81MoZiJEJBwBN7B9eRoshXK0IyNw='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-hP52BjSVnml3Bo2L/Negq78oT4R/65O+oum56r399dM='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-N+te6Rd53XiekeH4cF4H5mKGUTqFnS0IHhwJ7tXbZx0='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-1wgpVaN08yV9IWW81MoZiJEJBwBN7B9eRoshXK0IyNw='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-hP52BjSVnml3Bo2L/Negq78oT4R/65O+oum56r399dM='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-N+te6Rd53XiekeH4cF4H5mKGUTqFnS0IHhwJ7tXbZx0='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+ ]",
+      "pixel": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 8\n\n- Array []\n+ Array [\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-1wgpVaN08yV9IWW81MoZiJEJBwBN7B9eRoshXK0IyNw='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-ud5r8LRw9WFOOtB3vNlwL1GQIUcvzcT0H5nSO1F9RtQ='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-3M5Dp/bA26E+e1n9OMBJvRU1nheJpE9TacIfncyOy94='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-1wgpVaN08yV9IWW81MoZiJEJBwBN7B9eRoshXK0IyNw='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-ud5r8LRw9WFOOtB3vNlwL1GQIUcvzcT0H5nSO1F9RtQ='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+   \"Applying inline style violates the following Content Security Policy directive 'style-src 'self' 'nonce-qa-owner''. Either the 'unsafe-inline' keyword, a hash ('sha256-3M5Dp/bA26E+e1n9OMBJvRU1nheJpE9TacIfncyOy94='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\",\n+ ]"
+    },
+    "passing": [
+      {
+        "source": "QA_CSP chromium csp",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_CSP firefox csp",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_CSP firefox csp-nonce",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_CSP webkit csp",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_CSP webkit csp-nonce",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_CSP iphone csp",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 14,
+            "right": 374,
+            "top": 8,
+            "bottom": 592,
+            "width": 360,
+            "height": 584,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3750,
+            "clientHeight": 582
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_CSP iphone csp-nonce",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 14,
+            "right": 374,
+            "top": 8,
+            "bottom": 592,
+            "width": 360,
+            "height": 584,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3750,
+            "clientHeight": 582
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_CSP pixel csp",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 36,
+            "right": 396,
+            "top": 127,
+            "bottom": 767,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3750,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      }
+    ]
+  },
+  "boundaryFinal": {
+    "passed": 5,
+    "failed": 0,
+    "seconds": 12.2,
+    "records": [
+      {
+        "source": "QA_BOUNDARY chromium",
+        "data": {
+          "frameFont": "16px",
+          "opaqueOrigin": true,
+          "errors": []
+        }
+      },
+      {
+        "source": "QA_BOUNDARY firefox",
+        "data": {
+          "frameFont": "16px",
+          "opaqueOrigin": true,
+          "errors": []
+        }
+      },
+      {
+        "source": "QA_BOUNDARY webkit",
+        "data": {
+          "frameFont": "16px",
+          "opaqueOrigin": true,
+          "errors": []
+        }
+      },
+      {
+        "source": "QA_BOUNDARY iphone",
+        "data": {
+          "frameFont": "16px",
+          "opaqueOrigin": true,
+          "errors": []
+        }
+      },
+      {
+        "source": "QA_BOUNDARY pixel",
+        "data": {
+          "frameFont": "16px",
+          "opaqueOrigin": true,
+          "errors": []
+        }
+      }
+    ]
+  },
+  "hostMatrixPartial": {
+    "passed": 99,
+    "failed": 5,
+    "interrupted": 1,
+    "notRun": 95,
+    "duration": "2.7m",
+    "records": [
+      {
+        "source": "QA_HOST chromium plain standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium plain forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium plain reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium plain dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium plain rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium shadow standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium shadow forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium shadow reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium shadow dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium shadow rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium iframes standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium iframes forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium iframes reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium iframes dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium iframes rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium csp standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium csp forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium csp reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium csp dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium csp rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium heavy standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium heavy forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium heavy reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium heavy dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium heavy rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium modal standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium modal forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium modal reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium modal dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium modal rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium reset standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium reset forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium reset reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium reset dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST chromium reset rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox plain standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox plain forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox plain reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox plain dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox plain rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox shadow standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox shadow forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox shadow reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox shadow dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox shadow rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox iframes standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox iframes forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox iframes reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox iframes dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox iframes rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox csp standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox csp forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox csp reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox csp dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox csp rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox csp-nonce standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox csp-nonce forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox csp-nonce reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox csp-nonce dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox csp-nonce rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox heavy standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox heavy forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox heavy reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox heavy dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox heavy rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox modal standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox modal forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox modal reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox modal dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox modal rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox reset standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox reset forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox reset reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox reset dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST firefox reset rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit plain standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit plain forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit plain reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit plain dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit plain rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit shadow standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit shadow forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit shadow reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit shadow dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit shadow rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit iframes standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit iframes forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit iframes reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit iframes dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit iframes rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit csp standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit csp forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit csp reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit csp dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit csp rtl",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit csp-nonce standard",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit csp-nonce forced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 21,
+          "minimumBoundaryContrast": 21,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3818,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 21
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit csp-nonce reduced",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 6.820449946885106,
+          "minimumBoundaryContrast": 3.68763813291651,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 7.32096843010406
+          }
+        }
+      },
+      {
+        "source": "QA_HOST webkit csp-nonce dark",
+        "data": {
+          "minimumTarget": 24,
+          "minimumTextContrast": 7.8678914128040836,
+          "minimumBoundaryContrast": 4.9162912282582045,
+          "panel": {
+            "left": 904,
+            "right": 1264,
+            "top": 8,
+            "bottom": 648,
+            "width": 360,
+            "height": 640,
+            "scrollWidth": 358,
+            "clientWidth": 358,
+            "scrollHeight": 3696,
+            "clientHeight": 638
+          },
+          "focus": {
+            "width": 3,
+            "style": "solid",
+            "ratio": 9.940009945072063
+          }
+        }
+      }
+    ]
+  },
+  "audit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "runtimeAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  }
+}
