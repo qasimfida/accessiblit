@@ -10,6 +10,7 @@ import { measureInit } from './perf/measure.mjs';
 const { values } = parseArgs({
   options: {
     ci: { type: 'boolean', default: false },
+    'other-apps-open': { type: 'boolean', default: false },
     baseline: { type: 'string' },
     output: { type: 'string' },
   },
@@ -20,7 +21,11 @@ const command = (name, args) =>
 const power = mac ? command('pmset', ['-g', 'batt']) : null;
 if (!values.ci && (!mac || !power.includes("'AC Power'")))
   throw new Error('The reference run requires this Mac connected to AC power.');
-if (!values.ci && process.env.PERF_CONDITIONS_CONFIRMED !== '1')
+if (
+  !values.ci &&
+  !values['other-apps-open'] &&
+  process.env.PERF_CONDITIONS_CONFIRMED !== '1'
+)
   throw new Error(
     'Confirm other apps are closed with PERF_CONDITIONS_CONFIRMED=1.',
   );
@@ -42,7 +47,12 @@ const report = {
   },
   conditions: {
     power,
-    otherAppsClosed: values.ci ? 'not applicable: shared CI' : true,
+    otherAppsClosed: values.ci
+      ? 'not applicable: shared CI'
+      : !values['other-apps-open'],
+    appsConditionException: values['other-apps-open']
+      ? 'Maintainer explicitly requested running with other apps open.'
+      : null,
     headless: true,
     tracing: false,
   },
