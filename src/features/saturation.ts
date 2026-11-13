@@ -22,7 +22,11 @@ const PROPERTIES = [
   'caret-color',
   'column-rule-color',
 ];
-const CLASSES = ['accessiblit-monochrome', 'accessiblit-low-saturation'];
+const CLASSES = [
+  'accessiblit-monochrome',
+  'accessiblit-low-saturation',
+  'accessiblit-focus-highlight',
+];
 /** Recolour paint properties and atomic media, never filtering a layout ancestor or copying owner URLs. */
 export function applySaturation(
   api: FeatureApi,
