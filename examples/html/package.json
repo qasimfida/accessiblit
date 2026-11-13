@@ -1,0 +1,8 @@
+{
+  "name": "accessiblit-html-example",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@qasimfida/accessiblit": "file:../accessiblit.tgz"
+  }
+}
