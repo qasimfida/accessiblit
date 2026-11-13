@@ -60,4 +60,9 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npx playwright install --with-deps
-      - run: npx playwright test --project=${{ matrix.target.project }} --workers=1
+      # Timing probes own a fresh browser; failed budgets must still fail the job.
+      - id: timing
+        if: matrix.target.project != 'iphone' && matrix.target.project != 'pixel'
+        run: npx playwright test --project=${{ matrix.target.project }} --grep '5000-(node|element) toggle budget' --workers=1
+      - if: ${{ !cancelled() && (success() || steps.timing.outcome == 'failure') }}
+        run: npx playwright test --project=${{ matrix.target.project }} --grep-invert '5000-(node|element) toggle budget' --workers=1
