@@ -1,3 +1,5 @@
+import { mkdir, writeFile } from 'node:fs/promises';
+import { format } from 'prettier';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { FEATURE_IDS, DEFAULT_STATE } from '../src/core/schema';
@@ -76,6 +78,26 @@ for (const profile of QA_PROFILES)
       }
     }
     expect([...changed].sort()).toEqual([...FEATURE_IDS].sort());
+    if (process.env.ACCESSIBLIT_KEYBOARD_EVIDENCE && profile === 'standard') {
+      const folder = new URL('../reports/assets/phase-7/', import.meta.url);
+      await mkdir(folder, { recursive: true });
+      await page.screenshot({
+        path: new URL(`${info.project.name}-keyboard.png`, folder).pathname,
+      });
+      await writeFile(
+        new URL(`${info.project.name}-keyboard.json`, folder),
+        await format(
+          JSON.stringify({
+            project: info.project.name,
+            path,
+            changed: [...changed],
+            semantics: await page.locator('body').ariaSnapshot(),
+          }),
+          { parser: 'json' },
+        ),
+      );
+    }
+
     await expect(
       dialog.getByRole('button', { name: 'Reset all', exact: true }),
     ).toBeFocused();
