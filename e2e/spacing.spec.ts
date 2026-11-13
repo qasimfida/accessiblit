@@ -50,3 +50,33 @@ for (const feature of cases)
       }
       await page.evaluate(() => window.contentInstance.reset());
     });
+
+test('letter spacing wraps long tokens without changing page markup', async ({
+  page,
+}) => {
+  await loadContent(page, 'flex');
+  const paragraph = page.locator('#grid-layout p').first();
+  await paragraph.evaluate((element) => {
+    element.textContent = 'independent'.repeat(8);
+  });
+  const before = await paragraph.evaluate((element) => ({
+    html: element.outerHTML,
+    wrap: getComputedStyle(element).overflowWrap,
+  }));
+  await page.evaluate(() =>
+    window.contentInstance.setFeature('letterSpacing', 0.2),
+  );
+  const adjusted = await paragraph.evaluate((element) => ({
+    overflow: element.scrollWidth - element.clientWidth,
+    wrap: getComputedStyle(element).overflowWrap,
+  }));
+  expect(adjusted.overflow).toBeLessThanOrEqual(1);
+  expect(adjusted.wrap).toBe('anywhere');
+  await page.evaluate(() => window.contentInstance.reset());
+  expect(
+    await paragraph.evaluate((element) => ({
+      html: element.outerHTML,
+      wrap: getComputedStyle(element).overflowWrap,
+    })),
+  ).toEqual(before);
+});
