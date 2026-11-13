@@ -175,3 +175,49 @@ test('isolates the invisible mount from aggressive host CSS', async ({
     before,
   );
 });
+
+test('late duplicate script loading adds only its namespace and releases the earlier engine', async ({
+  page,
+}) => {
+  await page.goto('about:blank');
+  expect(await page.evaluate(() => document.readyState)).toBe('complete');
+  const keys = await page.evaluate(() => Object.getOwnPropertyNames(window));
+  const firstScript = await page.addScriptTag({ content: bundle });
+  const added = await page.evaluate(
+    (before) =>
+      Object.getOwnPropertyNames(window).filter((key) => !before.includes(key)),
+    keys,
+  );
+  expect(added).toEqual(['Accessiblit']);
+  await firstScript.evaluate((node) => node.parentNode?.removeChild(node));
+  const before = await page.locator('html').evaluate((node) => node.outerHTML);
+  await page.evaluate(() => {
+    window.Accessiblit.init({ persist: false });
+  });
+  await expect(page.locator('[data-accessiblit-host]')).toHaveCount(1);
+  const secondScript = await page.addScriptTag({ content: bundle });
+  await secondScript.evaluate((node) => node.parentNode?.removeChild(node));
+  await expect(page.locator('[data-accessiblit-host]')).toHaveCount(0);
+  expect(await page.locator('html').evaluate((node) => node.outerHTML)).toBe(
+    before,
+  );
+  await page.evaluate(() =>
+    window.Accessiblit.init({ persist: false, position: 'top-left' }),
+  );
+  await expect(
+    page.getByRole('button', { name: 'Open accessibility options' }),
+  ).toBeVisible();
+  await page.evaluate(() => window.Accessiblit.destroy());
+  expect(await page.locator('html').evaluate((node) => node.outerHTML)).toBe(
+    before,
+  );
+  expect(
+    await page.evaluate(
+      (before) =>
+        Object.getOwnPropertyNames(window).filter(
+          (key) => !before.includes(key),
+        ),
+      keys,
+    ),
+  ).toEqual(['Accessiblit']);
+});

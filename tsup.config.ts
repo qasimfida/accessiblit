@@ -28,6 +28,10 @@ export default defineConfig([
     entry: { accessiblit: 'src/index.ts' },
     format: ['iife'],
     globalName: 'Accessiblit',
+    // A repeated classic script must release its earlier private module graph.
+    banner: {
+      js: 'try{if(typeof Accessiblit!=="undefined"&&typeof Accessiblit.destroy==="function")Accessiblit.destroy()}catch{}',
+    },
     outExtension: () => ({ js: '.min.js' }),
   },
 ]);
