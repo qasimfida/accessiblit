@@ -36,13 +36,19 @@ jobs:
       - run: npm run test:examples
 
   browsers:
-    runs-on: ubuntu-latest
+    name: browsers (${{ matrix.node }}, ${{ matrix.target.project }})
+    runs-on: ${{ matrix.target.runner }}
     timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
         node: [20, 22]
-        project: [chromium, firefox, webkit, iphone, pixel]
+        target:
+          - { project: chromium, runner: ubuntu-latest }
+          - { project: firefox, runner: ubuntu-latest }
+          - { project: webkit, runner: macos-latest }
+          - { project: iphone, runner: macos-latest }
+          - { project: pixel, runner: ubuntu-latest }
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -54,4 +60,4 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npx playwright install --with-deps
-      - run: npx playwright test --project=${{ matrix.project }} --workers=1
+      - run: npx playwright test --project=${{ matrix.target.project }} --workers=1
