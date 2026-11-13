@@ -1,0 +1,1617 @@
+{
+  "date": "2026-11-13",
+  "status": "Investigation resumed by the human; R-17 remains unresolved",
+  "commitWorkflow": "Existing pushed commits preserved. Each new finding gets a separate conventional commit with checks.",
+  "localExperiments": [
+    {
+      "experiment": "selector grouping",
+      "sourceCommit": "85813f3",
+      "adopted": false,
+      "conclusion": "No sufficient repeatable local improvement; original runtime and quality gates retained.",
+      "records": [
+        {
+          "context": "current wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 53
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 33
+            },
+            {
+              "value": 0.32,
+              "sync": 2,
+              "frame": 51
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 26
+            }
+          ]
+        },
+        {
+          "context": "current fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 17,
+              "frame": 41
+            },
+            {
+              "value": 140,
+              "sync": 17,
+              "frame": 43
+            },
+            {
+              "value": 160,
+              "sync": 15,
+              "frame": 41
+            },
+            {
+              "value": 180,
+              "sync": 15,
+              "frame": 42
+            },
+            {
+              "value": 200,
+              "sync": 14,
+              "frame": 40
+            },
+            {
+              "value": 100,
+              "sync": 2,
+              "frame": 26
+            }
+          ]
+        },
+        {
+          "context": "grouped wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 46
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 30
+            },
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 47
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 26
+            }
+          ]
+        },
+        {
+          "context": "grouped fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 13,
+              "frame": 37
+            },
+            {
+              "value": 140,
+              "sync": 16,
+              "frame": 42
+            },
+            {
+              "value": 160,
+              "sync": 14,
+              "frame": 39
+            },
+            {
+              "value": 180,
+              "sync": 15,
+              "frame": 41
+            },
+            {
+              "value": 200,
+              "sync": 14,
+              "frame": 39
+            },
+            {
+              "value": 100,
+              "sync": 3,
+              "frame": 27
+            }
+          ]
+        },
+        {
+          "context": "grouped wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 46
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 31
+            },
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 47
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 26
+            }
+          ]
+        },
+        {
+          "context": "grouped fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 13,
+              "frame": 37
+            },
+            {
+              "value": 140,
+              "sync": 15,
+              "frame": 42
+            },
+            {
+              "value": 160,
+              "sync": 14,
+              "frame": 39
+            },
+            {
+              "value": 180,
+              "sync": 15,
+              "frame": 40
+            },
+            {
+              "value": 200,
+              "sync": 15,
+              "frame": 40
+            },
+            {
+              "value": 100,
+              "sync": 3,
+              "frame": 26
+            }
+          ]
+        },
+        {
+          "context": "current wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 45
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 31
+            },
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 47
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 25
+            }
+          ]
+        },
+        {
+          "context": "current fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 13,
+              "frame": 38
+            },
+            {
+              "value": 140,
+              "sync": 15,
+              "frame": 42
+            },
+            {
+              "value": 160,
+              "sync": 15,
+              "frame": 41
+            },
+            {
+              "value": 180,
+              "sync": 14,
+              "frame": 40
+            },
+            {
+              "value": 200,
+              "sync": 14,
+              "frame": 40
+            },
+            {
+              "value": 100,
+              "sync": 3,
+              "frame": 26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "experiment": "trace comparison",
+      "sourceCommit": "85813f3",
+      "adopted": false,
+      "conclusion": "No sufficient repeatable local improvement; original runtime and quality gates retained.",
+      "records": [
+        {
+          "context": "traced wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 52
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 40
+            },
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 47
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 27
+            }
+          ]
+        },
+        {
+          "context": "traced fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 16,
+              "frame": 44
+            },
+            {
+              "value": 140,
+              "sync": 18,
+              "frame": 46
+            },
+            {
+              "value": 160,
+              "sync": 16,
+              "frame": 42
+            },
+            {
+              "value": 180,
+              "sync": 16,
+              "frame": 44
+            },
+            {
+              "value": 200,
+              "sync": 16,
+              "frame": 56
+            },
+            {
+              "value": 100,
+              "sync": 3,
+              "frame": 28
+            }
+          ]
+        },
+        {
+          "context": "timing wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 47
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 30
+            },
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 47
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 26
+            }
+          ]
+        },
+        {
+          "context": "timing fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 14,
+              "frame": 39
+            },
+            {
+              "value": 140,
+              "sync": 16,
+              "frame": 43
+            },
+            {
+              "value": 160,
+              "sync": 14,
+              "frame": 40
+            },
+            {
+              "value": 180,
+              "sync": 14,
+              "frame": 40
+            },
+            {
+              "value": 200,
+              "sync": 14,
+              "frame": 40
+            },
+            {
+              "value": 100,
+              "sync": 3,
+              "frame": 28
+            }
+          ]
+        },
+        {
+          "context": "timing wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 50
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 36
+            },
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 51
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 28
+            }
+          ]
+        },
+        {
+          "context": "timing fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 15,
+              "frame": 44
+            },
+            {
+              "value": 140,
+              "sync": 17,
+              "frame": 45
+            },
+            {
+              "value": 160,
+              "sync": 16,
+              "frame": 45
+            },
+            {
+              "value": 180,
+              "sync": 17,
+              "frame": 47
+            },
+            {
+              "value": 200,
+              "sync": 16,
+              "frame": 44
+            },
+            {
+              "value": 100,
+              "sync": 2,
+              "frame": 28
+            }
+          ]
+        },
+        {
+          "context": "traced wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 50
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 34
+            },
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 51
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 28
+            }
+          ]
+        },
+        {
+          "context": "traced fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 15,
+              "frame": 40
+            },
+            {
+              "value": 140,
+              "sync": 18,
+              "frame": 45
+            },
+            {
+              "value": 160,
+              "sync": 16,
+              "frame": 44
+            },
+            {
+              "value": 180,
+              "sync": 17,
+              "frame": 50
+            },
+            {
+              "value": 200,
+              "sync": 16,
+              "frame": 51
+            },
+            {
+              "value": 100,
+              "sync": 4,
+              "frame": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "experiment": "settled baseline",
+      "sourceCommit": "85813f3",
+      "adopted": false,
+      "conclusion": "No sufficient repeatable local improvement; original runtime and quality gates retained.",
+      "records": [
+        {
+          "context": "current wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 2,
+              "frame": 53
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 52
+            },
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 49
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 31
+            }
+          ]
+        },
+        {
+          "context": "current fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 18,
+              "frame": 44
+            },
+            {
+              "value": 140,
+              "sync": 18,
+              "frame": 46
+            },
+            {
+              "value": 160,
+              "sync": 16,
+              "frame": 44
+            },
+            {
+              "value": 180,
+              "sync": 16,
+              "frame": 44
+            },
+            {
+              "value": 200,
+              "sync": 16,
+              "frame": 48
+            },
+            {
+              "value": 100,
+              "sync": 3,
+              "frame": 29
+            }
+          ]
+        },
+        {
+          "context": "settled wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 51
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 25
+            },
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 50
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 31
+            }
+          ]
+        },
+        {
+          "context": "settled fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 8,
+              "frame": 36
+            },
+            {
+              "value": 140,
+              "sync": 18,
+              "frame": 45
+            },
+            {
+              "value": 160,
+              "sync": 16,
+              "frame": 43
+            },
+            {
+              "value": 180,
+              "sync": 16,
+              "frame": 48
+            },
+            {
+              "value": 200,
+              "sync": 16,
+              "frame": 43
+            },
+            {
+              "value": 100,
+              "sync": 4,
+              "frame": 27
+            }
+          ]
+        },
+        {
+          "context": "settled wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 50
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 26
+            },
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 48
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 23
+            }
+          ]
+        },
+        {
+          "context": "settled fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 9,
+              "frame": 38
+            },
+            {
+              "value": 140,
+              "sync": 17,
+              "frame": 43
+            },
+            {
+              "value": 160,
+              "sync": 17,
+              "frame": 44
+            },
+            {
+              "value": 180,
+              "sync": 16,
+              "frame": 49
+            },
+            {
+              "value": 200,
+              "sync": 17,
+              "frame": 44
+            },
+            {
+              "value": 100,
+              "sync": 4,
+              "frame": 25
+            }
+          ]
+        },
+        {
+          "context": "current wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 48
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 35
+            },
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 47
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 26
+            }
+          ]
+        },
+        {
+          "context": "current fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 14,
+              "frame": 40
+            },
+            {
+              "value": 140,
+              "sync": 17,
+              "frame": 45
+            },
+            {
+              "value": 160,
+              "sync": 15,
+              "frame": 42
+            },
+            {
+              "value": 180,
+              "sync": 16,
+              "frame": 47
+            },
+            {
+              "value": 200,
+              "sync": 15,
+              "frame": 51
+            },
+            {
+              "value": 100,
+              "sync": 4,
+              "frame": 29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "experiment": "typed variables",
+      "sourceCommit": "85813f3",
+      "adopted": false,
+      "conclusion": "No sufficient repeatable local improvement; original runtime and quality gates retained.",
+      "records": [
+        {
+          "context": "current wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 3,
+              "frame": 52
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 47
+            },
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 48
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 26
+            }
+          ]
+        },
+        {
+          "context": "current fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 15,
+              "frame": 41
+            },
+            {
+              "value": 140,
+              "sync": 17,
+              "frame": 45
+            },
+            {
+              "value": 160,
+              "sync": 18,
+              "frame": 47
+            },
+            {
+              "value": 180,
+              "sync": 17,
+              "frame": 45
+            },
+            {
+              "value": 200,
+              "sync": 15,
+              "frame": 42
+            },
+            {
+              "value": 100,
+              "sync": 3,
+              "frame": 30
+            }
+          ]
+        },
+        {
+          "context": "typed wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 47
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 30
+            },
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 49
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 27
+            }
+          ]
+        },
+        {
+          "context": "typed fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 14,
+              "frame": 38
+            },
+            {
+              "value": 140,
+              "sync": 17,
+              "frame": 44
+            },
+            {
+              "value": 160,
+              "sync": 15,
+              "frame": 44
+            },
+            {
+              "value": 180,
+              "sync": 16,
+              "frame": 48
+            },
+            {
+              "value": 200,
+              "sync": 16,
+              "frame": 49
+            },
+            {
+              "value": 100,
+              "sync": 4,
+              "frame": 32
+            }
+          ]
+        },
+        {
+          "context": "typed wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 47
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 30
+            },
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 48
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 26
+            }
+          ]
+        },
+        {
+          "context": "typed fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 14,
+              "frame": 38
+            },
+            {
+              "value": 140,
+              "sync": 17,
+              "frame": 44
+            },
+            {
+              "value": 160,
+              "sync": 16,
+              "frame": 48
+            },
+            {
+              "value": 180,
+              "sync": 17,
+              "frame": 49
+            },
+            {
+              "value": 200,
+              "sync": 17,
+              "frame": 48
+            },
+            {
+              "value": 100,
+              "sync": 4,
+              "frame": 32
+            }
+          ]
+        },
+        {
+          "context": "current wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 48
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 31
+            },
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 51
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 29
+            }
+          ]
+        },
+        {
+          "context": "current fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 14,
+              "frame": 40
+            },
+            {
+              "value": 140,
+              "sync": 20,
+              "frame": 51
+            },
+            {
+              "value": 160,
+              "sync": 18,
+              "frame": 46
+            },
+            {
+              "value": 180,
+              "sync": 18,
+              "frame": 47
+            },
+            {
+              "value": 200,
+              "sync": 16,
+              "frame": 44
+            },
+            {
+              "value": 100,
+              "sync": 4,
+              "frame": 32
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "diagnosticSourceCommit": "77bbc4f",
+  "localBrowserCommand": "npx playwright test e2e/performance-diagnostics.spec.ts e2e/content-performance.spec.ts e2e/font-size.spec.ts --workers=1",
+  "localResult": "54 passed (19.9s)",
+  "diagnosticRecords": [
+    {
+      "project": "chromium",
+      "feature": "fontSize",
+      "native": true,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 0,
+          "layout": 11.299999952316284,
+          "nextFrame": 11.5,
+          "height": 308094.875,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0,
+          "layout": 12,
+          "nextFrame": 18.5,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 0,
+          "layout": 11.299999952316284,
+          "nextFrame": 17.40000009536743,
+          "height": 308094.875,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0,
+          "layout": 14,
+          "nextFrame": 17.09999990463257,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        }
+      ]
+    },
+    {
+      "project": "chromium",
+      "feature": "fontSize",
+      "native": false,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 8.700000047683716,
+          "layout": 12.400000095367432,
+          "nextFrame": 21.90000009536743,
+          "height": 308094.875,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 1.7000000476837158,
+          "layout": 13.700000047683716,
+          "nextFrame": 19.40000009536743,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 5.900000095367432,
+          "layout": 13.5,
+          "nextFrame": 22.600000143051147,
+          "height": 308094.875,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 1.2999999523162842,
+          "layout": 14.400000095367432,
+          "nextFrame": 18.90000009536743,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        }
+      ]
+    },
+    {
+      "project": "chromium",
+      "feature": "wordSpacing",
+      "native": true,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 0,
+          "layout": 10.700000047683716,
+          "nextFrame": 10.800000190734863,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0,
+          "layout": 11.900000095367432,
+          "nextFrame": 17.5,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 0.09999990463256836,
+          "layout": 12,
+          "nextFrame": 17.5,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0,
+          "layout": 13.700000047683716,
+          "nextFrame": 17.299999952316284,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        }
+      ]
+    },
+    {
+      "project": "chromium",
+      "feature": "wordSpacing",
+      "native": false,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 0.40000009536743164,
+          "layout": 13,
+          "nextFrame": 13.5,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0.20000004768371582,
+          "layout": 12.299999952316284,
+          "nextFrame": 14.799999952316284,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 0.20000004768371582,
+          "layout": 15.299999952316284,
+          "nextFrame": 17.799999952316284,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0.09999990463256836,
+          "layout": 14.5,
+          "nextFrame": 18.09999990463257,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        }
+      ]
+    },
+    {
+      "project": "firefox",
+      "feature": "fontSize",
+      "native": true,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 0,
+          "layout": 14,
+          "nextFrame": 14,
+          "height": 308048,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0,
+          "layout": 14,
+          "nextFrame": 14,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 0,
+          "layout": 10,
+          "nextFrame": 11,
+          "height": 308048,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0,
+          "layout": 9,
+          "nextFrame": 9,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        }
+      ]
+    },
+    {
+      "project": "firefox",
+      "feature": "fontSize",
+      "native": false,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 11,
+          "layout": 14,
+          "nextFrame": 27,
+          "height": 308048,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 3,
+          "layout": 14,
+          "nextFrame": 18,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 8,
+          "layout": 11,
+          "nextFrame": 20,
+          "height": 308048,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 3,
+          "layout": 10,
+          "nextFrame": 14,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        }
+      ]
+    },
+    {
+      "project": "firefox",
+      "feature": "wordSpacing",
+      "native": true,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 0,
+          "layout": 14,
+          "nextFrame": 14,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0,
+          "layout": 11,
+          "nextFrame": 11,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 0,
+          "layout": 10,
+          "nextFrame": 10,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0,
+          "layout": 10,
+          "nextFrame": 10,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        }
+      ]
+    },
+    {
+      "project": "firefox",
+      "feature": "wordSpacing",
+      "native": false,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 1,
+          "layout": 14,
+          "nextFrame": 15,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 1,
+          "layout": 9,
+          "nextFrame": 10,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 1,
+          "layout": 10,
+          "nextFrame": 11,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0,
+          "layout": 9,
+          "nextFrame": 9,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        }
+      ]
+    },
+    {
+      "project": "webkit",
+      "feature": "fontSize",
+      "native": true,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 0,
+          "layout": 26,
+          "nextFrame": 26,
+          "height": 307938.625,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0,
+          "layout": 24,
+          "nextFrame": 25,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 0,
+          "layout": 27,
+          "nextFrame": 32,
+          "height": 307938.625,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 1,
+          "layout": 21,
+          "nextFrame": 23,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        }
+      ]
+    },
+    {
+      "project": "webkit",
+      "feature": "fontSize",
+      "native": false,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 14,
+          "layout": 25,
+          "nextFrame": 40,
+          "height": 307938.625,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 4,
+          "layout": 24,
+          "nextFrame": 29,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 7,
+          "layout": 22,
+          "nextFrame": 32,
+          "height": 307938.625,
+          "first": "22.4px",
+          "last": "22.4px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 3,
+          "layout": 21,
+          "nextFrame": 26,
+          "height": 220048,
+          "first": "16px",
+          "last": "16px",
+          "paragraphs": 5000
+        }
+      ]
+    },
+    {
+      "project": "webkit",
+      "feature": "wordSpacing",
+      "native": true,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 0,
+          "layout": 43,
+          "nextFrame": 43,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 0,
+          "layout": 25,
+          "nextFrame": 26,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 1,
+          "layout": 41,
+          "nextFrame": 43,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 1,
+          "layout": 19,
+          "nextFrame": 21,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        }
+      ]
+    },
+    {
+      "project": "webkit",
+      "feature": "wordSpacing",
+      "native": false,
+      "platform": "darwin",
+      "architecture": "arm64",
+      "cpu": "Apple M3 Pro",
+      "logicalCpus": 11,
+      "rows": [
+        {
+          "on": true,
+          "synchronous": 1,
+          "layout": 45,
+          "nextFrame": 47,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 3,
+          "layout": 27,
+          "nextFrame": 31,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        },
+        {
+          "on": true,
+          "synchronous": 1,
+          "layout": 46,
+          "nextFrame": 48,
+          "height": 220048,
+          "first": "5.12px",
+          "last": "5.12px",
+          "paragraphs": 5000
+        },
+        {
+          "on": false,
+          "synchronous": 4,
+          "layout": 21,
+          "nextFrame": 26,
+          "height": 220048,
+          "first": "0px",
+          "last": "0px",
+          "paragraphs": 5000
+        }
+      ]
+    }
+  ],
+  "limits": "Native CSS is a lower bound with simpler selectors and no widget. Forced-layout diagnostic rows are not replacements for the original unmodified next-frame gates. Local results do not establish hosted-CI performance."
+}
