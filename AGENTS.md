@@ -139,7 +139,7 @@ The widget must meet these on any host page:
 - Browser bundle (IIFE, minified + gzip) **≤ 35 KB**. Warn at 30 KB.
 - Coverage: core logic ≥ 85% lines and branches.
 - axe: **0** violations on the widget in every tested state.
-- Init time under 50 ms on a mid-range laptop; zero layout shift caused by the widget.
+- Init time gate: median `init()` time ≤ 50 ms, measured on the reference machine (the maintainer's Mac: record model, chip, RAM and macOS version in the report; get them with `sysctl -n machdep.cpu.brand_string` and `sw_vers`). Method: `npm run perf`, headless Chromium and WebKit, plugged in, other apps closed, 5 warm-up runs discarded, then 30 measured runs, timed with performance.now() around init() only (excluding browser start-up). Report median, p95 and the raw samples in reports/perf-macos.json. The gate is the median. Shared CI runners are not valid for absolute timing: CI runs the same script as a report-only trend check, plus a regression guard that fails if the median grows more than 50% against the committed baseline.
 - `npm audit --omit=dev` reports nothing (there should be no runtime deps).
 
 ## 9. Engineering standards
