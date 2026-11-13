@@ -28,6 +28,7 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm test
+      - run: npm run test:perf
       - run: npm run build
       - run: npm run size
       - run: npm run check:package
@@ -61,9 +62,32 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npx playwright install --with-deps
-      # Timing probes own a fresh browser; failed budgets must still fail the job.
+      # Historical absolute toggle timings are reported on shared runners.
+      # Section 8 gates absolute init on the maintainer Mac; CI gates its trend.
       - id: timing
+        continue-on-error: true
         if: matrix.target.project != 'iphone' && matrix.target.project != 'pixel'
         run: npx playwright test --project=${{ matrix.target.project }} --grep '5000-(node|element) toggle budget' --workers=1
       - if: ${{ !cancelled() && (success() || steps.timing.outcome == 'failure') }}
         run: npx playwright test --project=${{ matrix.target.project }} --grep-invert '5000-(node|element) toggle budget' --workers=1
+
+  performance:
+    name: init trend (${{ matrix.node }})
+    runs-on: macos-26
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install chromium webkit
+      # One-time bootstrap; replace with committed runner baselines before phase closure.
+      - run: npm run perf -- --ci --record-ci-baseline --output reports/perf-ci-node${{ matrix.node }}.json

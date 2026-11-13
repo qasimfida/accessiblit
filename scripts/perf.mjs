@@ -6,15 +6,19 @@ import { chromium, webkit } from '@playwright/test';
 import { format } from 'prettier';
 import { summarize, regression } from './perf/statistics.mjs';
 import { measureInit } from './perf/measure.mjs';
+import { assertComparable } from './perf/baseline.mjs';
 
 const { values } = parseArgs({
   options: {
     ci: { type: 'boolean', default: false },
+    'record-ci-baseline': { type: 'boolean', default: false },
     'other-apps-open': { type: 'boolean', default: false },
     baseline: { type: 'string' },
     output: { type: 'string' },
   },
 });
+if (values['record-ci-baseline'] && (!values.ci || values.baseline))
+  throw new Error('Baseline capture requires --ci and no existing baseline.');
 const mac = platform() === 'darwin';
 const command = (name, args) =>
   execFileSync(name, args, { encoding: 'utf8' }).trim();
@@ -63,7 +67,9 @@ const report = {
     fixture:
       'plain semantic host; 5000 paragraphs; default options; empty storage',
     gate: values.ci
-      ? 'report absolute; fail above 1.5 times committed CI median'
+      ? values['record-ci-baseline']
+        ? 'bootstrap CI baseline; no timing verdict'
+        : 'report absolute; fail above 1.5 times committed CI median'
       : 'median <= 50 ms per engine',
     median: 'mean of middle pair',
     p95: 'nearest rank',
@@ -73,8 +79,9 @@ const report = {
 const baseline = values.baseline
   ? JSON.parse(await readFile(values.baseline, 'utf8'))
   : null;
-if (values.ci && !baseline)
+if (values.ci && !baseline && !values['record-ci-baseline'])
   throw new Error('CI requires a committed baseline.');
+if (baseline && values.ci) assertComparable(baseline, report);
 const bundle = await readFile(
   new URL('../dist/accessiblit.min.js', import.meta.url),
   'utf8',
@@ -111,7 +118,11 @@ for (const [name, engine] of Object.entries({ chromium, webkit })) {
     const guard = baseline
       ? regression(stats.medianMs, baseline.browsers[name].medianMs)
       : null;
-    const pass = values.ci ? guard.pass : stats.medianMs <= 50;
+    const pass = values['record-ci-baseline']
+      ? null
+      : values.ci
+        ? guard.pass
+        : stats.medianMs <= 50;
     report.browsers[name] = {
       version: browser.version(),
       ...raw,
@@ -119,15 +130,15 @@ for (const [name, engine] of Object.entries({ chromium, webkit })) {
       guard,
       pass,
     };
-    failed ||= !pass;
+    failed ||= pass === false;
     console.log(
-      `${name}: median ${stats.medianMs} ms; p95 ${stats.p95Ms} ms; ${pass ? 'PASS' : 'FAIL'}`,
+      `${name}: median ${stats.medianMs} ms; p95 ${stats.p95Ms} ms; ${pass === null ? 'REPORTED' : pass ? 'PASS' : 'FAIL'}`,
     );
   } finally {
     await browser.close();
   }
 }
-report.pass = !failed;
+report.pass = values['record-ci-baseline'] ? null : !failed;
 await mkdir(new URL('../reports/', import.meta.url), { recursive: true });
 const output =
   values.output ??
