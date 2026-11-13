@@ -1,0 +1,32 @@
+html {
+  color: #172b3d;
+  background: #fff;
+  font: 16px/1.5 system-ui;
+}
+body {
+  margin: 16px;
+}
+main {
+  max-inline-size: 60rem;
+}
+a {
+  color: #135797;
+}
+button {
+  min-block-size: 44px;
+  padding: 8px;
+}
+iframe {
+  inline-size: min(100%, 24rem);
+  block-size: 12rem;
+  border: 2px solid #596b7b;
+}
+.qa-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  background: #fff;
+  border: 4px solid #172b3d;
+  padding: 12px;
+  overflow: auto;
+}

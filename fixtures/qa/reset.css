@@ -1,0 +1,15 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: content-box;
+  font: inherit;
+  color: inherit;
+}
+button,
+input {
+  appearance: none;
+  background: transparent;
+}

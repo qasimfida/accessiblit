@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QA shadow</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%231957a5'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="/qa/base.css" />
+  </head>
+  <body>
+    <main>
+      <h1>QA shadow host</h1>
+      <p>Readable host text with <a href="#after">a real link</a>.</p>
+      <button id="before">Host action before widget</button
+      ><qa-card data-qa-shadow></qa-card
+      ><button id="after">Host action after widget</button>
+    </main>
+    <script type="module" src="/qa/boot.mjs"></script>
+  </body>
+</html>
