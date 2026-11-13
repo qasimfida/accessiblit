@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /accessiblit/
+Sitemap: https://qasimfida.github.io/accessiblit/sitemap.xml
