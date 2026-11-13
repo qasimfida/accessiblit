@@ -14,5 +14,7 @@ for (const host of ['csp', 'csp-nonce'])
     expect(errors).toEqual([]);
     const evidence = await auditQA(page);
     expect(errors).toEqual([]);
+    if (host === 'csp-nonce')
+      expect(evidence.auditStyleCopies).toBeGreaterThanOrEqual(6);
     console.log('QA_CSP', info.project.name, host, JSON.stringify(evidence));
   });

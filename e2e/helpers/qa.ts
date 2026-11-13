@@ -8,6 +8,7 @@ import type {
 } from '../../src/core/types';
 import { uiEvidence } from './ui-evidence';
 import AxeBuilder from '@axe-core/playwright';
+import { authorizeAuditCopies } from './csp-audit';
 declare global {
   interface Window {
     qaInstance: AccessiblitInstance;
@@ -84,6 +85,7 @@ export async function loadQA(page: Page, host: string, profile: string) {
 }
 /** Every sampled state has both a closed and an open widget audit with unmodified axe rules. */
 export async function auditQA(page: Page) {
+  let copies: Awaited<ReturnType<typeof authorizeAuditCopies>> | undefined;
   // Let the widget finish installing fallback sheets before restoring APIs for axe's own probes.
   if (
     await page.evaluate(
@@ -118,29 +120,42 @@ export async function auditQA(page: Page) {
       }),
     );
   }
-  await page.evaluate(() => window.qaInstance.close());
-  expect(
-    (
-      await new AxeBuilder({ page })
-        .include('[data-accessiblit-host]')
-        .options({ iframes: false })
-        .analyze()
-    ).violations,
-  ).toEqual([]);
-  await page.bringToFront();
-  await page.evaluate(() => window.qaInstance.open());
-  await expect(
-    page.getByRole('dialog', { name: 'Accessibility options' }),
-  ).toBeVisible();
-  expect(
-    (
-      await new AxeBuilder({ page })
-        .include('[data-accessiblit-host]')
-        .options({ iframes: false })
-        .analyze()
-    ).violations,
-  ).toEqual([]);
-  await page.bringToFront();
+  if (
+    await page.evaluate(
+      () =>
+        typeof Reflect.get(globalThis, 'qaNativeReplaceSync') === 'function',
+    )
+  )
+    copies = await authorizeAuditCopies(page, 'qa-owner');
+  let auditStyleCopies: number;
+  try {
+    await page.evaluate(() => window.qaInstance.close());
+    expect(
+      (
+        await new AxeBuilder({ page })
+          .include('[data-accessiblit-host]')
+          .options({ iframes: false })
+          .analyze()
+      ).violations,
+    ).toEqual([]);
+    await page.bringToFront();
+    await page.evaluate(() => window.qaInstance.open());
+    await expect(
+      page.getByRole('dialog', { name: 'Accessibility options' }),
+    ).toBeVisible();
+    expect(
+      (
+        await new AxeBuilder({ page })
+          .include('[data-accessiblit-host]')
+          .options({ iframes: false })
+          .analyze()
+      ).violations,
+    ).toEqual([]);
+    await page.bringToFront();
+    auditStyleCopies = (await copies?.count()) ?? 0;
+  } finally {
+    await copies?.restore();
+  }
   const evidence = await uiEvidence(page);
   expect(evidence.panel.scrollWidth).toBeLessThanOrEqual(
     evidence.panel.clientWidth + 1,
@@ -159,6 +174,7 @@ export async function auditQA(page: Page) {
     Math.min(...evidence.boundaries.map((t) => t.ratio)),
   ).toBeGreaterThanOrEqual(3);
   return {
+    auditStyleCopies,
     minimumTarget: Math.min(
       ...evidence.targets.map((t) => Math.min(t.width, t.height)),
     ),
