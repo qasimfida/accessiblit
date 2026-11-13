@@ -15,5 +15,5 @@
       "@qasimfida/accessiblit": ["./src/index.ts"]
     }
   },
-  "include": ["src", "tests", "e2e", "*.config.ts"]
+  "include": ["src", "tests", "e2e", "*.config.ts", "site/**/*.ts"]
 }
