@@ -177,15 +177,17 @@ export function createUI(
       },
       { capture: true },
     );
+    scope.listen(root, 'focusin', () => {
+      // Internal focus moves are retargeted within this shadow tree, so document cannot observe them.
+      const focused = root.activeElement;
+      if (
+        focused instanceof view.HTMLElement &&
+        panel.element.contains(focused)
+      )
+        keepFocusVisible(focused);
+    });
     scope.listen(doc, 'focusin', (event) => {
-      if (event.composedPath().includes(root)) {
-        const focused = root.activeElement;
-        if (
-          focused instanceof view.HTMLElement &&
-          panel.element.contains(focused)
-        )
-          keepFocusVisible(focused);
-      } else {
+      if (!event.composedPath().includes(root)) {
         close(false);
         refresh();
       }

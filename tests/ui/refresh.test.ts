@@ -61,3 +61,21 @@ it('tolerates a temporarily absent body during owner replacement', () => {
   instance.destroy();
   expect(document.querySelector('[data-accessiblit-host]')).toBeNull();
 });
+
+it('keeps internal shadow focus changes inside the panel scrollport', () => {
+  const instance = init({ persist: false });
+  instance.open();
+  const root = document.querySelector('[data-accessiblit-host]')!.shadowRoot!;
+  const panel = root.querySelector<HTMLElement>('[role=dialog]')!;
+  const radio = root.querySelector<HTMLInputElement>('input[type=radio]')!;
+  vi.spyOn(panel, 'getBoundingClientRect').mockReturnValue(
+    new DOMRect(0, 0, 200, 100),
+  );
+  vi.spyOn(radio, 'getBoundingClientRect').mockReturnValue(
+    new DOMRect(0, 90, 24, 24),
+  );
+  panel.scrollTop = 0;
+  radio.focus();
+  expect(root.activeElement).toBe(radio);
+  expect(panel.scrollTop).toBe(24);
+});
