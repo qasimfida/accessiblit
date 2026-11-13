@@ -1,0 +1,1132 @@
+{
+  "date": "2026-11-14",
+  "status": "BLOCKED",
+  "source": "ec4fa39",
+  "run": "https://github.com/qasimfida/accessiblit/actions/runs/43489145056",
+  "threshold": {
+    "synchronousMs": "<100",
+    "nextFrameMs": "<100",
+    "nodes": 5000,
+    "retries": 0
+  },
+  "jobs": [
+    {
+      "id": 132105365549,
+      "name": "verify (20)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run lint",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npm run typecheck",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run npm run size",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run npm run check:package",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run npm audit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Run npm run test:examples",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27
+        }
+      ],
+      "summary": [
+        "2026-11-13T19:08:13.9824940Z \u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m58 passed\u001b[39m\u001b[22m\u001b[90m (58)\u001b[39m",
+        "2026-11-13T19:08:13.9826417Z \u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m184 passed\u001b[39m\u001b[22m\u001b[90m (184)\u001b[39m"
+      ]
+    },
+    {
+      "id": 132105366067,
+      "name": "browsers (22, firefox)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npx playwright test --project=firefox --grep '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright test --project=firefox --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ],
+      "summary": [
+        "2026-11-13T19:09:17.5259804Z CONTENT_PERFORMANCE firefox lineHeight [{\"value\":2,\"synchronous\":1,\"nextFrame\":61,\"baselineSettling\":24},{\"value\":0,\"synchronous\":1,\"nextFrame\":48,\"baselineSettling\":21},{\"value\":2,\"synchronous\":0,\"nextFrame\":33,\"baselineSettling\":19},{\"value\":0,\"synchronous\":1,\"nextFrame\":51,\"baselineSettling\":17}]",
+        "2026-11-13T19:09:18.3662438Z \u00b7CONTENT_PERFORMANCE firefox letterSpacing [{\"value\":0.2,\"synchronous\":1,\"nextFrame\":46,\"baselineSettling\":27},{\"value\":0,\"synchronous\":1,\"nextFrame\":30,\"baselineSettling\":20},{\"value\":0.2,\"synchronous\":0,\"nextFrame\":35,\"baselineSettling\":20},{\"value\":0,\"synchronous\":1,\"nextFrame\":30,\"baselineSettling\":31}]",
+        "2026-11-13T19:09:19.1114794Z \u00b7CONTENT_PERFORMANCE firefox wordSpacing [{\"value\":0.32,\"synchronous\":0,\"nextFrame\":32,\"baselineSettling\":12},{\"value\":0,\"synchronous\":1,\"nextFrame\":30,\"baselineSettling\":30},{\"value\":0.32,\"synchronous\":1,\"nextFrame\":34,\"baselineSettling\":20},{\"value\":0,\"synchronous\":1,\"nextFrame\":33,\"baselineSettling\":32}]",
+        "2026-11-13T19:09:19.9495840Z \u00b7CONTENT_PERFORMANCE firefox textAlign [{\"value\":\"right\",\"synchronous\":39,\"nextFrame\":73,\"baselineSettling\":15},{\"value\":\"off\",\"synchronous\":7,\"nextFrame\":40,\"baselineSettling\":28},{\"value\":\"right\",\"synchronous\":35,\"nextFrame\":67,\"baselineSettling\":26},{\"value\":\"off\",\"synchronous\":6,\"nextFrame\":38,\"baselineSettling\":34}]",
+        "2026-11-13T19:09:20.6827873Z \u00b7CONTENT_PERFORMANCE firefox contentScale [{\"value\":200,\"synchronous\":1,\"nextFrame\":42,\"baselineSettling\":5},{\"value\":100,\"synchronous\":0,\"nextFrame\":29,\"baselineSettling\":22},{\"value\":200,\"synchronous\":2,\"nextFrame\":31,\"baselineSettling\":20},{\"value\":100,\"synchronous\":1,\"nextFrame\":33,\"baselineSettling\":20}]",
+        "2026-11-13T19:09:21.4597613Z \u00b7CONTENT_PERFORMANCE firefox readableFont [{\"value\":\"readable\",\"synchronous\":19,\"nextFrame\":62,\"baselineSettling\":10},{\"value\":\"off\",\"synchronous\":6,\"nextFrame\":38,\"baselineSettling\":18},{\"value\":\"readable\",\"synchronous\":15,\"nextFrame\":47,\"baselineSettling\":28},{\"value\":\"off\",\"synchronous\":6,\"nextFrame\":37,\"baselineSettling\":19}]",
+        "2026-11-13T19:09:22.5138694Z \u00b7CONTENT_FONT_PERFORMANCE firefox [{\"value\":120,\"synchronous\":23,\"nextFrame\":63,\"baselineSettling\":26},{\"value\":140,\"synchronous\":32,\"nextFrame\":71,\"baselineSettling\":20},{\"value\":160,\"synchronous\":37,\"nextFrame\":80,\"baselineSettling\":30},{\"value\":180,\"synchronous\":31,\"nextFrame\":69,\"baselineSettling\":19},{\"value\":200,\"synchronous\":29,\"nextFrame\":66,\"baselineSettling\":31},{\"value\":100,\"synchronous\":5,\"nextFrame\":35,\"baselineSettling\":17}]",
+        "2026-11-13T19:09:22.8822777Z   7 passed (11.0s)",
+        "2026-11-13T19:19:58.9463551Z \u00b7\u00b7\u00b7\u00b7\u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"firefox\",\"feature\":\"fontSize\",\"native\":true,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 7763 64-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":45,\"synchronous\":0,\"layout\":46,\"nextFrame\":47,\"height\":308048,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":28,\"synchronous\":0,\"layout\":32,\"nextFrame\":32,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":17,\"synchronous\":0,\"layout\":30,\"nextFrame\":30,\"height\":308048,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":20,\"synchronous\":0,\"layout\":29,\"nextFrame\":29,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:19:59.8303026Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"firefox\",\"feature\":\"fontSize\",\"native\":false,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 7763 64-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":67,\"synchronous\":25,\"layout\":40,\"nextFrame\":66,\"height\":308048,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":30,\"synchronous\":7,\"layout\":31,\"nextFrame\":38,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":30,\"synchronous\":19,\"layout\":33,\"nextFrame\":54,\"height\":308048,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":28,\"synchronous\":6,\"layout\":31,\"nextFrame\":38,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:20:00.5420392Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"firefox\",\"feature\":\"wordSpacing\",\"native\":true,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 7763 64-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":43,\"synchronous\":0,\"layout\":31,\"nextFrame\":32,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":26,\"synchronous\":0,\"layout\":29,\"nextFrame\":30,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":21,\"synchronous\":0,\"layout\":31,\"nextFrame\":32,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":18,\"synchronous\":0,\"layout\":29,\"nextFrame\":30,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:20:01.2532228Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"firefox\",\"feature\":\"wordSpacing\",\"native\":false,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 7763 64-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":42,\"synchronous\":1,\"layout\":32,\"nextFrame\":33,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":27,\"synchronous\":0,\"layout\":29,\"nextFrame\":30,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":20,\"synchronous\":1,\"layout\":31,\"nextFrame\":32,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":17,\"synchronous\":1,\"layout\":28,\"nextFrame\":30,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:20:01.6471793Z   4 skipped",
+        "2026-11-13T19:20:01.6472236Z   325 passed (10.6m)"
+      ]
+    },
+    {
+      "id": 132105366071,
+      "name": "verify (22)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run lint",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npm run typecheck",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run npm run size",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run npm run check:package",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run npm audit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Run npm run test:examples",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27
+        }
+      ],
+      "summary": [
+        "2026-11-13T19:07:55.5012051Z \u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m58 passed\u001b[39m\u001b[22m\u001b[90m (58)\u001b[39m",
+        "2026-11-13T19:07:55.5012766Z \u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m184 passed\u001b[39m\u001b[22m\u001b[90m (184)\u001b[39m"
+      ]
+    },
+    {
+      "id": 132105366217,
+      "name": "browsers (20, chromium)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npx playwright test --project=chromium --grep '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright test --project=chromium --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ],
+      "summary": [
+        "2026-11-13T19:08:59.4820634Z CONTENT_PERFORMANCE chromium lineHeight [{\"value\":2,\"synchronous\":1.3999999999941792,\"nextFrame\":47.19999999998254,\"baselineSettling\":1},{\"value\":0,\"synchronous\":0.6000000000058208,\"nextFrame\":29.20000000001164,\"baselineSettling\":19.60000000000582},{\"value\":2,\"synchronous\":0.39999999999417923,\"nextFrame\":42.30000000001746,\"baselineSettling\":20.699999999982538},{\"value\":0,\"synchronous\":0.29999999998835847,\"nextFrame\":42.29999999998836,\"baselineSettling\":24.39999999999418}]",
+        "2026-11-13T19:09:00.0540945Z \u00b7CONTENT_PERFORMANCE chromium letterSpacing [{\"value\":0.2,\"synchronous\":1.5,\"nextFrame\":55,\"baselineSettling\":49.10000000000582},{\"value\":0,\"synchronous\":0.39999999999417923,\"nextFrame\":36.79999999998836,\"baselineSettling\":20.70000000001164},{\"value\":0.2,\"synchronous\":0.39999999999417923,\"nextFrame\":48.5,\"baselineSettling\":29.800000000017462},{\"value\":0,\"synchronous\":0.39999999999417923,\"nextFrame\":39.39999999999418,\"baselineSettling\":18.39999999999418}]",
+        "2026-11-13T19:09:00.5687252Z \u00b7CONTENT_PERFORMANCE chromium wordSpacing [{\"value\":0.32,\"synchronous\":1.2000000000116415,\"nextFrame\":52.10000000000582,\"baselineSettling\":9.5},{\"value\":0,\"synchronous\":0.5999999999767169,\"nextFrame\":36.69999999998254,\"baselineSettling\":31.20000000001164},{\"value\":0.32,\"synchronous\":0.40000000002328306,\"nextFrame\":44.70000000001164,\"baselineSettling\":29.89999999999418},{\"value\":0,\"synchronous\":0.29999999998835847,\"nextFrame\":37.60000000000582,\"baselineSettling\":22.10000000000582}]",
+        "2026-11-13T19:09:01.1312953Z \u00b7CONTENT_PERFORMANCE chromium textAlign [{\"value\":\"right\",\"synchronous\":25.10000000000582,\"nextFrame\":64.20000000001164,\"baselineSettling\":44.89999999999418},{\"value\":\"off\",\"synchronous\":3.2000000000116415,\"nextFrame\":58,\"baselineSettling\":26.199999999982538},{\"value\":\"right\",\"synchronous\":21.39999999999418,\"nextFrame\":65.39999999999418,\"baselineSettling\":25.300000000017462},{\"value\":\"off\",\"synchronous\":3.1000000000058208,\"nextFrame\":49.5,\"baselineSettling\":18}]",
+        "2026-11-13T19:09:01.7840481Z \u00b7CONTENT_PERFORMANCE chromium contentScale [{\"value\":200,\"synchronous\":1,\"nextFrame\":71.20000000001164,\"baselineSettling\":4.2999999999883585},{\"value\":100,\"synchronous\":0.6000000000058208,\"nextFrame\":66,\"baselineSettling\":27.29999999998836},{\"value\":200,\"synchronous\":0.5,\"nextFrame\":50.29999999998836,\"baselineSettling\":34},{\"value\":100,\"synchronous\":0.40000000002328306,\"nextFrame\":66.90000000002328,\"baselineSettling\":32.89999999999418}]",
+        "2026-11-13T19:09:02.3565961Z \u00b7CONTENT_PERFORMANCE chromium readableFont [{\"value\":\"readable\",\"synchronous\":14.89999999999418,\"nextFrame\":66.69999999998254,\"baselineSettling\":3.8000000000174623},{\"value\":\"off\",\"synchronous\":2.6000000000058208,\"nextFrame\":44.20000000001164,\"baselineSettling\":15.89999999999418},{\"value\":\"readable\",\"synchronous\":11.300000000017462,\"nextFrame\":61.60000000000582,\"baselineSettling\":22.39999999999418},{\"value\":\"off\",\"synchronous\":3.1000000000058208,\"nextFrame\":42.20000000001164,\"baselineSettling\":21.79999999998836}]",
+        "2026-11-13T19:09:03.1058204Z \u00b7CONTENT_FONT_PERFORMANCE chromium [{\"value\":120,\"synchronous\":18.199999999982538,\"nextFrame\":66.79999999998836,\"baselineSettling\":8.900000000023283},{\"value\":140,\"synchronous\":23.60000000000582,\"nextFrame\":71.5,\"baselineSettling\":16.60000000000582},{\"value\":160,\"synchronous\":24.29999999998836,\"nextFrame\":77.89999999999418,\"baselineSettling\":28.5},{\"value\":180,\"synchronous\":22.89999999999418,\"nextFrame\":62.69999999998254,\"baselineSettling\":22.10000000000582},{\"value\":200,\"synchronous\":21.800000000017462,\"nextFrame\":60.89999999999418,\"baselineSettling\":20.5},{\"value\":100,\"synchronous\":2.8999999999941792,\"nextFrame\":41.09999999997672,\"baselineSettling\":22.400000000023283}]",
+        "2026-11-13T19:09:03.1900943Z   7 passed (6.8s)",
+        "2026-11-13T19:15:47.9565464Z \u00b7\u00b7\u00b7\u00b7\u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"chromium\",\"feature\":\"fontSize\",\"native\":true,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 7763 64-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":53.89999999990687,\"synchronous\":0.10000000009313226,\"layout\":45.09999999997672,\"nextFrame\":53.90000000002328,\"height\":308094.875,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":21.699999999953434,\"synchronous\":0,\"layout\":29.099999999976717,\"nextFrame\":37,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":29.599999999976717,\"synchronous\":0,\"layout\":29.300000000046566,\"nextFrame\":37.40000000002328,\"height\":308094.875,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":29.20000000006985,\"synchronous\":0.09999999997671694,\"layout\":44.90000000002328,\"nextFrame\":53.199999999953434,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:15:48.5391293Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"chromium\",\"feature\":\"fontSize\",\"native\":false,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 7763 64-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":46.40000000002328,\"synchronous\":18.099999999976717,\"layout\":42.70000000006985,\"nextFrame\":69.90000000002328,\"height\":308094.875,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":21.800000000046566,\"synchronous\":3.199999999953434,\"layout\":37,\"nextFrame\":48.40000000002328,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":18.199999999953434,\"synchronous\":12.800000000046566,\"layout\":43.699999999953434,\"nextFrame\":64.80000000004657,\"height\":308094.875,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":18.5,\"synchronous\":3.199999999953434,\"layout\":33,\"nextFrame\":44.5,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:15:49.0574563Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"chromium\",\"feature\":\"wordSpacing\",\"native\":true,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 7763 64-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":51.90000000002328,\"synchronous\":0,\"layout\":38.09999999997672,\"nextFrame\":44.70000000006985,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":29.400000000023283,\"synchronous\":0,\"layout\":30.79999999993015,\"nextFrame\":37.5,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":29,\"synchronous\":0,\"layout\":31.199999999953434,\"nextFrame\":37.59999999997672,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":29,\"synchronous\":0,\"layout\":31.20000000006985,\"nextFrame\":37.5,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:15:49.5617912Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"chromium\",\"feature\":\"wordSpacing\",\"native\":false,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 7763 64-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":40.800000000046566,\"synchronous\":1.400000000023283,\"layout\":44.199999999953434,\"nextFrame\":52.79999999993015,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":32,\"synchronous\":0.5,\"layout\":30.899999999906868,\"nextFrame\":38.29999999993015,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":28.400000000023283,\"synchronous\":0.40000000002328306,\"layout\":40.09999999997672,\"nextFrame\":47.199999999953434,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":19.600000000093132,\"synchronous\":0.2999999999301508,\"layout\":32.40000000002328,\"nextFrame\":39.79999999993015,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:15:49.6558380Z   329 passed (6.8m)"
+      ]
+    },
+    {
+      "id": 132105366278,
+      "name": "browsers (20, pixel)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npx playwright test --project=pixel --grep '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright test --project=pixel --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ],
+      "summary": ["2026-11-13T19:11:02.8087195Z   100 passed (2.8m)"]
+    },
+    {
+      "id": 132105366287,
+      "name": "browsers (20, webkit)",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npx playwright test --project=webkit --grep '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright test --project=webkit --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ],
+      "summary": [
+        "2026-11-13T19:14:48.5088630Z CONTENT_PERFORMANCE webkit lineHeight [{\"value\":2,\"synchronous\":3,\"nextFrame\":84,\"baselineSettling\":34},{\"value\":0,\"synchronous\":16,\"nextFrame\":70,\"baselineSettling\":19},{\"value\":2,\"synchronous\":2,\"nextFrame\":543,\"baselineSettling\":41},{\"value\":0,\"synchronous\":18,\"nextFrame\":54,\"baselineSettling\":27}]",
+        "2026-11-13T19:14:51.5833200Z FCONTENT_PERFORMANCE webkit letterSpacing [{\"value\":0.2,\"synchronous\":2,\"nextFrame\":99,\"baselineSettling\":29},{\"value\":0,\"synchronous\":11,\"nextFrame\":78,\"baselineSettling\":32},{\"value\":0.2,\"synchronous\":0,\"nextFrame\":533,\"baselineSettling\":21},{\"value\":0,\"synchronous\":13,\"nextFrame\":85,\"baselineSettling\":67}]",
+        "2026-11-13T19:14:54.1648950Z FCONTENT_PERFORMANCE webkit wordSpacing [{\"value\":0.32,\"synchronous\":3,\"nextFrame\":130,\"baselineSettling\":23},{\"value\":0,\"synchronous\":6,\"nextFrame\":62,\"baselineSettling\":21},{\"value\":0.32,\"synchronous\":1,\"nextFrame\":87,\"baselineSettling\":20},{\"value\":0,\"synchronous\":5,\"nextFrame\":210,\"baselineSettling\":31}]",
+        "2026-11-13T19:14:57.6217460Z FCONTENT_PERFORMANCE webkit textAlign [{\"value\":\"right\",\"synchronous\":39,\"nextFrame\":104,\"baselineSettling\":26},{\"value\":\"off\",\"synchronous\":13,\"nextFrame\":94,\"baselineSettling\":27},{\"value\":\"right\",\"synchronous\":47,\"nextFrame\":639,\"baselineSettling\":39},{\"value\":\"off\",\"synchronous\":7,\"nextFrame\":86,\"baselineSettling\":78}]",
+        "2026-11-13T19:15:02.0344040Z FCONTENT_PERFORMANCE webkit contentScale [{\"value\":200,\"synchronous\":1,\"nextFrame\":80,\"baselineSettling\":18},{\"value\":100,\"synchronous\":2,\"nextFrame\":75,\"baselineSettling\":35},{\"value\":200,\"synchronous\":1,\"nextFrame\":59,\"baselineSettling\":692},{\"value\":100,\"synchronous\":2,\"nextFrame\":103,\"baselineSettling\":57}]",
+        "2026-11-13T19:15:04.6515810Z FCONTENT_PERFORMANCE webkit readableFont [{\"value\":\"readable\",\"synchronous\":20,\"nextFrame\":89,\"baselineSettling\":14},{\"value\":\"off\",\"synchronous\":5,\"nextFrame\":71,\"baselineSettling\":28},{\"value\":\"readable\",\"synchronous\":17,\"nextFrame\":89,\"baselineSettling\":30},{\"value\":\"off\",\"synchronous\":10,\"nextFrame\":78,\"baselineSettling\":15}]",
+        "2026-11-13T19:15:05.9420320Z \u00b7CONTENT_FONT_PERFORMANCE webkit [{\"value\":120,\"synchronous\":21,\"nextFrame\":90,\"baselineSettling\":7},{\"value\":140,\"synchronous\":32,\"nextFrame\":79,\"baselineSettling\":27},{\"value\":160,\"synchronous\":30,\"nextFrame\":81,\"baselineSettling\":23},{\"value\":180,\"synchronous\":37,\"nextFrame\":88,\"baselineSettling\":34},{\"value\":200,\"synchronous\":25,\"nextFrame\":75,\"baselineSettling\":28},{\"value\":100,\"synchronous\":4,\"nextFrame\":44,\"baselineSettling\":25}]",
+        "2026-11-13T19:15:06.0706900Z   5 failed",
+        "2026-11-13T19:15:06.0713310Z   2 passed (25.6s)",
+        "2026-11-13T19:24:00.4305050Z \u00b7\u00b7\u00b7\u00b7\u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"webkit\",\"feature\":\"fontSize\",\"native\":true,\"platform\":\"darwin\",\"architecture\":\"arm64\",\"cpu\":\"Apple M1 (Virtual)\",\"logicalCpus\":3,\"rows\":[{\"on\":true,\"baselineSettling\":45,\"synchronous\":1,\"layout\":44,\"nextFrame\":60,\"height\":307938.625,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":25,\"synchronous\":1,\"layout\":29,\"nextFrame\":35,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":31,\"synchronous\":1,\"layout\":44,\"nextFrame\":54,\"height\":307938.625,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":30,\"synchronous\":2,\"layout\":44,\"nextFrame\":54,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:24:01.4715750Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"webkit\",\"feature\":\"fontSize\",\"native\":false,\"platform\":\"darwin\",\"architecture\":\"arm64\",\"cpu\":\"Apple M1 (Virtual)\",\"logicalCpus\":3,\"rows\":[{\"on\":true,\"baselineSettling\":75,\"synchronous\":21,\"layout\":68,\"nextFrame\":95,\"height\":307938.625,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":24,\"synchronous\":6,\"layout\":48,\"nextFrame\":59,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":24,\"synchronous\":15,\"layout\":42,\"nextFrame\":59,\"height\":307938.625,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":23,\"synchronous\":4,\"layout\":39,\"nextFrame\":45,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:24:02.4237270Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"webkit\",\"feature\":\"wordSpacing\",\"native\":true,\"platform\":\"darwin\",\"architecture\":\"arm64\",\"cpu\":\"Apple M1 (Virtual)\",\"logicalCpus\":3,\"rows\":[{\"on\":true,\"baselineSettling\":83,\"synchronous\":1,\"layout\":120,\"nextFrame\":124,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":24,\"synchronous\":1,\"layout\":46,\"nextFrame\":49,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":36,\"synchronous\":2,\"layout\":75,\"nextFrame\":79,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":19,\"synchronous\":1,\"layout\":32,\"nextFrame\":35,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:24:03.3002990Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"webkit\",\"feature\":\"wordSpacing\",\"native\":false,\"platform\":\"darwin\",\"architecture\":\"arm64\",\"cpu\":\"Apple M1 (Virtual)\",\"logicalCpus\":3,\"rows\":[{\"on\":true,\"baselineSettling\":75,\"synchronous\":2,\"layout\":92,\"nextFrame\":97,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":19,\"synchronous\":5,\"layout\":33,\"nextFrame\":40,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":27,\"synchronous\":0,\"layout\":80,\"nextFrame\":82,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":17,\"synchronous\":5,\"layout\":35,\"nextFrame\":42,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:24:03.4062750Z   4 skipped",
+        "2026-11-13T19:24:03.4164390Z   325 passed (8.9m)"
+      ]
+    },
+    {
+      "id": 132105366403,
+      "name": "browsers (22, webkit)",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npx playwright test --project=webkit --grep '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright test --project=webkit --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        }
+      ],
+      "summary": [
+        "2026-11-13T19:24:03.5802740Z CONTENT_PERFORMANCE webkit lineHeight [{\"value\":2,\"synchronous\":5,\"nextFrame\":83,\"baselineSettling\":32},{\"value\":0,\"synchronous\":9,\"nextFrame\":77,\"baselineSettling\":33},{\"value\":2,\"synchronous\":3,\"nextFrame\":175,\"baselineSettling\":23},{\"value\":0,\"synchronous\":26,\"nextFrame\":254,\"baselineSettling\":24}]",
+        "2026-11-13T19:24:07.4612220Z FCONTENT_PERFORMANCE webkit letterSpacing [{\"value\":0.2,\"synchronous\":2,\"nextFrame\":92,\"baselineSettling\":29},{\"value\":0,\"synchronous\":8,\"nextFrame\":120,\"baselineSettling\":25},{\"value\":0.2,\"synchronous\":2,\"nextFrame\":401,\"baselineSettling\":45},{\"value\":0,\"synchronous\":7,\"nextFrame\":49,\"baselineSettling\":32}]",
+        "2026-11-13T19:24:13.6384900Z FCONTENT_PERFORMANCE webkit wordSpacing [{\"value\":0.32,\"synchronous\":4,\"nextFrame\":269,\"baselineSettling\":73},{\"value\":0,\"synchronous\":7,\"nextFrame\":95,\"baselineSettling\":18},{\"value\":0.32,\"synchronous\":1,\"nextFrame\":144,\"baselineSettling\":8},{\"value\":0,\"synchronous\":5,\"nextFrame\":71,\"baselineSettling\":17}]",
+        "2026-11-13T19:24:18.6708060Z FCONTENT_PERFORMANCE webkit textAlign [{\"value\":\"right\",\"synchronous\":29,\"nextFrame\":64,\"baselineSettling\":27},{\"value\":\"off\",\"synchronous\":12,\"nextFrame\":71,\"baselineSettling\":18},{\"value\":\"right\",\"synchronous\":31,\"nextFrame\":87,\"baselineSettling\":29},{\"value\":\"off\",\"synchronous\":6,\"nextFrame\":354,\"baselineSettling\":30}]",
+        "2026-11-13T19:24:21.4667200Z FCONTENT_PERFORMANCE webkit contentScale [{\"value\":200,\"synchronous\":1,\"nextFrame\":46,\"baselineSettling\":18},{\"value\":100,\"synchronous\":1,\"nextFrame\":36,\"baselineSettling\":20},{\"value\":200,\"synchronous\":1,\"nextFrame\":37,\"baselineSettling\":464},{\"value\":100,\"synchronous\":1,\"nextFrame\":36,\"baselineSettling\":30}]",
+        "2026-11-13T19:24:22.1674050Z \u00b7CONTENT_PERFORMANCE webkit readableFont [{\"value\":\"readable\",\"synchronous\":13,\"nextFrame\":63,\"baselineSettling\":4},{\"value\":\"off\",\"synchronous\":4,\"nextFrame\":35,\"baselineSettling\":22},{\"value\":\"readable\",\"synchronous\":9,\"nextFrame\":42,\"baselineSettling\":32},{\"value\":\"off\",\"synchronous\":4,\"nextFrame\":36,\"baselineSettling\":24}]",
+        "2026-11-13T19:24:23.0999050Z \u00b7CONTENT_FONT_PERFORMANCE webkit [{\"value\":120,\"synchronous\":10,\"nextFrame\":51,\"baselineSettling\":3},{\"value\":140,\"synchronous\":24,\"nextFrame\":70,\"baselineSettling\":35},{\"value\":160,\"synchronous\":29,\"nextFrame\":85,\"baselineSettling\":28},{\"value\":180,\"synchronous\":25,\"nextFrame\":76,\"baselineSettling\":32},{\"value\":200,\"synchronous\":28,\"nextFrame\":74,\"baselineSettling\":24},{\"value\":100,\"synchronous\":4,\"nextFrame\":36,\"baselineSettling\":26}]",
+        "2026-11-13T19:24:23.2098040Z   4 failed",
+        "2026-11-13T19:24:23.2102070Z   3 passed (27.0s)",
+        "2026-11-13T19:35:33.0257480Z \u00b7\u00b7\u00b7\u00b7\u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"webkit\",\"feature\":\"fontSize\",\"native\":true,\"platform\":\"darwin\",\"architecture\":\"arm64\",\"cpu\":\"Apple M1 (Virtual)\",\"logicalCpus\":3,\"rows\":[{\"on\":true,\"baselineSettling\":87,\"synchronous\":1,\"layout\":77,\"nextFrame\":102,\"height\":307938.625,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":14,\"synchronous\":2,\"layout\":50,\"nextFrame\":80,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":52,\"synchronous\":0,\"layout\":89,\"nextFrame\":533,\"height\":307938.625,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":19,\"synchronous\":1,\"layout\":47,\"nextFrame\":51,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:35:34.3835250Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"webkit\",\"feature\":\"fontSize\",\"native\":false,\"platform\":\"darwin\",\"architecture\":\"arm64\",\"cpu\":\"Apple M1 (Virtual)\",\"logicalCpus\":3,\"rows\":[{\"on\":true,\"baselineSettling\":87,\"synchronous\":32,\"layout\":78,\"nextFrame\":114,\"height\":307938.625,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":19,\"synchronous\":5,\"layout\":55,\"nextFrame\":68,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":15,\"synchronous\":12,\"layout\":49,\"nextFrame\":93,\"height\":307938.625,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":24,\"synchronous\":4,\"layout\":49,\"nextFrame\":94,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:35:35.5625710Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"webkit\",\"feature\":\"wordSpacing\",\"native\":true,\"platform\":\"darwin\",\"architecture\":\"arm64\",\"cpu\":\"Apple M1 (Virtual)\",\"logicalCpus\":3,\"rows\":[{\"on\":true,\"baselineSettling\":54,\"synchronous\":2,\"layout\":96,\"nextFrame\":101,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":32,\"synchronous\":1,\"layout\":49,\"nextFrame\":52,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":31,\"synchronous\":1,\"layout\":109,\"nextFrame\":112,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":38,\"synchronous\":0,\"layout\":42,\"nextFrame\":72,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:35:36.7632310Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"webkit\",\"feature\":\"wordSpacing\",\"native\":false,\"platform\":\"darwin\",\"architecture\":\"arm64\",\"cpu\":\"Apple M1 (Virtual)\",\"logicalCpus\":3,\"rows\":[{\"on\":true,\"baselineSettling\":81,\"synchronous\":1,\"layout\":143,\"nextFrame\":147,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":18,\"synchronous\":7,\"layout\":47,\"nextFrame\":55,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":27,\"synchronous\":0,\"layout\":146,\"nextFrame\":150,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":16,\"synchronous\":12,\"layout\":44,\"nextFrame\":58,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:35:36.9213740Z   4 skipped",
+        "2026-11-13T19:35:36.9243630Z   325 passed (11.2m)"
+      ]
+    },
+    {
+      "id": 132105366416,
+      "name": "browsers (22, chromium)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npx playwright test --project=chromium --grep '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright test --project=chromium --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ],
+      "summary": [
+        "2026-11-13T19:08:18.6392325Z CONTENT_PERFORMANCE chromium lineHeight [{\"value\":2,\"synchronous\":0.8000000000029104,\"nextFrame\":41.59999999999127,\"baselineSettling\":13.900000000008731},{\"value\":0,\"synchronous\":0.6000000000058208,\"nextFrame\":28.30000000000291,\"baselineSettling\":25},{\"value\":2,\"synchronous\":0.40000000000873115,\"nextFrame\":37.30000000000291,\"baselineSettling\":21.69999999999709},{\"value\":0,\"synchronous\":0.29999999998835847,\"nextFrame\":37.79999999998836,\"baselineSettling\":29.40000000000873}]",
+        "2026-11-13T19:08:19.1165529Z \u00b7CONTENT_PERFORMANCE chromium letterSpacing [{\"value\":0.2,\"synchronous\":1.1999999999970896,\"nextFrame\":48,\"baselineSettling\":35.40000000000873},{\"value\":0,\"synchronous\":0.5,\"nextFrame\":33.59999999999127,\"baselineSettling\":17},{\"value\":0.2,\"synchronous\":0.40000000000873115,\"nextFrame\":41.90000000000873,\"baselineSettling\":33},{\"value\":0,\"synchronous\":0.40000000000873115,\"nextFrame\":33.20000000001164,\"baselineSettling\":24.79999999998836}]",
+        "2026-11-13T19:08:19.5665534Z \u00b7CONTENT_PERFORMANCE chromium wordSpacing [{\"value\":0.32,\"synchronous\":1.0999999999912689,\"nextFrame\":45.59999999999127,\"baselineSettling\":38.40000000000873},{\"value\":0,\"synchronous\":0.5,\"nextFrame\":33.29999999998836,\"baselineSettling\":19.40000000000873},{\"value\":0.32,\"synchronous\":0.40000000000873115,\"nextFrame\":39.30000000000291,\"baselineSettling\":33.30000000000291},{\"value\":0,\"synchronous\":0.39999999999417923,\"nextFrame\":33.80000000000291,\"baselineSettling\":27.19999999999709}]",
+        "2026-11-13T19:08:20.0447598Z \u00b7CONTENT_PERFORMANCE chromium textAlign [{\"value\":\"right\",\"synchronous\":19.80000000000291,\"nextFrame\":53.59999999999127,\"baselineSettling\":41.30000000000291},{\"value\":\"off\",\"synchronous\":2,\"nextFrame\":34.5,\"baselineSettling\":28.80000000000291},{\"value\":\"right\",\"synchronous\":16,\"nextFrame\":53.10000000000582,\"baselineSettling\":31.80000000000291},{\"value\":\"off\",\"synchronous\":1.8000000000029104,\"nextFrame\":28.60000000000582,\"baselineSettling\":30}]",
+        "2026-11-13T19:08:20.5141944Z \u00b7CONTENT_PERFORMANCE chromium contentScale [{\"value\":200,\"synchronous\":0.9000000000087311,\"nextFrame\":44.69999999999709,\"baselineSettling\":12.89999999999418},{\"value\":100,\"synchronous\":0.40000000000873115,\"nextFrame\":36.90000000000873,\"baselineSettling\":22},{\"value\":200,\"synchronous\":0.39999999999417923,\"nextFrame\":36.10000000000582,\"baselineSettling\":29.69999999999709},{\"value\":100,\"synchronous\":0.19999999999708962,\"nextFrame\":47.80000000000291,\"baselineSettling\":30.59999999999127}]",
+        "2026-11-13T19:08:20.9880858Z \u00b7CONTENT_PERFORMANCE chromium readableFont [{\"value\":\"readable\",\"synchronous\":13,\"nextFrame\":57.39999999999418,\"baselineSettling\":39},{\"value\":\"off\",\"synchronous\":2,\"nextFrame\":39.70000000001164,\"baselineSettling\":24.89999999999418},{\"value\":\"readable\",\"synchronous\":7.400000000008731,\"nextFrame\":51.80000000000291,\"baselineSettling\":27.09999999999127},{\"value\":\"off\",\"synchronous\":2.2999999999883585,\"nextFrame\":38.29999999998836,\"baselineSettling\":31.5}]",
+        "2026-11-13T19:08:21.6669329Z \u00b7CONTENT_FONT_PERFORMANCE chromium [{\"value\":120,\"synchronous\":14.89999999999418,\"nextFrame\":56.79999999998836,\"baselineSettling\":39.30000000000291},{\"value\":140,\"synchronous\":20.69999999999709,\"nextFrame\":62.19999999999709,\"baselineSettling\":26.90000000000873},{\"value\":160,\"synchronous\":19.69999999999709,\"nextFrame\":67.59999999999127,\"baselineSettling\":21.10000000000582},{\"value\":180,\"synchronous\":18,\"nextFrame\":53,\"baselineSettling\":32.5},{\"value\":200,\"synchronous\":19.10000000000582,\"nextFrame\":52.90000000000873,\"baselineSettling\":30.19999999999709},{\"value\":100,\"synchronous\":1.5,\"nextFrame\":34.09999999999127,\"baselineSettling\":30.5}]",
+        "2026-11-13T19:08:21.7428023Z   7 passed (5.4s)",
+        "2026-11-13T19:13:49.0952935Z \u00b7\u00b7\u00b7\u00b7\u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"chromium\",\"feature\":\"fontSize\",\"native\":true,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 9V74 80-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":38.29999999998836,\"synchronous\":0,\"layout\":36.40000000002328,\"nextFrame\":43,\"height\":308094.875,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":31,\"synchronous\":0,\"layout\":25.5,\"nextFrame\":31.900000000023283,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":18.099999999976717,\"synchronous\":0,\"layout\":25,\"nextFrame\":31.5,\"height\":308094.875,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":18.5,\"synchronous\":0.1000000000349246,\"layout\":37.29999999998836,\"nextFrame\":44.40000000002328,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:13:49.5938943Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"chromium\",\"feature\":\"fontSize\",\"native\":false,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 9V74 80-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":45.40000000002328,\"synchronous\":14.799999999988358,\"layout\":37,\"nextFrame\":59,\"height\":308094.875,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":21.70000000001164,\"synchronous\":2.099999999976717,\"layout\":31.79999999998836,\"nextFrame\":40.79999999998836,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":26,\"synchronous\":9.399999999965075,\"layout\":38,\"nextFrame\":54.5,\"height\":308094.875,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":28.600000000034925,\"synchronous\":1.7000000000116415,\"layout\":27.5,\"nextFrame\":36.20000000001164,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:13:49.9897162Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"chromium\",\"feature\":\"wordSpacing\",\"native\":true,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 9V74 80-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":40.5,\"synchronous\":0,\"layout\":30.899999999965075,\"nextFrame\":36,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":29.20000000001164,\"synchronous\":0,\"layout\":24.70000000001164,\"nextFrame\":29.599999999976717,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":20.400000000023283,\"synchronous\":0,\"layout\":25.099999999976717,\"nextFrame\":30.900000000023283,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":18.900000000023283,\"synchronous\":0,\"layout\":24.900000000023283,\"nextFrame\":29.79999999998836,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:13:50.4039594Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"chromium\",\"feature\":\"wordSpacing\",\"native\":false,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"AMD EPYC 9V74 80-Core Processor\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":44.20000000001164,\"synchronous\":1,\"layout\":38,\"nextFrame\":44.399999999965075,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":20.5,\"synchronous\":0.40000000002328306,\"layout\":25.199999999953434,\"nextFrame\":30.70000000001164,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":19.20000000001164,\"synchronous\":0.29999999998835847,\"layout\":31.29999999998836,\"nextFrame\":37.09999999997672,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":29.70000000001164,\"synchronous\":0.29999999998835847,\"layout\":25.400000000023283,\"nextFrame\":30.899999999965075,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:13:50.4789258Z   329 passed (5.5m)"
+      ]
+    },
+    {
+      "id": 132105366417,
+      "name": "browsers (20, firefox)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npx playwright test --project=firefox --grep '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright test --project=firefox --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ],
+      "summary": [
+        "2026-11-13T19:08:13.3769183Z CONTENT_PERFORMANCE firefox lineHeight [{\"value\":2,\"synchronous\":1,\"nextFrame\":33,\"baselineSettling\":21},{\"value\":0,\"synchronous\":0,\"nextFrame\":21,\"baselineSettling\":17},{\"value\":2,\"synchronous\":1,\"nextFrame\":23,\"baselineSettling\":29},{\"value\":0,\"synchronous\":0,\"nextFrame\":25,\"baselineSettling\":27}]",
+        "2026-11-13T19:08:14.0656709Z \u00b7CONTENT_PERFORMANCE firefox letterSpacing [{\"value\":0.2,\"synchronous\":1,\"nextFrame\":31,\"baselineSettling\":27},{\"value\":0,\"synchronous\":0,\"nextFrame\":21,\"baselineSettling\":19},{\"value\":0.2,\"synchronous\":1,\"nextFrame\":26,\"baselineSettling\":29},{\"value\":0,\"synchronous\":0,\"nextFrame\":21,\"baselineSettling\":24}]",
+        "2026-11-13T19:08:14.6697360Z \u00b7CONTENT_PERFORMANCE firefox wordSpacing [{\"value\":0.32,\"synchronous\":1,\"nextFrame\":22,\"baselineSettling\":22},{\"value\":0,\"synchronous\":0,\"nextFrame\":21,\"baselineSettling\":28},{\"value\":0.32,\"synchronous\":1,\"nextFrame\":23,\"baselineSettling\":28},{\"value\":0,\"synchronous\":0,\"nextFrame\":20,\"baselineSettling\":28}]",
+        "2026-11-13T19:08:15.3283842Z \u00b7CONTENT_PERFORMANCE firefox textAlign [{\"value\":\"right\",\"synchronous\":22,\"nextFrame\":46,\"baselineSettling\":24},{\"value\":\"off\",\"synchronous\":4,\"nextFrame\":27,\"baselineSettling\":20},{\"value\":\"right\",\"synchronous\":21,\"nextFrame\":44,\"baselineSettling\":23},{\"value\":\"off\",\"synchronous\":4,\"nextFrame\":25,\"baselineSettling\":23}]",
+        "2026-11-13T19:08:15.8794573Z \u00b7CONTENT_PERFORMANCE firefox contentScale [{\"value\":200,\"synchronous\":1,\"nextFrame\":26,\"baselineSettling\":6},{\"value\":100,\"synchronous\":1,\"nextFrame\":21,\"baselineSettling\":21},{\"value\":200,\"synchronous\":0,\"nextFrame\":21,\"baselineSettling\":28},{\"value\":100,\"synchronous\":0,\"nextFrame\":21,\"baselineSettling\":30}]",
+        "2026-11-13T19:08:16.4845925Z \u00b7CONTENT_PERFORMANCE firefox readableFont [{\"value\":\"readable\",\"synchronous\":13,\"nextFrame\":43,\"baselineSettling\":35},{\"value\":\"off\",\"synchronous\":4,\"nextFrame\":26,\"baselineSettling\":29},{\"value\":\"readable\",\"synchronous\":11,\"nextFrame\":32,\"baselineSettling\":24},{\"value\":\"off\",\"synchronous\":5,\"nextFrame\":26,\"baselineSettling\":18}]",
+        "2026-11-13T19:08:17.2984188Z \u00b7CONTENT_FONT_PERFORMANCE firefox [{\"value\":120,\"synchronous\":19,\"nextFrame\":49,\"baselineSettling\":20},{\"value\":140,\"synchronous\":22,\"nextFrame\":48,\"baselineSettling\":18},{\"value\":160,\"synchronous\":21,\"nextFrame\":47,\"baselineSettling\":18},{\"value\":180,\"synchronous\":21,\"nextFrame\":49,\"baselineSettling\":19},{\"value\":200,\"synchronous\":22,\"nextFrame\":46,\"baselineSettling\":19},{\"value\":100,\"synchronous\":3,\"nextFrame\":24,\"baselineSettling\":21}]",
+        "2026-11-13T19:08:17.5883180Z   7 passed (7.7s)",
+        "2026-11-13T19:16:16.0442002Z \u00b7\u00b7\u00b7\u00b7\u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"firefox\",\"feature\":\"fontSize\",\"native\":true,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"INTEL(R) XEON(R) PLATINUM 8573C\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":28,\"synchronous\":0,\"layout\":30,\"nextFrame\":31,\"height\":308048,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":22,\"synchronous\":0,\"layout\":26,\"nextFrame\":26,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":24,\"synchronous\":0,\"layout\":21,\"nextFrame\":21,\"height\":308048,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":29,\"synchronous\":0,\"layout\":20,\"nextFrame\":21,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:16:16.6942695Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"firefox\",\"feature\":\"fontSize\",\"native\":false,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"INTEL(R) XEON(R) PLATINUM 8573C\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":30,\"synchronous\":15,\"layout\":27,\"nextFrame\":43,\"height\":308048,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":25,\"synchronous\":5,\"layout\":24,\"nextFrame\":29,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":21,\"synchronous\":13,\"layout\":22,\"nextFrame\":36,\"height\":308048,\"first\":\"22.4px\",\"last\":\"22.4px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":31,\"synchronous\":4,\"layout\":22,\"nextFrame\":27,\"height\":220048,\"first\":\"16px\",\"last\":\"16px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:16:17.2516124Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"firefox\",\"feature\":\"wordSpacing\",\"native\":true,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"INTEL(R) XEON(R) PLATINUM 8573C\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":29,\"synchronous\":0,\"layout\":23,\"nextFrame\":23,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":16,\"synchronous\":0,\"layout\":22,\"nextFrame\":22,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":28,\"synchronous\":0,\"layout\":21,\"nextFrame\":22,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":27,\"synchronous\":0,\"layout\":21,\"nextFrame\":21,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:16:17.8220987Z \u00b7PERFORMANCE_DIAGNOSTIC {\"project\":\"firefox\",\"feature\":\"wordSpacing\",\"native\":false,\"platform\":\"linux\",\"architecture\":\"x64\",\"cpu\":\"INTEL(R) XEON(R) PLATINUM 8573C\",\"logicalCpus\":4,\"rows\":[{\"on\":true,\"baselineSettling\":48,\"synchronous\":1,\"layout\":23,\"nextFrame\":25,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":23,\"synchronous\":0,\"layout\":19,\"nextFrame\":20,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000},{\"on\":true,\"baselineSettling\":30,\"synchronous\":0,\"layout\":23,\"nextFrame\":23,\"height\":220048,\"first\":\"5.12px\",\"last\":\"5.12px\",\"paragraphs\":5000},{\"on\":false,\"baselineSettling\":28,\"synchronous\":0,\"layout\":19,\"nextFrame\":20,\"height\":220048,\"first\":\"0px\",\"last\":\"0px\",\"paragraphs\":5000}]}",
+        "2026-11-13T19:16:18.1510406Z   4 skipped",
+        "2026-11-13T19:16:18.1510693Z   325 passed (8.0m)"
+      ]
+    },
+    {
+      "id": 132105366445,
+      "name": "browsers (22, pixel)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npx playwright test --project=pixel --grep '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright test --project=pixel --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ],
+      "summary": ["2026-11-13T19:11:05.4196775Z   100 passed (2.8m)"]
+    },
+    {
+      "id": 132105366561,
+      "name": "browsers (22, iphone)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npx playwright test --project=iphone --grep '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright test --project=iphone --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ],
+      "summary": [
+        "2026-11-13T19:19:49.9565910Z   1 skipped",
+        "2026-11-13T19:19:49.9570240Z   99 passed (5.5m)"
+      ]
+    },
+    {
+      "id": 132105367000,
+      "name": "browsers (20, iphone)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43489145056,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npx playwright install --with-deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npx playwright test --project=iphone --grep '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright test --project=iphone --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ],
+      "summary": [
+        "2026-11-13T19:24:38.4228110Z   1 skipped",
+        "2026-11-13T19:24:38.4229860Z   99 passed (6.5m)"
+      ]
+    }
+  ],
+  "notes": [
+    "Native CSS diagnostics force layout and are not numeric lower bounds on the feature frame-callback metric.",
+    "API and source traces retained; visual trace capture disabled only for timing/control files. Every original sample and bound retained.",
+    "Intel trial c4b448b/run43484216839: all seven timing cases failed per Node version; both WebKit jobs hit the 20-minute timeout. Restoring Apple Silicon is a rollback, not a performance pass."
+  ],
+  "totals": {
+    "passed": 2389,
+    "failed": 9,
+    "skipped": 18,
+    "scheduled": 2416
+  },
+  "local": {
+    "unitTests": 184,
+    "unitFiles": 58,
+    "traces": {
+      "traces": 33,
+      "apiEvents": 2358,
+      "sourceEntries": 66,
+      "visualEvents": 0
+    },
+    "bundleGzipBytes": 19603,
+    "auditVulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "runtimeAuditVulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    }
+  }
+}
