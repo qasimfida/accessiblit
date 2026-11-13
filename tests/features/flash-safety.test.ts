@@ -16,15 +16,6 @@ it('bounds mask luminance and saturated-red chromaticity changes across 24-bit s
   const after = Array.from({ length: 256 }, (_, i) =>
     linear((i / 255) * (1 - alpha)),
   );
-  const uv = (r: number, g: number, b: number) => {
-    const x = 0.4124564 * r + 0.3575761 * g + 0.1804375 * b,
-      y = 0.2126729 * r + 0.7151522 * g + 0.072175 * b,
-      z = 0.0193339 * r + 0.119192 * g + 0.9503041 * b;
-    const denominator = x + 15 * y + 3 * z;
-    return denominator
-      ? [(4 * x) / denominator, (9 * y) / denominator]
-      : [0, 0];
-  };
   let maximum = 0,
     checked = 0;
   for (let ri = 0; ri < 256; ri++)
@@ -37,12 +28,24 @@ it('bounds mask luminance and saturated-red chromaticity changes across 24-bit s
           mg = after[gi]!,
           mb = after[bi]!;
         if (!(r / (r + g + b) >= 0.8 || mr / (mr + mg + mb) >= 0.8)) continue;
-        const a = uv(r, g, b),
-          c = uv(mr, mg, mb);
-        maximum = Math.max(maximum, Math.hypot(a[0]! - c[0]!, a[1]! - c[1]!));
+        // Keep the exhaustive colour space while avoiding millions of temporary arrays/hypot calls.
+        const x = 0.4124564 * r + 0.3575761 * g + 0.1804375 * b,
+          y = 0.2126729 * r + 0.7151522 * g + 0.072175 * b,
+          z = 0.0193339 * r + 0.119192 * g + 0.9503041 * b,
+          denominator = x + 15 * y + 3 * z,
+          mx = 0.4124564 * mr + 0.3575761 * mg + 0.1804375 * mb,
+          my = 0.2126729 * mr + 0.7151522 * mg + 0.072175 * mb,
+          mz = 0.0193339 * mr + 0.119192 * mg + 0.9503041 * mb,
+          maskedDenominator = mx + 15 * my + 3 * mz,
+          du = (4 * x) / denominator - (4 * mx) / maskedDenominator,
+          dv = (9 * y) / denominator - (9 * my) / maskedDenominator,
+          squared = du * du + dv * dv;
+        if (squared > maximum) maximum = squared;
         checked++;
       }
+  maximum = Math.sqrt(maximum);
   const luminance = 1 - linear(1 - alpha);
+  expect(checked).toBe(1217391);
   expect(alpha).toBe(0.04);
   expect(luminance).toBeLessThan(0.1);
   expect(maximum).toBeLessThan(0.2);
