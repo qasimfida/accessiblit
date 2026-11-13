@@ -3,7 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Accessiblit</title>
+    <title>Accessiblit — accessibility personalisation</title>
+    <meta
+      name="description"
+      content="Give visitors 18 text, colour and navigation controls with a dependency-free accessibility personalisation widget."
+    />
+    <link rel="canonical" href="https://qasimfida.github.io/accessiblit/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Accessiblit" />
+    <meta
+      property="og:title"
+      content="Accessiblit — accessibility personalisation"
+    />
+    <meta
+      property="og:description"
+      content="Give visitors 18 text, colour and navigation controls with a dependency-free accessibility personalisation widget."
+    />
+    <meta
+      property="og:url"
+      content="https://qasimfida.github.io/accessiblit/"
+    />
+    <meta
+      property="og:image"
+      content="https://qasimfida.github.io/accessiblit/og.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Accessiblit: text, colour and navigation controls"
+    />
+
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/src/styles.css" />
     <script src="/accessiblit.min.js"></script>
@@ -12,10 +43,93 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="%BASE_URL%"
+        ><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="currentColor" />
+          <path
+            d="M8 25 14 7h4l6 18h-4l-1-4h-6l-1 4zm6-8h4l-2-6z"
+            fill="var(--surface)"
+            fill-rule="evenodd"
+          /></svg
+        ><span>Accessiblit</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="%BASE_URL%" aria-current="page">Home</a
+        ><a href="%BASE_URL%install/">Install</a
+        ><a href="%BASE_URL%options/">Options</a
+        ><a href="%BASE_URL%faq/">FAQ and privacy</a>
+      </nav>
+    </header>
     <main id="main" class="wrap" tabindex="-1">
-      <h1>Accessiblit</h1>
-      <p>Accessibility personalisation, built from this repository.</p>
-      <a href="%BASE_URL%">Home</a>
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow">Accessibility personalisation</p>
+        <h1 id="hero-title">A page that works your way.</h1>
+        <p class="lede">
+          Eighteen controls for text, colour and navigation in one lightweight
+          widget. Give visitors choices without accounts, cookies or tracking.
+        </p>
+        <div class="actions">
+          <a class="button" href="#demo">Try the live demo</a
+          ><a href="%BASE_URL%install/">Installation guide</a>
+        </div>
+        <ul class="facts">
+          <li>18 visitor controls</li>
+          <li>Zero runtime dependencies</li>
+          <li>JavaScript, TypeScript and React</li>
+        </ul>
+      </section>
+      <section id="demo" aria-labelledby="demo-title">
+        <p class="eyebrow">Try it on this page</p>
+        <h2 id="demo-title">Make room for your reading preferences.</h2>
+        <p>
+          This demo loads the real widget from this repository's local build.
+          Production integrations use npm, a CDN script or a self-hosted file.
+        </p>
+        <button id="demo-open" type="button" aria-haspopup="dialog" disabled>
+          Open live demo options</button
+        ><noscript
+          ><p>
+            The interactive demo needs JavaScript. The installation guide and
+            reference remain readable without it.
+          </p></noscript
+        >
+        <article class="demo-copy" aria-labelledby="sample-title">
+          <h3 id="sample-title">Take a different pace</h3>
+          <p>
+            A clear page gives readers room to choose their own pace. Try larger
+            text, different spacing or a reading guide. You can combine settings
+            and use Reset all to return to the defaults.
+          </p>
+          <p>
+            <a href="%BASE_URL%faq/#limits"
+              >Read about the boundaries of page adjustments</a
+            >
+            before adding the widget to your own site.
+          </p>
+        </article>
+      </section>
+      <section class="notice">
+        <h2>Visitor choice is one part of accessibility.</h2>
+        <p>
+          Personalisation does not repair headings, labels, keyboard flows or
+          inaccessible content. Build and test the underlying site as well.
+        </p>
+        <a href="%BASE_URL%faq/">Read the FAQ and privacy notes</a>
+      </section>
     </main>
+    <footer class="site-footer wrap">
+      <p>
+        Personalisation supports visitor choice. It does not make a site
+        conformant by itself.
+      </p>
+      <nav aria-label="Footer">
+        <a href="%BASE_URL%faq/#privacy">Privacy</a
+        ><a href="https://github.com/qasimfida/accessiblit" rel="noreferrer"
+          >Source code</a
+        >
+      </nav>
+      <p class="small">MIT licensed · Qasim Fida</p>
+    </footer>
   </body>
 </html>
