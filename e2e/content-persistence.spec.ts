@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 import './helpers/content';
 
 const bundle = readFileSync(
-  new URL('../dist/index.global.js', import.meta.url),
+  new URL('../dist/accessiblit.min.js', import.meta.url),
   'utf8',
 );
 const article = readFileSync(

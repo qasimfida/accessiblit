@@ -1,18 +1,24 @@
 import { defineConfig } from 'tsup';
-
-export default defineConfig({
-  entry: ['src/index.ts'],
-  format: ['esm', 'cjs', 'iife'],
-  globalName: 'Accessiblit',
+const shared = {
   target: 'es2019',
-  platform: 'browser',
-  dts: true,
+  platform: 'browser' as const,
   minify: true,
   sourcemap: true,
-  clean: true,
-  outExtension({ format }) {
-    return {
-      js: format === 'iife' ? '.global.js' : format === 'cjs' ? '.cjs' : '.mjs',
-    };
+  clean: false,
+};
+export default defineConfig([
+  {
+    ...shared,
+    entry: ['src/index.ts'],
+    format: ['esm', 'cjs'],
+    dts: true,
+    outExtension: ({ format }) => ({ js: format === 'cjs' ? '.cjs' : '.mjs' }),
   },
-});
+  {
+    ...shared,
+    entry: { accessiblit: 'src/index.ts' },
+    format: ['iife'],
+    globalName: 'Accessiblit',
+    outExtension: () => ({ js: '.min.js' }),
+  },
+]);

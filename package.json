@@ -24,7 +24,7 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "unpkg": "./dist/index.global.js",
+  "unpkg": "./dist/accessiblit.min.js",
   "exports": {
     ".": {
       "import": {
@@ -50,7 +50,8 @@
     "verify": "npm run lint && npm run typecheck && npm test && npm run build && npm run size",
     "clean": "node scripts/clean.mjs",
     "check:package": "publint && attw --pack",
-    "check:ssr": "node examples/node-ssr-check/index.mjs"
+    "check:ssr": "node examples/node-ssr-check/index.mjs",
+    "prebuild": "node scripts/clean-dist.mjs"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",

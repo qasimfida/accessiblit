@@ -10,7 +10,7 @@ declare global {
   }
 }
 const bundle = readFileSync(
-  new URL('../dist/index.global.js', import.meta.url),
+  new URL('../dist/accessiblit.min.js', import.meta.url),
   'utf8',
 );
 const html =

@@ -4,7 +4,7 @@ import type { Page } from '@playwright/test';
 import { ALL_FEATURES } from './helpers/all-features';
 import './helpers/content';
 const bundle = readFileSync(
-  new URL('../dist/index.global.js', import.meta.url),
+  new URL('../dist/accessiblit.min.js', import.meta.url),
   'utf8',
 );
 const html = readFileSync(
