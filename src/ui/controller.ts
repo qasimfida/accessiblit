@@ -102,7 +102,9 @@ export function createUI(
       } else launcherLayer.show();
       const zoomSignature = [doc.documentElement, doc.body]
         .map((element) =>
-          view.getComputedStyle(element).getPropertyValue('zoom'),
+          element
+            ? view.getComputedStyle(element).getPropertyValue('zoom')
+            : '',
         )
         .join('/');
       // Text/colour changes do not alter isolated UI zoom; avoid flushing thousands of host layout boxes.

@@ -48,3 +48,16 @@ it('cancels pending placement work on destroy', async () => {
   expect(geometry).not.toHaveBeenCalled();
   expect(document.querySelector('[data-accessiblit-host]')).toBeNull();
 });
+
+it('tolerates a temporarily absent body during owner replacement', () => {
+  const instance = init({ persist: false });
+  const body = document.body;
+  body.remove();
+  try {
+    expect(() => instance.open()).not.toThrow();
+  } finally {
+    document.documentElement.append(body);
+  }
+  instance.destroy();
+  expect(document.querySelector('[data-accessiblit-host]')).toBeNull();
+});
