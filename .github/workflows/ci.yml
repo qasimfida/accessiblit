@@ -89,5 +89,5 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install chromium webkit
-      # One-time bootstrap; replace with committed runner baselines before phase closure.
-      - run: npm run perf -- --ci --record-ci-baseline --output reports/perf-ci-node${{ matrix.node }}.json
+      # Absolute times are reported; a median regression above 50% fails this job.
+      - run: npm run perf -- --ci --baseline reports/perf-ci-node${{ matrix.node }}-baseline.json --output reports/perf-ci-node${{ matrix.node }}.json
