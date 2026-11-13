@@ -48,6 +48,7 @@ export async function loadQA(page: Page, host: string, profile: string) {
   });
   if (host === 'csp-nonce')
     await page.addInitScript(() => {
+      if (globalThis.location.pathname !== '/qa/csp.html') return;
       Reflect.set(
         globalThis,
         'qaNativeReplaceSync',
