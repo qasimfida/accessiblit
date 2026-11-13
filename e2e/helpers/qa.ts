@@ -160,9 +160,19 @@ export async function auditQA(page: Page) {
   expect(evidence.panel.scrollWidth).toBeLessThanOrEqual(
     evidence.panel.clientWidth + 1,
   );
-  expect(evidence.panel.left).toBeGreaterThanOrEqual(-1);
+  const viewport = await page.evaluate(() => ({
+    left: visualViewport?.offsetLeft ?? 0,
+    top: visualViewport?.offsetTop ?? 0,
+    width: visualViewport?.width ?? innerWidth,
+    height: visualViewport?.height ?? innerHeight,
+  }));
+  expect(evidence.panel.left).toBeGreaterThanOrEqual(viewport.left - 1);
   expect(evidence.panel.right).toBeLessThanOrEqual(
-    await page.evaluate(() => innerWidth + 1),
+    viewport.left + viewport.width + 1,
+  );
+  expect(evidence.panel.top).toBeGreaterThanOrEqual(viewport.top - 1);
+  expect(evidence.panel.bottom).toBeLessThanOrEqual(
+    viewport.top + viewport.height + 1,
   );
   expect(
     Math.min(...evidence.targets.map((t) => Math.min(t.width, t.height))),

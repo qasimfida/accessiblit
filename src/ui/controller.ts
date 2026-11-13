@@ -6,6 +6,7 @@ import { createLauncher } from './launcher';
 import { createLayer } from './layer';
 import { matchesShortcut } from './keyboard';
 import { placeUI } from './placement';
+import { createViewportReader } from './viewport';
 import { UI_CSS, positionCSS } from './styles';
 import type { PanelActions } from './panel';
 import type { ResolvedOptions } from '../core/options';
@@ -49,14 +50,7 @@ export function createUI(
     scope.add(launcherLayer.destroy);
     const panelLayer = createLayer(panel.element);
     scope.add(panelLayer.destroy);
-    const viewport = () => ({
-      width: view.visualViewport?.width ?? view.innerWidth,
-      height: view.visualViewport?.height ?? view.innerHeight,
-      left: view.visualViewport?.offsetLeft ?? 0,
-      top: view.visualViewport?.offsetTop ?? 0,
-      layoutWidth: view.innerWidth,
-      layoutHeight: view.innerHeight,
-    });
+    const viewport = createViewportReader(() => doc.documentElement, view);
     const draw = (position: ReturnType<typeof placeUI>) => {
       const css = UI_CSS + positionCSS(position, zoom);
       if (css !== lastCSS) {
