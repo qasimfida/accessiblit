@@ -8,6 +8,9 @@ it('finds visible fixed/sticky headers and leaves normal-flow content alone', ()
     new DOMRect(0, 0, 1024, 64),
   );
   expect(topClearance(document)).toBe(72);
+  const link = document.createElement('a');
+  header.append(link);
+  expect(topClearance(document, link)).toBe(8);
   header.style.position = 'static';
   expect(topClearance(document)).toBe(8);
   header.style.position = 'fixed';

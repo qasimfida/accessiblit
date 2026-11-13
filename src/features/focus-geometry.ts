@@ -29,6 +29,7 @@ export function topClearance(doc: Document, target?: Element): number {
     const style = view.getComputedStyle(node),
       box = node.getBoundingClientRect();
     if (
+      !node.contains(target ?? null) &&
       ['fixed', 'sticky'].includes(style.position) &&
       style.visibility !== 'hidden' &&
       style.opacity !== '0' &&

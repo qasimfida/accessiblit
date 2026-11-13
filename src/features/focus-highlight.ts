@@ -62,11 +62,7 @@ ${root} ${page}:focus-visible:focus{outline:3px solid #000!important;outline-off
         }
         if (target && target !== doc.body && target !== doc.documentElement) {
           const box = target.getBoundingClientRect();
-          if (
-            box.top < clearance &&
-            box.bottom > 0 &&
-            box.height < view.innerHeight - clearance
-          )
+          if (box.top < clearance && box.bottom > 0)
             view.scrollBy({ top: box.top - clearance, behavior: 'instant' });
         }
       } catch {

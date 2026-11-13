@@ -76,3 +76,57 @@ test('saturation never freezes a transient focus shadow into page paint', async 
   await page.locator('#email').focus();
   await expect(page.locator('#name')).toHaveCSS('box-shadow', 'none');
 });
+
+test('does not scroll a visible fixed-header link', async ({ page }) => {
+  await loadContent(page, 'fixed-header');
+  await page.evaluate(() => {
+    window.scrollTo(0, 600);
+    window.contentInstance.setFeature('focusHighlight', true);
+  });
+  await page.waitForTimeout(50);
+  const before = await page.evaluate(() => scrollY);
+  await page
+    .locator('nav a')
+    .first()
+    .evaluate((e) => (e as HTMLElement).focus({ preventScroll: true }));
+  await page.waitForTimeout(50);
+  expect(await page.evaluate(() => scrollY)).toBe(before);
+});
+test('exposes at least part of an oversized control below the header', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 180 });
+  await loadContent(page, 'fixed-header');
+  await page.keyboard.press('Tab');
+  await page.evaluate(() => {
+    (document.querySelector('nav') as HTMLElement).style.height = '104px';
+    const button = document.createElement('button');
+    button.id = 'large-focus';
+    button.textContent = 'Large focused control';
+    button.style.height = '96px';
+    const spacer = document.createElement('div');
+    spacer.style.height = '1200px';
+    document.querySelector('main')!.append(button, spacer);
+    button.scrollIntoView({ block: 'start' });
+    button.focus();
+  });
+  const before = await page
+    .locator('#large-focus')
+    .evaluate((e) => e.getBoundingClientRect().bottom);
+  expect(before).toBeLessThanOrEqual(104);
+  await page.evaluate(() =>
+    window.contentInstance.setFeature('focusHighlight', true),
+  );
+  await expect
+    .poll(() =>
+      page
+        .locator('#large-focus')
+        .evaluate((e) => e.getBoundingClientRect().top),
+    )
+    .toBeGreaterThanOrEqual(111);
+  expect(
+    await page
+      .locator('#large-focus')
+      .evaluate((e) => e.getBoundingClientRect().top),
+  ).toBeLessThan(180);
+});
