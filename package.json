@@ -58,13 +58,15 @@
     "test": "vitest run --coverage",
     "test:e2e": "playwright test",
     "size": "size-limit && node scripts/size-warning.mjs",
-    "verify": "npm run lint && npm run typecheck && npm test && npm run build && npm run size && npm run check:package",
+    "verify": "npm run lint && npm run typecheck && npm test && npm run test:perf && npm run build && npm run size && npm run check:package",
     "clean": "node scripts/clean.mjs",
     "check:package": "publint && attw --pack",
     "check:ssr": "node scripts/check-ssr.mjs",
     "prebuild": "node scripts/clean-dist.mjs",
     "sri": "node scripts/sri.mjs",
-    "test:examples": "node scripts/test-examples.mjs"
+    "test:examples": "node scripts/test-examples.mjs",
+    "perf": "npm run build && node scripts/perf.mjs",
+    "test:perf": "node --test tests/perf/*.test.mjs"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
