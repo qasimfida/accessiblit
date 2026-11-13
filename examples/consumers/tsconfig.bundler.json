@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.node16.json",
+  "compilerOptions": { "module": "ESNext", "moduleResolution": "Bundler" },
+  "files": ["consumer.mts", "component.tsx"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "accessiblit-type-consumer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsc -p tsconfig.node16.json && tsc -p tsconfig.bundler.json"
+  },
+  "dependencies": {
+    "@qasimfida/accessiblit": "file:../accessiblit.tgz",
+    "react": "19.3.1"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/react": "19.3.0"
+  }
+}
