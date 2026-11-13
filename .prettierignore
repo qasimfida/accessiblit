@@ -7,3 +7,6 @@ playwright-report/
 package-lock.json
 # Human-maintained session instructions
 AGENTS.md
+
+*.tgz
+**/.next/
