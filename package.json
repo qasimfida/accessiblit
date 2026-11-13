@@ -68,7 +68,7 @@
     "perf": "npm run build && node scripts/perf.mjs",
     "test:perf": "node --test tests/perf/*.test.mjs",
     "build:site": "npm run build && node scripts/build-site.mjs",
-    "preview:site": "vite preview --config site/vite.config.ts --host 127.0.0.1 --port 4174 --strictPort"
+    "preview:site": "node scripts/serve-site.mjs"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
