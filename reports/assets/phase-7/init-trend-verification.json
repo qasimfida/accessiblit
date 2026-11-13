@@ -1,0 +1,163 @@
+{
+  "date": "2026-11-14",
+  "source": "5923f31dfaa7a12512396ba213cbe6519dfe84f8",
+  "runId": 43521885088,
+  "url": "https://github.com/qasimfida/accessiblit/actions/runs/43521885088",
+  "scope": "CI init trend only; not a verdict on the remaining browser matrix.",
+  "jobs": [
+    {
+      "id": 132217933444,
+      "node": 20,
+      "report": {
+        "date": "2026-11-13T22:47:40.372Z",
+        "source": "5923f31dfaa7a12512396ba213cbe6519dfe84f8",
+        "mode": "ci-trend",
+        "machine": {
+          "model": "VirtualMac2,1",
+          "chip": "Apple M1 (Virtual)",
+          "ramBytes": 7516192768,
+          "platform": "darwin",
+          "architecture": "arm64",
+          "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.7.2\nBuildVersion:\t\t25G332",
+          "node": "v20.20.2",
+          "logicalCpus": 3
+        },
+        "conditions": {
+          "power": "Now drawing from 'AC Power'",
+          "otherAppsClosed": "not applicable: shared CI",
+          "appsConditionException": null,
+          "headless": true,
+          "tracing": false
+        },
+        "method": {
+          "warmupRuns": 5,
+          "measuredRuns": 30,
+          "timer": "performance.now around init() only",
+          "fixture": "plain semantic host; 5000 paragraphs; default options; empty storage",
+          "gate": "report absolute; fail above 1.5 times committed CI median",
+          "median": "mean of middle pair",
+          "p95": "nearest rank"
+        },
+        "browsers": {
+          "chromium": {
+            "version": "158.0.8127.18",
+            "warmups": [
+              32.39999999999418, 2.5, 1.6000000000058208, 3.3000000000174623,
+              3.7999999999883585
+            ],
+            "samples": [
+              1.6000000000058208, 1.6000000000058208, 1.6999999999825377,
+              3.3000000000174623, 2.6000000000058208, 3.2999999999883585,
+              1.8000000000174623, 2.6999999999825377, 2.5, 3.7000000000116415,
+              3, 1.7999999999883585, 3.7999999999883585, 3.6999999999825377,
+              2.8000000000174623, 2, 1.7000000000116415, 1.6000000000058208,
+              1.6000000000058208, 1.6999999999825377, 2.2000000000116415, 2,
+              1.5, 2.2000000000116415, 1.5, 1.5, 3, 1.3999999999941792,
+              1.3999999999941792, 1.5
+            ],
+            "medianMs": 1.9000000000087311,
+            "p95Ms": 3.7000000000116415,
+            "guard": {
+              "limitMs": 2.25,
+              "pass": true
+            },
+            "pass": true
+          },
+          "webkit": {
+            "version": "27.2",
+            "warmups": [169, 9, 6, 5, 4],
+            "samples": [
+              4, 5, 6, 3, 4, 2, 6, 3, 6, 4, 3, 3, 5, 3, 2, 3, 6, 6, 2, 3, 4, 3,
+              3, 7, 2, 3, 5, 10, 3, 4
+            ],
+            "medianMs": 3.5,
+            "p95Ms": 7,
+            "guard": {
+              "limitMs": 4.5,
+              "pass": true
+            },
+            "pass": true
+          }
+        },
+        "pass": true
+      }
+    },
+    {
+      "id": 132217933280,
+      "node": 22,
+      "report": {
+        "date": "2026-11-13T22:46:23.806Z",
+        "source": "5923f31dfaa7a12512396ba213cbe6519dfe84f8",
+        "mode": "ci-trend",
+        "machine": {
+          "model": "VirtualMac2,1",
+          "chip": "Apple M1 (Virtual)",
+          "ramBytes": 7516192768,
+          "platform": "darwin",
+          "architecture": "arm64",
+          "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.7.2\nBuildVersion:\t\t25G332",
+          "node": "v22.23.4",
+          "logicalCpus": 3
+        },
+        "conditions": {
+          "power": "Now drawing from 'AC Power'",
+          "otherAppsClosed": "not applicable: shared CI",
+          "appsConditionException": null,
+          "headless": true,
+          "tracing": false
+        },
+        "method": {
+          "warmupRuns": 5,
+          "measuredRuns": 30,
+          "timer": "performance.now around init() only",
+          "fixture": "plain semantic host; 5000 paragraphs; default options; empty storage",
+          "gate": "report absolute; fail above 1.5 times committed CI median",
+          "median": "mean of middle pair",
+          "p95": "nearest rank"
+        },
+        "browsers": {
+          "chromium": {
+            "version": "158.0.8127.18",
+            "warmups": [
+              21.60000000000582, 1.8000000000029104, 1.8000000000029104, 1.5,
+              1.6999999999970896
+            ],
+            "samples": [
+              1.2999999999883585, 1.4000000000087311, 1.8000000000029104,
+              1.3999999999941792, 1.5, 1.1999999999970896, 1.5999999999912689,
+              1.5, 1.4000000000087311, 1.5, 1.6000000000058208, 1.5,
+              1.6000000000058208, 1.8000000000029104, 1.6000000000058208,
+              1.6999999999970896, 1.3000000000029104, 1.5, 1.5, 2,
+              1.8000000000029104, 2, 1.5999999999912689, 1.5,
+              1.3000000000029104, 1.2999999999883585, 1.2000000000116415,
+              1.6999999999970896, 1.5, 1.3999999999941792
+            ],
+            "medianMs": 1.5,
+            "p95Ms": 2,
+            "guard": {
+              "limitMs": 2.625,
+              "pass": true
+            },
+            "pass": true
+          },
+          "webkit": {
+            "version": "27.2",
+            "warmups": [109, 5, 3, 4, 3],
+            "samples": [
+              2, 3, 5, 4, 2, 3, 5, 3, 2, 5, 3, 3, 3, 3, 4, 4, 2, 3, 4, 2, 4, 3,
+              4, 3, 5, 4, 6, 1, 2, 3
+            ],
+            "medianMs": 3,
+            "p95Ms": 5,
+            "guard": {
+              "limitMs": 7.5,
+              "pass": true
+            },
+            "pass": true
+          }
+        },
+        "pass": true
+      }
+    }
+  ]
+}
