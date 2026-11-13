@@ -222,8 +222,7 @@ export function createUI(
       update(state: Record<FeatureId, unknown>) {
         if (scope.active) {
           panel.update(state);
-          // Coalesce geometry reads until before paint instead of flushing a newly restyled host page.
-          scheduleRefresh();
+          // Root/body mutations own placement scheduling; control state alone needs no geometry.
         }
       },
       destroy(): void {

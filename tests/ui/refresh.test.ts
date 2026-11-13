@@ -25,6 +25,7 @@ it('coalesces setting changes and root mutations without synchronous layout read
   geometry.mockClear();
   instance.setFeature('lineHeight', 2);
   instance.setFeature('wordSpacing', 0.32);
+  expect(request).not.toHaveBeenCalled();
   await Promise.resolve();
   expect(geometry).not.toHaveBeenCalled();
   expect(request).toHaveBeenCalledTimes(1);
@@ -34,11 +35,12 @@ it('coalesces setting changes and root mutations without synchronous layout read
   expect(geometry).not.toHaveBeenCalled();
 });
 
-it('cancels pending placement work on destroy', () => {
+it('cancels pending placement work on destroy', async () => {
   const request = vi.spyOn(window, 'requestAnimationFrame').mockReturnValue(37);
   const cancel = vi.spyOn(window, 'cancelAnimationFrame');
   const instance = init({ persist: false });
   instance.setFeature('lineHeight', 2);
+  await Promise.resolve();
   expect(request).toHaveBeenCalled();
   const geometry = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
   instance.destroy();
