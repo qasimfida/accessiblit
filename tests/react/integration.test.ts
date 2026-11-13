@@ -63,3 +63,23 @@ it('renders no SSR markup and never runs the client effect on the server', () =>
   expect(renderToString(createElement(AccessiblitWidget, {}))).toBe('');
   expect(document.querySelector('[data-accessiblit-host]')).toBeNull();
 });
+it('preserves an open panel when component props have not changed', async () => {
+  const root = createRoot(container);
+  roots.push(root);
+  await act(() =>
+    root.render(createElement(AccessiblitWidget, { persist: false })),
+  );
+  const host = document.querySelector('[data-accessiblit-host]')!;
+  const launcher = host.shadowRoot!.querySelector<HTMLButtonElement>('button')!;
+  launcher.click();
+  expect(
+    host.shadowRoot!.querySelector<HTMLElement>('[role=dialog]')!.hidden,
+  ).toBe(false);
+  await act(() =>
+    root.render(createElement(AccessiblitWidget, { persist: false })),
+  );
+  expect(document.querySelector('[data-accessiblit-host]')).toBe(host);
+  expect(
+    host.shadowRoot!.querySelector<HTMLElement>('[role=dialog]')!.hidden,
+  ).toBe(false);
+});

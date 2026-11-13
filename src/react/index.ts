@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import type { RefObject } from 'react';
 import { init } from '@qasimfida/accessiblit';
 import type {
@@ -24,7 +24,9 @@ export function useAccessiblit(
 }
 
 /** One component per document owns the singleton; it renders no server or hydration markup. */
-export function AccessiblitWidget(options: AccessiblitOptions): null {
+export const AccessiblitWidget = memo(function AccessiblitWidget(
+  options: AccessiblitOptions,
+): null {
   useAccessiblit(options);
   return null;
-}
+});
