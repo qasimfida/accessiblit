@@ -2,6 +2,10 @@ import { expect, test } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import { QA_HOSTS, QA_PROFILES, loadQA, auditQA } from './helpers/qa';
 import { ALL_FEATURES } from './helpers/all-features';
+test.slow(
+  ({ browserName }) => browserName === 'firefox',
+  'Firefox performs two full axe traversals on hostile hosts; explicit performance budgets remain unchanged.',
+);
 for (const host of QA_HOSTS)
   for (const profile of QA_PROFILES)
     test(`maximum features on ${host} in ${profile}`, async ({

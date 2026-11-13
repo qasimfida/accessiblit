@@ -1,5 +1,9 @@
 import { expect, test } from '@playwright/test';
 import { loadQA, auditQA } from './helpers/qa';
+test.slow(
+  ({ browserName }) => browserName === 'firefox',
+  'Firefox performs two full axe traversals on hostile hosts; explicit performance budgets remain unchanged.',
+);
 test('keeps same-origin and opaque frame text independent without asset errors', async ({
   page,
 }, info) => {
