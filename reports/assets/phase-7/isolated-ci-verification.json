@@ -1,0 +1,3041 @@
+{
+  "sourceCommit": "a08cac32b4baa85ebb706130e40b1d4f221176cf",
+  "url": "https://github.com/qasimfida/accessiblit/actions/runs/43468481327",
+  "status": "BLOCKED",
+  "passed": 2394,
+  "failed": 4,
+  "skipped": 18,
+  "scheduled": 2416,
+  "automaticRetries": 0,
+  "partition": {
+    "all": 1208,
+    "timing": 21,
+    "functional": 1187,
+    "omitted": 0,
+    "overlap": 0
+  },
+  "notes": "Fresh-process isolation preserves every original gate and does not solve R-17. Node 22 WebKit fails lineHeight, letterSpacing, wordSpacing and fontSize next-frame gates; all functional cases run after failure and pass. Native controls and local prototypes are separate measured evidence, not substitute gates.",
+  "jobs": [
+    {
+      "id": 132033837377,
+      "name": "verify (20)",
+      "conclusion": "success",
+      "steps": [],
+      "summary": [],
+      "measuredStates": 0,
+      "minimumTarget": null,
+      "minimumTextContrast": null,
+      "minimumBoundaryContrast": null,
+      "records": [
+        {
+          "marker": "PACKED_EXAMPLES",
+          "context": "",
+          "data": {
+            "bundleAudit": {
+              "rawBytes": 57849,
+              "gzipBytes": 19603,
+              "sourceMapRawAttribution": {
+                "wrapper/unmapped": 615,
+                "entry": 140,
+                "features": 24759,
+                "core": 14292,
+                "ui": 18043
+              },
+              "coreSourceCount": 55,
+              "reactSources": ["../src/react/index.ts"],
+              "reactEsmBytes": 384,
+              "reactCjsBytes": 838,
+              "unusedImportOutput": "var e = 1;\nexport { e as retained };",
+              "combinedCoreModuleCount": 1,
+              "combinedReactModuleCount": 1
+            },
+            "files": [
+              "LICENSE",
+              "README.md",
+              "dist/accessiblit.min.js",
+              "dist/accessiblit.min.js.map",
+              "dist/index.cjs",
+              "dist/index.cjs.map",
+              "dist/index.d.cts",
+              "dist/index.d.ts",
+              "dist/index.mjs",
+              "dist/index.mjs.map",
+              "dist/react.cjs",
+              "dist/react.cjs.map",
+              "dist/react.d.cts",
+              "dist/react.d.ts",
+              "dist/react.mjs",
+              "dist/react.mjs.map",
+              "package.json"
+            ],
+            "types": ["Node16 ESM/CJS", "Bundler ESM/TSX"],
+            "browserChecks": 15,
+            "allAxeZero": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 132033837755,
+      "name": "browsers (22, chromium)",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run npx playwright test --project=chromium --grep '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npx playwright test --project=chromium --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        }
+      ],
+      "summary": ["7 passed (7.1s)", "329 passed (6.3m)"],
+      "measuredStates": 92,
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "records": [
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium lineHeight",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 14.30000000000291
+            },
+            {
+              "synchronous": 0.3000000000029104,
+              "nextFrame": 16.59999999999127
+            },
+            {
+              "synchronous": 0.20000000001164153,
+              "nextFrame": 45.60000000000582
+            },
+            {
+              "synchronous": 0.19999999999708962,
+              "nextFrame": 37.10000000000582
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium letterSpacing",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 53.80000000000291
+            },
+            {
+              "synchronous": 0.29999999998835847,
+              "nextFrame": 40.09999999999127
+            },
+            {
+              "synchronous": 0.3000000000029104,
+              "nextFrame": 65.90000000000873
+            },
+            {
+              "synchronous": 0.19999999999708962,
+              "nextFrame": 36.5
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium wordSpacing",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 1.1000000000058208
+            },
+            {
+              "synchronous": 0.19999999999708962,
+              "nextFrame": 3.099999999991269
+            },
+            {
+              "synchronous": 0.19999999999708962,
+              "nextFrame": 50.19999999999709
+            },
+            {
+              "synchronous": 0.20000000001164153,
+              "nextFrame": 41.60000000000582
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium textAlign",
+          "data": [
+            {
+              "synchronous": 24.89999999999418,
+              "nextFrame": 33.39999999999418
+            },
+            {
+              "synchronous": 4.100000000005821,
+              "nextFrame": 16.60000000000582
+            },
+            {
+              "synchronous": 21.30000000000291,
+              "nextFrame": 59
+            },
+            {
+              "synchronous": 4.899999999994179,
+              "nextFrame": 43.5
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium contentScale",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 51.20000000001164
+            },
+            {
+              "synchronous": 0.29999999998835847,
+              "nextFrame": 46.5
+            },
+            {
+              "synchronous": 0.29999999998835847,
+              "nextFrame": 60.5
+            },
+            {
+              "synchronous": 0.39999999999417923,
+              "nextFrame": 47.5
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium readableFont",
+          "data": [
+            {
+              "synchronous": 14.099999999991269,
+              "nextFrame": 66.80000000000291
+            },
+            {
+              "synchronous": 4.69999999999709,
+              "nextFrame": 52.29999999998836
+            },
+            {
+              "synchronous": 13.30000000000291,
+              "nextFrame": 72.20000000001164
+            },
+            {
+              "synchronous": 4.099999999991269,
+              "nextFrame": 39.89999999999418
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_FONT_PERFORMANCE",
+          "context": "chromium",
+          "data": [
+            {
+              "value": 120,
+              "synchronous": 15.400000000008731,
+              "nextFrame": 64.60000000000582
+            },
+            {
+              "value": 140,
+              "synchronous": 25.09999999999127,
+              "nextFrame": 78.09999999999127
+            },
+            {
+              "value": 160,
+              "synchronous": 33.60000000000582,
+              "nextFrame": 73.30000000000291
+            },
+            {
+              "value": 180,
+              "synchronous": 28.40000000000873,
+              "nextFrame": 70.19999999999709
+            },
+            {
+              "value": 200,
+              "synchronous": 25.40000000000873,
+              "nextFrame": 75.70000000001164
+            },
+            {
+              "value": 100,
+              "synchronous": 3.5,
+              "nextFrame": 64
+            }
+          ]
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "chromium",
+            "feature": "fontSize",
+            "native": true,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "AMD EPYC 7763 64-Core Processor",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0.09999999997671694,
+                "layout": 35.10000000000582,
+                "nextFrame": 40.79999999998836,
+                "height": 308094.875,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 45,
+                "nextFrame": 53.39999999999418,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 33.60000000000582,
+                "nextFrame": 41.5,
+                "height": 308094.875,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 41.19999999998254,
+                "nextFrame": 49.89999999999418,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "chromium",
+            "feature": "fontSize",
+            "native": false,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "AMD EPYC 7763 64-Core Processor",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 23.79999999998836,
+                "layout": 40,
+                "nextFrame": 71.5,
+                "height": 308094.875,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 4.2000000000116415,
+                "layout": 40.59999999997672,
+                "nextFrame": 54.79999999998836,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 17.39999999999418,
+                "layout": 39.5,
+                "nextFrame": 66.10000000000582,
+                "height": 308094.875,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 3.7000000000116415,
+                "layout": 44.70000000001164,
+                "nextFrame": 62,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "chromium",
+            "feature": "wordSpacing",
+            "native": true,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "AMD EPYC 7763 64-Core Processor",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0.10000000000582077,
+                "layout": 34.79999999998836,
+                "nextFrame": 41,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0.10000000000582077,
+                "layout": 39.29999999998836,
+                "nextFrame": 46.60000000000582,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 36.30000000001746,
+                "nextFrame": 42.89999999999418,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 39.79999999998836,
+                "nextFrame": 46.70000000001164,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "chromium",
+            "feature": "wordSpacing",
+            "native": false,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "AMD EPYC 7763 64-Core Processor",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0.8999999999941792,
+                "layout": 40.70000000001164,
+                "nextFrame": 47.79999999998836,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0.5,
+                "layout": 42.60000000000582,
+                "nextFrame": 50.80000000001746,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0.40000000002328306,
+                "layout": 44.59999999997672,
+                "nextFrame": 52.10000000000582,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0.1999999999825377,
+                "layout": 41.70000000001164,
+                "nextFrame": 49.09999999997672,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "QA_HEAP",
+          "context": "chromium",
+          "data": {
+            "warmup": 1000,
+            "retained": [0, 0, 0, 0, 0, 0],
+            "rows": [
+              {
+                "cycles": 0,
+                "bytes": 2074488,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 40,
+                "bytes": 2096320,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 80,
+                "bytes": 2097600,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 120,
+                "bytes": 2098880,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 160,
+                "bytes": 2100160,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 200,
+                "bytes": 2101440,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              }
+            ],
+            "slopeBytesPerCycle": 105.4,
+            "standardError": 42.377509758518535,
+            "lower95": -12.258825081489988
+          }
+        },
+        {
+          "marker": "QA_LIFECYCLE",
+          "context": "chromium",
+          "data": {
+            "cycles": 200,
+            "maxInitMs": 4.100000000034925,
+            "additions": 9400,
+            "removals": 9400,
+            "maxResidue": 0,
+            "restored": true,
+            "sameSheets": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 132033837771,
+      "name": "browsers (20, pixel)",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run npx playwright test --project=pixel --grep '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run npx playwright test --project=pixel --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        }
+      ],
+      "summary": ["100 passed (3.1m)"],
+      "measuredStates": 92,
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "records": [
+        {
+          "marker": "QA_HEAP",
+          "context": "pixel",
+          "data": {
+            "warmup": 1000,
+            "retained": [0, 0, 0, 0, 0, 0],
+            "rows": [
+              {
+                "cycles": 0,
+                "bytes": 2103032,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 40,
+                "bytes": 2124864,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 80,
+                "bytes": 2126144,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 120,
+                "bytes": 2127424,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 160,
+                "bytes": 2128704,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 200,
+                "bytes": 2129984,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              }
+            ],
+            "slopeBytesPerCycle": 105.4,
+            "standardError": 42.377509758518535,
+            "lower95": -12.258825081489988
+          }
+        },
+        {
+          "marker": "QA_LIFECYCLE",
+          "context": "pixel",
+          "data": {
+            "cycles": 200,
+            "maxInitMs": 5.7000000000116415,
+            "additions": 9400,
+            "removals": 9400,
+            "maxResidue": 0,
+            "restored": true,
+            "sameSheets": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 132033837826,
+      "name": "browsers (20, firefox)",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run npx playwright test --project=firefox --grep '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npx playwright test --project=firefox --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        }
+      ],
+      "summary": ["7 passed (11.1s)", "4 skipped", "325 passed (9.9m)"],
+      "measuredStates": 92,
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "records": [
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox lineHeight",
+          "data": [
+            {
+              "synchronous": 0,
+              "nextFrame": 1
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 5
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 30
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 29
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox letterSpacing",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 2
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 16
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 41
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 29
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox wordSpacing",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 1
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 15
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 32
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 29
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox textAlign",
+          "data": [
+            {
+              "synchronous": 28,
+              "nextFrame": 30
+            },
+            {
+              "synchronous": 8,
+              "nextFrame": 12
+            },
+            {
+              "synchronous": 26,
+              "nextFrame": 55
+            },
+            {
+              "synchronous": 7,
+              "nextFrame": 37
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox contentScale",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 2
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 16
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 32
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 27
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox readableFont",
+          "data": [
+            {
+              "synchronous": 17,
+              "nextFrame": 19
+            },
+            {
+              "synchronous": 5,
+              "nextFrame": 8
+            },
+            {
+              "synchronous": 13,
+              "nextFrame": 52
+            },
+            {
+              "synchronous": 6,
+              "nextFrame": 36
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_FONT_PERFORMANCE",
+          "context": "firefox",
+          "data": [
+            {
+              "value": 120,
+              "synchronous": 20,
+              "nextFrame": 22
+            },
+            {
+              "value": 140,
+              "synchronous": 24,
+              "nextFrame": 61
+            },
+            {
+              "value": 160,
+              "synchronous": 30,
+              "nextFrame": 64
+            },
+            {
+              "value": 180,
+              "synchronous": 28,
+              "nextFrame": 64
+            },
+            {
+              "value": 200,
+              "synchronous": 33,
+              "nextFrame": 72
+            },
+            {
+              "value": 100,
+              "synchronous": 6,
+              "nextFrame": 34
+            }
+          ]
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "firefox",
+            "feature": "fontSize",
+            "native": true,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 35,
+                "nextFrame": 35,
+                "height": 308048,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 31,
+                "nextFrame": 32,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 27,
+                "nextFrame": 28,
+                "height": 308048,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 31,
+                "nextFrame": 33,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "firefox",
+            "feature": "fontSize",
+            "native": false,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 27,
+                "layout": 36,
+                "nextFrame": 65,
+                "height": 308048,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 6,
+                "layout": 32,
+                "nextFrame": 42,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 17,
+                "layout": 28,
+                "nextFrame": 47,
+                "height": 308048,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 8,
+                "layout": 30,
+                "nextFrame": 40,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "firefox",
+            "feature": "wordSpacing",
+            "native": true,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 36,
+                "nextFrame": 37,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 25,
+                "nextFrame": 25,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 27,
+                "nextFrame": 28,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 25,
+                "nextFrame": 26,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "firefox",
+            "feature": "wordSpacing",
+            "native": false,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 1,
+                "layout": 38,
+                "nextFrame": 39,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 25,
+                "nextFrame": 25,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 1,
+                "layout": 28,
+                "nextFrame": 29,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 25,
+                "nextFrame": 26,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "QA_LIFECYCLE",
+          "context": "firefox",
+          "data": {
+            "cycles": 200,
+            "maxInitMs": 6,
+            "additions": 9400,
+            "removals": 9400,
+            "maxResidue": 0,
+            "restored": true,
+            "sameSheets": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 132033837918,
+      "name": "browsers (22, webkit)",
+      "conclusion": "failure",
+      "steps": [
+        {
+          "name": "Run npx playwright test --project=webkit --grep '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "failure"
+        },
+        {
+          "name": "Run npx playwright test --project=webkit --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        }
+      ],
+      "summary": [
+        "4 failed",
+        "3 passed (24.8s)",
+        "4 skipped",
+        "325 passed (10.1m)"
+      ],
+      "measuredStates": 92,
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "records": [
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit lineHeight",
+          "data": [
+            {
+              "synchronous": 4,
+              "nextFrame": 93
+            },
+            {
+              "synchronous": 22,
+              "nextFrame": 118
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 97
+            },
+            {
+              "synchronous": 20,
+              "nextFrame": 90
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit letterSpacing",
+          "data": [
+            {
+              "synchronous": 2,
+              "nextFrame": 113
+            },
+            {
+              "synchronous": 5,
+              "nextFrame": 52
+            },
+            {
+              "synchronous": 2,
+              "nextFrame": 102
+            },
+            {
+              "synchronous": 7,
+              "nextFrame": 58
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit wordSpacing",
+          "data": [
+            {
+              "synchronous": 2,
+              "nextFrame": 129
+            },
+            {
+              "synchronous": 5,
+              "nextFrame": 99
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 142
+            },
+            {
+              "synchronous": 9,
+              "nextFrame": 73
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit textAlign",
+          "data": [
+            {
+              "synchronous": 41,
+              "nextFrame": 77
+            },
+            {
+              "synchronous": 5,
+              "nextFrame": 89
+            },
+            {
+              "synchronous": 25,
+              "nextFrame": 66
+            },
+            {
+              "synchronous": 6,
+              "nextFrame": 57
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit contentScale",
+          "data": [
+            {
+              "synchronous": 2,
+              "nextFrame": 57
+            },
+            {
+              "synchronous": 2,
+              "nextFrame": 82
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 50
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 59
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit readableFont",
+          "data": [
+            {
+              "synchronous": 23,
+              "nextFrame": 99
+            },
+            {
+              "synchronous": 6,
+              "nextFrame": 94
+            },
+            {
+              "synchronous": 26,
+              "nextFrame": 89
+            },
+            {
+              "synchronous": 11,
+              "nextFrame": 87
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_FONT_PERFORMANCE",
+          "context": "webkit",
+          "data": [
+            {
+              "value": 120,
+              "synchronous": 20,
+              "nextFrame": 71
+            },
+            {
+              "value": 140,
+              "synchronous": 30,
+              "nextFrame": 100
+            },
+            {
+              "value": 160,
+              "synchronous": 55,
+              "nextFrame": 151
+            },
+            {
+              "value": 180,
+              "synchronous": 43,
+              "nextFrame": 155
+            },
+            {
+              "value": 200,
+              "synchronous": 41,
+              "nextFrame": 156
+            },
+            {
+              "value": 100,
+              "synchronous": 8,
+              "nextFrame": 47
+            }
+          ]
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "webkit",
+            "feature": "fontSize",
+            "native": true,
+            "platform": "darwin",
+            "architecture": "arm64",
+            "cpu": "Apple M1 (Virtual)",
+            "logicalCpus": 3,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 65,
+                "nextFrame": 65,
+                "height": 307938.625,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 39,
+                "nextFrame": 51,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 1,
+                "layout": 48,
+                "nextFrame": 69,
+                "height": 307938.625,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 1,
+                "layout": 35,
+                "nextFrame": 44,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "webkit",
+            "feature": "fontSize",
+            "native": false,
+            "platform": "darwin",
+            "architecture": "arm64",
+            "cpu": "Apple M1 (Virtual)",
+            "logicalCpus": 3,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 22,
+                "layout": 41,
+                "nextFrame": 65,
+                "height": 307938.625,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 7,
+                "layout": 56,
+                "nextFrame": 66,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 17,
+                "layout": 47,
+                "nextFrame": 74,
+                "height": 307938.625,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 8,
+                "layout": 60,
+                "nextFrame": 73,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "webkit",
+            "feature": "wordSpacing",
+            "native": true,
+            "platform": "darwin",
+            "architecture": "arm64",
+            "cpu": "Apple M1 (Virtual)",
+            "logicalCpus": 3,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 124,
+                "nextFrame": 125,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 103,
+                "nextFrame": 120,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 1,
+                "layout": 124,
+                "nextFrame": 134,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 1,
+                "layout": 45,
+                "nextFrame": 55,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "webkit",
+            "feature": "wordSpacing",
+            "native": false,
+            "platform": "darwin",
+            "architecture": "arm64",
+            "cpu": "Apple M1 (Virtual)",
+            "logicalCpus": 3,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 1,
+                "layout": 78,
+                "nextFrame": 79,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 5,
+                "layout": 45,
+                "nextFrame": 51,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 76,
+                "nextFrame": 82,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 5,
+                "layout": 38,
+                "nextFrame": 57,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "QA_LIFECYCLE",
+          "context": "webkit",
+          "data": {
+            "cycles": 200,
+            "maxInitMs": 18,
+            "additions": 9400,
+            "removals": 9400,
+            "maxResidue": 0,
+            "restored": true,
+            "sameSheets": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 132033837955,
+      "name": "browsers (22, pixel)",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run npx playwright test --project=pixel --grep '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run npx playwright test --project=pixel --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        }
+      ],
+      "summary": ["100 passed (3.8m)"],
+      "measuredStates": 92,
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "records": [
+        {
+          "marker": "QA_HEAP",
+          "context": "pixel",
+          "data": {
+            "warmup": 1000,
+            "retained": [0, 0, 0, 0, 0, 0],
+            "rows": [
+              {
+                "cycles": 0,
+                "bytes": 2102808,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 40,
+                "bytes": 2124640,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 80,
+                "bytes": 2125920,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 120,
+                "bytes": 2127200,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 160,
+                "bytes": 2128480,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 200,
+                "bytes": 2129760,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              }
+            ],
+            "slopeBytesPerCycle": 105.4,
+            "standardError": 42.377509758518535,
+            "lower95": -12.258825081489988
+          }
+        },
+        {
+          "marker": "QA_LIFECYCLE",
+          "context": "pixel",
+          "data": {
+            "cycles": 200,
+            "maxInitMs": 7,
+            "additions": 9400,
+            "removals": 9400,
+            "maxResidue": 0,
+            "restored": true,
+            "sameSheets": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 132033837983,
+      "name": "browsers (20, chromium)",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run npx playwright test --project=chromium --grep '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npx playwright test --project=chromium --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        }
+      ],
+      "summary": ["7 passed (8.0s)", "329 passed (5.0m)"],
+      "measuredStates": 92,
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "records": [
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium lineHeight",
+          "data": [
+            {
+              "synchronous": 0.9000000000232831,
+              "nextFrame": 1
+            },
+            {
+              "synchronous": 0.10000000000582077,
+              "nextFrame": 5
+            },
+            {
+              "synchronous": 0.20000000001164153,
+              "nextFrame": 30
+            },
+            {
+              "synchronous": 0.3000000000174623,
+              "nextFrame": 28.60000000000582
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium letterSpacing",
+          "data": [
+            {
+              "synchronous": 0.8999999999941792,
+              "nextFrame": 1.099999999976717
+            },
+            {
+              "synchronous": 0.20000000001164153,
+              "nextFrame": 9
+            },
+            {
+              "synchronous": 0.20000000001164153,
+              "nextFrame": 36.5
+            },
+            {
+              "synchronous": 0.40000000002328306,
+              "nextFrame": 33.5
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium wordSpacing",
+          "data": [
+            {
+              "synchronous": 0.8999999999941792,
+              "nextFrame": 44.70000000001164
+            },
+            {
+              "synchronous": 0.29999999998835847,
+              "nextFrame": 28.89999999999418
+            },
+            {
+              "synchronous": 0.39999999999417923,
+              "nextFrame": 42.60000000000582
+            },
+            {
+              "synchronous": 0.29999999998835847,
+              "nextFrame": 41.29999999998836
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium textAlign",
+          "data": [
+            {
+              "synchronous": 15.299999999988358,
+              "nextFrame": 39.29999999998836
+            },
+            {
+              "synchronous": 2.5,
+              "nextFrame": 26
+            },
+            {
+              "synchronous": 17.39999999999418,
+              "nextFrame": 50
+            },
+            {
+              "synchronous": 3.8999999999941792,
+              "nextFrame": 27.39999999999418
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium contentScale",
+          "data": [
+            {
+              "synchronous": 0.8999999999941792,
+              "nextFrame": 45.10000000000582
+            },
+            {
+              "synchronous": 0.39999999999417923,
+              "nextFrame": 30.70000000001164
+            },
+            {
+              "synchronous": 0.29999999998835847,
+              "nextFrame": 37.89999999999418
+            },
+            {
+              "synchronous": 0.29999999998835847,
+              "nextFrame": 43.29999999998836
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "chromium readableFont",
+          "data": [
+            {
+              "synchronous": 9.099999999976717,
+              "nextFrame": 47.59999999997672
+            },
+            {
+              "synchronous": 2.900000000023283,
+              "nextFrame": 36.5
+            },
+            {
+              "synchronous": 11.700000000011642,
+              "nextFrame": 51.80000000001746
+            },
+            {
+              "synchronous": 2.1999999999825377,
+              "nextFrame": 28.699999999982538
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_FONT_PERFORMANCE",
+          "context": "chromium",
+          "data": [
+            {
+              "value": 120,
+              "synchronous": 10.700000000011642,
+              "nextFrame": 42.70000000001164
+            },
+            {
+              "value": 140,
+              "synchronous": 16.199999999982538,
+              "nextFrame": 52.89999999999418
+            },
+            {
+              "value": 160,
+              "synchronous": 21,
+              "nextFrame": 63.39999999999418
+            },
+            {
+              "value": 180,
+              "synchronous": 17.300000000017462,
+              "nextFrame": 45.39999999999418
+            },
+            {
+              "value": 200,
+              "synchronous": 16,
+              "nextFrame": 43.80000000001746
+            },
+            {
+              "value": 100,
+              "synchronous": 1.8999999999941792,
+              "nextFrame": 36.39999999999418
+            }
+          ]
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "chromium",
+            "feature": "fontSize",
+            "native": true,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "Intel(R) Xeon(R) 6975P-C",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 25.599999999976717,
+                "nextFrame": 29.400000000023283,
+                "height": 308094.875,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 27,
+                "nextFrame": 32.59999999997672,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0.09999999997671694,
+                "layout": 23.29999999998836,
+                "nextFrame": 29.20000000001164,
+                "height": 308094.875,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 28.100000000034925,
+                "nextFrame": 36.29999999998836,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "chromium",
+            "feature": "fontSize",
+            "native": false,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "Intel(R) Xeon(R) 6975P-C",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 16.900000000023283,
+                "layout": 28,
+                "nextFrame": 49.90000000002328,
+                "height": 308094.875,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 3.199999999953434,
+                "layout": 27,
+                "nextFrame": 37,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 9.799999999988358,
+                "layout": 26.100000000034925,
+                "nextFrame": 42.5,
+                "height": 308094.875,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 2.400000000023283,
+                "layout": 30.599999999976717,
+                "nextFrame": 43.29999999998836,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "chromium",
+            "feature": "wordSpacing",
+            "native": true,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "Intel(R) Xeon(R) 6975P-C",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 23.5,
+                "nextFrame": 27.400000000023283,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 25.899999999965075,
+                "nextFrame": 30.29999999998836,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 24.5,
+                "nextFrame": 29.099999999976717,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 28.5,
+                "nextFrame": 33.40000000002328,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "chromium",
+            "feature": "wordSpacing",
+            "native": false,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "Intel(R) Xeon(R) 6975P-C",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0.5999999999767169,
+                "layout": 27.400000000023283,
+                "nextFrame": 31.899999999965075,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0.5,
+                "layout": 26.599999999976717,
+                "nextFrame": 31.79999999998836,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0.40000000002328306,
+                "layout": 29.5,
+                "nextFrame": 34.59999999997672,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0.19999999995343387,
+                "layout": 28.20000000001164,
+                "nextFrame": 35.29999999998836,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "QA_HEAP",
+          "context": "chromium",
+          "data": {
+            "warmup": 1000,
+            "retained": [0, 0, 0, 0, 0, 0],
+            "rows": [
+              {
+                "cycles": 0,
+                "bytes": 2074392,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 40,
+                "bytes": 2096224,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 80,
+                "bytes": 2097504,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 120,
+                "bytes": 2098784,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 160,
+                "bytes": 2100064,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              },
+              {
+                "cycles": 200,
+                "bytes": 2101344,
+                "nodes": 51,
+                "listeners": 16,
+                "retained": 0
+              }
+            ],
+            "slopeBytesPerCycle": 105.4,
+            "standardError": 42.377509758518535,
+            "lower95": -12.258825081489988
+          }
+        },
+        {
+          "marker": "QA_LIFECYCLE",
+          "context": "chromium",
+          "data": {
+            "cycles": 200,
+            "maxInitMs": 3.699999999953434,
+            "additions": 9400,
+            "removals": 9400,
+            "maxResidue": 0,
+            "restored": true,
+            "sameSheets": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 132033837990,
+      "name": "browsers (20, iphone)",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run npx playwright test --project=iphone --grep '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run npx playwright test --project=iphone --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        }
+      ],
+      "summary": ["1 skipped", "99 passed (5.0m)"],
+      "measuredStates": 92,
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "records": [
+        {
+          "marker": "QA_LIFECYCLE",
+          "context": "iphone",
+          "data": {
+            "cycles": 200,
+            "maxInitMs": 10,
+            "additions": 9400,
+            "removals": 9400,
+            "maxResidue": 0,
+            "restored": true,
+            "sameSheets": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 132033838099,
+      "name": "browsers (22, iphone)",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run npx playwright test --project=iphone --grep '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run npx playwright test --project=iphone --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        }
+      ],
+      "summary": ["1 skipped", "99 passed (5.8m)"],
+      "measuredStates": 92,
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "records": [
+        {
+          "marker": "QA_LIFECYCLE",
+          "context": "iphone",
+          "data": {
+            "cycles": 200,
+            "maxInitMs": 9,
+            "additions": 9400,
+            "removals": 9400,
+            "maxResidue": 0,
+            "restored": true,
+            "sameSheets": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 132033838124,
+      "name": "browsers (20, webkit)",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run npx playwright test --project=webkit --grep '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npx playwright test --project=webkit --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        }
+      ],
+      "summary": ["7 passed (10.1s)", "4 skipped", "325 passed (6.3m)"],
+      "measuredStates": 92,
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "records": [
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit lineHeight",
+          "data": [
+            {
+              "synchronous": 2,
+              "nextFrame": 47
+            },
+            {
+              "synchronous": 9,
+              "nextFrame": 68
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 58
+            },
+            {
+              "synchronous": 9,
+              "nextFrame": 60
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit letterSpacing",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 64
+            },
+            {
+              "synchronous": 4,
+              "nextFrame": 49
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 71
+            },
+            {
+              "synchronous": 5,
+              "nextFrame": 39
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit wordSpacing",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 67
+            },
+            {
+              "synchronous": 5,
+              "nextFrame": 45
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 87
+            },
+            {
+              "synchronous": 7,
+              "nextFrame": 46
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit textAlign",
+          "data": [
+            {
+              "synchronous": 22,
+              "nextFrame": 49
+            },
+            {
+              "synchronous": 4,
+              "nextFrame": 69
+            },
+            {
+              "synchronous": 22,
+              "nextFrame": 52
+            },
+            {
+              "synchronous": 5,
+              "nextFrame": 34
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit contentScale",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 38
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 42
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 32
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 29
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "webkit readableFont",
+          "data": [
+            {
+              "synchronous": 10,
+              "nextFrame": 53
+            },
+            {
+              "synchronous": 4,
+              "nextFrame": 36
+            },
+            {
+              "synchronous": 9,
+              "nextFrame": 43
+            },
+            {
+              "synchronous": 5,
+              "nextFrame": 33
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_FONT_PERFORMANCE",
+          "context": "webkit",
+          "data": [
+            {
+              "value": 120,
+              "synchronous": 10,
+              "nextFrame": 47
+            },
+            {
+              "value": 140,
+              "synchronous": 23,
+              "nextFrame": 67
+            },
+            {
+              "value": 160,
+              "synchronous": 21,
+              "nextFrame": 61
+            },
+            {
+              "value": 180,
+              "synchronous": 22,
+              "nextFrame": 62
+            },
+            {
+              "value": 200,
+              "synchronous": 20,
+              "nextFrame": 59
+            },
+            {
+              "value": 100,
+              "synchronous": 5,
+              "nextFrame": 33
+            }
+          ]
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "webkit",
+            "feature": "fontSize",
+            "native": true,
+            "platform": "darwin",
+            "architecture": "arm64",
+            "cpu": "Apple M1 (Virtual)",
+            "logicalCpus": 3,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 42,
+                "nextFrame": 42,
+                "height": 307938.625,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 1,
+                "layout": 33,
+                "nextFrame": 36,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 36,
+                "nextFrame": 47,
+                "height": 307938.625,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 1,
+                "layout": 35,
+                "nextFrame": 38,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "webkit",
+            "feature": "fontSize",
+            "native": false,
+            "platform": "darwin",
+            "architecture": "arm64",
+            "cpu": "Apple M1 (Virtual)",
+            "logicalCpus": 3,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 22,
+                "layout": 44,
+                "nextFrame": 68,
+                "height": 307938.625,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 5,
+                "layout": 41,
+                "nextFrame": 55,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 9,
+                "layout": 35,
+                "nextFrame": 47,
+                "height": 307938.625,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 4,
+                "layout": 28,
+                "nextFrame": 57,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "webkit",
+            "feature": "wordSpacing",
+            "native": true,
+            "platform": "darwin",
+            "architecture": "arm64",
+            "cpu": "Apple M1 (Virtual)",
+            "logicalCpus": 3,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 69,
+                "nextFrame": 69,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 1,
+                "layout": 39,
+                "nextFrame": 50,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 1,
+                "layout": 57,
+                "nextFrame": 59,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 26,
+                "nextFrame": 48,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "webkit",
+            "feature": "wordSpacing",
+            "native": false,
+            "platform": "darwin",
+            "architecture": "arm64",
+            "cpu": "Apple M1 (Virtual)",
+            "logicalCpus": 3,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 1,
+                "layout": 79,
+                "nextFrame": 80,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 5,
+                "layout": 38,
+                "nextFrame": 54,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 71,
+                "nextFrame": 73,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 4,
+                "layout": 35,
+                "nextFrame": 51,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "QA_LIFECYCLE",
+          "context": "webkit",
+          "data": {
+            "cycles": 200,
+            "maxInitMs": 5,
+            "additions": 9400,
+            "removals": 9400,
+            "maxResidue": 0,
+            "restored": true,
+            "sameSheets": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 132033838178,
+      "name": "browsers (22, firefox)",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run npx playwright test --project=firefox --grep '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npx playwright test --project=firefox --grep-invert '5000-(node|element) toggle budget' --workers=1",
+          "conclusion": "success"
+        }
+      ],
+      "summary": ["7 passed (10.2s)", "4 skipped", "325 passed (10.4m)"],
+      "measuredStates": 92,
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "records": [
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox lineHeight",
+          "data": [
+            {
+              "synchronous": 0,
+              "nextFrame": 14
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 16
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 37
+            },
+            {
+              "synchronous": 2,
+              "nextFrame": 32
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox letterSpacing",
+          "data": [
+            {
+              "synchronous": 0,
+              "nextFrame": 0
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 7
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 50
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 31
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox wordSpacing",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 2
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 15
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 33
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 35
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox textAlign",
+          "data": [
+            {
+              "synchronous": 38,
+              "nextFrame": 40
+            },
+            {
+              "synchronous": 7,
+              "nextFrame": 9
+            },
+            {
+              "synchronous": 35,
+              "nextFrame": 70
+            },
+            {
+              "synchronous": 8,
+              "nextFrame": 43
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox contentScale",
+          "data": [
+            {
+              "synchronous": 1,
+              "nextFrame": 1
+            },
+            {
+              "synchronous": 0,
+              "nextFrame": 12
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 42
+            },
+            {
+              "synchronous": 1,
+              "nextFrame": 33
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_PERFORMANCE",
+          "context": "firefox readableFont",
+          "data": [
+            {
+              "synchronous": 19,
+              "nextFrame": 21
+            },
+            {
+              "synchronous": 5,
+              "nextFrame": 7
+            },
+            {
+              "synchronous": 17,
+              "nextFrame": 65
+            },
+            {
+              "synchronous": 7,
+              "nextFrame": 40
+            }
+          ]
+        },
+        {
+          "marker": "CONTENT_FONT_PERFORMANCE",
+          "context": "firefox",
+          "data": [
+            {
+              "value": 120,
+              "synchronous": 24,
+              "nextFrame": 26
+            },
+            {
+              "value": 140,
+              "synchronous": 27,
+              "nextFrame": 74
+            },
+            {
+              "value": 160,
+              "synchronous": 39,
+              "nextFrame": 87
+            },
+            {
+              "value": 180,
+              "synchronous": 34,
+              "nextFrame": 78
+            },
+            {
+              "value": 200,
+              "synchronous": 35,
+              "nextFrame": 78
+            },
+            {
+              "value": 100,
+              "synchronous": 7,
+              "nextFrame": 48
+            }
+          ]
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "firefox",
+            "feature": "fontSize",
+            "native": true,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "AMD EPYC 7763 64-Core Processor",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 43,
+                "nextFrame": 44,
+                "height": 308048,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 41,
+                "nextFrame": 42,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 37,
+                "nextFrame": 38,
+                "height": 308048,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 38,
+                "nextFrame": 39,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "firefox",
+            "feature": "fontSize",
+            "native": false,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "AMD EPYC 7763 64-Core Processor",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 32,
+                "layout": 46,
+                "nextFrame": 81,
+                "height": 308048,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 8,
+                "layout": 40,
+                "nextFrame": 52,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 24,
+                "layout": 31,
+                "nextFrame": 57,
+                "height": 308048,
+                "first": "22.4px",
+                "last": "22.4px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 10,
+                "layout": 41,
+                "nextFrame": 53,
+                "height": 220048,
+                "first": "16px",
+                "last": "16px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "firefox",
+            "feature": "wordSpacing",
+            "native": true,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "AMD EPYC 7763 64-Core Processor",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 43,
+                "nextFrame": 43,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 30,
+                "nextFrame": 31,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 30,
+                "nextFrame": 31,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 0,
+                "layout": 29,
+                "nextFrame": 30,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "PERFORMANCE_DIAGNOSTIC",
+          "context": "",
+          "data": {
+            "project": "firefox",
+            "feature": "wordSpacing",
+            "native": false,
+            "platform": "linux",
+            "architecture": "x64",
+            "cpu": "AMD EPYC 7763 64-Core Processor",
+            "logicalCpus": 4,
+            "rows": [
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 45,
+                "nextFrame": 45,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 1,
+                "layout": 28,
+                "nextFrame": 29,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              },
+              {
+                "on": true,
+                "synchronous": 0,
+                "layout": 33,
+                "nextFrame": 33,
+                "height": 220048,
+                "first": "5.12px",
+                "last": "5.12px",
+                "paragraphs": 5000
+              },
+              {
+                "on": false,
+                "synchronous": 1,
+                "layout": 29,
+                "nextFrame": 31,
+                "height": 220048,
+                "first": "0px",
+                "last": "0px",
+                "paragraphs": 5000
+              }
+            ]
+          }
+        },
+        {
+          "marker": "QA_LIFECYCLE",
+          "context": "firefox",
+          "data": {
+            "cycles": 200,
+            "maxInitMs": 6,
+            "additions": 9400,
+            "removals": 9400,
+            "maxResidue": 0,
+            "restored": true,
+            "sameSheets": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 132033838269,
+      "name": "verify (22)",
+      "conclusion": "success",
+      "steps": [],
+      "summary": [],
+      "measuredStates": 0,
+      "minimumTarget": null,
+      "minimumTextContrast": null,
+      "minimumBoundaryContrast": null,
+      "records": [
+        {
+          "marker": "PACKED_EXAMPLES",
+          "context": "",
+          "data": {
+            "bundleAudit": {
+              "rawBytes": 57849,
+              "gzipBytes": 19603,
+              "sourceMapRawAttribution": {
+                "wrapper/unmapped": 615,
+                "entry": 140,
+                "features": 24759,
+                "core": 14292,
+                "ui": 18043
+              },
+              "coreSourceCount": 55,
+              "reactSources": ["../src/react/index.ts"],
+              "reactEsmBytes": 384,
+              "reactCjsBytes": 838,
+              "unusedImportOutput": "var e = 1;\nexport { e as retained };",
+              "combinedCoreModuleCount": 1,
+              "combinedReactModuleCount": 1
+            },
+            "files": [
+              "LICENSE",
+              "README.md",
+              "dist/accessiblit.min.js",
+              "dist/accessiblit.min.js.map",
+              "dist/index.cjs",
+              "dist/index.cjs.map",
+              "dist/index.d.cts",
+              "dist/index.d.ts",
+              "dist/index.mjs",
+              "dist/index.mjs.map",
+              "dist/react.cjs",
+              "dist/react.cjs.map",
+              "dist/react.d.cts",
+              "dist/react.d.ts",
+              "dist/react.mjs",
+              "dist/react.mjs.map",
+              "package.json"
+            ],
+            "types": ["Node16 ESM/CJS", "Bundler ESM/TSX"],
+            "browserChecks": 15,
+            "allAxeZero": true
+          }
+        }
+      ]
+    }
+  ]
+}
