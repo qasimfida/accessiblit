@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test';
 import type { FeatureId } from '../src/core/types';
 import { loadContent } from './helpers/content';
+import { PERFORMANCE_TRACE } from './helpers/performance';
+test.use({ trace: PERFORMANCE_TRACE });
 const cases: [FeatureId, unknown, unknown][] = [
   ['lineHeight', 2, 0],
   ['letterSpacing', 0.2, 0],

@@ -1,6 +1,9 @@
 import { expect, test } from '@playwright/test';
 import { cpus, platform, arch } from 'node:os';
 import { loadContent } from './helpers/content';
+import { PERFORMANCE_TRACE } from './helpers/performance';
+
+test.use({ trace: PERFORMANCE_TRACE });
 
 // Native CSS is a lower bound, not a replacement for the unchanged feature budgets.
 for (const feature of ['fontSize', 'wordSpacing'] as const)
