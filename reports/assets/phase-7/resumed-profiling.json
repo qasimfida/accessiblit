@@ -994,6 +994,254 @@
           ]
         }
       ]
+    },
+    {
+      "experiment": "headed versus headless",
+      "sourceCommit": "a08cac3",
+      "adopted": false,
+      "conclusion": "No repeatable local gain; browser mode and all original timing assertions remain unchanged.",
+      "records": [
+        {
+          "context": "headless wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 52
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 35
+            },
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 47
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 26
+            }
+          ]
+        },
+        {
+          "context": "headless fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 14,
+              "frame": 40
+            },
+            {
+              "value": 140,
+              "sync": 17,
+              "frame": 45
+            },
+            {
+              "value": 160,
+              "sync": 16,
+              "frame": 46
+            },
+            {
+              "value": 180,
+              "sync": 17,
+              "frame": 44
+            },
+            {
+              "value": 200,
+              "sync": 16,
+              "frame": 50
+            },
+            {
+              "value": 100,
+              "sync": 4,
+              "frame": 34
+            }
+          ]
+        },
+        {
+          "context": "headed wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 52
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 35
+            },
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 52
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 34
+            }
+          ]
+        },
+        {
+          "context": "headed fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 14,
+              "frame": 40
+            },
+            {
+              "value": 140,
+              "sync": 17,
+              "frame": 45
+            },
+            {
+              "value": 160,
+              "sync": 19,
+              "frame": 47
+            },
+            {
+              "value": 180,
+              "sync": 17,
+              "frame": 44
+            },
+            {
+              "value": 200,
+              "sync": 16,
+              "frame": 48
+            },
+            {
+              "value": 100,
+              "sync": 3,
+              "frame": 31
+            }
+          ]
+        },
+        {
+          "context": "headed wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 52
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 34
+            },
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 52
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 30
+            }
+          ]
+        },
+        {
+          "context": "headed fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 14,
+              "frame": 40
+            },
+            {
+              "value": 140,
+              "sync": 16,
+              "frame": 45
+            },
+            {
+              "value": 160,
+              "sync": 16,
+              "frame": 43
+            },
+            {
+              "value": 180,
+              "sync": 16,
+              "frame": 51
+            },
+            {
+              "value": 200,
+              "sync": 16,
+              "frame": 57
+            },
+            {
+              "value": 100,
+              "sync": 4,
+              "frame": 29
+            }
+          ]
+        },
+        {
+          "context": "headless wordSpacing",
+          "samples": [
+            {
+              "value": 0.32,
+              "sync": 0,
+              "frame": 46
+            },
+            {
+              "value": 0,
+              "sync": 3,
+              "frame": 43
+            },
+            {
+              "value": 0.32,
+              "sync": 1,
+              "frame": 53
+            },
+            {
+              "value": 0,
+              "sync": 4,
+              "frame": 30
+            }
+          ]
+        },
+        {
+          "context": "headless fontSize",
+          "samples": [
+            {
+              "value": 120,
+              "sync": 14,
+              "frame": 41
+            },
+            {
+              "value": 140,
+              "sync": 18,
+              "frame": 45
+            },
+            {
+              "value": 160,
+              "sync": 16,
+              "frame": 44
+            },
+            {
+              "value": 180,
+              "sync": 15,
+              "frame": 45
+            },
+            {
+              "value": 200,
+              "sync": 16,
+              "frame": 52
+            },
+            {
+              "value": 100,
+              "sync": 3,
+              "frame": 30
+            }
+          ]
+        }
+      ]
     }
   ],
   "diagnosticSourceCommit": "77bbc4f",
@@ -1613,5 +1861,11 @@
       ]
     }
   ],
-  "limits": "Native CSS is a lower bound with simpler selectors and no widget. Forced-layout diagnostic rows are not replacements for the original unmodified next-frame gates. Local results do not establish hosted-CI performance."
+  "limits": "Native CSS is a lower bound with simpler selectors and no widget. Forced-layout diagnostic rows are not replacements for the original unmodified next-frame gates. Local results do not establish hosted-CI performance.",
+  "headedKeyboard": {
+    "command": "npx playwright test e2e/qa-keyboard.spec.ts --grep standard --headed --workers=1",
+    "result": "5 passed (54.8s)",
+    "sourceCommit": "a08cac3",
+    "screenReaders": "Not run"
+  }
 }
