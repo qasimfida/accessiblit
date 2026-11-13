@@ -1,0 +1,250 @@
+{
+  "compatibility": [
+    {
+      "version": "17.0.2",
+      "strictMode": true,
+      "restored": true,
+      "ssrMarkup": ""
+    },
+    {
+      "version": "18.3.1",
+      "strictMode": true,
+      "restored": true,
+      "ssrMarkup": ""
+    }
+  ],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/accessiblit.min.js",
+    "dist/accessiblit.min.js.map",
+    "dist/index.cjs",
+    "dist/index.cjs.map",
+    "dist/index.d.cts",
+    "dist/index.d.ts",
+    "dist/index.mjs",
+    "dist/index.mjs.map",
+    "dist/react.cjs",
+    "dist/react.cjs.map",
+    "dist/react.d.cts",
+    "dist/react.d.ts",
+    "dist/react.mjs",
+    "dist/react.mjs.map",
+    "package.json"
+  ],
+  "sri": "sha384-Qya8wtaiPP+R7c5ykqG9Ao8+sDIHoiAw7r++M2z96CMHFn0dwg+Gn1o8PQqw2wlk",
+  "examples": ["html", "node-ssr-check", "react-vite", "nextjs", "consumers"],
+  "types": ["Node16 ESM/CJS", "Bundler ESM/TSX"],
+  "rows": [
+    {
+      "browser": "chromium",
+      "format": "html",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "chromium",
+      "format": "cdn",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "chromium",
+      "format": "esm",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "chromium",
+      "format": "react",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "chromium",
+      "format": "next",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "firefox",
+      "format": "html",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "firefox",
+      "format": "cdn",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "firefox",
+      "format": "esm",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "firefox",
+      "format": "react",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "firefox",
+      "format": "next",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "webkit",
+      "format": "html",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "webkit",
+      "format": "cdn",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "webkit",
+      "format": "esm",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "webkit",
+      "format": "react",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    },
+    {
+      "browser": "webkit",
+      "format": "next",
+      "axeClosed": 0,
+      "axeOpen": 0,
+      "measured": {
+        "minimumTarget": 24,
+        "focusWidth": 3,
+        "foreground": "rgb(255, 255, 255)",
+        "background": "rgb(20, 86, 160)",
+        "overflow": 0
+      },
+      "tabStops": 21
+    }
+  ]
+}

@@ -1,0 +1,987 @@
+{
+  "fullRun": {
+    "passed": 687,
+    "skipped": 6,
+    "failed": 0,
+    "duration": "7.3m",
+    "command": "npx playwright test --workers=1"
+  },
+  "runtime": [
+    {
+      "source": "RUNTIME_EVIDENCE",
+      "data": {
+        "times": [
+          4.599999904632568, 1.1000001430511475, 1.9000000953674316,
+          1.6000001430511475, 1.7999999523162842, 1.3000001907348633, 1.5,
+          1.7000000476837158, 1.5, 2
+        ],
+        "cls": 0,
+        "rects": [
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "restored": true
+      },
+      "browser": "chromium"
+    },
+    {
+      "source": "RUNTIME_EVIDENCE",
+      "data": {
+        "times": [7, 2, 2, 3, 2, 3, 2, 2, 3, 1],
+        "cls": null,
+        "rects": [
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "restored": true
+      },
+      "browser": "firefox"
+    },
+    {
+      "source": "RUNTIME_EVIDENCE",
+      "data": {
+        "times": [6, 2, 2, 2, 1, 2, 3, 1, 2, 3],
+        "cls": null,
+        "rects": [
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          },
+          {
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "restored": true
+      },
+      "browser": "webkit"
+    }
+  ],
+  "fontPerformance": [
+    {
+      "source": "CONTENT_FONT_PERFORMANCE chromium",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 27.100000143051147,
+          "nextFrame": 28
+        },
+        {
+          "value": 140,
+          "synchronous": 36.5,
+          "nextFrame": 42.10000014305115
+        },
+        {
+          "value": 160,
+          "synchronous": 30,
+          "nextFrame": 34.59999990463257
+        },
+        {
+          "value": 180,
+          "synchronous": 31.100000143051147,
+          "nextFrame": 35.799999952316284
+        },
+        {
+          "value": 200,
+          "synchronous": 33.5,
+          "nextFrame": 40.5
+        },
+        {
+          "value": 100,
+          "synchronous": 24.90000009536743,
+          "nextFrame": 29.800000190734863
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE firefox",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 31,
+          "nextFrame": 33
+        },
+        {
+          "value": 140,
+          "synchronous": 36,
+          "nextFrame": 38
+        },
+        {
+          "value": 160,
+          "synchronous": 37,
+          "nextFrame": 39
+        },
+        {
+          "value": 180,
+          "synchronous": 36,
+          "nextFrame": 38
+        },
+        {
+          "value": 200,
+          "synchronous": 39,
+          "nextFrame": 42
+        },
+        {
+          "value": 100,
+          "synchronous": 17,
+          "nextFrame": 19
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE webkit",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 48,
+          "nextFrame": 49
+        },
+        {
+          "value": 140,
+          "synchronous": 61,
+          "nextFrame": 76
+        },
+        {
+          "value": 160,
+          "synchronous": 59,
+          "nextFrame": 62
+        },
+        {
+          "value": 180,
+          "synchronous": 59,
+          "nextFrame": 63
+        },
+        {
+          "value": 200,
+          "synchronous": 59,
+          "nextFrame": 61
+        },
+        {
+          "value": 100,
+          "synchronous": 35,
+          "nextFrame": 37
+        }
+      ]
+    }
+  ],
+  "repeatedFontPerformance": [
+    {
+      "source": "CONTENT_FONT_PERFORMANCE chromium",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 28.5,
+          "nextFrame": 29.299999952316284
+        },
+        {
+          "value": 140,
+          "synchronous": 35.299999952316284,
+          "nextFrame": 41
+        },
+        {
+          "value": 160,
+          "synchronous": 42.299999952316284,
+          "nextFrame": 47.5
+        },
+        {
+          "value": 180,
+          "synchronous": 29.799999952316284,
+          "nextFrame": 34.200000047683716
+        },
+        {
+          "value": 200,
+          "synchronous": 30.59999990463257,
+          "nextFrame": 35.200000047683716
+        },
+        {
+          "value": 100,
+          "synchronous": 21.899999856948853,
+          "nextFrame": 27
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE chromium",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 27.90000009536743,
+          "nextFrame": 28.799999952316284
+        },
+        {
+          "value": 140,
+          "synchronous": 37.299999952316284,
+          "nextFrame": 43
+        },
+        {
+          "value": 160,
+          "synchronous": 30.5,
+          "nextFrame": 35.10000014305115
+        },
+        {
+          "value": 180,
+          "synchronous": 31.899999856948853,
+          "nextFrame": 36.799999952316284
+        },
+        {
+          "value": 200,
+          "synchronous": 33.59999990463257,
+          "nextFrame": 40.299999952316284
+        },
+        {
+          "value": 100,
+          "synchronous": 24,
+          "nextFrame": 29.200000047683716
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE chromium",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 27.300000190734863,
+          "nextFrame": 28
+        },
+        {
+          "value": 140,
+          "synchronous": 33.80000019073486,
+          "nextFrame": 39.40000009536743
+        },
+        {
+          "value": 160,
+          "synchronous": 41,
+          "nextFrame": 46.200000047683716
+        },
+        {
+          "value": 180,
+          "synchronous": 29.799999952316284,
+          "nextFrame": 34.299999952316284
+        },
+        {
+          "value": 200,
+          "synchronous": 30.40000009536743,
+          "nextFrame": 35.09999990463257
+        },
+        {
+          "value": 100,
+          "synchronous": 21.90000009536743,
+          "nextFrame": 26.800000190734863
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE firefox",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 31,
+          "nextFrame": 33
+        },
+        {
+          "value": 140,
+          "synchronous": 36,
+          "nextFrame": 39
+        },
+        {
+          "value": 160,
+          "synchronous": 35,
+          "nextFrame": 37
+        },
+        {
+          "value": 180,
+          "synchronous": 35,
+          "nextFrame": 38
+        },
+        {
+          "value": 200,
+          "synchronous": 36,
+          "nextFrame": 38
+        },
+        {
+          "value": 100,
+          "synchronous": 18,
+          "nextFrame": 25
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE firefox",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 32,
+          "nextFrame": 33
+        },
+        {
+          "value": 140,
+          "synchronous": 37,
+          "nextFrame": 40
+        },
+        {
+          "value": 160,
+          "synchronous": 35,
+          "nextFrame": 38
+        },
+        {
+          "value": 180,
+          "synchronous": 35,
+          "nextFrame": 37
+        },
+        {
+          "value": 200,
+          "synchronous": 36,
+          "nextFrame": 38
+        },
+        {
+          "value": 100,
+          "synchronous": 19,
+          "nextFrame": 20
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE firefox",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 33,
+          "nextFrame": 34
+        },
+        {
+          "value": 140,
+          "synchronous": 36,
+          "nextFrame": 38
+        },
+        {
+          "value": 160,
+          "synchronous": 36,
+          "nextFrame": 40
+        },
+        {
+          "value": 180,
+          "synchronous": 35,
+          "nextFrame": 36
+        },
+        {
+          "value": 200,
+          "synchronous": 36,
+          "nextFrame": 38
+        },
+        {
+          "value": 100,
+          "synchronous": 19,
+          "nextFrame": 20
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE webkit",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 53,
+          "nextFrame": 54
+        },
+        {
+          "value": 140,
+          "synchronous": 63,
+          "nextFrame": 77
+        },
+        {
+          "value": 160,
+          "synchronous": 62,
+          "nextFrame": 67
+        },
+        {
+          "value": 180,
+          "synchronous": 61,
+          "nextFrame": 65
+        },
+        {
+          "value": 200,
+          "synchronous": 60,
+          "nextFrame": 63
+        },
+        {
+          "value": 100,
+          "synchronous": 35,
+          "nextFrame": 38
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE webkit",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 49,
+          "nextFrame": 50
+        },
+        {
+          "value": 140,
+          "synchronous": 61,
+          "nextFrame": 75
+        },
+        {
+          "value": 160,
+          "synchronous": 60,
+          "nextFrame": 66
+        },
+        {
+          "value": 180,
+          "synchronous": 61,
+          "nextFrame": 72
+        },
+        {
+          "value": 200,
+          "synchronous": 60,
+          "nextFrame": 64
+        },
+        {
+          "value": 100,
+          "synchronous": 35,
+          "nextFrame": 45
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE webkit",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 48,
+          "nextFrame": 49
+        },
+        {
+          "value": 140,
+          "synchronous": 60,
+          "nextFrame": 74
+        },
+        {
+          "value": 160,
+          "synchronous": 60,
+          "nextFrame": 63
+        },
+        {
+          "value": 180,
+          "synchronous": 60,
+          "nextFrame": 69
+        },
+        {
+          "value": 200,
+          "synchronous": 60,
+          "nextFrame": 64
+        },
+        {
+          "value": 100,
+          "synchronous": 35,
+          "nextFrame": 44
+        }
+      ]
+    }
+  ],
+  "firstRunFontPerformance": [
+    {
+      "source": "CONTENT_FONT_PERFORMANCE chromium",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 28.399999856948853,
+          "nextFrame": 29.399999856948853
+        },
+        {
+          "value": 140,
+          "synchronous": 39.60000014305115,
+          "nextFrame": 45.799999952316284
+        },
+        {
+          "value": 160,
+          "synchronous": 31.5,
+          "nextFrame": 36.200000047683716
+        },
+        {
+          "value": 180,
+          "synchronous": 33.10000014305115,
+          "nextFrame": 38.200000047683716
+        },
+        {
+          "value": 200,
+          "synchronous": 36.59999990463257,
+          "nextFrame": 44.09999990463257
+        },
+        {
+          "value": 100,
+          "synchronous": 24.700000047683716,
+          "nextFrame": 29.90000009536743
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE firefox",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 40,
+          "nextFrame": 43
+        },
+        {
+          "value": 140,
+          "synchronous": 52,
+          "nextFrame": 54
+        },
+        {
+          "value": 160,
+          "synchronous": 39,
+          "nextFrame": 42
+        },
+        {
+          "value": 180,
+          "synchronous": 38,
+          "nextFrame": 40
+        },
+        {
+          "value": 200,
+          "synchronous": 44,
+          "nextFrame": 47
+        },
+        {
+          "value": 100,
+          "synchronous": 19,
+          "nextFrame": 20
+        }
+      ]
+    },
+    {
+      "source": "CONTENT_FONT_PERFORMANCE webkit",
+      "data": [
+        {
+          "value": 120,
+          "synchronous": 53,
+          "nextFrame": 55
+        },
+        {
+          "value": 140,
+          "synchronous": 65,
+          "nextFrame": 100
+        },
+        {
+          "value": 160,
+          "synchronous": 67,
+          "nextFrame": 70
+        },
+        {
+          "value": 180,
+          "synchronous": 70,
+          "nextFrame": 75
+        },
+        {
+          "value": 200,
+          "synchronous": 67,
+          "nextFrame": 71
+        },
+        {
+          "value": 100,
+          "synchronous": 34,
+          "nextFrame": 43
+        }
+      ]
+    }
+  ],
+  "allFeatureUi": [
+    {
+      "source": "NAVIGATION_ALL_UI chromium light",
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 7.32096843010406
+      }
+    },
+    {
+      "source": "NAVIGATION_ALL_UI chromium dark",
+      "minimumTarget": 24,
+      "minimumTextContrast": 7.8678914128040836,
+      "minimumBoundaryContrast": 4.9162912282582045,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 9.940009945072063
+      }
+    },
+    {
+      "source": "NAVIGATION_ALL_UI chromium small-reduced",
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 7.32096843010406
+      }
+    },
+    {
+      "source": "NAVIGATION_ALL_UI chromium forced",
+      "minimumTarget": 24,
+      "minimumTextContrast": 21,
+      "minimumBoundaryContrast": 21,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 21
+      }
+    },
+    {
+      "source": "NAVIGATION_ALL_UI firefox light",
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 7.32096843010406
+      }
+    },
+    {
+      "source": "NAVIGATION_ALL_UI firefox dark",
+      "minimumTarget": 24,
+      "minimumTextContrast": 7.8678914128040836,
+      "minimumBoundaryContrast": 4.9162912282582045,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 9.940009945072063
+      }
+    },
+    {
+      "source": "NAVIGATION_ALL_UI firefox small-reduced",
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 7.32096843010406
+      }
+    },
+    {
+      "source": "NAVIGATION_ALL_UI firefox forced",
+      "minimumTarget": 24,
+      "minimumTextContrast": 21,
+      "minimumBoundaryContrast": 21,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 21
+      }
+    },
+    {
+      "source": "NAVIGATION_ALL_UI webkit light",
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 7.32096843010406
+      }
+    },
+    {
+      "source": "NAVIGATION_ALL_UI webkit dark",
+      "minimumTarget": 24,
+      "minimumTextContrast": 7.8678914128040836,
+      "minimumBoundaryContrast": 4.9162912282582045,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 9.940009945072063
+      }
+    },
+    {
+      "source": "NAVIGATION_ALL_UI webkit small-reduced",
+      "minimumTarget": 24,
+      "minimumTextContrast": 6.820449946885106,
+      "minimumBoundaryContrast": 3.68763813291651,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 7.32096843010406
+      }
+    },
+    {
+      "source": "NAVIGATION_ALL_UI webkit forced",
+      "minimumTarget": 24,
+      "minimumTextContrast": 21,
+      "minimumBoundaryContrast": 21,
+      "focus": {
+        "width": 3,
+        "style": "solid",
+        "ratio": 21
+      }
+    }
+  ],
+  "lifecycle": [
+    {
+      "source": "NAVIGATION_LIFECYCLE chromium",
+      "data": {
+        "fallback": false,
+        "rows": [
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          },
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          }
+        ],
+        "adds": 224,
+        "removes": 224
+      }
+    },
+    {
+      "source": "NAVIGATION_LIFECYCLE chromium",
+      "data": {
+        "fallback": true,
+        "rows": [
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          },
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          }
+        ],
+        "adds": 224,
+        "removes": 224
+      }
+    },
+    {
+      "source": "NAVIGATION_LIFECYCLE firefox",
+      "data": {
+        "fallback": false,
+        "rows": [
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          },
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          }
+        ],
+        "adds": 224,
+        "removes": 224
+      }
+    },
+    {
+      "source": "NAVIGATION_LIFECYCLE firefox",
+      "data": {
+        "fallback": true,
+        "rows": [
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          },
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          }
+        ],
+        "adds": 224,
+        "removes": 224
+      }
+    },
+    {
+      "source": "NAVIGATION_LIFECYCLE webkit",
+      "data": {
+        "fallback": false,
+        "rows": [
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          },
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          }
+        ],
+        "adds": 224,
+        "removes": 224
+      }
+    },
+    {
+      "source": "NAVIGATION_LIFECYCLE webkit",
+      "data": {
+        "fallback": true,
+        "rows": [
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          },
+          {
+            "reset": true,
+            "destroy": true,
+            "listeners": 0,
+            "sheets": true
+          }
+        ],
+        "adds": 224,
+        "removes": 224
+      }
+    }
+  ],
+  "audit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "runtimeAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "iifeGlobals": {
+    "added": ["Accessiblit"],
+    "evidence": "Three passing late duplicate-script cases in e2e/runtime.spec.ts compare Object.getOwnPropertyNames(window) before/after."
+  }
+}
