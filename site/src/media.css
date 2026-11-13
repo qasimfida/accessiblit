@@ -1,0 +1,42 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b1927;
+    --surface: #11263a;
+    --soft: #183149;
+    --ink: #eef5fc;
+    --muted: #c0d0e0;
+    --accent: #85d2ff;
+    --accent-ink: #0b1927;
+    --border: #809bb3;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (forced-colors: active) {
+  :root {
+    --background: Canvas;
+    --surface: Canvas;
+    --soft: Canvas;
+    --ink: CanvasText;
+    --muted: CanvasText;
+    --accent: LinkText;
+    --accent-ink: Canvas;
+    --border: CanvasText;
+  }
+  .button,
+  button {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+  }
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}

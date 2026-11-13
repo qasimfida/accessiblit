@@ -1,0 +1,91 @@
+.demo-copy {
+  margin-block: 2rem;
+  padding: 1.5rem;
+  border-inline-start: 4px solid var(--accent);
+  background: var(--surface);
+}
+.demo-copy h3 {
+  margin-block-start: 0;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+.feature-card {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  background: var(--surface);
+}
+.feature-card p {
+  margin-block-end: 0;
+}
+.notice {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--soft);
+}
+.notice p:last-child {
+  margin-block-end: 0;
+}
+.on-this-page {
+  margin-block: 2rem;
+}
+.on-this-page a {
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+}
+pre {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--soft);
+  color: var(--ink);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+code {
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 0.9em;
+}
+pre code {
+  font-size: 0.9rem;
+}
+.table-scroll {
+  inline-size: 100%;
+  overflow-x: auto;
+  margin-block: 2rem;
+}
+table {
+  border-collapse: collapse;
+  min-inline-size: 42rem;
+  inline-size: 100%;
+}
+caption {
+  text-align: start;
+  font-weight: 750;
+  margin-block-end: 0.75rem;
+}
+th,
+td {
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  vertical-align: top;
+  text-align: start;
+}
+thead {
+  background: var(--soft);
+}
+th[scope='row'] {
+  min-inline-size: 11rem;
+}
+.site-footer {
+  padding-block: 2rem;
+  border-block-start: 1px solid var(--border);
+  color: var(--muted);
+}
+.small {
+  font-size: 0.9rem;
+}
