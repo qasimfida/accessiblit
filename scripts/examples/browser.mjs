@@ -64,9 +64,13 @@ export async function browserExamples(servers, bundle, cdnHtml) {
         assert.deepEqual(open.violations, []);
         await page.bringToFront();
         await page.waitForFunction(() => document.hasFocus());
+        const tab =
+          name === 'webkit' && process.platform === 'darwin'
+            ? 'Alt+Tab'
+            : 'Tab';
         const names = [];
         for (let i = 0; i < 40; i++) {
-          await page.keyboard.press(name === 'webkit' ? 'Alt+Tab' : 'Tab');
+          await page.keyboard.press(tab);
           const focused = await page.evaluate(() => {
             const root = document.querySelector(
               '[data-accessiblit-host]',
