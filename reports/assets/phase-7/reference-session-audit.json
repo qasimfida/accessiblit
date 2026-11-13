@@ -1,0 +1,542 @@
+{
+  "date": "2026-11-14",
+  "source": "5923f31dfaa7a12512396ba213cbe6519dfe84f8",
+  "referenceReport": "../../perf-macos.json",
+  "verification": {
+    "verify": "PASS; 184 unit tests plus 6 benchmark self-tests; lint, types, coverage, build, SSR, size, publint, attw",
+    "legacyToggle": "21 passed (11.8s), unchanged strict 100 ms assertions",
+    "runtimeAndLifecycle": "20 passed (14.3s)",
+    "headedKeyboard": "5 passed (49.6s)",
+    "maximumFeatureTargets": "5 passed (9.0s)",
+    "heap": "2 passed, 3 capability skips (15.9s)",
+    "actionlint": "PASS",
+    "packFileCount": 17
+  },
+  "keyboard": [
+    {
+      "context": "chromium standard",
+      "evidence": {
+        "changed": [
+          "fontSize",
+          "lineHeight",
+          "letterSpacing",
+          "wordSpacing",
+          "textAlign",
+          "contentScale",
+          "readableFont",
+          "darkMode",
+          "highContrast",
+          "monochrome",
+          "lowSaturation",
+          "readingGuide",
+          "readingMask",
+          "highlightLinks",
+          "highlightHeadings",
+          "bigCursor",
+          "stopAnimations",
+          "focusHighlight"
+        ],
+        "path": [
+          "Close",
+          "fontSize",
+          "fontSize",
+          "lineHeight",
+          "letterSpacing",
+          "wordSpacing",
+          "textAlign",
+          "contentScale",
+          "contentScale",
+          "readableFont",
+          "darkMode",
+          "highContrast",
+          "monochrome",
+          "lowSaturation",
+          "readingGuide",
+          "readingMask",
+          "highlightLinks",
+          "highlightHeadings",
+          "bigCursor",
+          "stopAnimations",
+          "focusHighlight",
+          "Reset all"
+        ],
+        "outside": true,
+        "auditedConfigurations": 18,
+        "auditPage": "independent"
+      }
+    },
+    {
+      "context": "firefox standard",
+      "evidence": {
+        "changed": [
+          "fontSize",
+          "lineHeight",
+          "letterSpacing",
+          "wordSpacing",
+          "textAlign",
+          "contentScale",
+          "readableFont",
+          "darkMode",
+          "highContrast",
+          "monochrome",
+          "lowSaturation",
+          "readingGuide",
+          "readingMask",
+          "highlightLinks",
+          "highlightHeadings",
+          "bigCursor",
+          "stopAnimations",
+          "focusHighlight"
+        ],
+        "path": [
+          "Close",
+          "fontSize",
+          "fontSize",
+          "lineHeight",
+          "letterSpacing",
+          "wordSpacing",
+          "textAlign",
+          "contentScale",
+          "contentScale",
+          "readableFont",
+          "darkMode",
+          "highContrast",
+          "monochrome",
+          "lowSaturation",
+          "readingGuide",
+          "readingMask",
+          "highlightLinks",
+          "highlightHeadings",
+          "bigCursor",
+          "stopAnimations",
+          "focusHighlight",
+          "Reset all"
+        ],
+        "outside": true,
+        "auditedConfigurations": 18,
+        "auditPage": "independent"
+      }
+    },
+    {
+      "context": "webkit standard",
+      "evidence": {
+        "changed": [
+          "fontSize",
+          "lineHeight",
+          "letterSpacing",
+          "wordSpacing",
+          "textAlign",
+          "contentScale",
+          "readableFont",
+          "darkMode",
+          "highContrast",
+          "monochrome",
+          "lowSaturation",
+          "readingGuide",
+          "readingMask",
+          "highlightLinks",
+          "highlightHeadings",
+          "bigCursor",
+          "stopAnimations",
+          "focusHighlight"
+        ],
+        "path": [
+          "Close",
+          "fontSize",
+          "fontSize",
+          "lineHeight",
+          "letterSpacing",
+          "wordSpacing",
+          "textAlign",
+          "contentScale",
+          "contentScale",
+          "readableFont",
+          "darkMode",
+          "highContrast",
+          "monochrome",
+          "lowSaturation",
+          "readingGuide",
+          "readingMask",
+          "highlightLinks",
+          "highlightHeadings",
+          "bigCursor",
+          "stopAnimations",
+          "focusHighlight",
+          "Reset all"
+        ],
+        "outside": true,
+        "auditedConfigurations": 18,
+        "auditPage": "independent"
+      }
+    },
+    {
+      "context": "iphone standard",
+      "evidence": {
+        "changed": [
+          "fontSize",
+          "lineHeight",
+          "letterSpacing",
+          "wordSpacing",
+          "textAlign",
+          "contentScale",
+          "readableFont",
+          "darkMode",
+          "highContrast",
+          "monochrome",
+          "lowSaturation",
+          "readingGuide",
+          "readingMask",
+          "highlightLinks",
+          "highlightHeadings",
+          "bigCursor",
+          "stopAnimations",
+          "focusHighlight"
+        ],
+        "path": [
+          "Close",
+          "fontSize",
+          "fontSize",
+          "lineHeight",
+          "letterSpacing",
+          "wordSpacing",
+          "textAlign",
+          "contentScale",
+          "contentScale",
+          "readableFont",
+          "darkMode",
+          "highContrast",
+          "monochrome",
+          "lowSaturation",
+          "readingGuide",
+          "readingMask",
+          "highlightLinks",
+          "highlightHeadings",
+          "bigCursor",
+          "stopAnimations",
+          "focusHighlight",
+          "Reset all"
+        ],
+        "outside": true,
+        "auditedConfigurations": 18,
+        "auditPage": "independent"
+      }
+    },
+    {
+      "context": "pixel standard",
+      "evidence": {
+        "changed": [
+          "fontSize",
+          "lineHeight",
+          "letterSpacing",
+          "wordSpacing",
+          "textAlign",
+          "contentScale",
+          "readableFont",
+          "darkMode",
+          "highContrast",
+          "monochrome",
+          "lowSaturation",
+          "readingGuide",
+          "readingMask",
+          "highlightLinks",
+          "highlightHeadings",
+          "bigCursor",
+          "stopAnimations",
+          "focusHighlight"
+        ],
+        "path": [
+          "Close",
+          "fontSize",
+          "fontSize",
+          "lineHeight",
+          "letterSpacing",
+          "wordSpacing",
+          "textAlign",
+          "contentScale",
+          "contentScale",
+          "readableFont",
+          "darkMode",
+          "highContrast",
+          "monochrome",
+          "lowSaturation",
+          "readingGuide",
+          "readingMask",
+          "highlightLinks",
+          "highlightHeadings",
+          "bigCursor",
+          "stopAnimations",
+          "focusHighlight",
+          "Reset all"
+        ],
+        "outside": true,
+        "auditedConfigurations": 18,
+        "auditPage": "independent"
+      }
+    }
+  ],
+  "targets": [
+    {
+      "context": "chromium plain standard",
+      "evidence": {
+        "auditStyleCopies": 0,
+        "minimumTarget": 24,
+        "minimumTextContrast": 6.820449946885106,
+        "minimumBoundaryContrast": 3.68763813291651,
+        "panel": {
+          "left": 904,
+          "right": 1264,
+          "top": 8,
+          "bottom": 648,
+          "width": 360,
+          "height": 640,
+          "scrollWidth": 358,
+          "clientWidth": 358,
+          "scrollHeight": 3696,
+          "clientHeight": 638
+        },
+        "focus": {
+          "width": 3,
+          "style": "solid",
+          "ratio": 7.32096843010406
+        }
+      }
+    },
+    {
+      "context": "firefox plain standard",
+      "evidence": {
+        "auditStyleCopies": 0,
+        "minimumTarget": 24,
+        "minimumTextContrast": 6.820449946885106,
+        "minimumBoundaryContrast": 3.68763813291651,
+        "panel": {
+          "left": 904,
+          "right": 1264,
+          "top": 8,
+          "bottom": 648,
+          "width": 360,
+          "height": 640,
+          "scrollWidth": 358,
+          "clientWidth": 358,
+          "scrollHeight": 3696,
+          "clientHeight": 638
+        },
+        "focus": {
+          "width": 3,
+          "style": "solid",
+          "ratio": 7.32096843010406
+        }
+      }
+    },
+    {
+      "context": "webkit plain standard",
+      "evidence": {
+        "auditStyleCopies": 0,
+        "minimumTarget": 24,
+        "minimumTextContrast": 6.820449946885106,
+        "minimumBoundaryContrast": 3.68763813291651,
+        "panel": {
+          "left": 904,
+          "right": 1264,
+          "top": 8,
+          "bottom": 648,
+          "width": 360,
+          "height": 640,
+          "scrollWidth": 358,
+          "clientWidth": 358,
+          "scrollHeight": 3696,
+          "clientHeight": 638
+        },
+        "focus": {
+          "width": 3,
+          "style": "solid",
+          "ratio": 7.32096843010406
+        }
+      }
+    },
+    {
+      "context": "iphone plain standard",
+      "evidence": {
+        "auditStyleCopies": 0,
+        "minimumTarget": 24,
+        "minimumTextContrast": 6.820449946885106,
+        "minimumBoundaryContrast": 3.68763813291651,
+        "panel": {
+          "left": 14,
+          "right": 374,
+          "top": 8,
+          "bottom": 592,
+          "width": 360,
+          "height": 584,
+          "scrollWidth": 358,
+          "clientWidth": 358,
+          "scrollHeight": 3750,
+          "clientHeight": 582
+        },
+        "focus": {
+          "width": 3,
+          "style": "solid",
+          "ratio": 7.32096843010406
+        }
+      }
+    },
+    {
+      "context": "pixel plain standard",
+      "evidence": {
+        "auditStyleCopies": 0,
+        "minimumTarget": 24,
+        "minimumTextContrast": 6.820449946885106,
+        "minimumBoundaryContrast": 3.68763813291651,
+        "panel": {
+          "left": 36,
+          "right": 396,
+          "top": 127,
+          "bottom": 767,
+          "width": 360,
+          "height": 640,
+          "scrollWidth": 358,
+          "clientWidth": 358,
+          "scrollHeight": 3750,
+          "clientHeight": 638
+        },
+        "focus": {
+          "width": 3,
+          "style": "solid",
+          "ratio": 7.32096843010406
+        }
+      }
+    }
+  ],
+  "heap": [
+    {
+      "context": "chromium",
+      "evidence": {
+        "warmup": 1000,
+        "retained": [0, 0, 0, 0, 0, 0],
+        "rows": [
+          {
+            "cycles": 0,
+            "bytes": 2074548,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          },
+          {
+            "cycles": 40,
+            "bytes": 2096320,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          },
+          {
+            "cycles": 80,
+            "bytes": 2097600,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          },
+          {
+            "cycles": 120,
+            "bytes": 2098880,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          },
+          {
+            "cycles": 160,
+            "bytes": 2100160,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          },
+          {
+            "cycles": 200,
+            "bytes": 2101440,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          }
+        ],
+        "slopeBytesPerCycle": 105.18571428571428,
+        "standardError": 42.253791843692184,
+        "lower95": -12.12961480974566
+      }
+    },
+    {
+      "context": "pixel",
+      "evidence": {
+        "warmup": 1000,
+        "retained": [0, 0, 0, 0, 0, 0],
+        "rows": [
+          {
+            "cycles": 0,
+            "bytes": 2103092,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          },
+          {
+            "cycles": 40,
+            "bytes": 2124864,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          },
+          {
+            "cycles": 80,
+            "bytes": 2126144,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          },
+          {
+            "cycles": 120,
+            "bytes": 2127424,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          },
+          {
+            "cycles": 160,
+            "bytes": 2128704,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          },
+          {
+            "cycles": 200,
+            "bytes": 2129984,
+            "nodes": 51,
+            "listeners": 16,
+            "retained": 0
+          }
+        ],
+        "slopeBytesPerCycle": 105.18571428571428,
+        "standardError": 42.25379184369219,
+        "lower95": -12.129614809745675
+      }
+    }
+  ],
+  "audit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "runtimeAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "limitations": [
+    "No screen reader or physical phone used.",
+    "Headed Playwright supplies browser keyboard interaction; matching-state axe runs on independent pages.",
+    "Precise forced-GC heap is CDP-only; Firefox, WebKit and iPhone explicitly skip it.",
+    "No detected positive heap trend is not a zero-byte-growth claim.",
+    "This local receipt does not assert the pending full CI result."
+  ]
+}
