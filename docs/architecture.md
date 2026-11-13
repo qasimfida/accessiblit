@@ -1,6 +1,6 @@
 # Core runtime architecture
 
-Phase 2 adds a shadow-local launcher and non-modal panel to the engine. `open`, `close` and `toggle` control the panel, including a queued open before body exists. Position, offset, z-index and shortcut options drive the UI. The catalogue now registers seven content features and four colour features; navigation remains for later phases. The optional font URL is validated and never fetched.
+Phase 2 adds a shadow-local launcher and non-modal panel to the engine. `open`, `close` and `toggle` control the panel, including a queued open before body exists. Position, offset, z-index and shortcut options drive the UI. The catalogue now registers all eighteen content, colour and navigation features. The optional font URL is validated and never fetched.
 
 ## Initialization and teardown
 
@@ -74,7 +74,7 @@ Run `npm run verify`, then `npm run test:e2e` (browser tests require built dist)
 
 The tested Firefox 159 toolchain crashes when full axe instrumentation and Playwright semantic-tree/name traversal share some page states. The required closed/open media matrix passes with the explicit dialog label. The supplemental audit captures keyboard and semantic evidence independently, then uses a fresh page for full axe scans of active controls; no rule or required browser profile is disabled. Reproduce this tooling interaction separately before combining those audit passes. Run `ACCESSIBLIT_AUDIT_WRITE=1 npm run test:e2e -- e2e/panel-audit.spec.ts --headed --workers=1` to refresh committed screenshots, semantic trees and raw measurements; ordinary tests do not rewrite reports.
 
-The keyboard fixture uses ordinary Tab navigation, and Option+Tab for macOS WebKit's native settings ([Apple's Safari shortcuts](https://support.apple.com/guide/safari/cpsh003/mac)). Fixture targets and contrast are audited; they are host test controls, not widget UI. Phase 2 browser tests add named roles/states, media/axe profiles, keyboard operation, UI geometry, content-filter isolation, author zoom, text spacing and small-view focus checks. Colour/navigation effects, React integration and arbitrary host-site behavior remain later-phase work. Personalisation does not establish WCAG compliance.
+The keyboard fixture uses ordinary Tab navigation, and Option+Tab for macOS WebKit's native settings ([Apple's Safari shortcuts](https://support.apple.com/guide/safari/cpsh003/mac)). Fixture targets and contrast are audited; they are host test controls, not widget UI. Phase 2 browser tests add named roles/states, media/axe profiles, keyboard operation, UI geometry, content-filter isolation, author zoom, text spacing and small-view focus checks. React integration and arbitrary host-site behavior remain later-phase work. Personalisation does not establish WCAG compliance.
 
 ## Content feature composition
 
@@ -99,3 +99,23 @@ Saturation reads baseline paints with both saturation classes temporarily disabl
 Observers reconcile owner class/style changes and inserted content, including palette changes made after saturation was selected. Cleanup restores markers, variables, classes and sheets. Window resize, stylesheet load and forced-colour media listeners are removed exactly once in tests. No colour filter is placed on html, body or ordinary layout containers.
 
 See [the colour ADR](adr/0002-colour-strategy.md) and [Phase 4 report](../reports/phase-4-colour-features.md) for the measured filter comparison, complete combination policy, screenshots and host limitations. The colour ADR uses the filename requested by the phase prompt; the earlier 0002-content-scaling ADR remains intact.
+
+## Navigation surfaces and motion
+
+All eighteen metadata records are now ordered as the public catalogue. Seven navigation modules add reading guide/mask, link/heading highlighting, two cursor sizes, motion control and keyboard focus highlighting. Existing cursor booleans remain valid: false is Off, true is Large (32px), and 2 is Extra large (48px). The version-1 storage schema accepts that added value. FeatureControl select metadata now supports booleans as well as strings/numbers; the generic native-radio renderer handles them.
+
+An internal presentation bridge defers private surfaces until the existing shadow host mounts, carrying its nonce. FeatureApi.onHost scopes subscriptions and renderer cleanup without adding a public instance method. Guide and mask each own one aria-hidden, pointer-transparent manual popover, with fixed-position fallback. They share a small private placement sheet separate from the single document sheet used for page overrides. Per-frame transforms stay inside the shadow root, so pointer movement does not repeatedly invalidate font/saturation baselines or set html variables.
+
+Pointer, touch, focus, scroll, resize and viewport listeners exist only while their feature is on. Input coalesces into one requestAnimationFrame per overlay; off/destroy cancels it. Native focus bounds drive keyboard tracking. Surfaces hide during panel interaction, use no transitions, and never capture pointer/touch input. Mask opacity is deliberately mild at 4%; forced colours use an outline instead of dimming. No pointer coordinates are persisted or sent anywhere.
+
+Link emphasis uses outline and underline. Heading level badges use CSS pseudo-content with an empty accessibility alternative where supported, without editing heading DOM. Existing author ::after content is temporarily replaced; invalid/missing ARIA levels are not repaired. Browser semantic-name checks pass, but actual screen-reader speech remains a human check.
+
+The larger cursor uses original embedded SVG, a native auto fallback, and only activates with a fine pointer outside forced colours. Generic requiresFinePointer metadata and optional Messages.cursorAvailabilityNote explain unavailable settings. CSP can block data-image cursors; allow img-src data: if desired or retain the native fallback. No remote resource is requested.
+
+Stop animations pauses CSS animation timelines, disables transitions/smooth scroll, and pauses video bearing autoplay, including later play events or attribute changes. It never calls play on cleanup: videos remain paused for explicit user/owner action, avoiding unexpected playback or requests. CSS animations resume their timelines when the override is removed; canceled transitions are not reconstructed. GIF/APNG, canvas, JavaScript animation loops, SVG SMIL, frame documents and closed shadow trees cannot all be stopped by these document rules.
+
+Focus highlight uses a 3px black outline and 6px white shadow (a visible 3px second tone), with system Highlight under forced colours. Top-edge hit testing finds visible fixed/sticky occluders and updates root scroll padding; a focus-time correction exposes targets where native scrolling leaves them underneath. Links inside the occluding header are not treated as hidden by their own ancestor. Oversized controls are moved enough to remain partly visible, rather than promising full visibility when they cannot fit. Arbitrary overlapping/floating elements, nested scrollers, transformed ancestors and embedded/shadow content remain host-specific limits.
+
+Saturation baseline reads temporarily disable the focus-highlight class so a transient focus shadow cannot be retained after blur. Ordinary owner hover/focus paint and unusual dynamic CSS still require host testing. Native popover fallback can inherit ancestor containing-block/clipping behavior; the widget cannot repair every host geometry.
+
+For flash-risk analysis we use the current [W3C explanation of SC 2.3.1](https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html). The unit audit checks the actual mask opacity against sRGB luminance and saturated-red chromaticity changes; narrow guide geometry is also inspected in browsers. This is not a certification of underlying videos, GIFs, HDR content or all host flashing patterns.
