@@ -14,3 +14,5 @@ These are measured engineering receipts, not a screen-reader or whole-site confo
 - `pixel-rtl-fixed.json` and its PNG show the corrected 412px viewport placement: panel left 36/right 396.
 
 The current CI matrix and final verdict belong in the phase report. Phone profiles are emulated, not physical devices. No screen reader was used. Pixel dimensions can differ with device scale; target and contrast measurements use CSS pixels/computed colours.
+
+Interpretation correction (R-22): older notes call native controls lower bounds. Their forced geometry read differs from the feature gate's frame-callback metric, so the numbers are not strict numeric lower bounds and do not prove a hardware cause. Raw samples remain unchanged. R-20/R-21 use API-only traces and settled host baselines; consult docs/performance-reference.md for the current protocol.

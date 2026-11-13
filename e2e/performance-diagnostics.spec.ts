@@ -5,7 +5,7 @@ import { PERFORMANCE_TRACE } from './helpers/performance';
 
 test.use({ trace: PERFORMANCE_TRACE });
 
-// Native CSS is a lower bound, not a replacement for the unchanged feature budgets.
+// Native CSS is a comparison control; its forced-layout metric does not replace a feature gate.
 for (const feature of ['fontSize', 'wordSpacing'] as const)
   for (const native of [true, false])
     test(`diagnose ${feature} with ${native ? 'native CSS' : 'the engine'}`, async ({
