@@ -3,7 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Accessiblit options</title>
+    <title>Accessiblit options and lifecycle</title>
+    <meta
+      name="description"
+      content="Reference all Accessiblit configuration options, instance methods, settings persistence and lifecycle behaviour."
+    />
+    <link
+      rel="canonical"
+      href="https://qasimfida.github.io/accessiblit/options/"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Accessiblit" />
+    <meta property="og:title" content="Accessiblit options and lifecycle" />
+    <meta
+      property="og:description"
+      content="Reference all Accessiblit configuration options, instance methods, settings persistence and lifecycle behaviour."
+    />
+    <meta
+      property="og:url"
+      content="https://qasimfida.github.io/accessiblit/options/"
+    />
+    <meta
+      property="og:image"
+      content="https://qasimfida.github.io/accessiblit/og.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Accessiblit: text, colour and navigation controls"
+    />
+
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/src/styles.css" />
     <script src="/accessiblit.min.js"></script>
@@ -12,10 +43,173 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="%BASE_URL%"
+        ><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="currentColor" />
+          <path
+            d="M8 25 14 7h4l6 18h-4l-1-4h-6l-1 4zm6-8h4l-2-6z"
+            fill="var(--surface)"
+            fill-rule="evenodd"
+          /></svg
+        ><span>Accessiblit</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="%BASE_URL%">Home</a><a href="%BASE_URL%install/">Install</a
+        ><a href="%BASE_URL%options/" aria-current="page">Options</a
+        ><a href="%BASE_URL%faq/">FAQ and privacy</a>
+      </nav>
+    </header>
     <main id="main" class="wrap" tabindex="-1">
-      <h1>Accessiblit options</h1>
-      <p>Accessibility personalisation, built from this repository.</p>
-      <a href="%BASE_URL%">Home</a>
+      <p class="eyebrow">API reference</p>
+      <h1>Configure Accessiblit.</h1>
+      <p class="lede">
+        Pass an options object to init. Invalid configuration is reported with a
+        console warning and resolved safely; it should not throw into the host
+        page.
+      </p>
+      <p id="table-help">
+        The table can scroll horizontally on a narrow screen. Focus it to use
+        the arrow keys.
+      </p>
+      <div
+        class="table-scroll"
+        tabindex="0"
+        role="region"
+        aria-label="Configuration options"
+        aria-describedby="table-help"
+      >
+        <table>
+          <caption>
+            Options accepted by init
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Option</th>
+              <th scope="col">Default</th>
+              <th scope="col">Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><code>position</code></th>
+              <td><code>&#x27;bottom-right&#x27;</code></td>
+              <td>
+                Choose bottom-right, bottom-left, top-right or top-left. The
+                names refer to physical corners.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>features</code></th>
+              <td><code>All 18 features</code></td>
+              <td>
+                An allowlist of FeatureId values. Leave it out to include the
+                complete catalogue.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>exclude</code></th>
+              <td><code>[]</code></td>
+              <td>Feature IDs to remove from the allowlist.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>storageKey</code></th>
+              <td><code>&#x27;accessiblit:v1&#x27;</code></td>
+              <td>The one localStorage key used for settings.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>persist</code></th>
+              <td><code>true</code></td>
+              <td>
+                Set false to avoid reading or writing persistent settings.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>shortcut</code></th>
+              <td><code>&#x27;Alt+A&#x27;</code></td>
+              <td>
+                A modifier-based shortcut matched by physical key code, or false
+                to disable it.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>zIndex</code></th>
+              <td><code>2147483000</code></td>
+              <td>
+                Stacking preference. Native top-layer order still applies.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>offset</code></th>
+              <td><code>{ x: 16, y: 16 }</code></td>
+              <td>Horizontal and vertical edge offsets in CSS pixels.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>nonce</code></th>
+              <td><code>Not set</code></td>
+              <td>
+                An owner-supplied CSP nonce for fallback style elements. Script
+                loading must also satisfy your policy.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>messages</code></th>
+              <td><code>English defaults</code></td>
+              <td>
+                A Partial&lt;Messages&gt; object for interface copy, labels,
+                descriptions and announcements.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>dyslexiaFontUrl</code></th>
+              <td><code>Not set</code></td>
+              <td>
+                An optional owner font reference, never fetched by the widget.
+                Preload and register AccessiblitDyslexia faces before init.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>onChange</code></th>
+              <td><code>Not set</code></td>
+              <td>
+                An opt-in callback receiving { id, value } for setting changes.
+                No visitor identity is added.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <section>
+        <h2>Instance lifecycle</h2>
+        <p>
+          Keep the returned instance when your integration owns the widget.
+          Calling init again destroys the previous instance. Imports are
+          SSR-safe, and init is inert without a DOM.
+        </p>
+        <pre><code data-snippet="lifecycle" data-language="ts">import { init } from &#x27;@qasimfida/accessiblit&#x27;;
+
+const widget = init({ position: &#x27;bottom-right&#x27; });
+widget.open();
+widget.close();
+widget.toggle();
+widget.setFeature(&#x27;fontSize&#x27;, 120);
+const state = widget.getState();
+widget.reset();
+widget.destroy();</code></pre>
+      </section>
     </main>
+    <footer class="site-footer wrap">
+      <p>
+        Personalisation supports visitor choice. It does not make a site
+        conformant by itself.
+      </p>
+      <nav aria-label="Footer">
+        <a href="%BASE_URL%faq/#privacy">Privacy</a
+        ><a href="https://github.com/qasimfida/accessiblit" rel="noreferrer"
+          >Source code</a
+        >
+      </nav>
+      <p class="small">MIT licensed · Qasim Fida</p>
+    </footer>
   </body>
 </html>
