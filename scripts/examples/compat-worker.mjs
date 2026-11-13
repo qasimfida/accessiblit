@@ -32,14 +32,15 @@ export async function reactCompatibility(folder) {
       { url: 'https://example.test', pretendToBeVisual: true },
     );
     const previous = Object.fromEntries(
-      ['window', 'document', 'IS_REACT_ACT_ENVIRONMENT'].map((key) => [
-        key,
-        Object.getOwnPropertyDescriptor(globalThis, key),
-      ]),
+      ['window', 'document', 'navigator', 'IS_REACT_ACT_ENVIRONMENT'].map(
+        (key) => [key, Object.getOwnPropertyDescriptor(globalThis, key)],
+      ),
     );
     Object.defineProperties(globalThis, {
       window: { configurable: true, value: dom.window },
       document: { configurable: true, value: dom.window.document },
+      // Node 20 lacks the navigator that older browser renderers inspect.
+      navigator: { configurable: true, value: dom.window.navigator },
       IS_REACT_ACT_ENVIRONMENT: { configurable: true, value: true },
     });
     try {
