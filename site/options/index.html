@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Accessiblit options</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/styles.css" />
     <script src="/accessiblit.min.js"></script>
     <script src="/bootstrap.js"></script>
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
-    <a href="#main">Skip to main content</a>
-    <main id="main" tabindex="-1">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <main id="main" class="wrap" tabindex="-1">
       <h1>Accessiblit options</h1>
       <p>Accessibility personalisation, built from this repository.</p>
       <a href="%BASE_URL%">Home</a>
