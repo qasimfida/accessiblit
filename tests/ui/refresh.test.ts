@@ -79,3 +79,22 @@ it('keeps internal shadow focus changes inside the panel scrollport', () => {
   expect(root.activeElement).toBe(radio);
   expect(panel.scrollTop).toBe(24);
 });
+
+it('preserves both focus edges when a tall control nearly fills the panel', () => {
+  const instance = init({ persist: false });
+  instance.open();
+  const root = document.querySelector('[data-accessiblit-host]')!.shadowRoot!;
+  const panel = root.querySelector<HTMLElement>('[role=dialog]')!;
+  const button = root.querySelector<HTMLButtonElement>('.accessiblit-toggle')!;
+  vi.spyOn(panel, 'getBoundingClientRect').mockReturnValue(
+    new DOMRect(0, 0, 200, 176),
+  );
+  panel.scrollTop = 50;
+  vi.spyOn(button, 'getBoundingClientRect').mockImplementation(
+    () => new DOMRect(0, -1 - (panel.scrollTop - 50), 100, 162),
+  );
+  button.focus();
+  const bounds = button.getBoundingClientRect();
+  expect(bounds.top).toBeGreaterThanOrEqual(6);
+  expect(176 - bounds.bottom).toBeGreaterThanOrEqual(6);
+});

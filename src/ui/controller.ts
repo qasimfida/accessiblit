@@ -61,10 +61,18 @@ export function createUI(
     function keepFocusVisible(target: HTMLElement) {
       const bounds = panel.element.getBoundingClientRect();
       const focus = target.getBoundingClientRect();
-      if (focus.top < bounds.top + 10)
-        panel.element.scrollTop -= bounds.top + 10 - focus.top;
-      else if (focus.bottom > bounds.bottom - 10)
-        panel.element.scrollTop += focus.bottom - bounds.bottom + 10;
+      // Balance clearance when a tall control fits, rather than clipping its opposite focus edge.
+      const gap = Math.min(
+        10,
+        Math.max(
+          0,
+          (bounds.bottom - bounds.top - (focus.bottom - focus.top)) / 2,
+        ),
+      );
+      if (focus.top < bounds.top + gap)
+        panel.element.scrollTop -= bounds.top + gap - focus.top;
+      else if (focus.bottom > bounds.bottom - gap)
+        panel.element.scrollTop += focus.bottom - bounds.bottom + gap;
     }
     function refresh() {
       if (!scope.active) return;
