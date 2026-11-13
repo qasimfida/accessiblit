@@ -2,7 +2,7 @@
 
 Status: BLOCKED
 
-Date: 2026-11-13. Checkpoint range: `phase-6-complete` (`a47a551`) to `8239037`. Work is active; complete CI evidence, the final audit artifacts and `phase-7-complete` are pending.
+Date: 2026-11-13. Checkpoint range: `phase-6-complete` (`a47a551`) to `b7dcb2c`. Work is active; complete CI evidence, the final audit artifacts and `phase-7-complete` are pending.
 
 ## Summary
 
@@ -17,24 +17,25 @@ The historical stopped report is preserved in commit 6500902, and [blocked-evide
 - playwright.config.ts adds iPhone 13/WebKit and Pixel 7/Chromium emulation for qa-prefixed suites. All automatic retries are zero.
 - fixtures/qa adds eight host variants: plain HTML, an independent shadow component, same-origin/opaque frames, strict CSP with constructed sheets and nonce fallback, 5,500 paragraphs, a high-z-index CSS modal and aggressive resets.
 - e2e/helpers and qa-prefixed suites cover five media/direction profiles, every single maximum, 32 binary pairwise rows, all eighteen maxima, keyboard operation, 200 lifecycle loops, listener ownership and post-GC memory evidence. Pairwise coverage is checked for all 153 feature pairs and four default/maximum assignments.
+- Letter spacing permits emergency wrapping in eligible semantic text blocks while active, preserving page markup and restoring owner styles when disabled. The long-token regression fails in all engines before the fix and passes afterwards.
 - src/ui/controller.ts coalesces root/body geometry work, caches author zoom, cancels owned frames, tolerates temporary body removal and handles internal shadow focus on the shadow root. src/ui/viewport.ts caches the correct fixed inline viewport basis when mobile overflow expands innerWidth.
 - tests/ui guards the discovered geometry and focus cases. The exhaustive flash test avoids temporary allocations while retaining all 16,777,216 colours and the original limits.
 - package-lock.json restores two already-required optional dev-only WASI dependency records; no direct dependency or version changes.
-- CI separates browser projects across Node 20/22. Permissions remain contents: read, checkout does not persist credentials, and actionlint accepts the workflow.
+- CI separates browser projects across Node 20/22, using Linux for Chromium/Firefox/Pixel and macOS for Safari-target WebKit/iPhone. Permissions remain contents: read, checkout does not persist credentials, and actionlint accepts the workflow.
 - [The conformance matrix](../docs/ACCESSIBILITY.md), [human screen-reader script](../docs/manual-screen-reader-test.md) and [CSP guide](../docs/guides/csp.md) distinguish automated evidence from remaining human work. Final matrix verdicts are pending completion of verification.
 
 ## Verification (commands run, real results)
 
 | Command / run                                  | Result                                                                                                        |
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| Latest npm run verify                          | PASS: lint, format, typecheck, 178 tests in 57 files, build, plain-Node SSR imports, size, publint and attw   |
-| Coverage                                       | Global 96.12% lines / 90.60% branches; core 98.63% lines / 97.96% branches                                    |
-| IIFE                                           | 19,568 bytes gzip; limit remains 35,000, warning remains 30,000                                               |
+| Latest npm run verify                          | PASS: lint, format, typecheck, 179 tests in 57 files, build, plain-Node SSR imports, size, publint and attw   |
+| Coverage                                       | Global 96.12% lines / 90.71% branches; core 98.63% lines / 97.96% branches                                    |
+| IIFE                                           | 19,603 bytes gzip; limit remains 35,000, warning remains 30,000                                               |
 | Full local discovery matrix on f9c96b0 runtime | 1,169 passed, 15 failed, 9 skipped in 17.4 minutes; failures identified R-9, R-10 and R-11 below              |
 | Post-fix keyboard matrix                       | 25 passed in 3.2 minutes; all eighteen announcements/configurations checked per case; no axe violations       |
 | Post-fix Pixel RTL regression set              | 9 passed in 8.6 seconds, including all five previously failing cases                                          |
 | Post-fix desktop viewport/zoom set             | 46 passed, 2 documented CDP-only skips in 16.2 seconds                                                        |
-| Latest content timing/level set                | 42 passed in 16.1 seconds; 90 timing samples, maximum synchronous 18 ms, next-frame callback 52 ms            |
+| Latest content timing/level set                | 42 passed in 15.8 seconds; 90 timing samples, maximum synchronous 18 ms, next-frame callback 55 ms            |
 | Isolated Node 20/npm 10 npm ci                 | Before: missing @emnapi/core and @emnapi/runtime records. After: 297 packages installed, zero vulnerabilities |
 | npm audit / npm audit --omit=dev               | Both zero vulnerabilities; zero runtime dependencies                                                          |
 | actionlint .github/workflows/ci.yml            | PASS                                                                                                          |
@@ -58,13 +59,19 @@ Earlier interrupted discovery runs and the original CSP stop are not clean matri
 | High     | R-10: document focus handling missed internal shadow transitions and a WebKit radio was partly clipped               | b67fb6f: shadow-root focus listener; scroll regression 0 to required 24 px; all 25 keyboard cases pass                                       | Fixed  |
 | High     | R-11: Pixel RTL overflow expanded innerWidth to 515 while the fixed viewport stayed 412, placing the panel at -67 px | 8239037: cached root client width; all four visual bounds; Pixel regressions now report left 36/right 396                                    | Fixed  |
 
+| High | R-12: packed React remounts required immediate launcher visibility despite permitted host-focus protection | 1a9829c: force overlap, assert hidden state, then prove mount uniqueness, shortcut access, Escape focus return and visibility; all 15 packed checks pass | Fixed locally; Linux confirmation pending |
+| High | R-13: Linux font metrics overflowed a grid word at maximum spacing | 817fae0: scoped emergency wrapping while letter spacing is active; 90 spacing/combination checks pass, including a new three-engine red/green long-token guard | Fixed |
+| High | R-14: a tall enlarged-text control received only 4 px of focus clearance at one edge | bb0a60c: balanced adaptive clearance; geometric regression and 19 viewport checks pass, with the original 6 px assertions | Fixed |
+| High | R-15: Linux WebKit media promises hang and its port misses timing limits | 5d37ac2: run every WebKit/iPhone test on the Safari-target macOS port for both Node versions; Linux Chromium/Firefox/Pixel remain; no test or threshold removed | CI confirmation pending |
+| Low | R-16: packed WebKit traversal assumed macOS Option+Tab on every OS | b7dcb2c: use ordinary Tab outside macOS; retain all focus assertions; packed checks pass locally | Linux confirmation pending |
+
 ## Audits
 
 ### Accessibility
 
 Completed widget audits retain every axe rule. Host frame traversal is outside the widget scope. Keyboard audits now run separately from the native walk, with identical feature state and control text/pressed/disabled/checked projections; the audit page retains initial Close focus. Focus geometry is tested on the primary keyboard page. This avoids claiming that an isolated scan reproduces every transient focus state.
 
-Observed targets are at least 24 CSS pixels; computed text contrast has a minimum of 6.82045:1 and control boundaries 3.68764:1 in the new host/configuration evidence. The panel's focus rule is 3 px. These are fixture measurements, not a certification of arbitrary host pages. Headed walk screenshots, semantic evidence and final run receipts remain to be recorded.
+Observed targets are at least 24 CSS pixels; computed text contrast has a minimum of 6.82045:1 and control boundaries 3.68764:1 in the new host/configuration evidence. The panel's focus rule is 3 px. These are fixture measurements, not a certification of arbitrary host pages. Headed walks pass in all five projects (52.1 seconds). Screenshots show a fully visible Reset all focus ring and independent UI typography; semantic snapshots contain the named dialog, three groups, control states and live status. Final receipts remain to be committed.
 
 The WCAG table covers all 55 A/AA criteria. Screen-reader speech, physical devices, Windows forced-colours behaviour and real browser-menu zoom remain explicitly unverified. No screen reader has been run by this agent.
 
@@ -78,9 +85,9 @@ MIT licence text, 2026 author attribution and package metadata remain correct. .
 
 ### Performance and size
 
-Latest local content timings pass the unchanged 100 ms limits (90 samples; maxima 18 ms synchronous / 52 ms next-frame callback). Those callbacks are not a laboratory measurement of final pixel paint. IIFE gzip is 19,568 bytes. No bundle or coverage output is committed.
+Latest local content timings pass the unchanged 100 ms limits (90 samples; maxima 18 ms synchronous / 55 ms next-frame callback). Those callbacks are not a laboratory measurement of final pixel paint. IIFE gzip is 19,603 bytes. No bundle or coverage output is committed.
 
-The discovery run includes zero-CLS, zero-DOM-residue, 200 lifecycle and post-GC evidence. Final post-fix lifecycle receipts are pending CI. Earlier memory checks collected every weakly referenced instance/host and kept DOM/listener counts constant; total VM heap nevertheless rose by 27,864 bytes. The fitted 95% slope interval includes zero. This is not a zero-byte heap-growth claim; JIT/tooling allocations and non-CDP engines remain limits.
+The post-viewport stress run passes seven cases with three documented CDP skips (18.0 seconds): 200 lifecycles per project, 9,400 matched listener additions/removals per project, exact DOM/head/html restoration and identical adopted sheets. Maximum measured init is 4 ms. Every weakly referenced instance/host is collected, with constant 51 DOM nodes and 16 total environment listeners after GC. Total VM heap nevertheless rises by 26,892 bytes. The fitted 95% slope interval includes zero. This is not a zero-byte heap-growth claim; JIT/tooling allocations and non-CDP engines remain limits.
 
 ## Known limitations
 
@@ -88,7 +95,7 @@ The widget does not remediate arbitrary markup, closed shadow roots, cross-origi
 
 ## Deviations from the prompt (and why)
 
-No public API deviation. Testing separates semantic/keyboard traversal from axe on a matching independent page after a reproducible Firefox process crash. No browser, axe rule, explicit performance threshold or coverage gate was removed. Pairwise coverage is binary default/maximum, not every intermediate Cartesian combination. The final completion claim and tag are withheld pending full CI evidence and remaining closing work.
+No public API shape deviation. Letter spacing now permits emergency wrapping in semantic text blocks while active. Safari-target WebKit/iPhone CI uses macOS: [Playwright documents platform codec differences and recommends macOS for Safari-like video testing](https://playwright.dev/docs/browsers#webkit). Failed Linux WPE media/timing results remain recorded; Linux WPE playback is not claimed to pass. Testing separates semantic/keyboard traversal from axe on a matching independent page after a reproducible Firefox process crash. No browser, axe rule, explicit performance threshold or coverage gate was removed. Pairwise coverage is binary default/maximum, not every intermediate Cartesian combination. The final completion claim and tag are withheld pending full CI evidence and remaining closing work.
 
 ## Handoff notes for the next phase
 
