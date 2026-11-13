@@ -10,7 +10,10 @@
     "verbatimModuleSyntax": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "types": ["node"]
+    "types": ["node"],
+    "paths": {
+      "@qasimfida/accessiblit": ["./src/index.ts"]
+    }
   },
   "include": ["src", "tests", "e2e", "*.config.ts"]
 }
