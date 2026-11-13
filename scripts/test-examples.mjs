@@ -15,6 +15,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { run } from './examples/process.mjs';
+import { reactCompatibility } from './examples/compat.mjs';
 import { serve, nextServer } from './examples/servers.mjs';
 import { browserExamples } from './examples/browser.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -68,6 +69,26 @@ try {
   }
   run('npm', ['test'], installed['node-ssr-check']);
   run('npm', ['test'], installed.consumers);
+  run(
+    'node',
+    [
+      join(root, 'node_modules/typescript/bin/tsc'),
+      'core-types.mts',
+      '--noEmit',
+      '--strict',
+      '--module',
+      'Node16',
+      '--moduleResolution',
+      'Node16',
+      '--target',
+      'ES2019',
+      '--lib',
+      'ES2019,DOM',
+    ],
+    installed['node-ssr-check'],
+  );
+  run('node', ['ssr.mjs'], installed['react-vite']);
+  const compatibility = await reactCompatibility(folder);
   run('npm', ['run', 'build'], installed['react-vite']);
   run('npm', ['run', 'build'], installed.nextjs);
   const bundle = readFileSync(
@@ -97,6 +118,7 @@ try {
     readFileSync(join(root, 'examples/consumers/cdn.html'), 'utf8'),
   );
   const evidence = {
+    compatibility,
     files,
     sri,
     examples: Object.keys(installed),
