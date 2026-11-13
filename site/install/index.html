@@ -3,7 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Install Accessiblit</title>
+    <title>Install Accessiblit — script, npm, React and Next.js</title>
+    <meta
+      name="description"
+      content="Install the accessibility personalisation widget with a script tag, npm, React, Next.js, self-hosted assets or a private package."
+    />
+    <link
+      rel="canonical"
+      href="https://qasimfida.github.io/accessiblit/install/"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Accessiblit" />
+    <meta
+      property="og:title"
+      content="Install Accessiblit — script, npm, React and Next.js"
+    />
+    <meta
+      property="og:description"
+      content="Install the accessibility personalisation widget with a script tag, npm, React, Next.js, self-hosted assets or a private package."
+    />
+    <meta
+      property="og:url"
+      content="https://qasimfida.github.io/accessiblit/install/"
+    />
+    <meta
+      property="og:image"
+      content="https://qasimfida.github.io/accessiblit/og.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Accessiblit: text, colour and navigation controls"
+    />
+
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/src/styles.css" />
     <script src="/accessiblit.min.js"></script>
@@ -12,10 +46,159 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="%BASE_URL%"
+        ><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="currentColor" />
+          <path
+            d="M8 25 14 7h4l6 18h-4l-1-4h-6l-1 4zm6-8h4l-2-6z"
+            fill="var(--surface)"
+            fill-rule="evenodd"
+          /></svg
+        ><span>Accessiblit</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="%BASE_URL%">Home</a
+        ><a href="%BASE_URL%install/" aria-current="page">Install</a
+        ><a href="%BASE_URL%options/">Options</a
+        ><a href="%BASE_URL%faq/">FAQ and privacy</a>
+      </nav>
+    </header>
     <main id="main" class="wrap" tabindex="-1">
-      <h1>Install Accessiblit</h1>
-      <p>Accessibility personalisation, built from this repository.</p>
-      <a href="%BASE_URL%">Home</a>
+      <p class="eyebrow">Integration guide</p>
+      <h1>Choose how to install.</h1>
+      <p class="lede">
+        The same core API works with a script tag, JavaScript modules and React
+        applications. Mount one instance per document.
+      </p>
+      <aside class="notice" aria-label="Release availability">
+        <p>
+          <strong>Development build 0.0.0.</strong> This repository is not yet
+          published to the public npm registry. npm and CDN examples describe
+          the release format; use a locally built tarball or the Git build steps
+          today. Only the maintainer publishes releases.
+        </p>
+      </aside>
+      <nav class="on-this-page" aria-label="Installation methods">
+        <a href="#cdn">CDN</a><a href="#npm">npm</a><a href="#react">React</a
+        ><a href="#next">Next.js</a><a href="#self-hosted">Self-hosted file</a
+        ><a href="#private">Private distribution</a>
+      </nav>
+      <section aria-labelledby="cdn">
+        <h2 id="cdn">CDN script tag</h2>
+        <p>
+          Place the script before the init call. The library exposes the
+          Accessiblit global and can wait for the document body.
+        </p>
+        <pre><code data-snippet="cdn" data-language="html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/@qasimfida/accessiblit@0.0.0/dist/accessiblit.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  Accessiblit.init();
+&lt;/script&gt;</code></pre>
+      </section>
+      <section aria-labelledby="npm">
+        <h2 id="npm">npm and ESM</h2>
+        <p>
+          Install the package after a public release, then import the module
+          from your application entry.
+        </p>
+        <pre><code data-snippet="npm-install" data-language="sh">npm install @qasimfida/accessiblit</code></pre>
+        <pre><code data-snippet="esm" data-language="ts">import { init } from &#x27;@qasimfida/accessiblit&#x27;;
+
+const widget = init({ position: &#x27;bottom-left&#x27; });
+// Call widget.destroy() when removing this integration.</code></pre>
+      </section>
+      <section aria-labelledby="react">
+        <h2 id="react">React</h2>
+        <p>
+          React is an optional peer dependency, version 17 or newer. An effect
+          keeps DOM work on the client and cleans up the instance it created,
+          including under StrictMode.
+        </p>
+        <pre><code data-snippet="react-install" data-language="sh">npm install @qasimfida/accessiblit react react-dom</code></pre>
+        <pre><code data-snippet="react" data-language="tsx">import { useEffect } from &#x27;react&#x27;;
+import { init } from &#x27;@qasimfida/accessiblit&#x27;;
+
+export default function Accessibility() {
+  useEffect(() =&gt; {
+    const widget = init({ position: &#x27;bottom-right&#x27; });
+    return () =&gt; widget.destroy();
+  }, []);
+  return null;
+}</code></pre>
+      </section>
+      <section aria-labelledby="next">
+        <h2 id="next">Next.js App Router</h2>
+        <p>
+          Create a client component and render it from your layout. The separate
+          React entry keeps React out of the core browser bundle.
+        </p>
+        <pre><code data-snippet="next" data-language="tsx">&#x27;use client&#x27;;
+
+import { AccessiblitWidget } from &#x27;@qasimfida/accessiblit/react&#x27;;
+
+export default function Accessibility() {
+  return &lt;AccessiblitWidget position=&quot;bottom-right&quot; /&gt;;
+}</code></pre>
+      </section>
+      <section aria-labelledby="self-hosted">
+        <h2 id="self-hosted">Self-hosted file</h2>
+        <p>
+          Copy dist/accessiblit.min.js from your built package to your own
+          static assets. This example assumes you serve it at
+          /vendor/accessiblit.min.js. A strict CSP must also authorise your
+          script and supply an owner nonce when fallback styles need one.
+        </p>
+        <pre><code data-snippet="self-hosted" data-language="html">&lt;script src=&quot;/vendor/accessiblit.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  Accessiblit.init({ position: &#x27;bottom-right&#x27; });
+&lt;/script&gt;</code></pre>
+      </section>
+      <section aria-labelledby="private">
+        <h2 id="private">Private distribution</h2>
+        <h3>Tarball</h3>
+        <p>
+          Build and pack the source, then give the resulting .tgz file to your
+          consuming project. Adjust the path to the file you received.
+        </p>
+        <pre><code data-snippet="pack" data-language="sh">npm run build
+npm pack
+# In the consuming project:
+npm install ./path/to/qasimfida-accessiblit-0.0.0.tgz</code></pre>
+        <h3>Git source</h3>
+        <p>
+          For private distribution, use these build-and-pack steps with your
+          team’s private mirror; the public repository below is a reproducible
+          example. A Git checkout contains source rather than committed dist
+          files. Build it before packing; do not assume a bare Git dependency
+          includes built artifacts.
+        </p>
+        <pre><code data-snippet="git" data-language="sh">git clone https://github.com/qasimfida/accessiblit.git
+cd accessiblit
+git checkout phase-7-complete
+npm ci
+npm run build
+npm pack</code></pre>
+        <h3>Private registry</h3>
+        <p>
+          Your team can distribute the package through its registry and normal
+          credential management. Replace the example registry URL with yours; no
+          credentials belong in page source or these snippets.
+        </p>
+        <pre><code data-snippet="private-registry" data-language="sh">npm install @qasimfida/accessiblit --registry=https://registry.example.invalid</code></pre>
+      </section>
     </main>
+    <footer class="site-footer wrap">
+      <p>
+        Personalisation supports visitor choice. It does not make a site
+        conformant by itself.
+      </p>
+      <nav aria-label="Footer">
+        <a href="%BASE_URL%faq/#privacy">Privacy</a
+        ><a href="https://github.com/qasimfida/accessiblit" rel="noreferrer"
+          >Source code</a
+        >
+      </nav>
+      <p class="small">MIT licensed · Qasim Fida</p>
+    </footer>
   </body>
 </html>
