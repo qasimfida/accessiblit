@@ -68,7 +68,8 @@
     "perf": "npm run build && node scripts/perf.mjs",
     "test:perf": "node --test tests/perf/*.test.mjs",
     "build:site": "npm run build && node scripts/build-site.mjs",
-    "preview:site": "node scripts/serve-site.mjs"
+    "preview:site": "node scripts/serve-site.mjs",
+    "test:site": "playwright test --config playwright.site.config.ts"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
