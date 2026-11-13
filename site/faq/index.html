@@ -3,7 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Accessiblit FAQ and privacy</title>
+    <title>Accessiblit FAQ, privacy and limits</title>
+    <meta
+      name="description"
+      content="Understand local settings, privacy, keyboard use and the honest boundaries of accessibility personalisation."
+    />
+    <link rel="canonical" href="https://qasimfida.github.io/accessiblit/faq/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Accessiblit" />
+    <meta property="og:title" content="Accessiblit FAQ, privacy and limits" />
+    <meta
+      property="og:description"
+      content="Understand local settings, privacy, keyboard use and the honest boundaries of accessibility personalisation."
+    />
+    <meta
+      property="og:url"
+      content="https://qasimfida.github.io/accessiblit/faq/"
+    />
+    <meta
+      property="og:image"
+      content="https://qasimfida.github.io/accessiblit/og.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Accessiblit: text, colour and navigation controls"
+    />
+
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/src/styles.css" />
     <script src="/accessiblit.min.js"></script>
@@ -12,10 +40,113 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="%BASE_URL%"
+        ><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="currentColor" />
+          <path
+            d="M8 25 14 7h4l6 18h-4l-1-4h-6l-1 4zm6-8h4l-2-6z"
+            fill="var(--surface)"
+            fill-rule="evenodd"
+          /></svg
+        ><span>Accessiblit</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="%BASE_URL%">Home</a><a href="%BASE_URL%install/">Install</a
+        ><a href="%BASE_URL%options/">Options</a
+        ><a href="%BASE_URL%faq/" aria-current="page">FAQ and privacy</a>
+      </nav>
+    </header>
     <main id="main" class="wrap" tabindex="-1">
-      <h1>Accessiblit FAQ and privacy</h1>
-      <p>Accessibility personalisation, built from this repository.</p>
-      <a href="%BASE_URL%">Home</a>
+      <p class="eyebrow">FAQ and privacy</p>
+      <h1>Know what the widget does.</h1>
+      <section>
+        <h2>Does adding a widget make a site conformant?</h2>
+        <p>
+          No. A widget helps visitors personalise a page, but it does not make a
+          site conformant by itself. The underlying content, semantics,
+          navigation and interactions still need accessible design and testing.
+        </p>
+      </section>
+      <section id="privacy">
+        <h2>What stays in the browser?</h2>
+        <p>
+          Accessiblit sets no cookies, includes no tracking or analytics, and
+          makes no runtime requests. Settings use localStorage under one key,
+          accessiblit:v1 by default. Blocked storage falls back to memory.
+          Owners can change the key or set persist: false.
+        </p>
+        <p>
+          The settings contain feature choices, not page text or visitor
+          identity. Reset all restores defaults. To remove a stored key
+          entirely, use your browser's site-data controls. An owner's optional
+          onChange callback is separate integration code; the widget does not
+          send settings to a server.
+        </p>
+      </section>
+      <section id="limits">
+        <h2>Will every page adjustment work everywhere?</h2>
+        <p>
+          Host layouts differ. Fixed-height boxes, unusual CSS, native modals
+          and embedded content need integration testing. Page styles do not
+          automatically cross iframe or other components' shadow-tree
+          boundaries. The widget does not repair markup.
+        </p>
+        <p>
+          Stopping animations covers CSS animation, transitions, smooth
+          scrolling and autoplay video. GIFs, canvas and JavaScript-driven
+          motion cannot all be stopped by those rules. Paused videos remain
+          paused until the visitor or site resumes playback.
+        </p>
+      </section>
+      <section>
+        <h2>Does it download a font?</h2>
+        <p>
+          No font file is bundled or fetched. Readable mode uses a system stack.
+          Dyslexia-friendly mode uses an owner's already loaded
+          AccessiblitDyslexia font when configured; otherwise it uses a
+          documented system fallback. It is a presentation choice, not a claim
+          of medical benefit.
+        </p>
+      </section>
+      <section>
+        <h2>How does keyboard operation work?</h2>
+        <p>
+          Alt+A opens or closes the options by default. The shortcut is
+          configurable and can be disabled. Escape closes the panel and returns
+          focus to its launcher. The panel is non-modal: Tab can leave it.
+        </p>
+      </section>
+      <section>
+        <h2>Do I need React?</h2>
+        <p>
+          No. The core is dependency-free. The optional React entry provides
+          AccessiblitWidget and useAccessiblit for React 17 or newer; React is
+          not included in the core browser bundle.
+        </p>
+      </section>
+      <section>
+        <h2>What happens when I remove it?</h2>
+        <p>
+          Call the owned instance's destroy method when unmounting your
+          integration. It removes its nodes, styles, classes, attributes and
+          listeners. Stored preferences intentionally remain, and paused videos
+          do not resume automatically.
+        </p>
+      </section>
     </main>
+    <footer class="site-footer wrap">
+      <p>
+        Personalisation supports visitor choice. It does not make a site
+        conformant by itself.
+      </p>
+      <nav aria-label="Footer">
+        <a href="%BASE_URL%faq/#privacy">Privacy</a
+        ><a href="https://github.com/qasimfida/accessiblit" rel="noreferrer"
+          >Source code</a
+        >
+      </nav>
+      <p class="small">MIT licensed · Qasim Fida</p>
+    </footer>
   </body>
 </html>
