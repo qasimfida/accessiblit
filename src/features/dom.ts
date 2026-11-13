@@ -33,3 +33,7 @@ export function textElements(doc: Document): HTMLElement[] {
       ),
   );
 }
+
+/** Navigation cues include graphical controls, while private widget surfaces remain isolated. */
+export const NAVIGATION_SELECTOR =
+  ':where(body,body *):not(:where([data-accessiblit-host],[data-accessiblit-host] *))';

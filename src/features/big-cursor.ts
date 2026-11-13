@@ -1,6 +1,6 @@
 import type { Feature } from '../core/types';
 import { cssEffect } from './effect';
-import { CONTENT_SELECTOR, ROOT_SELECTOR } from './dom';
+import { NAVIGATION_SELECTOR, ROOT_SELECTOR } from './dom';
 /** Embedded, original two-tone pointers never request an image; native auto remains the CSP fallback. */
 export const bigCursor: Feature = {
   id: 'bigCursor',
@@ -22,7 +22,7 @@ export const bigCursor: Feature = {
       api,
       'accessiblit-big-cursor',
       {},
-      `@media screen and (any-pointer:fine) and (forced-colors:none){${ROOT_SELECTOR}.accessiblit-big-cursor ${CONTENT_SELECTOR}{cursor:url("${uri}") ${size === 48 ? '4 3' : '3 2'},auto!important}}`,
+      `@media screen and (any-pointer:fine) and (forced-colors:none){${ROOT_SELECTOR}.accessiblit-big-cursor ${NAVIGATION_SELECTOR}{cursor:url("${uri}") ${size === 48 ? '4 3' : '3 2'},auto!important}}`,
     );
   },
 };

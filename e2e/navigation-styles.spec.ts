@@ -45,3 +45,42 @@ test('highlights links and heading levels without editing page markup', async ({
     }),
   ).toBeVisible();
 });
+
+test('decorates graphical links and overrides their authored cursor', async ({
+  page,
+}) => {
+  await loadContent(page, 'article');
+  await page.evaluate(() => {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', '200');
+    svg.setAttribute('height', '40');
+    const link = document.createElementNS(svg.namespaceURI, 'a');
+    link.id = 'graphical-link';
+    link.setAttribute('href', '#');
+    (link as SVGAElement).style.cursor = 'crosshair';
+    const text = document.createElementNS(svg.namespaceURI, 'text');
+    text.setAttribute('x', '4');
+    text.setAttribute('y', '24');
+    text.textContent = 'Graphical link';
+    link.append(text);
+    svg.append(link);
+    document.querySelector('main')!.append(svg);
+    window.contentInstance.setFeature('highlightLinks', true);
+    window.contentInstance.setFeature('bigCursor', 2);
+  });
+  await expect(page.locator('#graphical-link')).toHaveCSS(
+    'outline-width',
+    '2px',
+  );
+  await expect(page.locator('#graphical-link')).toHaveCSS(
+    'text-decoration-line',
+    'underline',
+  );
+  expect(
+    decodeURIComponent(
+      await page
+        .locator('#graphical-link')
+        .evaluate((e) => getComputedStyle(e).cursor),
+    ),
+  ).toContain('width="48"');
+});
