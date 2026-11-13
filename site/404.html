@@ -3,7 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page not found</title>
+    <title>Page not found — Accessiblit</title>
+    <meta
+      name="description"
+      content="Find the Accessiblit installation guide, options reference or home page."
+    />
+    <link
+      rel="canonical"
+      href="https://qasimfida.github.io/accessiblit/404.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Accessiblit" />
+    <meta property="og:title" content="Page not found — Accessiblit" />
+    <meta
+      property="og:description"
+      content="Find the Accessiblit installation guide, options reference or home page."
+    />
+    <meta
+      property="og:url"
+      content="https://qasimfida.github.io/accessiblit/404.html"
+    />
+    <meta
+      property="og:image"
+      content="https://qasimfida.github.io/accessiblit/og.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Accessiblit: text, colour and navigation controls"
+    />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/src/styles.css" />
     <script src="/accessiblit.min.js"></script>
@@ -12,10 +43,41 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="%BASE_URL%"
+        ><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="currentColor" />
+          <path
+            d="M8 25 14 7h4l6 18h-4l-1-4h-6l-1 4zm6-8h4l-2-6z"
+            fill="var(--surface)"
+            fill-rule="evenodd"
+          /></svg
+        ><span>Accessiblit</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="%BASE_URL%">Home</a><a href="%BASE_URL%install/">Install</a
+        ><a href="%BASE_URL%options/">Options</a
+        ><a href="%BASE_URL%faq/">FAQ and privacy</a>
+      </nav>
+    </header>
     <main id="main" class="wrap" tabindex="-1">
-      <h1>Page not found</h1>
-      <p>Accessibility personalisation, built from this repository.</p>
-      <a href="%BASE_URL%">Home</a>
+      <p class="eyebrow">404</p>
+      <h1>This page is not here.</h1>
+      <p>Use the navigation to find the guide you need.</p>
+      <a class="button" href="%BASE_URL%">Back to Accessiblit</a>
     </main>
+    <footer class="site-footer wrap">
+      <p>
+        Personalisation supports visitor choice. It does not make a site
+        conformant by itself.
+      </p>
+      <nav aria-label="Footer">
+        <a href="%BASE_URL%faq/#privacy">Privacy</a
+        ><a href="https://github.com/qasimfida/accessiblit" rel="noreferrer"
+          >Source code</a
+        >
+      </nav>
+      <p class="small">MIT licensed · Qasim Fida</p>
+    </footer>
   </body>
 </html>
