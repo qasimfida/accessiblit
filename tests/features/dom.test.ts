@@ -46,3 +46,39 @@ it('does not require a body to exist yet', () => {
   expect(contentElements(doc)).toEqual([]);
   expect(textElements(doc)).toEqual([]);
 });
+it('prunes hidden, private and graphical ancestors before visiting HTML descendants', () => {
+  const hidden = document.createElement('section');
+  hidden.hidden = true;
+  const nested = document.createElement('p');
+  nested.textContent = 'Hidden descendant';
+  hidden.append(nested);
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  const foreign = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'foreignObject',
+  );
+  const graphicalText = document.createElement('p');
+  graphicalText.textContent = 'Graphical descendant';
+  foreign.append(graphicalText);
+  svg.append(foreign);
+  const host = document.createElement('div');
+  host.setAttribute('data-accessiblit-host', '');
+  const privateText = document.createElement('p');
+  privateText.textContent = 'Private descendant';
+  host.append(privateText);
+  document.body.append(hidden, svg, host);
+  expect(contentElements(document)).toEqual([document.body]);
+  expect(textElements(document)).toEqual([]);
+});
+it('preserves body text, document order and ancestor exclusion without a Window', () => {
+  const doc = document.implementation.createHTMLDocument('Detached');
+  doc.body.append('Body text');
+  const p = doc.createElement('p');
+  p.textContent = 'Paragraph';
+  const select = doc.createElement('select');
+  doc.body.append(p, select);
+  expect(doc.defaultView).toBeNull();
+  expect(textElements(doc)).toEqual([doc.body, p, select]);
+  doc.documentElement.setAttribute('aria-hidden', 'true');
+  expect(contentElements(doc)).toEqual([]);
+});

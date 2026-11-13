@@ -17,21 +17,40 @@ export function eligibleElement(element: Element): element is HTMLElement {
     !element.closest(EXCLUDED_SELECTOR)
   );
 }
-/** A fresh list naturally handles parser-created body content and later inserted HTML. */
+/** Reject whole excluded subtrees once instead of repeating ancestor searches for every descendant. */
 export function contentElements(doc: Document): HTMLElement[] {
-  return doc.body
-    ? [doc.body, ...doc.body.querySelectorAll('*')].filter(eligibleElement)
-    : [];
+  const body = doc.body;
+  if (!body || !eligibleElement(body)) return [];
+  // Detached HTML documents have no Window, but the standard filter constants still apply.
+  const filter = doc.defaultView?.NodeFilter ?? {
+    SHOW_ELEMENT: 1,
+    FILTER_ACCEPT: 1,
+    FILTER_REJECT: 2,
+  };
+  const walker = doc.createTreeWalker(body, filter.SHOW_ELEMENT, {
+    acceptNode(node) {
+      const element = node as Element;
+      return element.namespaceURI === 'http://www.w3.org/1999/xhtml' &&
+        !element.matches(EXCLUDED_SELECTOR)
+        ? filter.FILTER_ACCEPT
+        : filter.FILTER_REJECT;
+    },
+  });
+  const elements: HTMLElement[] = [body];
+  let next: Node | null;
+  while ((next = walker.nextNode())) elements.push(next as HTMLElement);
+  return elements;
 }
+
 /** Text ownership avoids scaling empty icon-font wrappers; value controls have no text child nodes. */
 export function textElements(doc: Document): HTMLElement[] {
-  return contentElements(doc).filter(
-    (element) =>
-      element.matches('input,select,textarea') ||
-      [...element.childNodes].some(
-        (node) => node.nodeType === 3 && !!node.textContent?.trim(),
-      ),
-  );
+  return contentElements(doc).filter((element) => {
+    if (element.matches('input,select,textarea')) return true;
+    // Avoid allocating a child-node array for every text block on large pages.
+    for (let node = element.firstChild; node; node = node.nextSibling)
+      if (node.nodeType === 3 && node.textContent?.trim()) return true;
+    return false;
+  });
 }
 
 /** Navigation cues include graphical controls, while private widget surfaces remain isolated. */
