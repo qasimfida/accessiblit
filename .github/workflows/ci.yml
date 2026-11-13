@@ -46,8 +46,8 @@ jobs:
         target:
           - { project: chromium, runner: ubuntu-latest }
           - { project: firefox, runner: ubuntu-latest }
-          # Four-core/14-GB reference; the iPhone project retains ARM coverage.
-          - { project: webkit, runner: macos-26-intel }
+          # Preserve the original Apple Silicon platform with an explicit OS image.
+          - { project: webkit, runner: macos-26 }
           - { project: iphone, runner: macos-latest }
           - { project: pixel, runner: ubuntu-latest }
     steps:
