@@ -17,6 +17,8 @@ export async function browserExamples(servers, bundle, cdnHtml) {
           viewport: { width: 320, height: 256 },
         });
         const page = await context.newPage();
+        page.setDefaultTimeout(15000);
+        console.log('PACKED_BROWSER', name, format);
         const errors = [];
         page.on('pageerror', (e) => errors.push(e.message));
         page.on('console', (m) => {
@@ -49,6 +51,8 @@ export async function browserExamples(servers, bundle, cdnHtml) {
           .include('[data-accessiblit-host]')
           .analyze();
         assert.deepEqual(closed.violations, []);
+        // axe closes an auxiliary tab; restore the real page before native input.
+        await page.bringToFront();
         await page.keyboard.press('Alt+KeyA');
         const dialog = page.getByRole('dialog', {
           name: 'Accessibility options',
@@ -58,6 +62,8 @@ export async function browserExamples(servers, bundle, cdnHtml) {
           .include('[data-accessiblit-host]')
           .analyze();
         assert.deepEqual(open.violations, []);
+        await page.bringToFront();
+        await page.waitForFunction(() => document.hasFocus());
         const names = [];
         for (let i = 0; i < 40; i++) {
           await page.keyboard.press(name === 'webkit' ? 'Alt+Tab' : 'Tab');
@@ -75,6 +81,7 @@ export async function browserExamples(servers, bundle, cdnHtml) {
           });
           if (focused === null) break;
           names.push(focused);
+          if (focused === 'Reset all') break;
         }
         assert.ok(names.includes('Reset all'));
         await page.keyboard.press('Escape');
