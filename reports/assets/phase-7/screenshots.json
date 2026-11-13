@@ -1,0 +1,278 @@
+[
+  {
+    "file": "chromium-csp-nonce.png",
+    "sha256": "8bc2d547adda70dfc3129ee260eb478a4197a277b788c39b1393b8325fef0d4e",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "chromium-csp.png",
+    "sha256": "8bc2d547adda70dfc3129ee260eb478a4197a277b788c39b1393b8325fef0d4e",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "chromium-heavy.png",
+    "sha256": "3f9ecacc8d787ef4d80bd90f8e35e6b65f5be5d93cfbd31051edc0df3cfe575b",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "chromium-iframes.png",
+    "sha256": "6f62d9ef78ebb9627446553088db2a3bdf1f40e51f8fc1345434f0dcfffeb3b9",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "chromium-keyboard.png",
+    "sha256": "bf2fa6c9363c802f97b030a43377981e8339ffbef5916796d9d6897e05e5e82b",
+    "sourceCommit": "4532e80",
+    "state": "open keyboard panel before reset"
+  },
+  {
+    "file": "chromium-modal.png",
+    "sha256": "d07a99de0560caa48f0b57a9b48769e58c4037e3a31b5e01b473be2c0a3a74d4",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "chromium-plain.png",
+    "sha256": "e7496c68138c128ef95eb25c72b4e0c3dd476a4d8ae02585d71ce41059d0a1d4",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "chromium-reset.png",
+    "sha256": "5a36a9063ac631e4e06fc1aa6003e529cb341c6bda0ed6ed5d7c7e95affa5ff7",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "chromium-shadow.png",
+    "sha256": "00451a845a0eb76ff06d488da4935510a5b9efebeb94a26d7b2b2350e684f698",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "firefox-csp-nonce.png",
+    "sha256": "457c4aae65b460f07228129979232feaac11314b6741811ffb8f4c34f1c60704",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "firefox-csp.png",
+    "sha256": "457c4aae65b460f07228129979232feaac11314b6741811ffb8f4c34f1c60704",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "firefox-heavy.png",
+    "sha256": "567a2482fce9537e5db71bac27333ba6446280c15d45ba3d5763bf3d42de1933",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "firefox-iframes.png",
+    "sha256": "31cf1cdbd170012e7ba64913de27d838db2882894e7844c73add3197ea4d4d55",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "firefox-keyboard.png",
+    "sha256": "d686d25d2fb6b3cf5ecbfe5f0d3932de2e6847425aa9c72a43a96b13b641bf61",
+    "sourceCommit": "4532e80",
+    "state": "open keyboard panel before reset"
+  },
+  {
+    "file": "firefox-modal.png",
+    "sha256": "d5806fe09df95e439f1bed8e56c075f04003c914ff12afd9586cacefe95045d9",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "firefox-plain.png",
+    "sha256": "98603077503c62f2ebd389a4b5b1c5aab1b7983005891b5e8811e7892aefe313",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "firefox-reset.png",
+    "sha256": "0064c1f3988f1fe5f83b78fb4a9c3855cf9465f7aa423d19bd4f1bedd496b1a8",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "firefox-shadow.png",
+    "sha256": "3e587e0ed860ba0f4e983c677e1bb57fa252028982c5188b937cda504ffe0e6d",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "iphone-csp-nonce.png",
+    "sha256": "12d03b912c0631149af50385f5925657107dee5c901c89437d12682ce58b25c5",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "iphone-csp.png",
+    "sha256": "12d03b912c0631149af50385f5925657107dee5c901c89437d12682ce58b25c5",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "iphone-heavy.png",
+    "sha256": "17adf9fcf0ae16f5953e892f3a40be6af24f0a5f019403a29ab621fb4f4d4457",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "iphone-iframes.png",
+    "sha256": "af0c5bc5a3a2feca407c49153461adf75bb39669dd0b927bb93fdcff25db5baa",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "iphone-keyboard.png",
+    "sha256": "8907b55605b99324c3099617cdbca22b823da6a5eb04f7a1cee6c5bcca899de1",
+    "sourceCommit": "4532e80",
+    "state": "open keyboard panel before reset"
+  },
+  {
+    "file": "iphone-modal.png",
+    "sha256": "094ee5047a45ceec744aa80ced624c688a51102ebb0ba594775a2831a258c0f5",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "iphone-plain.png",
+    "sha256": "5e09278df13f6665e782edecb44191f5cc3b7c2f4962bd35a31ae5aba157b445",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "iphone-reset.png",
+    "sha256": "08a821e1652867fb40ebb99197cb1f3cc6cc60a18b3678054c127656a7b180c8",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "iphone-shadow.png",
+    "sha256": "198b135e494d69b33ec5481c4d6bde617fbb37a1f6c36e99d564278fa2a04d3f",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "pixel-csp-nonce.png",
+    "sha256": "9f76420848331b3b8200048d286f16e98c01211da111753a0a91a84df3cc78e4",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "pixel-csp.png",
+    "sha256": "9f76420848331b3b8200048d286f16e98c01211da111753a0a91a84df3cc78e4",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "pixel-heavy.png",
+    "sha256": "abc5b74359adf34b725f4110c5b5c9c08295c1031b84fb034b5d85b38e84a9f7",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "pixel-iframes.png",
+    "sha256": "84e6eb6a2b296e417698027f87ea4cca453a850ac0c3f0e75266e23830add41f",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "pixel-keyboard.png",
+    "sha256": "702245a73454de565a1e1b56822fd58bcb9730358654fc799c0cea0ea8e2bc34",
+    "sourceCommit": "4532e80",
+    "state": "open keyboard panel before reset"
+  },
+  {
+    "file": "pixel-modal.png",
+    "sha256": "3ee86d60df9dc78725c0b1ba873424b11ee1039ebdc04a17ee1100a6cf48bb6c",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "pixel-plain.png",
+    "sha256": "689dd6b875a40608fe37614843885f486ad81669304f9e84d2014904d67ff7fc",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "pixel-reset.png",
+    "sha256": "dd07b7b4632259bfdb38ee30170f22b91799dbc0042dea05882847f7c99efa44",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "pixel-rtl-fixed.png",
+    "sha256": "7768e6af9d3c2148594415785719ce84165233acf699effea87c8de0f693207f",
+    "sourceCommit": "4532e80",
+    "state": "open RTL fixed-viewport regression"
+  },
+  {
+    "file": "pixel-shadow.png",
+    "sha256": "b1be0ba419a6019feed3c7e9c03a4df813e82e19f9c5e3e9b1e32807922a478f",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "webkit-csp-nonce.png",
+    "sha256": "e0617f5be352f067da4de3379bef50b73854a4d8b8d5b25183d8cd06a3cd1d32",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "webkit-csp.png",
+    "sha256": "e0617f5be352f067da4de3379bef50b73854a4d8b8d5b25183d8cd06a3cd1d32",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "webkit-heavy.png",
+    "sha256": "80888766ef8bc3b7868d10caa5e6b9986cae3178a1faa8ab0007f776ea914c25",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "webkit-iframes.png",
+    "sha256": "6dc9993aaade23e453381c8a42272b5e11f8fb40152b7cdc077cf3ae8f8d27de",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "webkit-keyboard.png",
+    "sha256": "672b894a58efc5395e35f51ebb4cfdd60d0a1e1aac84f9630c2620c3f58898c7",
+    "sourceCommit": "4532e80",
+    "state": "open keyboard panel before reset"
+  },
+  {
+    "file": "webkit-modal.png",
+    "sha256": "6399680dcd6ef55720fe4d41c944dbc333840bc45390c99ba6e20b7f4f392739",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "webkit-plain.png",
+    "sha256": "425ccc0d0b1d9ee232d4e49bc83e0bab47fc947a61b4014478610cd6f46dfbe3",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "webkit-reset.png",
+    "sha256": "2eba7907311d857659b049568ff44245fce9f27832275a996b380cbab6402d1e",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  },
+  {
+    "file": "webkit-shadow.png",
+    "sha256": "2ee3dccb2f88c1deca1289df91c22ad6ae44662e8c62a5a6d38d49f2e15f2d3b",
+    "sourceCommit": "f9c96b0",
+    "state": "standard profile, all maxima, panel closed after Escape"
+  }
+]

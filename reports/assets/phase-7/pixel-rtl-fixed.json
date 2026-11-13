@@ -1,0 +1,185 @@
+{
+  "sourceCommit": "4532e80",
+  "rows": [
+    {
+      "label": "initial",
+      "data": {
+        "inner": [412, 839],
+        "client": [412, 839],
+        "visual": {
+          "width": 412,
+          "height": 839,
+          "left": 0,
+          "top": 0,
+          "scale": 1
+        },
+        "page": [0, 0],
+        "zoom": "1",
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "launcher": {
+          "x": 348,
+          "y": 775,
+          "width": 48,
+          "height": 48,
+          "top": 775,
+          "right": 396,
+          "bottom": 823,
+          "left": 348
+        }
+      }
+    },
+    {
+      "label": "after settings",
+      "data": {
+        "inner": [412, 839],
+        "client": [412, 839],
+        "visual": {
+          "width": 412,
+          "height": 839,
+          "left": 0,
+          "top": 0,
+          "scale": 1
+        },
+        "page": [0, 0],
+        "zoom": "2",
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "launcher": {
+          "x": 348,
+          "y": 775,
+          "width": 48,
+          "height": 48,
+          "top": 775,
+          "right": 396,
+          "bottom": 823,
+          "left": 348
+        }
+      }
+    },
+    {
+      "label": "after closed axe",
+      "data": {
+        "inner": [412, 839],
+        "client": [412, 839],
+        "visual": {
+          "width": 412,
+          "height": 839,
+          "left": 0,
+          "top": 0,
+          "scale": 1
+        },
+        "page": [0, 0],
+        "zoom": "2",
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "launcher": {
+          "x": 348,
+          "y": 775,
+          "width": 48,
+          "height": 48,
+          "top": 775,
+          "right": 396,
+          "bottom": 823,
+          "left": 348
+        }
+      }
+    },
+    {
+      "label": "opened",
+      "data": {
+        "inner": [412, 839],
+        "client": [412, 839],
+        "visual": {
+          "width": 412,
+          "height": 839,
+          "left": 0,
+          "top": 0,
+          "scale": 1
+        },
+        "page": [0, 0],
+        "zoom": "2",
+        "panel": {
+          "x": 36,
+          "y": 127,
+          "width": 360,
+          "height": 640,
+          "top": 127,
+          "right": 396,
+          "bottom": 767,
+          "left": 36
+        },
+        "launcher": {
+          "x": 348,
+          "y": 775,
+          "width": 48,
+          "height": 48,
+          "top": 775,
+          "right": 396,
+          "bottom": 823,
+          "left": 348
+        }
+      }
+    },
+    {
+      "label": "after open axe",
+      "data": {
+        "inner": [412, 839],
+        "client": [412, 839],
+        "visual": {
+          "width": 412,
+          "height": 839,
+          "left": 0,
+          "top": 0,
+          "scale": 1
+        },
+        "page": [0, 0],
+        "zoom": "2",
+        "panel": {
+          "x": 36,
+          "y": 127,
+          "width": 360,
+          "height": 640,
+          "top": 127,
+          "right": 396,
+          "bottom": 767,
+          "left": 36
+        },
+        "launcher": {
+          "x": 348,
+          "y": 775,
+          "width": 48,
+          "height": 48,
+          "top": 775,
+          "right": 396,
+          "bottom": 823,
+          "left": 348
+        }
+      }
+    }
+  ]
+}
