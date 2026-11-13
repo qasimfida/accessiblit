@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-13T22:43:04.787Z",
+  "source": "da4f8da79f997904f43f2b5909cd3489f77c8f19",
+  "mode": "ci-trend",
+  "machine": {
+    "model": "VirtualMac2,1",
+    "chip": "Apple M1 (Virtual)",
+    "ramBytes": 7516192768,
+    "platform": "darwin",
+    "architecture": "arm64",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.7.2\nBuildVersion:\t\t25G332",
+    "node": "v20.20.2",
+    "logicalCpus": 3
+  },
+  "conditions": {
+    "power": "Now drawing from 'AC Power'",
+    "otherAppsClosed": "not applicable: shared CI",
+    "appsConditionException": null,
+    "headless": true,
+    "tracing": false
+  },
+  "method": {
+    "warmupRuns": 5,
+    "measuredRuns": 30,
+    "timer": "performance.now around init() only",
+    "fixture": "plain semantic host; 5000 paragraphs; default options; empty storage",
+    "gate": "bootstrap CI baseline; no timing verdict",
+    "median": "mean of middle pair",
+    "p95": "nearest rank"
+  },
+  "browsers": {
+    "chromium": {
+      "version": "158.0.8127.18",
+      "warmups": [
+        24.30000000000291, 1.5999999999912689, 1.4000000000087311,
+        1.4000000000087311, 1.5
+      ],
+      "samples": [
+        1.3000000000029104, 1.8999999999941792, 1.3000000000029104,
+        1.3999999999941792, 1.5, 1.1999999999970896, 2, 1.5, 1.3000000000029104,
+        3.6999999999970896, 2, 1.3999999999941792, 1.5, 1.8000000000029104,
+        1.3000000000029104, 1.5, 1.4000000000087311, 1.5, 1.5,
+        1.6999999999970896, 1.6999999999970896, 1.3999999999941792,
+        1.7000000000116415, 1.7000000000116415, 1.3000000000029104, 1.5, 1.5,
+        1.5999999999912689, 2.8000000000029104, 3.3000000000029104
+      ],
+      "medianMs": 1.5,
+      "p95Ms": 3.3000000000029104,
+      "guard": null,
+      "pass": null
+    },
+    "webkit": {
+      "version": "27.2",
+      "warmups": [53, 3, 3, 2, 2],
+      "samples": [
+        4, 5, 2, 4, 4, 4, 3, 3, 2, 2, 2, 3, 2, 3, 9, 3, 2, 2, 4, 6, 2, 4, 5, 5,
+        5, 3, 2, 2, 3, 4
+      ],
+      "medianMs": 3,
+      "p95Ms": 6,
+      "guard": null,
+      "pass": null
+    }
+  },
+  "pass": null,
+  "ci": {
+    "runId": 43521451587,
+    "jobId": 132216450361,
+    "runner": "macos-26"
+  }
+}
