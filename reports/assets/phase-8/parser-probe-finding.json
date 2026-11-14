@@ -1,0 +1,42 @@
+{
+  "source": "8ba3e50",
+  "ci": {
+    "run": 43533062360,
+    "job": 132255254982,
+    "passed": 214,
+    "failed": 1,
+    "project": "iphone",
+    "test": "head bootstrap restores preferences before the first sampled content frame",
+    "expected": 19.2,
+    "received": 16
+  },
+  "pages": {
+    "run": 43533062370,
+    "job": 132255254900,
+    "passed": 214,
+    "failed": 1,
+    "project": "iphone",
+    "deployment": "skipped"
+  },
+  "diagnosis": {
+    "method": "Stream the built home through two HTML chunks, pausing before the first paragraph text",
+    "browser": "WebKit with mobile/touch viewport",
+    "emptyFrames": 38,
+    "emptyFontPx": 16,
+    "firstNonemptyFontPx": 19.200001,
+    "allObservedNonemptyFramesPx": [
+      19.200001, 19.200001, 19.200001, 19.200001, 19.200001, 19.200001,
+      19.200001
+    ]
+  },
+  "fix": {
+    "commit": "cd21fe5",
+    "requirement": "All first five nonempty text frames retain the unchanged 19.2px expectation; separately prove empty shells have no text to paint",
+    "targetedResult": "10 passed (8.4s)",
+    "runtimeChanged": false
+  },
+  "notes": [
+    "Original CI size-only telemetry cannot establish text presence retrospectively.",
+    "No retry or threshold change was used."
+  ]
+}
