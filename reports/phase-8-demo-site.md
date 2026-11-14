@@ -1,11 +1,11 @@
 # Phase 8 — Demo and documentation site
 
-Status: BLOCKED (deployment not yet verified)
+Status: BLOCKED (CI regression guard and Pages deployment)
 Date: 2026-11-14. Commit range: `phase-7-complete..HEAD`; completion tag withheld until deployment is verified.
 
 ## Summary
 
-Built an original, static TypeScript/Vite documentation site under `/accessiblit/`, with the real local IIFE widget, five authored pages, local artwork and search metadata. No runtime dependency or library API changed. Local checks and deployment receipts are recorded below; publishing the npm package remains a human-only action.
+Built an original, static TypeScript/Vite documentation site under `/accessiblit/`, with the real local IIFE widget, five authored pages, local artwork and search metadata. No runtime dependency or library API changed. Local checks and deployment receipts are recorded below; publishing the npm package remains a human-only action. The audited site is pushed at `8ba3e50`. Phase 7 remains completed at its passing reference/CI tag; the later Phase 8 CI run has a newly observed regression-guard failure and is not claimed as passing.
 
 ## What changed (files and why)
 
@@ -19,7 +19,8 @@ Built an original, static TypeScript/Vite documentation site under `/accessiblit
 ## Verification (commands run, real results)
 
 - `npm run verify`: PASS, 184 Vitest tests in 58 files and six benchmark self-tests; lint, strict types, coverage, library build, plain-Node SSR checks, size, publint and attw. Core line/branch coverage 98.63%/97.96%; overall lines/branches 96.12%/90.71%.
-- `npm run test:site`: **215 passed (3.7 minutes)** across all five projects, zero retries or skips. The final matrix includes 175 page/media cases with both closed/open axe scans (350 scans, zero violations), five keyboard journeys, five link checks, five request audits, five first-frame persistence tests, ten LTR/RTL table tests, plus metadata and routing checks. [Raw local receipt](assets/phase-8/local-verification.json) preserves all emitted measurements, axe incomplete identifiers, request URLs, snippet results and output weights. Each browser checked 23 unique internal links across ten destinations with zero broken links.
+- `npm run test:site`: initial **215 passed (3.7 minutes)** across all five projects, zero retries or skips. The final matrix includes 175 page/media cases with both closed/open axe scans (350 scans, zero violations), five keyboard journeys, five link checks, five request audits, five first-frame persistence tests, ten LTR/RTL table tests, plus metadata and routing checks. [Raw local receipt](assets/phase-8/local-verification.json) preserves all emitted measurements, axe incomplete identifiers, request URLs, snippet results and output weights. Each browser checked 23 unique internal links across ten destinations with zero broken links.
+- After R-7, the expanded `npm run test:site` suite passed **220 tests (3.6 minutes)**, zero retries/skips. It adds five deterministic streamed-parser cases; all 350 closed/open axe scans still report zero violations. [Complete corrected-run measurements](assets/phase-8/parser-correction-verification.json) retain every emitted result, including empty-frame counts.
 - `npm run test:site-snippets`: PASS. Eleven snippets extracted; Node16 and Bundler consumer type checks; five shell syntax checks; eighteen browser integrations across Chromium, Firefox and WebKit. Development React StrictMode created and removed two hosts for both React examples in every engine.
 - Headed browser keyboard walk: five passed (11.5 seconds). Skip link → main → live-demo button → panel close control → font-size increase → reset → Escape and launcher focus → backward Tab to header → installation/options/FAQ/home navigation. Native keyboard input, no scripted focus or retry. Separately, ten headed LTR/RTL table tests passed (9.8 seconds): plain arrows scroll 64 CSS pixels, reverse restores position, Tab exits and a 3px focus ring remains visible.
 - Persisted first-frame tests: five passed (7 seconds). After setting font size to 120%, all five first sampled animation frames after reload measured 19.2px rather than the 16px default. This is sampled rendering evidence, not a claim about every physical display paint.
@@ -27,16 +28,27 @@ Built an original, static TypeScript/Vite documentation site under `/accessiblit
 - `actionlint`: PASS. `npm audit` and `npm audit --omit=dev`: zero vulnerabilities. The ephemeral Lighthouse tool's installed dependency audit also reported zero.
 - Runtime Playwright discovery remains 1,208 cases; the dedicated site suite is excluded only from the root configuration and has its own mandatory CI job.
 
+### Post-push checks
+
+[CI run 43533062360](https://github.com/qasimfida/accessiblit/actions/runs/43533062360) passed both Node 20/22 verification/example jobs. Node 20 init trend passed: Chromium median/p95 1.50/2.90ms, WebKit 2.00/5.00ms. Node 22 Chromium **failed** the unchanged 50% regression guard: median 2.7000000000116415ms, p95 6.399999999994179ms, baseline median 1.75ms, limit 2.625ms (54.29% increase). WebKit passed at 2.00/4.00ms. [Raw samples and conditions](assets/phase-8/ci-init-trend.json) are retained. `git diff phase-7-complete -- src tsup.config.ts package-lock.json scripts/perf.mjs scripts/perf` is empty. The cause of the shared-runner difference is **not established**; unchanged source does not turn a failed guard into a pass. No baseline/threshold was changed and no retry was requested.
+
+The [Pages run](https://github.com/qasimfida/accessiblit/actions/runs/43533062370) is recorded separately from the existing native [Jekyll build](https://github.com/qasimfida/accessiblit/actions/runs/43533060781). The public home returned HTTP 200 with title `Accessiblit | accessiblit`, without the new hero or widget script: this is the old site, not proof of Vite deployment. A request to the maintainer to select the GitHub Actions publishing source is pending. Both initial site runs stopped with 214 passes and one iPhone persistence-probe failure (16px versus 19.2px); deployment/source-check steps were not reached. R-7 below addresses the reproduced parser-shell false-positive path; the original failure is retained, not relabelled as a pass.
+
 ## Review findings and fixes
 
-| Severity | Finding                                                                               | Fix                                                                                                                              | Status |
-| -------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| Low      | R-1: initial stylesheet exceeded the small-module guideline                           | `f90041a`: preserve cascade order while separating layout, components and media rules                                            | Fixed  |
-| Low      | R-2: “10-point” font scaling description had ambiguous units                          | `58bf916`: specify ten percentage points                                                                                         | Fixed  |
-| High     | R-3: WebKit did not natively arrow-scroll the focused overflowing options table       | `30127ef`: handle unmodified horizontal arrows only on the focused region; ten LTR/RTL browser guards preserve Tab and modifiers | Fixed  |
-| Low      | R-4: keyboard harness assumed identical forward wrap after a main fragment in Firefox | `740006b`: use the observed native backward Tab path to the header; five headed flows pass                                       | Fixed  |
+| Severity | Finding                                                                               | Fix                                                                                                                              | Status                                  |
+| -------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| Low      | R-1: initial stylesheet exceeded the small-module guideline                           | `f90041a`: preserve cascade order while separating layout, components and media rules                                            | Fixed                                   |
+| Low      | R-2: “10-point” font scaling description had ambiguous units                          | `58bf916`: specify ten percentage points                                                                                         | Fixed                                   |
+| High     | R-3: WebKit did not natively arrow-scroll the focused overflowing options table       | `30127ef`: handle unmodified horizontal arrows only on the focused region; ten LTR/RTL browser guards preserve Tab and modifiers | Fixed                                   |
+| Low      | R-4: keyboard harness assumed identical forward wrap after a main fragment in Firefox | `740006b`: use the observed native backward Tab path to the header; five headed flows pass                                       | Fixed                                   |
+| Medium   | R-7: first-frame probe counted empty parser shells as text                            | `cd21fe5`: retain strict nonempty-text size checks and add five streamed-parser guards                                           | Fixed; 220 local tests pass, CI pending |
+| Blocker  | R-5: Node 22 Chromium exceeded the unchanged CI regression guard                      | `0ceb33e`: preserve raw failure; cause not established, no threshold/baseline change                                             | Open                                    |
+| Blocker  | R-6: Vite Pages deployment not verified                                               | Administrator source selection requested; initial runs stopped before deployment                                                 | Open                                    |
 
-No Blocker or Medium source finding remains. Generated site output alone is ignored by ESLint; source lint and all accessibility rules remain enabled. No runtime threshold, coverage gate or axe rule was weakened.
+R-7 (Medium, test harness): the first-frame probe sampled a paragraph shell before the HTML parser supplied its text. A two-chunk WebKit reproduction observed 38 empty 16px frames, then only 19.2px frames with text. `cd21fe5` changes the probe to sample the first five **nonempty text** frames at the same required size and records empty-frame counts. A deterministic streamed-parser test asserts the empty shell is 16px with no text samples, releases text, and requires all five text frames to be 19.2px. Ten targeted tests passed in 8.4 seconds across all five projects. The initial CI log recorded only size, not text presence, so it cannot retrospectively prove which parser state it sampled. No runtime source changed.
+
+The source findings above are fixed. Two release blockers remain: R-5, the unexplained Node 22 shared-runner regression-guard failure; R-6, Vite Pages deployment has not been verified and repository source configuration needs the administrator. Generated site output alone is ignored by ESLint; source lint and all accessibility rules remain enabled. No runtime threshold, coverage gate or axe rule was weakened.
 
 ## Audits
 
@@ -114,4 +126,10 @@ c0d3a16 test(site): prove persisted preferences restore in the head bootstrap
 75089fb ci(site): gate production pages and packed snippets in the matrix
 50651a1 docs(audit): preserve the five Lighthouse reports and indexing note
 dee4e71 docs(audit): preserve desktop and narrow site screenshots
+94b6642 docs(audit): record the final site matrix and packed consumers
+8ba3e50 docs(report): record phase eight checks before deployment
+0ceb33e docs(audit): preserve the unchanged CI regression guard failure
+cd21fe5 fix(site-tests): sample text after parser shells receive content
+cdce82e docs(audit): preserve the parser probe failure and reproduction
+296ca1f docs(audit): record the expanded site matrix after probe correction
 ```
