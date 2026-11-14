@@ -1,0 +1,33 @@
+{
+  "browser": "Chromium",
+  "shots": [
+    {
+      "name": "home-desktop",
+      "path": "",
+      "width": 1440,
+      "height": 1000,
+      "panelOpen": false
+    },
+    {
+      "name": "home-mobile",
+      "path": "",
+      "width": 320,
+      "height": 700,
+      "panelOpen": false
+    },
+    {
+      "name": "demo-mobile",
+      "path": "",
+      "width": 320,
+      "height": 700,
+      "panelOpen": true
+    },
+    {
+      "name": "options-mobile",
+      "path": "options/",
+      "width": 320,
+      "height": 700,
+      "panelOpen": false
+    }
+  ]
+}
