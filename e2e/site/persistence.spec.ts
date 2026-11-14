@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { loadSite } from './helpers';
+import { sampleContentFrames } from './frame-probe';
 
 test('head bootstrap restores preferences before the first sampled content frame', async ({
   page,
@@ -19,16 +20,7 @@ test('head bootstrap restores preferences before the first sampled content frame
   await increase.click();
   await increase.click();
   await expect(page.getByRole('status')).toHaveText('Font size 120 percent');
-  await page.addInitScript(() => {
-    const frames: number[] = [];
-    Reflect.set(window, 'siteFirstFrames', frames);
-    const sample = () => {
-      const probe = document.querySelector('.demo-copy p');
-      if (probe) frames.push(parseFloat(getComputedStyle(probe).fontSize));
-      if (frames.length < 5) requestAnimationFrame(sample);
-    };
-    requestAnimationFrame(sample);
-  });
+  await page.addInitScript(sampleContentFrames);
   await page.reload();
   await page.waitForFunction(
     () => Reflect.get(window, 'siteFirstFrames').length >= 5,
@@ -44,6 +36,9 @@ test('head bootstrap restores preferences before the first sampled content frame
       baseline,
       expected: baseline * 1.2,
       frames,
+      emptyFrames: await page.evaluate(
+        () => Reflect.get(window, 'siteEmptyFrames') as number,
+      ),
     }),
   );
 });
