@@ -70,7 +70,8 @@
     "build:site": "npm run build && node scripts/build-site.mjs",
     "preview:site": "node scripts/serve-site.mjs",
     "test:site": "playwright test --config playwright.site.config.ts",
-    "test:site-snippets": "node scripts/test-site-snippets.mjs"
+    "test:site-snippets": "node scripts/test-site-snippets.mjs",
+    "audit:site": "npm run build:site && node scripts/audit-site.mjs"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
