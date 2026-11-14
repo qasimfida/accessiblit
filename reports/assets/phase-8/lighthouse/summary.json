@@ -1,0 +1,94 @@
+{
+  "rows": [
+    {
+      "name": "home",
+      "version": "13.6.0",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1353.4288,
+        "largest-contentful-paint": 1353.4288,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "total-byte-weight": 80721
+      }
+    },
+    {
+      "name": "install",
+      "version": "13.6.0",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1353.2387,
+        "largest-contentful-paint": 1353.2387,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "total-byte-weight": 78917
+      }
+    },
+    {
+      "name": "options",
+      "version": "13.6.0",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1370.5563,
+        "largest-contentful-paint": 1370.5563,
+        "total-blocking-time": 3,
+        "cumulative-layout-shift": 0,
+        "total-byte-weight": 78104
+      }
+    },
+    {
+      "name": "faq",
+      "version": "13.6.0",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1352.5256,
+        "largest-contentful-paint": 1352.5256,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "total-byte-weight": 76528
+      }
+    },
+    {
+      "name": "404",
+      "version": "13.6.0",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 63
+      },
+      "metrics": {
+        "first-contentful-paint": 1351.7907,
+        "largest-contentful-paint": 1351.7907,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "total-byte-weight": 73336
+      }
+    }
+  ],
+  "notes": [
+    "Pinned ephemeral Lighthouse; no new root dependency or runtime code.",
+    "Default Lighthouse mobile simulation; raw configuration is retained per page.",
+    "404 intentionally uses noindex and is excluded from the sitemap."
+  ]
+}
